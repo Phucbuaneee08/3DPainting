@@ -96,26 +96,20 @@ public class Player : MonoBehaviour
             }
             else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
             {
-                Vector2 finger1Move = touch1.position - finger1Last;
-                Vector2 finger2Move = touch2.position - finger2Last;
+                isRightDragging = true; 
+                Vector2 finger1Move = touch1.deltaPosition;
+                Vector2 finger2Move = touch2.deltaPosition;
 
-                // Calculate average movement
                 Vector2 averageMove = (finger1Move + finger2Move) * 0.5f;
 
-                // Adjust for screen size and move speed
-                float moveX = averageMove.x * dragSpeed * Time.deltaTime;
-                float moveY = averageMove.y * dragSpeed * Time.deltaTime;
-
-                // Move the object
-                transform.Translate(new Vector3(moveX, moveY, 0), Space.World);
-
-                finger1Last = touch1.position;
-                finger2Last = touch2.position;
+                x = averageMove.x;
+                y = averageMove.y;
             }
         }
         else
         {
             isLeftDragging = false;
+            isRightDragging = false;    
         }
 #if UNITY_EDITOR        
         if (Input.GetMouseButtonDown(0)) 
