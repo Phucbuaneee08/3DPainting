@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private float x;
     private float y;
     private const string VICTORY_ANIM = "Victory";
-
+    public bool IsDragging;
 
     private Vector2 finger1Start, finger2Start;
     private Vector2 finger1Last, finger2Last;
@@ -96,6 +96,8 @@ public class Player : MonoBehaviour
             }
             else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
             {
+                IsDragging = true;
+                isLeftDragging = false;
                 isRightDragging = true; 
                 Vector2 finger1Move = touch1.deltaPosition;
                 Vector2 finger2Move = touch2.deltaPosition;
@@ -188,7 +190,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (isRightDragging)
+        if (isRightDragging && !CameraManager.Ins.IsZooming)
         {
             Vector3 screenPosition = cam.WorldToScreenPoint(transform.position);
             screenPosition.x = Mathf.Clamp(screenPosition.x, 0, Screen.width);
@@ -203,6 +205,8 @@ public class Player : MonoBehaviour
 
 
     }
+
+    
     public void OnReset()
     {
         animator.enabled = false;

@@ -19,7 +19,7 @@ public class CameraManager : Singleton<CameraManager>
     public Camera cam;
     public Transform targetObject; 
     public float zoomSpeed = 0.01f;
-    
+    public bool IsZooming;
     public float dragSpeed = 2;
     public float smoothy;
     private bool isZoomedIn = false;
@@ -70,6 +70,10 @@ public class CameraManager : Singleton<CameraManager>
             cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
        
         }
+        else
+        {
+            IsZooming = false;
+        }
 
 #if UNITY_EDITOR
         if (scrollInput != 0)
@@ -107,6 +111,7 @@ public class CameraManager : Singleton<CameraManager>
     }
     private void Zoom(float deltaMagnitudeDiff, float speed)
     {
+        IsZooming = true;
         cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * speed;
         //cam.fieldOfView += deltaMagnitudeDiff * speed;
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
