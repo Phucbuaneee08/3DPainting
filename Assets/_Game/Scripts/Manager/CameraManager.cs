@@ -49,22 +49,22 @@ public class CameraManager : Singleton<CameraManager>
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (Input.touchCount == 2)
-        {
-            Touch touch1 = Input.GetTouch(0);
-            Touch touch2 = Input.GetTouch(1);
+        //if (Input.touchCount == 2)
+        //{
+        //    Touch touch1 = Input.GetTouch(0);
+        //    Touch touch2 = Input.GetTouch(1);
 
 
-            Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
-            Vector2 touch2PrevPos = touch2.position - touch2.deltaPosition;
+        //    Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+        //    Vector2 touch2PrevPos = touch2.position - touch2.deltaPosition;
 
 
-            float prevTouchDeltaMag = (touch1PrevPos - touch2PrevPos).magnitude;
-            float touchDeltaMag = (touch1.position - touch2.position).magnitude;
+        //    float prevTouchDeltaMag = (touch1PrevPos - touch2PrevPos).magnitude;
+        //    float touchDeltaMag = (touch1.position - touch2.position).magnitude;
 
-            float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-            Zoom(deltaMagnitudeDiff, zoomSpeed);
-        }
+        //    float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+        //    Zoom(deltaMagnitudeDiff, zoomSpeed);
+        //}
 #if UNITY_EDITOR
         if (scrollInput != 0)
         {
