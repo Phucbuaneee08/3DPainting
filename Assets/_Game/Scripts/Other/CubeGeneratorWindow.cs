@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 
+
+#if UNITY_EDITOR
 public class CubeGeneratorWindow : EditorWindow
 {
     private int cubeSize = 5;
@@ -53,3 +55,4 @@ public class CubeGeneratorWindow : EditorWindow
         }
     }
 }
+#endif

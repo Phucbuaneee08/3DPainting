@@ -981,8 +981,8 @@ MonoBehaviour:
   rotateOffset: {x: 0.08000525, y: 0.23034842, z: -0.010618497, w: 0.9697557}
   cam: {fileID: 963194227}
   targetObject: {fileID: 2099514018}
-  zoomSpeed: 20
-  dragSpeed: 10
+  zoomSpeed: 1
+  dragSpeed: 1
   smoothy: 0.5
   minZoom: 0
   maxZoom: 60

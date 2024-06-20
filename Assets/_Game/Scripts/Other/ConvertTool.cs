@@ -3,6 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System;
 
+#if UNITY_EDITOR
 public class ConvertTool : EditorWindow
 {
     private GameObject model3D;
@@ -82,3 +83,4 @@ public class ConvertTool : EditorWindow
     }
 }
 
+#endif

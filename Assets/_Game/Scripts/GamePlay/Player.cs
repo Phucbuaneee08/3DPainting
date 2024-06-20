@@ -6,8 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Camera cam;
-    public float rotateSpeed = 5f;
-    public float dragSpeed = 2f;
+    public float rotateSpeed = 1f;
+    public float dragSpeed = 1f;
     [SerializeField] private float smoothy = 0.8f;
     [SerializeField] Animator animator;
     private Vector3 targetPosition;
@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
     private float x;
     private float y;
     private const string VICTORY_ANIM = "Victory";
+
+
+    private Vector2 finger1Start, finger2Start;
+    private Vector2 finger1Last, finger2Last;
+
     private void Start()
     {
         animator.enabled = false;
@@ -72,6 +77,40 @@ public class Player : MonoBehaviour
                     x = touch.deltaPosition.x;
                     y = touch.deltaPosition.y;
                     break;
+            }
+        }
+        else if (Input.touchCount == 2)
+        {
+            Touch touch1 = Input.GetTouch(0);
+            Touch touch2 = Input.GetTouch(1);
+
+            if (touch1.phase == TouchPhase.Began)
+            {
+                finger1Start = touch1.position;
+                finger1Last = touch1.position;
+            }
+            else if (touch2.phase == TouchPhase.Began)
+            {
+                finger2Start = touch2.position;
+                finger2Last = touch2.position;
+            }
+            else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
+            {
+                Vector2 finger1Move = touch1.position - finger1Last;
+                Vector2 finger2Move = touch2.position - finger2Last;
+
+                // Calculate average movement
+                Vector2 averageMove = (finger1Move + finger2Move) * 0.5f;
+
+                // Adjust for screen size and move speed
+                float moveX = averageMove.x * dragSpeed * Time.deltaTime;
+                float moveY = averageMove.y * dragSpeed * Time.deltaTime;
+
+                // Move the object
+                transform.Translate(new Vector3(moveX, moveY, 0), Space.World);
+
+                finger1Last = touch1.position;
+                finger2Last = touch2.position;
             }
         }
         else

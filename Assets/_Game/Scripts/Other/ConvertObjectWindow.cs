@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
+#if UNITY_EDITOR
 public class ConvertObjectWindow : EditorWindow
 {
     private LevelPrefabData lpd;
@@ -34,3 +35,4 @@ public class ConvertObjectWindow : EditorWindow
         }
     }
 }
+#endif
