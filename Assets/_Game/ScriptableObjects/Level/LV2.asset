@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9017c0fe922454ea5bd7b4583ba87a, type: 3}
+  m_Name: LV2
+  m_EditorClassIdentifier: 
+  levelID: 0
+  cubes:
+  - position: {x: 0.01, y: -0.024999999, z: 0}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.024999999, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.024999999, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.024999999, z: 1.110223e-18}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.024999999, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.024999999, z: 1.110223e-18}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.005, z: 0}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.005, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.005, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.005, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.005, z: 1.110223e-18}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.024999999, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.005, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.024999999, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.005, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.024999999, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.005, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.005, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.005, z: 1.110223e-18}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.005, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.005, z: 1.110223e-18}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.005, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.005, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -2.220446e-18, y: 0.024999999, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -2.220446e-18, y: 0.024999999, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -2.220446e-18, y: 0.024999999, z: 1.110223e-18}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.015, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.015, z: 0}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.015, z: 1.110223e-18}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.015, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.015, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.015, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.015, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: -0.015, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.015, z: -0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.015, z: 1.110223e-18}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.015, z: 0.01}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.015, z: 1.110223e-18}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.015, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.015, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.005, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.005, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -2.220446e-18, y: 0.005, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -2.220446e-18, y: 0.005, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.005, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.005, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: 0.015, z: 0.01}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 2.220446e-18, y: 0.015, z: -0.01}
+    realColorID: 2
+    defaultColorID: 1
+  materials:
+  - material: {fileID: -8050976687264338867, guid: 445d70306fdf90a40924799f239c319a, type: 3}
+    colorID: 1
+  - material: {fileID: -3816400033163642939, guid: 445d70306fdf90a40924799f239c319a, type: 3}
+    colorID: 2
+  zoomInfo:
+    minZoom: 4
+    maxZoom: 34
+    checkPointZoom: 30
