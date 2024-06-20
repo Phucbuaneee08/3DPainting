@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
-  rotateSpeed: 500
+  rotateSpeed: 50
   dragSpeed: 40
   smoothy: 0.8
   animator: {fileID: 2099514020}
