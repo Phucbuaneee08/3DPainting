@@ -26,58 +26,58 @@ public class Player : MonoBehaviour
     {
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
 
-        if (Input.touchCount == 1)
-        {
-            Touch touch = Input.GetTouch(0);
-            x = touch.position.x;
-            y = touch.position.y;
-            isLeftDragging = true;
-        }
-        else
-        if (Input.touchCount > 1)
-        {
-            Touch touch1 = Input.GetTouch(0);
-            Touch touch2 = Input.GetTouch(1);
-            Vector2 middle = (touch1.position + touch2.position) / 2;
-            x = middle.x;
-            y = middle.y;
-            isRightDragging = true;
-            isLeftDragging = false;
-        }
-        else
-        {
-            isRightDragging = false;
-            isLeftDragging = false;
-            isCanMove = true;
-            isCanFillColor = true;
-        }
-        //if (Input.touchCount > 0)
+        //if (Input.touchCount == 1)
         //{
         //    Touch touch = Input.GetTouch(0);
-
-        //    switch (touch.phase)
-        //    {
-        //        case TouchPhase.Began:
-        //            isLeftDragging = true;
-        //            break;
-
-        //        case TouchPhase.Ended:
-        //        case TouchPhase.Canceled:
-        //            isLeftDragging = false;
-        //            isCanMove = true;
-        //            isCanFillColor = true;
-        //            break;
-
-        //        case TouchPhase.Moved:
-        //            x = touch.deltaPosition.x;
-        //            y = touch.deltaPosition.y;
-        //            break;
-        //    }
+        //    x = touch.position.x;
+        //    y = touch.position.y;
+        //    isLeftDragging = true;
+        //}
+        //else
+        //if (Input.touchCount > 1)
+        //{
+        //    Touch touch1 = Input.GetTouch(0);
+        //    Touch touch2 = Input.GetTouch(1);
+        //    Vector2 middle = (touch1.position + touch2.position) / 2;
+        //    x = middle.x;
+        //    y = middle.y;
+        //    isRightDragging = true;
+        //    isLeftDragging = false;
         //}
         //else
         //{
+        //    isRightDragging = false;
         //    isLeftDragging = false;
+        //    isCanMove = true;
+        //    isCanFillColor = true;
         //}
+        if (Input.touchCount == 1 )
+        {
+            Touch touch = Input.GetTouch(0);
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    isLeftDragging = true;
+                    break;
+
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    isLeftDragging = false;
+                    isCanMove = true;
+                    isCanFillColor = true;
+                    break;
+
+                case TouchPhase.Moved:
+                    x = touch.deltaPosition.x;
+                    y = touch.deltaPosition.y;
+                    break;
+            }
+        }
+        else
+        {
+            isLeftDragging = false;
+        }
 #if UNITY_EDITOR        
         if (Input.GetMouseButtonDown(0)) 
         { 

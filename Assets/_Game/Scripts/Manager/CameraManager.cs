@@ -18,7 +18,7 @@ public class CameraManager : Singleton<CameraManager>
     [SerializeField] private Quaternion rotateOffset;
     public Camera cam;
     public Transform targetObject; 
-    public float zoomSpeed = 10.0f;
+    public float zoomSpeed = 0.01f;
     
     public float dragSpeed = 2;
     public float smoothy;
@@ -49,22 +49,28 @@ public class CameraManager : Singleton<CameraManager>
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        //if (Input.touchCount == 2)
-        //{
-        //    Touch touch1 = Input.GetTouch(0);
-        //    Touch touch2 = Input.GetTouch(1);
+        if (Input.touchCount == 2)
+        {
+            Touch touch1 = Input.GetTouch(0);
+            Touch touch2 = Input.GetTouch(1);
 
 
-        //    Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
-        //    Vector2 touch2PrevPos = touch2.position - touch2.deltaPosition;
+            Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+            Vector2 touch2PrevPos = touch2.position - touch2.deltaPosition;
 
 
-        //    float prevTouchDeltaMag = (touch1PrevPos - touch2PrevPos).magnitude;
-        //    float touchDeltaMag = (touch1.position - touch2.position).magnitude;
+            float prevTouchDeltaMag = (touch1PrevPos - touch2PrevPos).magnitude;
+            float touchDeltaMag = (touch1.position - touch2.position).magnitude;
 
-        //    float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-        //    Zoom(deltaMagnitudeDiff, zoomSpeed);
-        //}
+            //float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+            float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+            cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed;
+
+            // Giới hạn giá trị zoom của camera
+            cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
+       
+        }
+
 #if UNITY_EDITOR
         if (scrollInput != 0)
         {
@@ -89,9 +95,6 @@ public class CameraManager : Singleton<CameraManager>
             isZoomedOut = false;
             camState = CameraState.ZoomIn;
         }
-
-
-
     }
     public bool IsCameraState(CameraState cs)
     {
@@ -104,7 +107,8 @@ public class CameraManager : Singleton<CameraManager>
     }
     private void Zoom(float deltaMagnitudeDiff, float speed)
     {
-        cam.fieldOfView += deltaMagnitudeDiff * speed;
+        cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * speed;
+        //cam.fieldOfView += deltaMagnitudeDiff * speed;
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
     } 
 
