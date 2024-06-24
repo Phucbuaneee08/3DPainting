@@ -55,6 +55,7 @@ public class Player : GameUnit
             //        break;
             //}
             isLeftDragging = true;
+            isCanFillColor = true;
         }
         else if (Input.touchCount == 2)
         {
