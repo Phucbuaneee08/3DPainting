@@ -333,11 +333,7 @@ MonoBehaviour:
     prefab: {fileID: 8299759871928989229, guid: a8e7dd7ff34e02c4d8b3a8bb3c86f458, type: 3}
     amount: 10
     collect: 0
-  Particle:
-  - root: {fileID: 292409514}
-    particleType: 0
-    prefab: {fileID: 198115948912577560, guid: d203f47c89a4fbb4384bbdd68e3231eb, type: 3}
-    amount: 100
+  Particle: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +978,7 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   targetObject: {fileID: 2099514018}
   zoomSpeed: 1
+  IsZooming: 0
   dragSpeed: 1
   smoothy: 0.5
   minZoom: 0
@@ -1203,11 +1200,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79682e38c0e7d764390f954b126d9593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolType: 0
+  animator: {fileID: 2099514020}
   cam: {fileID: 963194227}
   rotateSpeed: 50
   dragSpeed: 40
-  smoothy: 0.8
-  animator: {fileID: 2099514020}
+  IsDragging: 0
 --- !u!95 &2099514020
 Animator:
   serializedVersion: 5

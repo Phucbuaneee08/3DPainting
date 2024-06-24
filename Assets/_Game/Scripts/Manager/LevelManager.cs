@@ -33,15 +33,27 @@ public class LevelManager : Singleton<LevelManager>
                         count++;
                     }
                 }
-                cubeTypes.Add(new CubeType(material.colorID, count));
+                cubeTypes.Add(new CubeType(material.colorID, count,count));
             }
         }
     }
 
     public void FocusByColorID(int colorID)
     {
-        Focus(colorID);
-        this.currentColor = colorID;
+
+        if(currentColor == 0)
+        {
+            Focus(colorID);
+            this.currentColor = colorID;
+            return;
+        }
+        if (currentColor != colorID) 
+        {
+            UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(currentColor).SetMovePosition();
+            Focus(colorID);
+            this.currentColor = colorID;
+        }
+        
     }
     public void OnReset()
     {
@@ -72,9 +84,14 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
+    private IEnumerator IEOnFilldedCube(Cube cube)
+    {
+        yield return null;
+        MaterialManager.Ins.SetColor(cube, cube.GetColorID());
+    }
     public void OnFilledCube(Cube cube)
     {
-        MaterialManager.Ins.SetColor(cube, cube.GetColorID());
+        StartCoroutine(IEOnFilldedCube(cube));
         cube.ChangeState(CubeState.Colored);
         //ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
@@ -90,15 +107,31 @@ public class LevelManager : Singleton<LevelManager>
         { 
             if(cubes.colorID == colorID)
             {
-                if (cubes.quantity == 1)
-                {
-                    UIManager.Ins.GetUI<UIGameplay>().RemoveColorItem(colorID);
-                }
+
                 cubes.quantity--;
                 cubeTotal--;
+                StartCoroutine(OnRemoveCube(cubes));
+                if (cubes.quantity == 0)
+                {
+                    if (cubeTypes.Count > 0) {                 
+                        CubeType currentColorType = Ultilities.CheckMinQuantityInList(cubeTypes);
+                        currentColor = currentColorType.colorID;
+                        if(currentColorType.colorID!=0)
+                            UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(currentColor).SetMovePosition();
+                        Focus(currentColor); 
+                    }
+                    UIManager.Ins.GetUI<UIGameplay>().RemoveColorItem(colorID);
+                }               
             }
         }
         
+    }
+    private IEnumerator OnRemoveCube(CubeType cubes)
+    {
+        yield return null;
+        Debug.Log(cubes.quantity);
+        Debug.Log(cubes.total);
+        UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(cubes.colorID).SetFillAmount((float)cubes.quantity/(float)cubes.total);
     }
     private IEnumerator OnCelebration()
     {
@@ -251,10 +284,11 @@ public class CubeType
 {
     public int colorID;
     public int quantity;
-    
-    public CubeType(int colorID, int quantity)
+    public int total;
+    public CubeType(int colorID, int quantity,int total)
     {
         this.quantity = quantity;
         this.colorID = colorID;
+        this.total = total;
     }   
 }

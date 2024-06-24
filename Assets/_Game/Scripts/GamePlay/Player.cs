@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : GameUnit
 {
+    [SerializeField] Animator animator;
     [SerializeField] Camera cam;
     public float rotateSpeed = 1f;
     public float dragSpeed = 1f;
-    [SerializeField] private float smoothy = 0.8f;
-    [SerializeField] Animator animator;
+    private float x;
+    private float y;
     private Vector3 targetPosition;
+
     private bool isLeftDragging;
     private bool isRightDragging;
     private bool isCanMove;
     private bool isCanFillColor;
-    private float x;
-    private float y;
+    
     private const string VICTORY_ANIM = "Victory";
     public bool IsDragging;
 
@@ -30,33 +31,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
-
-        //if (Input.touchCount == 1)
-        //{
-        //    Touch touch = Input.GetTouch(0);
-        //    x = touch.position.x;
-        //    y = touch.position.y;
-        //    isLeftDragging = true;
-        //}
-        //else
-        //if (Input.touchCount > 1)
-        //{
-        //    Touch touch1 = Input.GetTouch(0);
-        //    Touch touch2 = Input.GetTouch(1);
-        //    Vector2 middle = (touch1.position + touch2.position) / 2;
-        //    x = middle.x;
-        //    y = middle.y;
-        //    isRightDragging = true;
-        //    isLeftDragging = false;
-        //}
-        //else
-        //{
-        //    isRightDragging = false;
-        //    isLeftDragging = false;
-        //    isCanMove = true;
-        //    isCanFillColor = true;
-        //}
-        if (Input.touchCount == 1 )
+#if UNITY_ANDROID
+        if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -98,7 +74,7 @@ public class Player : MonoBehaviour
             {
                 IsDragging = true;
                 isLeftDragging = false;
-                isRightDragging = true; 
+                isRightDragging = true;
                 Vector2 finger1Move = touch1.deltaPosition;
                 Vector2 finger2Move = touch2.deltaPosition;
 
@@ -111,16 +87,18 @@ public class Player : MonoBehaviour
         else
         {
             isLeftDragging = false;
-            isRightDragging = false;    
+            isRightDragging = false;
         }
-#if UNITY_EDITOR        
-        if (Input.GetMouseButtonDown(0)) 
-        { 
-            isLeftDragging = true; 
+#endif
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            isLeftDragging = true;
         }
-        if (Input.GetMouseButtonDown(1)) 
-        { 
-            isRightDragging = true; 
+        if (Input.GetMouseButtonDown(1))
+        {
+            isRightDragging = true;
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -128,9 +106,9 @@ public class Player : MonoBehaviour
             isCanMove = true;
             isCanFillColor = true;
         }
-        if (Input.GetMouseButtonUp(1)) 
-        { 
-            isRightDragging = false; 
+        if (Input.GetMouseButtonUp(1))
+        {
+            isRightDragging = false;
         }
 
         x = Input.GetAxis("Mouse X");
@@ -153,75 +131,76 @@ public class Player : MonoBehaviour
                         isCanMove = false;
                         LevelManager.Ins.OnFilledCube(cube);
                     }
-                    else
-                    {
-                        if (isCanMove) isCanFillColor = false;
-                    }
+                    else if (isCanMove) isCanFillColor = false;
+
 
                 }
-                else
-                {
-
-                    if (isCanMove) {
-                        isCanFillColor = false;
-                        if ((Mathf.Abs(x) > 0.01f || Mathf.Abs(y) > 0.01f))
-                        {
-
-                            transform.Rotate(new Vector3(0, -x * rotateSpeed * Time.deltaTime, 0));
-                            transform.Rotate(new Vector3(y * rotateSpeed * Time.deltaTime, 0, 0), Space.World);
-                        }
-                } }
-
-                       
-            }
-            else
-            {
-                if (isCanMove)
+                else if (isCanMove)
                 {
                     isCanFillColor = false;
-                    if (Mathf.Abs(x) > 0.01f || Mathf.Abs(y) > 0.01f && isCanMove)
+                    if (OnCheckIsTouching(0.01f))
                     {
-                        transform.Rotate(new Vector3(0, -x * rotateSpeed * Time.deltaTime, 0));
-                        transform.Rotate(new Vector3(y * rotateSpeed * Time.deltaTime, 0, 0), Space.World);
+                        OnRotate();
                     }
                 }
-            }
 
+
+            }
+            else if (isCanMove)
+            {
+                isCanFillColor = false;
+                if (OnCheckIsTouching(0.01f) && isCanMove)
+                {
+                    OnRotate();
+                }
+            }
 
         }
 
         if (isRightDragging && !CameraManager.Ins.IsZooming)
         {
-            Vector3 screenPosition = cam.WorldToScreenPoint(transform.position);
-            screenPosition.x = Mathf.Clamp(screenPosition.x, 0, Screen.width);
-            screenPosition.y = Mathf.Clamp(screenPosition.y, 0, Screen.height);
-
-            Vector3 moveDirection = new Vector3(x, y, 0f) * dragSpeed;
-            Vector3 worldPosition = cam.ScreenToWorldPoint(screenPosition + moveDirection);
-
-            transform.position = worldPosition;
-           
+            OnMoving();
         }
 
 
     }
+    public void OnMoving()
+    {
+        Vector3 screenPosition = cam.WorldToScreenPoint(transform.position);
+        screenPosition.x = Mathf.Clamp(screenPosition.x, 0, Screen.width);
+        screenPosition.y = Mathf.Clamp(screenPosition.y, 0, Screen.height);
 
-    
+        Vector3 moveDirection = new Vector3(x, y, 0f) * dragSpeed;
+        Vector3 worldPosition = cam.ScreenToWorldPoint(screenPosition + moveDirection);
+
+        transform.position = worldPosition;
+    }
+    public void OnRotate()
+    {
+        transform.Rotate(new Vector3(0, -x * rotateSpeed * Time.deltaTime, 0));
+        transform.Rotate(new Vector3(y * rotateSpeed * Time.deltaTime, 0, 0), Space.World);
+    }
+    public bool OnCheckIsTouching(float limit)
+    {
+        return Mathf.Abs(x) > limit || Mathf.Abs(y) > limit;
+    }
+
+
     public void OnReset()
     {
         animator.enabled = false;
         transform.rotation = Quaternion.identity;
-        transform.position = Vector3.zero;  
-        isLeftDragging= false;
-        isRightDragging= false;
+        transform.position = Vector3.zero;
+        isLeftDragging = false;
+        isRightDragging = false;
         isCanMove = false;
         isCanFillColor = false;
-        this.gameObject.SetActive(false);   
+        this.gameObject.SetActive(false);
     }
     public void PlayAnim()
     {
         animator.enabled = true;
-        animator.SetTrigger(VICTORY_ANIM);   
+        animator.SetTrigger(VICTORY_ANIM);
     }
     public void MoveToStartPosition()
     {
@@ -230,7 +209,7 @@ public class Player : MonoBehaviour
     IEnumerator MovePlayer()
     {
         float moveDuration = 2f;
-        Vector3 startPosition = transform.position; 
+        Vector3 startPosition = transform.position;
         Vector3 targetPosition = Vector3.zero;
 
         float timeElapsed = 0;
@@ -241,10 +220,10 @@ public class Player : MonoBehaviour
             transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / moveDuration);
 
             timeElapsed += Time.deltaTime;
-            yield return null; 
+            yield return null;
         }
 
         transform.position = targetPosition;
     }
-   
+
 }

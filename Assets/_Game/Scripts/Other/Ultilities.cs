@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using UnityEngine;
 
 public static class Ultilities
@@ -26,5 +28,23 @@ public static class Ultilities
         }
         return i>=1;
     }
+    public static CubeType CheckMinQuantityInList(List<CubeType> list)
+    {
+        if (list.Count == 0) return null;
+        int minQuantity =int.MaxValue;
+        CubeType minType = new CubeType(0,minQuantity,minQuantity);
+        foreach(CubeType c in list)
+        {
+            if (c.quantity < minQuantity && c.quantity > 0)
+            {
+                minQuantity = c.quantity;
+                minType = c;
+            }
+
+
+        }
+        return minType;
+    } 
+  
 
 }

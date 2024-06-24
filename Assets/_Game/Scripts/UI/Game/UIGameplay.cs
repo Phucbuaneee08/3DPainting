@@ -42,6 +42,15 @@ public class UIGameplay : UICanvas
                 colorItems.Add(colorItem);
             }
         }
+    public ColorItem FindItemByColorId(int colorID)
+    {
+        foreach(ColorItem ci in colorItems)
+        {
+            if (ci.GetColorID() == colorID)
+                return ci;
+        }
+        return null;
+    }
     public void RemoveColorItem(int colorID)
     {
         foreach(ColorItem ci in colorItems)
