@@ -34,26 +34,27 @@ public class Player : GameUnit
 #if UNITY_ANDROID
         if (Input.touchCount == 1)
         {
-            Touch touch = Input.GetTouch(0);
+            //Touch touch = Input.GetTouch(0);
 
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    isLeftDragging = true;
-                    break;
+            //switch (touch.phase)
+            //{
+            //    case TouchPhase.Began:
+            //        isLeftDragging = true;
+            //        break;
 
-                case TouchPhase.Ended:
-                case TouchPhase.Canceled:
-                    isLeftDragging = false;
-                    isCanMove = true;
-                    isCanFillColor = true;
-                    break;
+            //    case TouchPhase.Ended:
+            //    case TouchPhase.Canceled:
+            //        isLeftDragging = false;
+            //        isCanMove = true;
+            //        isCanFillColor = true;
+            //        break;
 
-                case TouchPhase.Moved:
-                    x = touch.deltaPosition.x;
-                    y = touch.deltaPosition.y;
-                    break;
-            }
+            //    case TouchPhase.Moved:
+            //        x = touch.deltaPosition.x;
+            //        y = touch.deltaPosition.y;
+            //        break;
+            //}
+            isLeftDragging = true;
         }
         else if (Input.touchCount == 2)
         {
