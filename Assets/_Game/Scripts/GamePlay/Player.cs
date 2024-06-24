@@ -32,63 +32,63 @@ public class Player : GameUnit
     {
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
 #if UNITY_ANDROID
-        //if (Input.touchCount == 1)
-        //{
-        //    Touch touch = Input.GetTouch(0);
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
 
-        //    switch (touch.phase)
-        //    {
-        //        case TouchPhase.Began:
-        //            isLeftDragging = true;
-        //            break;
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    isLeftDragging = true;
+                    break;
 
-        //        case TouchPhase.Ended:
-        //        case TouchPhase.Canceled:
-        //            isLeftDragging = false;
-        //            isCanMove = true;
-        //            isCanFillColor = true;
-        //            break;
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    isLeftDragging = false;
+                    isCanMove = true;
+                    isCanFillColor = true;
+                    break;
 
-        //        case TouchPhase.Moved:
-        //            x = touch.deltaPosition.x;
-        //            y = touch.deltaPosition.y;
-        //            break;
-        //    }
-        //}
-        //else if (Input.touchCount == 2)
-        //{
-        //    Touch touch1 = Input.GetTouch(0);
-        //    Touch touch2 = Input.GetTouch(1);
+                case TouchPhase.Moved:
+                    x = touch.deltaPosition.x;
+                    y = touch.deltaPosition.y;
+                    break;
+            }
+        }
+        else if (Input.touchCount == 2)
+        {
+            Touch touch1 = Input.GetTouch(0);
+            Touch touch2 = Input.GetTouch(1);
 
-        //    if (touch1.phase == TouchPhase.Began)
-        //    {
-        //        finger1Start = touch1.position;
-        //        finger1Last = touch1.position;
-        //    }
-        //    else if (touch2.phase == TouchPhase.Began)
-        //    {
-        //        finger2Start = touch2.position;
-        //        finger2Last = touch2.position;
-        //    }
-        //    else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
-        //    {
-        //        IsDragging = true;
-        //        isLeftDragging = false;
-        //        isRightDragging = true;
-        //        Vector2 finger1Move = touch1.deltaPosition;
-        //        Vector2 finger2Move = touch2.deltaPosition;
+            if (touch1.phase == TouchPhase.Began)
+            {
+                finger1Start = touch1.position;
+                finger1Last = touch1.position;
+            }
+            else if (touch2.phase == TouchPhase.Began)
+            {
+                finger2Start = touch2.position;
+                finger2Last = touch2.position;
+            }
+            else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
+            {
+                IsDragging = true;
+                isLeftDragging = false;
+                isRightDragging = true;
+                Vector2 finger1Move = touch1.deltaPosition;
+                Vector2 finger2Move = touch2.deltaPosition;
 
-        //        Vector2 averageMove = (finger1Move + finger2Move) * 0.5f;
+                Vector2 averageMove = (finger1Move + finger2Move) * 0.5f;
 
-        //        x = averageMove.x;
-        //        y = averageMove.y;
-        //    }
-        //}
-        //else
-        //{
-        //    isLeftDragging = false;
-        //    isRightDragging = false;
-        //}
+                x = averageMove.x;
+                y = averageMove.y;
+            }
+        }
+        else
+        {
+            isLeftDragging = false;
+            isRightDragging = false;
+        }
 #endif
 
 #if UNITY_EDITOR
@@ -119,7 +119,7 @@ public class Player : GameUnit
             if (UIManager.Ins.GetUI<UIGameplay>().CheckInputOnUI()) return;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
+           
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
 
@@ -129,7 +129,7 @@ public class Player : GameUnit
                     if (cube.GetColorID() == LevelManager.Ins.currentColor)
                     {
                         isCanMove = false;
-                        LevelManager.Ins.OnFilledCube(cube);
+                        StartCoroutine(LevelManager.Ins.OnFilledCube(cube));
                     }
                     else if (isCanMove) isCanFillColor = false;
 

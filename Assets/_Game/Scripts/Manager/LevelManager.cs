@@ -84,14 +84,11 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
-    private IEnumerator IEOnFilldedCube(Cube cube)
+   
+    public IEnumerator OnFilledCube(Cube cube)
     {
-        yield return null;
+        
         MaterialManager.Ins.SetColor(cube, cube.GetColorID());
-    }
-    public void OnFilledCube(Cube cube)
-    {
-        StartCoroutine(IEOnFilldedCube(cube));
         cube.ChangeState(CubeState.Colored);
         //ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
@@ -100,6 +97,7 @@ public class LevelManager : Singleton<LevelManager>
             //UIManager.Ins.OpenUI<UIVictory>();
             StartCoroutine(OnCelebration());
         }
+        yield return null;
     }
     public void RemoveCubeByColorID(int colorID)
     {
