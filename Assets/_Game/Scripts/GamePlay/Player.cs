@@ -16,7 +16,7 @@ public class Player : GameUnit
     [SerializeField] Camera cam;
     [SerializeField] private bool isHaveFillBooster = true;
     public float rotateSpeed = 10f;
-    public float dragSpeed = 1f;
+    public float dragSpeed = 10f;
     private float x;
     private float y;
     private Vector3 targetPosition;

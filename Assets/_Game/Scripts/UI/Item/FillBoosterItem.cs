@@ -24,6 +24,11 @@ public class FillBoosterItem : MonoBehaviour
 
                 break;
             case FillBoosterState.TurnOff:
+                if (LevelManager.Ins.currentColor != 0) {
+                    UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
+                    LevelManager.Ins.ReleaseFocusCube();
+
+                }
                 FillBooster.Ins.ChangeBoosterState(true);
                 _state = FillBoosterState.TurnOn;
                 transform.DOMoveY(transform.position.y + moveUpDistance, duration);

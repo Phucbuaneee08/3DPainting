@@ -11,7 +11,7 @@ public class UIGameplay : UICanvas
     [SerializeField] List<ColorItem> colorItems;
     [SerializeField] private Timer timer;
     [SerializeField] RectTransform scrollViewRect;
-    [SerializeField] FillBoosterItem fillBoosterItem;
+    public FillBoosterItem fillBoosterItem;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
     private ColorItem colorItemSelected;
 

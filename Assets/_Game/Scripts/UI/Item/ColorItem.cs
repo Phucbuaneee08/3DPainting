@@ -40,7 +40,8 @@ public class ColorItem : MonoBehaviour
         switch (colorItemState)
         {
             case ColorItemState.Default:
-               
+                if (UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.IsState(FillBoosterState.TurnOn))
+                    UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.ChangeBoosterItemState();
                 colorItemState = ColorItemState.IsSelected;
                 element.DOMoveY(element.position.y + moveUpDistance, duration);
          

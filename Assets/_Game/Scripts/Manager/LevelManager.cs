@@ -111,7 +111,7 @@ public class LevelManager : Singleton<LevelManager>
                 StartCoroutine(OnRemoveCube(cubes));
                 if (cubes.quantity == 0)
                 {
-                    if (cubeTypes.Count > 0 && cubeTotal>0) {                 
+                    if (cubeTypes.Count > 0 && cubeTotal>0 && !FillBooster.Ins.CheckBoosterQuantity()) {                 
                         CubeType currentColorType = Ultilities.CheckNextCubeTypeInList(cubeTypes,currentColor);
                         currentColor = currentColorType.colorID;
                         if(currentColorType.colorID!=0)
@@ -272,6 +272,17 @@ public class LevelManager : Singleton<LevelManager>
             }
 
         }
+    }
+    public void ReleaseFocusCube()
+    {
+        foreach(Cube cube in cubes)
+        {
+            if(cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
+            {
+                MaterialManager.Ins.SetShowTextColor(cube);
+            }
+        }
+        currentColor = 0;
     }
 
 
