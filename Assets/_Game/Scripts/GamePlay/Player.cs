@@ -55,8 +55,6 @@ public class Player : GameUnit
                     y = touch.deltaPosition.y;
                     break;
             }
-            isLeftDragging = true;
-            isCanFillColor = true;
         }
         else if (Input.touchCount == 2)
         {
@@ -81,7 +79,7 @@ public class Player : GameUnit
                 Vector2 finger1Move = touch1.deltaPosition;
                 Vector2 finger2Move = touch2.deltaPosition;
 
-                Vector2 averageMove = (finger1Move + finger2Move) * 0.5f;
+                Vector2 averageMove = (finger1Move + finger2Move) * Time.deltaTime;
 
                 x = averageMove.x;
                 y = averageMove.y;

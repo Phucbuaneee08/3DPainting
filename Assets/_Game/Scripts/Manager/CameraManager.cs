@@ -18,9 +18,9 @@ public class CameraManager : Singleton<CameraManager>
     [SerializeField] private Quaternion rotateOffset;
     public Camera cam;
     public Transform targetObject; 
-    public float zoomSpeed = 0.01f;
+    public float zoomSpeed = 15f;
     public bool IsZooming;
-    public float dragSpeed = 2;
+    public float dragSpeed = 1;
     public float smoothy;
     private bool isZoomedIn = false;
     private bool isZoomedOut = true;
