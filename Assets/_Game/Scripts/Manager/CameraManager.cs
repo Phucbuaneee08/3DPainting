@@ -20,7 +20,6 @@ public class CameraManager : Singleton<CameraManager>
     public Transform targetObject; 
     public float zoomSpeed = 15f;
     public bool IsZooming;
-    public float dragSpeed = 1;
     public float smoothy;
     private bool isZoomedIn = false;
     private bool isZoomedOut = true;

@@ -9,6 +9,7 @@ public class ConvertTool : EditorWindow
     private GameObject model3D;
     private Level level;
 
+    private float app;
     [MenuItem("Tools/ConvertObjectToLevel")]
     public static void ShowWindow()
     {
@@ -23,6 +24,7 @@ public class ConvertTool : EditorWindow
        
         level = (Level)EditorGUILayout.ObjectField("Level", level, typeof(Level), true);
 
+    
         if (GUILayout.Button("Generate Level"))
         {
           
@@ -32,20 +34,20 @@ public class ConvertTool : EditorWindow
                 //ConverObject.Convert();
                 List<Material> uniqueColors = new List<Material>();
                 List<Color> listColor = new List<Color>();
-
+      
                 foreach (Transform child in model3D.GetComponentsInChildren<Transform>())
                 {
-                
+                   
                     //CubeData cubeData = new CubeData(child.transform.position, 2, 2);
                     Material mat = child.GetComponent<MeshRenderer>().sharedMaterial;
-                    
+                  
                  
                     if (Ultilities.CheckColorsInList(listColor,mat.color))
                     {
                         
                         for (int i = 0;i< listColor.Count; i++)
                         {
-                            if(Ultilities.AreColorsApproximatelyEqual(mat.color, listColor[i],0.1f))
+                            if(Ultilities.AreColorsApproximatelyEqual(mat.color, listColor[i], app))
                             {
                                 CubeData cube = new CubeData(child.transform.position, i, 1);
                                 level.cubes.Add(cube);

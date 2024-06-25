@@ -2090,3 +2090,7 @@ MonoBehaviour:
     colorID: 6
   - material: {fileID: 591031639713082001, guid: 6212c71d651e2d542be02b90bf050f66, type: 3}
     colorID: 7
+  zoomInfo:
+    minZoom: 10
+    maxZoom: 60
+    checkPointZoom: 50

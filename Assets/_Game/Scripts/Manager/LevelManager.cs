@@ -87,8 +87,6 @@ public class LevelManager : Singleton<LevelManager>
    
     public IEnumerator OnFilledCube(Cube cube)
     {
-        
-        MaterialManager.Ins.SetColor(cube, cube.GetColorID());
         cube.ChangeState(CubeState.Colored);
         //ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
