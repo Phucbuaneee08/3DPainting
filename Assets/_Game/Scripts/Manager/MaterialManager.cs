@@ -13,10 +13,11 @@ public class MaterialManager : Singleton<MaterialManager>
     [SerializeField] private Color showTextColor;
     public void SetColor(Cube cube,int colorID)
     {
-        foreach(MaterialData md in matData)
-        {
-            if(md.colorID == colorID) cube.colorRender.material = md.material;
-        }
+        //foreach(MaterialData md in matData)
+        //{
+        //    if(md.colorID == colorID) cube.colorRender.material = md.material;
+        //}
+        cube.colorRender.material = matData[colorID-1].material;
        
     }
     public void SetDefaultColor(Cube cube,int colorID)
