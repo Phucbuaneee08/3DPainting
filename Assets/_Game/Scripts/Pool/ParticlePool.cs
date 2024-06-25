@@ -1,11 +1,6 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-using System;
-using UnityEditor;
-using static UnityEditor.PlayerSettings;
-using UnityEngine.UIElements;
-
 
 public static class ParticlePool
 {
