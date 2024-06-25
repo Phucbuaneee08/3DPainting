@@ -64,7 +64,7 @@ public class CameraManager : Singleton<CameraManager>
 
             //float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-            cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed;
+            cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed * Time.deltaTime;
 
             // Giới hạn giá trị zoom của camera
             cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public static class Ultilities
@@ -45,6 +46,17 @@ public static class Ultilities
         }
         return minType;
     } 
-  
+    public static CubeType CheckNextCubeTypeInList(List<CubeType> list,int currentColor)
+    {
+        //for(int i=currentColor; i<list.Count; i++)
+        //{
+        //    if (list[i].quantity > 0) return list[i];
+        //}
+        //return null;
+        int nextType = currentColor % list.Count;
+        if (list[nextType].quantity > 0) return list[nextType];
+        return CheckNextCubeTypeInList(list, currentColor + 1);
+    }
+
 
 }

@@ -111,8 +111,8 @@ public class LevelManager : Singleton<LevelManager>
                 StartCoroutine(OnRemoveCube(cubes));
                 if (cubes.quantity == 0)
                 {
-                    if (cubeTypes.Count > 0) {                 
-                        CubeType currentColorType = Ultilities.CheckMinQuantityInList(cubeTypes);
+                    if (cubeTypes.Count > 0 && cubeTotal>0) {                 
+                        CubeType currentColorType = Ultilities.CheckNextCubeTypeInList(cubeTypes,currentColor);
                         currentColor = currentColorType.colorID;
                         if(currentColorType.colorID!=0)
                             UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(currentColor).SetMovePosition();
@@ -127,8 +127,7 @@ public class LevelManager : Singleton<LevelManager>
     private IEnumerator OnRemoveCube(CubeType cubes)
     {
         yield return null;
-        Debug.Log(cubes.quantity);
-        Debug.Log(cubes.total);
+      
         UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(cubes.colorID).SetFillAmount((float)cubes.quantity/(float)cubes.total);
     }
     private IEnumerator OnCelebration()

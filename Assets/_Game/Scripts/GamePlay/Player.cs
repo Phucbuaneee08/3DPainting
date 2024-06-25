@@ -24,6 +24,7 @@ public class Player : GameUnit
     private Vector2 finger1Start, finger2Start;
     private Vector2 finger1Last, finger2Last;
 
+    private Cube cachedCube;
     private void Start()
     {
         animator.enabled = false;
@@ -31,29 +32,29 @@ public class Player : GameUnit
     private void Update()
     {
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
-#if UNITY_ANDROID
+
         if (Input.touchCount == 1)
         {
-            //Touch touch = Input.GetTouch(0);
+            Touch touch = Input.GetTouch(0);
 
-            //switch (touch.phase)
-            //{
-            //    case TouchPhase.Began:
-            //        isLeftDragging = true;
-            //        break;
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    isLeftDragging = true;
+                    break;
 
-            //    case TouchPhase.Ended:
-            //    case TouchPhase.Canceled:
-            //        isLeftDragging = false;
-            //        isCanMove = true;
-            //        isCanFillColor = true;
-            //        break;
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    isLeftDragging = false;
+                    isCanMove = true;
+                    isCanFillColor = true;
+                    break;
 
-            //    case TouchPhase.Moved:
-            //        x = touch.deltaPosition.x;
-            //        y = touch.deltaPosition.y;
-            //        break;
-            //}
+                case TouchPhase.Moved:
+                    x = touch.deltaPosition.x;
+                    y = touch.deltaPosition.y;
+                    break;
+            }
             isLeftDragging = true;
             isCanFillColor = true;
         }
@@ -91,7 +92,7 @@ public class Player : GameUnit
             isLeftDragging = false;
             isRightDragging = false;
         }
-#endif
+
 
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
@@ -124,25 +125,27 @@ public class Player : GameUnit
            
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-
-                Cube cube = hitInfo.collider.GetComponent<Cube>();
-                if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
-                {
-                    if (cube.GetColorID() == LevelManager.Ins.currentColor)
+                if (hitInfo.collider.CompareTag("Cube")) 
+                { 
+                    Cube cube = Cache.GetCube(hitInfo.collider);              
+                    if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
-                        isCanMove = false;
-                        StartCoroutine(LevelManager.Ins.OnFilledCube(cube));
+                        if (cube.GetColorID() == LevelManager.Ins.currentColor)
+                        {
+                            isCanMove = false;
+                            StartCoroutine(LevelManager.Ins.OnFilledCube(cube));
+                        }
+                        else if (isCanMove) isCanFillColor = false;
+
+
                     }
-                    else if (isCanMove) isCanFillColor = false;
-
-
-                }
-                else if (isCanMove)
-                {
-                    isCanFillColor = false;
-                    if (OnCheckIsTouching(0.01f))
+                    else if (isCanMove)
                     {
-                        OnRotate();
+                        isCanFillColor = false;
+                        if (OnCheckIsTouching(0.01f))
+                        {
+                            OnRotate();
+                        }
                     }
                 }
 
