@@ -85,17 +85,19 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
    
-    public IEnumerator OnFilledCube(Cube cube)
+    public void OnFilledCube(Cube cube)
     {
+        if (cube.IsState(CubeState.Colored)) return;
+        MaterialManager.Ins.SetColor(cube, cube.GetColorID());
         cube.ChangeState(CubeState.Colored);
-        //ParticlePool.Play(ParticleType.Hit_1, cube.TF);
+        ////ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
-        if(cubeTotal==0)
+        if (cubeTotal == 0)
         {
             //UIManager.Ins.OpenUI<UIVictory>();
             StartCoroutine(OnCelebration());
         }
-        yield return null;
+
     }
     public void RemoveCubeByColorID(int colorID)
     {

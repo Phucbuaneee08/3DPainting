@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+public enum PlayerState
+{
+    Normal = 0,
+    FillBooster = 1,
+    ZoomBooster =2,
+}
 public class Player : GameUnit
 {
     [SerializeField] Animator animator;
     [SerializeField] Camera cam;
+    [SerializeField] private bool isHaveFillBooster = true;
     public float rotateSpeed = 10f;
     public float dragSpeed = 1f;
     private float x;
@@ -95,6 +103,7 @@ public class Player : GameUnit
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
+           
             isLeftDragging = true;
         }
         if (Input.GetMouseButtonDown(1))
@@ -106,10 +115,12 @@ public class Player : GameUnit
             isLeftDragging = false;
             isCanMove = true;
             isCanFillColor = true;
+            isHaveFillBooster = true;
         }
         if (Input.GetMouseButtonUp(1))
         {
             isRightDragging = false;
+          
         }
 
         x = Input.GetAxis("Mouse X");
@@ -125,14 +136,20 @@ public class Player : GameUnit
             {
                 if (hitInfo.collider.CompareTag("Cube")) 
                 { 
-                    Cube cube = Cache.GetCube(hitInfo.collider);              
+                  
+                    Cube cube = Cache.GetCube(hitInfo.collider);
+                    if ( FillBooster.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored))
+                    {
+                        isCanMove = false;
+                        FillBooster.Ins.FillBoosterByColor(cube);
+                    }
+
                     if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         if (cube.GetColorID() == LevelManager.Ins.currentColor)
                         {
                             isCanMove = false;
-                            MaterialManager.Ins.SetColor(cube, cube.GetColorID());
-                            StartCoroutine(LevelManager.Ins.OnFilledCube(cube));
+                            LevelManager.Ins.OnFilledCube(cube);
                         }
                         else if (isCanMove) isCanFillColor = false;
 
@@ -228,6 +245,10 @@ public class Player : GameUnit
         }
 
         transform.position = targetPosition;
+    }
+    public void ResetFillbooster()
+    {
+        isHaveFillBooster = true;
     }
 
 }

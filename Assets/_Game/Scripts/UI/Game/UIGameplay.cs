@@ -11,6 +11,7 @@ public class UIGameplay : UICanvas
     [SerializeField] List<ColorItem> colorItems;
     [SerializeField] private Timer timer;
     [SerializeField] RectTransform scrollViewRect;
+    [SerializeField] FillBoosterItem fillBoosterItem;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
     private ColorItem colorItemSelected;
 
@@ -23,11 +24,16 @@ public class UIGameplay : UICanvas
     public override void Setup()
     {
         base.Setup();
+        if(fillBoosterItem.IsState(FillBoosterState.TurnOn))
+        {
+            fillBoosterItem.ChangeBoosterItemState();
+        }
     }
     public override void Open()
     {
         base.Open();
         GameManager.Ins.ChangeState(GameState.GamePlay);
+        
     }
     public void OpenSetting()
     {
@@ -76,5 +82,6 @@ public class UIGameplay : UICanvas
     {
         return RectTransformUtility.RectangleContainsScreenPoint(scrollViewRect, Input.mousePosition, null);
     }
+  
     
 }
