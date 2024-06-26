@@ -16,10 +16,12 @@ public class CameraManager : Singleton<CameraManager>
 {
     [SerializeField] private Vector3 offset;
     [SerializeField] private Quaternion rotateOffset;
+    [SerializeField] private Player player;
     public Camera cam;
+    
     public Transform targetObject; 
     public float zoomSpeed = 15f;
-    public bool IsZooming;
+    public bool IsZooming = false;
     public float smoothy;
     private bool isZoomedIn = false;
     private bool isZoomedOut = true;
@@ -48,7 +50,7 @@ public class CameraManager : Singleton<CameraManager>
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (Input.touchCount == 2)
+        if (Input.touchCount == 2 && !player.IsDragging)
         {
             Touch touch1 = Input.GetTouch(0);
             Touch touch2 = Input.GetTouch(1);
@@ -64,7 +66,7 @@ public class CameraManager : Singleton<CameraManager>
             //float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
             cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed * Time.deltaTime;
-
+            IsZooming = true;
             // Giới hạn giá trị zoom của camera
             cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
        

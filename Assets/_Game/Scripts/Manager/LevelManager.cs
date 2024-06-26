@@ -92,9 +92,9 @@ public class LevelManager : Singleton<LevelManager>
         cube.ChangeState(CubeState.Colored);
         ////ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
-#if UNITY_EDITOR
-        cube.gameObject.SetActive(false);
-#endif
+//#if UNITY_EDITOR
+//        cube.gameObject.SetActive(false);
+//#endif
 
         if (cubeTotal == 0)
         {

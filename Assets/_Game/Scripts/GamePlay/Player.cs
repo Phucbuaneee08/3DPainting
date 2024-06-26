@@ -27,7 +27,7 @@ public class Player : GameUnit
     private bool isCanFillColor;
     
     private const string VICTORY_ANIM = "Victory";
-    public bool IsDragging;
+    public bool IsDragging = false;
 
     private Vector2 finger1Start, finger2Start;
     private Vector2 finger1Last, finger2Last;
@@ -68,7 +68,7 @@ public class Player : GameUnit
                     break;
             }
         }
-        else if (Input.touchCount == 2)
+        else if (Input.touchCount == 2 && !CameraManager.Ins.IsZooming)
         {
             Touch touch1 = Input.GetTouch(0);
             Touch touch2 = Input.GetTouch(1);
@@ -130,6 +130,7 @@ public class Player : GameUnit
         if (Input.GetMouseButtonDown(1))
         {
             isRightDragging = true;
+            IsDragging = true;
         }
         if (Input.GetMouseButtonUp(0))
         {

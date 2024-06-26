@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+
 public class FillBooster : Singleton<FillBooster>
 {
     [SerializeField] private Player player;
@@ -8,6 +10,7 @@ public class FillBooster : Singleton<FillBooster>
     private int boosterQuantity = 999;
     private bool _isCanUseFillBooster = false;
     private bool _isCanUseZoomBooster = true;
+    private float delayFillBooster = 0.001f;
     private Vector3[] directions = new Vector3[]
     {
         Vector3.up,
@@ -41,6 +44,17 @@ public class FillBooster : Singleton<FillBooster>
     {
         _isCanUseZoomBooster = true;
     }
+    private IEnumerator OnFilled(List<Cube> visited)
+        {
+
+        foreach (Cube cubez in visited)
+        {
+            if (cubez.IsState(CubeState.Colored)) yield return null;
+            yield return new WaitForSeconds(delayFillBooster);
+            LevelManager.Ins.OnFilledCube(cubez);
+
+        }
+    }
 
     public void FillBoosterByColor(Cube currentCube)
     {
@@ -69,14 +83,11 @@ public class FillBooster : Singleton<FillBooster>
                 }
             }
         }
-
-        foreach(Cube cubez in visited)
-        {
-            if (cubez.IsState(CubeState.Colored)) return;
-            LevelManager.Ins.OnFilledCube(cubez);
-            //MaterialManager.Ins.SetColor(cube, cube.GetColorID());
-        }
+        StartCoroutine(OnFilled(visited));
         boosterQuantity -= 1;
+
+
+
 #if UNITY_EDITOR
         Debug.Log("Remove cube ID "+currentCube.GetColorID()+": "+visited.Count);
 #endif

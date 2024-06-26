@@ -414,7 +414,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1027,9 +1027,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: -0.202, y: 0.069, z: -0.4}
   rotateOffset: {x: 0.08000525, y: 0.23034842, z: -0.010618497, w: 0.9697557}
+  player: {fileID: 2099514019}
   cam: {fileID: 963194227}
   targetObject: {fileID: 2099514018}
-  zoomSpeed: 15
+  zoomSpeed: 20
   IsZooming: 0
   smoothy: 0.5
   minZoom: 0
