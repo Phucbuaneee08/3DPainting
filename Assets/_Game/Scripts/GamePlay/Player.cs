@@ -87,7 +87,11 @@ public class Player : GameUnit
                 isRightDragging = true;
                 Vector2 finger1Move = touch1.deltaPosition;
                 Vector2 finger2Move = touch2.deltaPosition;
-                Vector2 currentTouchDelta = finger2Move - finger1Move;
+                Vector2 finger1End = touch1.position;
+                Vector2 finger2End = touch2.position;
+
+
+                Vector2 currentTouchDelta = finger2End - finger1End;
                 if (Mathf.Abs(currentTouchDelta.magnitude - initialTouchDelta.magnitude) > 0.1f) 
                 {
                     CameraManager.Ins.IsZooming = true;
