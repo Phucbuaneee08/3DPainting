@@ -19,6 +19,7 @@ public class Player : GameUnit
     public float dragSpeed = 50f;
     private float x;
     private float y;
+    public float zoomDistance =0.1f;
     private Vector3 targetPosition;
 
     private bool isLeftDragging;
@@ -92,8 +93,9 @@ public class Player : GameUnit
 
 
                 Vector2 currentTouchDelta = finger2End - finger1End;
-                if (Mathf.Abs(currentTouchDelta.magnitude - initialTouchDelta.magnitude) > 0.1f) 
+                if (Mathf.Abs(currentTouchDelta.magnitude - initialTouchDelta.magnitude) > zoomDistance) 
                 {
+                    UIManager.Ins.GetUI<UIGameplay>().SetMoveDistance(zoomDistance);
                     CameraManager.Ins.IsZooming = true;
                 }
                 else

@@ -8,6 +8,7 @@ public class UISetting : UICanvas
     public InputField zoomSpeed;
     public InputField dragSpeed;
     public InputField rotateSpeed;
+    public InputField moveDistance;
     public override void Setup()
     {
         base.Setup();
@@ -59,6 +60,18 @@ public class UISetting : UICanvas
         {
             FindObjectOfType<Player>().rotateSpeed = newRotateSpeed;
             Debug.Log("Rotate speed changed to: " + newRotateSpeed);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid input for rotate speed.");
+        }
+    }
+    public void SetMoveDistance()
+    {
+        if (float.TryParse(moveDistance.text, out float moveDistancee))
+        {
+            FindObjectOfType<Player>().zoomDistance = moveDistancee;
+            Debug.Log("Rotate speed changed to: " + moveDistance);
         }
         else
         {
