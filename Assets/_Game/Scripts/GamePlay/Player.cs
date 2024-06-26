@@ -210,7 +210,7 @@ public class Player : GameUnit
 
         }
 
-        if (isRightDragging && !CameraManager.Ins.IsZooming)
+        if (isRightDragging)
         {
             OnMoving();
         }

@@ -71,6 +71,10 @@ public class CameraManager : Singleton<CameraManager>
             cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
        
         }
+        else
+        {
+            IsZooming = false;
+        }
 
 #if UNITY_EDITOR
         if (scrollInput != 0)
