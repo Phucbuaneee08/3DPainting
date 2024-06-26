@@ -88,7 +88,7 @@ public class Player : GameUnit
                 Vector2 finger1Move = touch1.deltaPosition;
                 Vector2 finger2Move = touch2.deltaPosition;
                 Vector2 currentTouchDelta = finger2Move - finger1Move;
-                if ((currentTouchDelta - initialTouchDelta).magnitude < 0.1f) 
+                if ((currentTouchDelta.magnitude - initialTouchDelta.magnitude) > 0.1f) 
                 {
                     CameraManager.Ins.IsZooming = true;
                 }
