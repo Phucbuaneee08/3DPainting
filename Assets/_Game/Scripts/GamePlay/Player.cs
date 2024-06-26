@@ -63,7 +63,8 @@ public class Player : GameUnit
                     y = touch.deltaPosition.y;
                     break;
                 case TouchPhase.Stationary:
-                    isLeftDragging = false;
+                    x = 0;
+                    y = 0;
                     break;
             }
         }
@@ -158,7 +159,7 @@ public class Player : GameUnit
                 { 
                   
                     Cube cube = Cache.GetCube(hitInfo.collider);
-                    if ( FillBooster.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored))
+                    if ( FillBooster.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         isCanMove = false;
                         FillBooster.Ins.FillBoosterByColor(cube);
