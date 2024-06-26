@@ -31,6 +31,7 @@ public class Player : GameUnit
 
     private Vector2 finger1Start, finger2Start;
     private Vector2 finger1Last, finger2Last;
+    private Vector2 initialTouchDelta;
 
     private Cube cachedCube;
     private void Start()
@@ -73,28 +74,31 @@ public class Player : GameUnit
             Touch touch1 = Input.GetTouch(0);
             Touch touch2 = Input.GetTouch(1);
 
-            if (touch1.phase == TouchPhase.Began)
+            if (touch1.phase == TouchPhase.Began || touch2.phase == TouchPhase.Began)
             {
                 finger1Start = touch1.position;
-                finger1Last = touch1.position;
-            }
-            else if (touch2.phase == TouchPhase.Began)
-            {
                 finger2Start = touch2.position;
-                finger2Last = touch2.position;
+                initialTouchDelta = finger2Start - finger1Start;
+
             }
             else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
-            {
-                IsDragging = true;
+            {            
                 isLeftDragging = false;
                 isRightDragging = true;
                 Vector2 finger1Move = touch1.deltaPosition;
                 Vector2 finger2Move = touch2.deltaPosition;
+                Vector2 currentTouchDelta = finger2Move - finger1Move;
+                if ((currentTouchDelta - initialTouchDelta).magnitude < 0.1f) 
+                {
+                    CameraManager.Ins.IsZooming = true;
+                }
+                else
+                {
+                    Vector2 averageMove = (finger1Move + finger2Move) * Time.deltaTime;
 
-                Vector2 averageMove = (finger1Move + finger2Move) * Time.deltaTime;
-
-                x = averageMove.x;
-                y = averageMove.y;
+                    x = averageMove.x;
+                    y = averageMove.y;
+                }              
             }
             else if (touch1.phase == TouchPhase.Ended || touch1.phase == TouchPhase.Canceled ||
                         touch2.phase == TouchPhase.Ended || touch2.phase == TouchPhase.Canceled)

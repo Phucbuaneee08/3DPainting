@@ -50,7 +50,7 @@ public class CameraManager : Singleton<CameraManager>
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (Input.touchCount == 2 && !player.IsDragging)
+        if (Input.touchCount == 2 && IsZooming)
         {
             Touch touch1 = Input.GetTouch(0);
             Touch touch2 = Input.GetTouch(1);
