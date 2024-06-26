@@ -5,16 +5,18 @@ using UnityEngine.UI;
 public class LevelItem : MonoBehaviour
 {
     [SerializeField] private Image bg;
+    [SerializeField] private Image imageSource;
     [SerializeField] private int levelID;
     [SerializeField] private Text text;
     private Level level;
 
 
-    public void SetData(int levelID,Level level)
+    public void SetData(int levelID,Level level,Sprite avatar)
     {
         this.levelID = levelID;
         this.level = level;
         text.text = levelID.ToString();
+        imageSource.sprite = avatar;
 
     }
     public void SelectLevel()

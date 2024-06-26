@@ -16,7 +16,7 @@ public class Player : GameUnit
     [SerializeField] Camera cam;
     [SerializeField] private bool isHaveFillBooster = true;
     public float rotateSpeed = 10f;
-    public float dragSpeed = 10f;
+    public float dragSpeed = 50f;
     private float x;
     private float y;
     private Vector3 targetPosition;
@@ -62,6 +62,9 @@ public class Player : GameUnit
                     x = touch.deltaPosition.x;
                     y = touch.deltaPosition.y;
                     break;
+                case TouchPhase.Stationary:
+                    isLeftDragging = false;
+                    break;
             }
         }
         else if (Input.touchCount == 2)
@@ -91,6 +94,23 @@ public class Player : GameUnit
 
                 x = averageMove.x;
                 y = averageMove.y;
+            }
+            else if (touch1.phase == TouchPhase.Ended || touch1.phase == TouchPhase.Canceled ||
+                        touch2.phase == TouchPhase.Ended || touch2.phase == TouchPhase.Canceled)
+            {
+                // Trường hợp một trong hai ngón tay rời khỏi màn hình
+                IsDragging = false;            
+                isRightDragging = false;
+                x = 0;
+                y = 0;
+            }
+            else if (touch1.phase == TouchPhase.Stationary || touch2.phase == TouchPhase.Stationary)
+            {
+                // Trường hợp 2 ngón tay vẫn đặt trên màn hình nhưng không di chuyển
+                IsDragging = false;
+                isRightDragging = false;
+                x = 0;
+                y = 0;
             }
         }
         else

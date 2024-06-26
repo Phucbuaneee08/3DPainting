@@ -34,7 +34,7 @@ public class UIMainMenu : UICanvas
     {
         foreach(LevelData l3d in levelDatas.level3D) {
             LevelItem levelItem = miniPool.Spawn();
-            levelItem.SetData(l3d.levelID,l3d.level);
+            levelItem.SetData(l3d.levelID,l3d.level,l3d.imageSource);
             levelItems.Add(levelItem);
         }
     }

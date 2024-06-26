@@ -21,6 +21,7 @@ public class LevelData
 {
     public int levelID;
     public Level level;
+    public Sprite imageSource;
 
 }
 

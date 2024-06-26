@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac9017c0fe922454ea5bd7b4583ba87a, type: 3}
-  m_Name: LV6
+  m_Name: LV6 - cake
   m_EditorClassIdentifier: 
   levelID: 1
   cubes:
@@ -2094,3 +2094,4 @@ MonoBehaviour:
     minZoom: 15
     maxZoom: 60
     checkPointZoom: 50
+  imageSource: {fileID: 21300000, guid: 207ecfb825b30c44fae6eedf34569239, type: 3}

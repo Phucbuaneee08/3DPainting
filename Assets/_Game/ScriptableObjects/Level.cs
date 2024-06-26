@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR;
 
 [CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/Data/Level", order = 1)]
@@ -12,6 +13,7 @@ public class Level : ScriptableObject
     public List<CubeData> cubes;
     public List<MaterialData> materials;
     public ZoomInfo zoomInfo = new ZoomInfo(5,60,50);
+    public Sprite imageSource;
 }
 
 [System.Serializable]
