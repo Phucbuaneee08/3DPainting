@@ -92,6 +92,10 @@ public class LevelManager : Singleton<LevelManager>
         cube.ChangeState(CubeState.Colored);
         ////ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
+#if UNITY_EDITOR
+        cube.gameObject.SetActive(false);
+#endif
+
         if (cubeTotal == 0)
         {
             //UIManager.Ins.OpenUI<UIVictory>();
@@ -169,6 +173,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
         CameraManager.Ins.Reset();
+        FillBooster.Ins.ResetZoomBooster();
         UIManager.Ins.CloseAll();
         OnReset();
         UIManager.Ins.OpenUI<UIMainMenu>();
@@ -279,7 +284,15 @@ public class LevelManager : Singleton<LevelManager>
         {
             if(cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
             {
-                MaterialManager.Ins.SetShowTextColor(cube);
+                if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
+                {
+                    MaterialManager.Ins.SetShowTextColor(cube);
+                    cube.ChangeState(CubeState.Zoomin);
+                }
+                if (CameraManager.Ins.IsCameraState(CameraState.ZoomOut))
+                {
+                    cube.ChangeState(CubeState.Default);
+                }
             }
         }
         currentColor = 0;

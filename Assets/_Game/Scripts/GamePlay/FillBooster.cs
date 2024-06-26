@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class FillBooster : Singleton<FillBooster>
 {
     [SerializeField] private Player player;
     private float maxDistance = 0.01f;
     private int boosterQuantity = 999;
     private bool _isCanUseFillBooster = false;
+    private bool _isCanUseZoomBooster = true;
     private Vector3[] directions = new Vector3[]
     {
         Vector3.up,
@@ -27,6 +28,18 @@ public class FillBooster : Singleton<FillBooster>
 #if UNITY_EDITOR
         Debug.Log("Turn Fill Booster :"+ state);
 #endif
+    }
+    public void ZoomBoosterByColor()
+    {
+        if (_isCanUseZoomBooster)
+        {
+            CameraManager.Ins.cam.DOFieldOfView((CameraManager.Ins.minZoom+CameraManager.Ins.checkPointZoom)/2,0.5f);
+            _isCanUseZoomBooster = false;
+        }
+    }
+    public void ResetZoomBooster()
+    {
+        _isCanUseZoomBooster = true;
     }
 
     public void FillBoosterByColor(Cube currentCube)

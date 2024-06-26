@@ -1,0 +1,1880 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9017c0fe922454ea5bd7b4583ba87a, type: 3}
+  m_Name: LV12 - Dragon
+  m_EditorClassIdentifier: 
+  levelID: 0
+  cubes:
+  - position: {x: 0.02, y: -0.04, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.04, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.089999996, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.03, z: -0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.03, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.08, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.06, z: -0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.04, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.01, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.049999997, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.04, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.07, z: -0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.08, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: -0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: -0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.07, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.06, z: -0.005}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.02, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.11, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.099999994, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.099999994, z: -0.055}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.01000083, z: -0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.099999994, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.049999997, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.01, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.07, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.07, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.12, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.089999996, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.089999996, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.06, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.08, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.099999994, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.049999997, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.04, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.049999997, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.07, z: 0.065}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.04, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.06, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.07, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.01, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.06, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.04, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.06, z: -0.005}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.04, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.049999997, z: -0.005}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.07, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.11, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.089999996, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: -0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.11, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: -0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: -0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.089999996, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.12, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.08, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.08, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.01, z: 0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.07, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.11, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.089999996, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.099999994, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.01, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.01000083, z: 0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.07, z: -0.095}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.06, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.01, z: 0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.06, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.089999996, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: -0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.06, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.099999994, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.02, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.089999996, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0, z: 0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.07, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.049999997, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.04, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0, z: 0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.06, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.02, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.01, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.01, z: 0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.03, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.08, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.03, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.02, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.07, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.06, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.11, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.04, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: -0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.089999996, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: -0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.03, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.04, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.04, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.099999994, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.06, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.089999996, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.06, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.04, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.049999997, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.049999997, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.11, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.049999997, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.06, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.04, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.06, z: -0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.07, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.12, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.089999996, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.099999994, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.03, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.02, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.03, z: -0.035}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.01, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.04, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.06, z: 0.065}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.07, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.089999996, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.089999996, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.049999997, z: 0.074999996}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: -0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.049999997, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.08, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.08, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.049999997, z: 0.085}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0, z: -0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.07, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.02, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.06, z: 0.074999996}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.07, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.03, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.03, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.01, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.049999997, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.07, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.11, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.11, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.08, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.049999997, y: 0.07, z: -0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.089999996, z: -0.055}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.06, z: -0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.049999997, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.049999997, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.049999997, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.04, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.049999997, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.08, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.08, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.06, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.03, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.04, z: 0.085}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.06, z: 0.074999996}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.02, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.03, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.08, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.08, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.08, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.11, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0, z: -0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.03, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.03, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.049999997, z: 0.085}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.06, z: 0.065}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.049999997, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.049999997, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.04, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.08, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0, z: 0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.049999997, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.02, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.06, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.11, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.01, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.02, z: 0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.07, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.08, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.07, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.07, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.08, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.08, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.01, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.06, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.01, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.07, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.049999997, z: 0.074999996}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.04, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.01000083, z: -0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.03, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.089999996, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.099999994, z: -0.055}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.07, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.049999997, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.049999997, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.049999997, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.02, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.08, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.03, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.06, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.099999994, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.049999997, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.06, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.07, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.06, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.089999996, z: -0.055}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.01000083, z: -0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.01000083, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.02, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.02, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.01, z: 0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.06, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.07, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.02, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.02, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.01000083, z: -0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.02, z: 0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.049999997, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.06, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.11, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.01, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.06, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.02, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.03, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.049999997, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.04, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.049999997, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: -0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.099999994, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.08, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.01000083, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.02, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.06, z: -0.005}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: -0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.08, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.04, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.02, z: -0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.02, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.01, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.049999997, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.049999997, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.049999997, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0, z: 0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.04, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.04, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.01, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.01, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.03, z: -0.035}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: -0.035}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: -0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: -0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.07, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.07, z: -0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.07, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.04, z: 0.085}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.06, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.07, z: 0.065}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.089999996, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.049999997, y: 0.07, z: -0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.089999996, z: -0.055}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.049999997, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.04, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.049999997, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: 0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.04, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.049999997, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.06, z: -0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.02, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.03, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.02, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.11, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.04, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.02, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.049999997, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.03, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.03, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.03, z: -0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.02, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.03, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.049999997, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.03, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.07, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.02, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.01, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.01, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.04, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.049999997, z: -0.005}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: -0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.06, z: -0.005}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.04, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.01, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: 0.089999996, z: -0.055}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.12, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.049999997, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.06, z: -0.095}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.08, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.08, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.04, y: 0.06, z: -0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.089999996, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.049999997, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.02, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.02, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.01000083, z: 0.005}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.03, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.03, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.049999997, y: 0.07, z: -0.065}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.01, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.02, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.01, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.06, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.07, z: -0.095}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.06, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.099999994, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.11, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.07, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.12, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.08, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.089999996, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.089999996, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.089999996, z: -0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: 0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.12, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.02, y: 0.02, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.01, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.07, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.01, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.03, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.02, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: 0.06, z: -0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.049999997, y: 0.07, z: -0.065}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.089999996, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.02, z: -0.015}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: -0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.06, z: -0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.03, y: -0.02, z: -0.024999999}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.01, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.01, y: 0.06, z: -0.095}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.04, z: -0.035}
+    realColorID: 4
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.06, z: 0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.03, y: 0.11, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.03, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: 0.049999997, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.06, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.02, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.02, y: -0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.02, y: -0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.12, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.03, y: -0.12, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.11, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.099999994, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.08, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.089999996, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.089999996, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.099999994, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.08, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.12, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.12, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.11, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.11, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.099999994, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.08, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.089999996, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.089999996, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.099999994, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.08, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.12, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.12, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.11, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.11, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.089999996, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.099999994, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.099999994, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.11, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.12, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: -0.04, y: -0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.11, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.089999996, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.11, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.12, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.099999994, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.099999994, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.04, y: -0.12, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.08, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.08, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.04, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.049999997, z: -0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: -0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: -0.024999999}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.01, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: 0.07, z: -0.095}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.04, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: 0.01, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.02, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.089999996, z: -0.035}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.02, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.04, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.049999997, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: -0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.03, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: 0.01, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.044999998}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.04, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.049999997, z: 0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.02, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: 0.08, z: -0.055}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: -0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.049999997, z: -0.085}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: -0.005}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.005}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.01, z: -0.035}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.06, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.08, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.07, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.03, z: -0.015}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.03, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.01, z: -0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.01, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.049999997, z: -0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.06, z: -0.095}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.08, z: -0.065}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0.089999996, z: -0.044999998}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.02, z: 0.074999996}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.03, z: 0.074999996}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: 0, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.01, z: 0.085}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0, z: 0.095}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: 0.03, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: 0.049999997, z: -0.024999999}
+    realColorID: 2
+    defaultColorID: 1
+  - position: {x: 0, y: -0.02, z: -0.015}
+    realColorID: 1
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: -0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: 0, z: -0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.015}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.024999999}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.035}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.044999998}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.055}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: -0.01, y: -0.06, z: 0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0, y: -0.06, z: 0.065}
+    realColorID: 3
+    defaultColorID: 1
+  - position: {x: 0.01, y: -0.06, z: 0.065}
+    realColorID: 3
+    defaultColorID: 1
+  materials:
+  - material: {fileID: -183530207247392898, guid: caba5c4c385cec044bbd5e047227660e, type: 3}
+    colorID: 1
+  - material: {fileID: 3499383003670499338, guid: caba5c4c385cec044bbd5e047227660e, type: 3}
+    colorID: 2
+  - material: {fileID: -1848320168960023137, guid: caba5c4c385cec044bbd5e047227660e, type: 3}
+    colorID: 3
+  - material: {fileID: 5737097422177602613, guid: caba5c4c385cec044bbd5e047227660e, type: 3}
+    colorID: 4
+  zoomInfo:
+    minZoom: 15
+    maxZoom: 60
+    checkPointZoom: 50

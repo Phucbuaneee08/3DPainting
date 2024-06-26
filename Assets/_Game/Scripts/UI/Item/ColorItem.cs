@@ -21,6 +21,7 @@ public class ColorItem : MonoBehaviour
     public void FocusCubeByColorID()
     {
         if (LevelManager.Ins.currentColor == colorID) return;
+        FillBooster.Ins.ZoomBoosterByColor();
         SetMovePosition();
         LevelManager.Ins.FocusByColorID(colorID);
     }
