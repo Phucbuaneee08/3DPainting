@@ -19,7 +19,7 @@ public class Player : GameUnit
     public float dragSpeed = 50f;
     private float x;
     private float y;
-    public float zoomDistance =0.1f;
+    public float zoomDistance =200f;
     private Vector3 targetPosition;
 
     private bool isLeftDragging;
