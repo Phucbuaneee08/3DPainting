@@ -1251,8 +1251,8 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   isHaveFillBooster: 1
   rotateSpeed: 10
-  dragSpeed: 50
-  zoomDistance: 0.1
+  dragSpeed: 25
+  zoomDistance: 200
   IsDragging: 0
 --- !u!95 &2099514020
 Animator:
