@@ -10,9 +10,16 @@ public class BoosterManager : Singleton<BoosterManager>
    
     private float maxDistance = 0.01f;
     private int boosterQuantity = 999;
+    private int boosterSweepQuantity = 1000;
+
     private bool _isCanUseFillBooster = false;
     private bool _isCanUseZoomBooster = true;
+    private bool _isCanUseSweepBooster = false;
+
     private float delayFillBooster = 0.001f;
+
+
+
     private Vector3[] directions = new Vector3[]
     {
         Vector3.up,
@@ -63,10 +70,18 @@ public class BoosterManager : Singleton<BoosterManager>
 
         }
     }
+
+
     /*
      * Script cho booster Fill màu ****************************************************************************************************
      */
+    #region Booster Sweep
 
+
+
+
+
+    #endregion
     public bool CheckBoosterQuantity()
     {
         return boosterQuantity > 0 && _isCanUseFillBooster;
