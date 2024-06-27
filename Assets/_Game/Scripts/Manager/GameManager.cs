@@ -25,7 +25,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-
         UIManager.Ins.OpenUI<UIMainMenu>();
     }
 
