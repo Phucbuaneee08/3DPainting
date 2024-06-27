@@ -75,9 +75,12 @@ public class BoosterManager : Singleton<BoosterManager>
     /*
      * Script cho booster Fill màu ****************************************************************************************************
      */
-    #region Booster Sweep
+    #region Booster Fill by Color
 
+    public void Booter()
+    {
 
+    }
 
 
 
