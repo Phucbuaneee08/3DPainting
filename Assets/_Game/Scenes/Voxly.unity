@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3d9cfebdf8270744fba001b6368d3760, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -760,14 +760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matData: []
-  defaultMats:
-  - {fileID: 2100000, guid: a11437dcb447cc145835a29144b324ec, type: 2}
-  - {fileID: 2100000, guid: c9d62485f94b5304dbffe9692e2f100e, type: 2}
-  - {fileID: 2100000, guid: 2a664c594e9943f4796fbec20322563a, type: 2}
-  - {fileID: 2100000, guid: ddcdc164b1b31db4d853b7cd0ccf07de, type: 2}
-  - {fileID: 2100000, guid: 8d99ac7da00fc8c4691ed408afa32098, type: 2}
-  - {fileID: 2100000, guid: 3aa3620d539a8194aa5175cb6212c7b7, type: 2}
-  - {fileID: 2100000, guid: c4a9cbe618c56d74b9910a439bc7bc7f, type: 2}
   numberMats:
   - {fileID: 2100000, guid: 87b2a5355dc68a044bb28dcdbb70d9d5, type: 2}
   - {fileID: 2100000, guid: aeabbf7290c471a4bb41e68967b84d19, type: 2}
@@ -784,6 +776,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ce7d3de79f21a9c4ba5919fc9131295e, type: 2}
   - {fileID: 2100000, guid: 84d0c008e7ba9594f92bebe83537de2f, type: 2}
   - {fileID: 2100000, guid: 4c6692575b84fe248bfd81fa8c660dbe, type: 2}
+  defaultMats: []
   highLightColor: {r: 0.919147, g: 1, b: 0, a: 0}
   showTextColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1455351149
@@ -1028,6 +1021,7 @@ MonoBehaviour:
   offset: {x: -0.202, y: 0.069, z: -0.4}
   rotateOffset: {x: 0.08000525, y: 0.23034842, z: -0.010618497, w: 0.9697557}
   player: {fileID: 2099514019}
+  zoomDuration: 0.5
   cam: {fileID: 963194227}
   targetObject: {fileID: 2099514018}
   zoomSpeed: 20
@@ -1258,6 +1252,7 @@ MonoBehaviour:
   isHaveFillBooster: 1
   rotateSpeed: 10
   dragSpeed: 50
+  zoomDistance: 0.1
   IsDragging: 0
 --- !u!95 &2099514020
 Animator:

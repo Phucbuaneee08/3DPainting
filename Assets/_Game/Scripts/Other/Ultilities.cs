@@ -58,6 +58,11 @@ public static class Ultilities
         if (list[nextType].quantity > 0) return list[nextType];
         return CheckNextCubeTypeInList(list, currentColor + 1);
     }
+    public static Color ConvertToGrayscale(Color color)// doi mau trang den
+    {
+        float gray = color.r *0.299f + color.g *0.587f + color.b * 0.114f;
+        return new Color(gray, gray, gray, color.a);
+    }
 
 
 }

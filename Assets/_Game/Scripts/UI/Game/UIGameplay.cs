@@ -89,6 +89,10 @@ public class UIGameplay : UICanvas
         distanceText.text = distance.ToString();
       
     }
+    public void SetZoomStateButton()
+    {
+        CameraManager.Ins.ChangeZoomState();
+    }
   
     
 }

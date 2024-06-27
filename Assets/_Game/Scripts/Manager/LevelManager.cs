@@ -65,6 +65,7 @@ public class LevelManager : Singleton<LevelManager>
         }
         cubes.Clear();
         SimplePool.CollectAll();
+        MaterialManager.Ins.OnResetDefaultColor();
     }
 
     public void OnLoadLevel(Level level)
@@ -74,6 +75,7 @@ public class LevelManager : Singleton<LevelManager>
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
+        
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
@@ -115,7 +117,7 @@ public class LevelManager : Singleton<LevelManager>
                 StartCoroutine(OnRemoveCube(cubes));
                 if (cubes.quantity == 0)
                 {
-                    if (cubeTypes.Count > 0 && cubeTotal>0 && !FillBooster.Ins.CheckBoosterQuantity()) {                 
+                    if (cubeTypes.Count > 0 && cubeTotal>0 && !BoosterManager.Ins.CheckBoosterQuantity()) {                 
                         CubeType currentColorType = Ultilities.CheckNextCubeTypeInList(cubeTypes,currentColor);
                         currentColor = currentColorType.colorID;
                         if(currentColorType.colorID!=0)
@@ -173,7 +175,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
         CameraManager.Ins.Reset();
-        FillBooster.Ins.ResetZoomBooster();
+        BoosterManager.Ins.ResetZoomBooster();
         UIManager.Ins.CloseAll();
         OnReset();
         UIManager.Ins.OpenUI<UIMainMenu>();

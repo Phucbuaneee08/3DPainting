@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,9 +18,11 @@ public class CameraManager : Singleton<CameraManager>
     [SerializeField] private Vector3 offset;
     [SerializeField] private Quaternion rotateOffset;
     [SerializeField] private Player player;
+    [SerializeField] private float zoomDuration = 0.5f;
     public Camera cam;
     
-    public Transform targetObject; 
+    public Transform targetObject;
+    
     public float zoomSpeed = 15f;
     public bool IsZooming = false;
     public float smoothy;
@@ -142,7 +145,19 @@ public class CameraManager : Singleton<CameraManager>
         StartCoroutine(StartSetFOV());
       
     }
-    
+    public void ChangeZoomState()
+    {
+        switch (camState)
+        {
+            case CameraState.ZoomIn:
+                cam.DOFieldOfView(maxZoom, zoomDuration);
+                break;
+            case CameraState.ZoomOut:
+                cam.DOFieldOfView((minZoom + checkPointZoom) / 2, zoomDuration);
+                break;
+        }
+    }
+
 
 }
 [System.Serializable]

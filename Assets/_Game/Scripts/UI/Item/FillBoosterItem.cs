@@ -18,7 +18,7 @@ public class FillBoosterItem : MonoBehaviour
         switch (_state)
         {
             case FillBoosterState.TurnOn:
-                FillBooster.Ins.ChangeBoosterState(false);
+                BoosterManager.Ins.ChangeBoosterState(false);
                 _state = FillBoosterState.TurnOff;
                 transform.DOMoveY(transform.position.y - moveUpDistance, duration);
 
@@ -29,7 +29,7 @@ public class FillBoosterItem : MonoBehaviour
                     LevelManager.Ins.ReleaseFocusCube();
 
                 }
-                FillBooster.Ins.ChangeBoosterState(true);
+                BoosterManager.Ins.ChangeBoosterState(true);
                 _state = FillBoosterState.TurnOn;
                 transform.DOMoveY(transform.position.y + moveUpDistance, duration);
              

@@ -94,8 +94,7 @@ public class Player : GameUnit
 
                 Vector2 currentTouchDelta = finger2End - finger1End;
                 if (Mathf.Abs(currentTouchDelta.magnitude - initialTouchDelta.magnitude) > zoomDistance) 
-                {
-                    UIManager.Ins.GetUI<UIGameplay>().SetMoveDistance(currentTouchDelta.magnitude - initialTouchDelta.magnitude);
+                {                  
                     CameraManager.Ins.IsZooming = true;
                 }
                 else
@@ -170,10 +169,10 @@ public class Player : GameUnit
                 { 
                   
                     Cube cube = Cache.GetCube(hitInfo.collider);
-                    if ( FillBooster.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
+                    if ( BoosterManager.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         isCanMove = false;
-                        FillBooster.Ins.FillBoosterByColor(cube);
+                        BoosterManager.Ins.FillBoosterByColor(cube);
                     }
 
                     if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
