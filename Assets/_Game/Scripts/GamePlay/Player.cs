@@ -151,9 +151,7 @@ public class Player : GameUnit
         if (Input.GetMouseButtonUp(1))
         {
             isRightDragging = false;
-          
         }
-
         x = Input.GetAxis("Mouse X");
         y = Input.GetAxis("Mouse Y");
 #endif

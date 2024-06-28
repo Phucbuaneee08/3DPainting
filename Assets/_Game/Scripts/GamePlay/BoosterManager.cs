@@ -20,6 +20,7 @@ public class BoosterManager : Singleton<BoosterManager>
     bool isCountQuantity = false;
     private float delayFillBooster = 0.001f;
 
+    public int iDSelectBooster = 0;
 
     private Vector3[] directions = new Vector3[]
     {

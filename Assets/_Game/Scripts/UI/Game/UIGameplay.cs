@@ -17,6 +17,8 @@ public class UIGameplay : UICanvas
     public FillBoosterItem fillBoosterItem;
     public FillBoosterItem fillBoosterItem2;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
+
+    public BoosterController boosterController;
     private void Awake()
     {
         miniPool.OnInit(colorItemPrefab, 10, content);
