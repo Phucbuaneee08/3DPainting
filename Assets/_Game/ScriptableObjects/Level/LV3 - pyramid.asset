@@ -563,3 +563,4 @@ MonoBehaviour:
     maxZoom: 32
     checkPointZoom: 28
   imageSource: {fileID: 21300000, guid: bcebc6e75df836843a933c93780cd5bf, type: 3}
+  poolType: 3

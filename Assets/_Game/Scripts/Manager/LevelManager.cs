@@ -16,6 +16,7 @@ public class LevelManager : Singleton<LevelManager>
     public Level currentLevel;
     public int currentColor;
     public int cubeTotal;
+    private AnimationGameUnit _currentAnim;
  
     
 
@@ -63,6 +64,8 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void OnReset()
     {
+        if(_currentAnim != null)    Destroy(_currentAnim.gameObject);
+        root.SetActive(true);
         player.OnReset();
         cubeTypes.Clear();
         foreach (Cube cube in cubes)
@@ -168,8 +171,13 @@ public class LevelManager : Singleton<LevelManager>
         CameraManager.Ins.SetFieldOfView();
         player.MoveToStartPosition();
         yield return new WaitForSeconds(2f);
-        root.SetActive(false);
-        SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
+
+        if (currentLevel.poolType != PoolType.None) 
+        {
+            root.SetActive(false);
+            _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
+        }
+           
         Victory();
     }
     public void Fail()
