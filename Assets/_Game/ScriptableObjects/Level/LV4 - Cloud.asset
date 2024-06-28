@@ -582,15 +582,15 @@ MonoBehaviour:
     realColorID: 5
     defaultColorID: 1
   materials:
-  - material: {fileID: 8088378821069534921, guid: de9f36f80a27aa74abc111ce96f877be, type: 3}
+  - material: {fileID: 8088378821069534921, guid: 0d15095f8d45edd4c97014bcc2d879ce, type: 3}
     colorID: 1
-  - material: {fileID: -3495059430550747774, guid: de9f36f80a27aa74abc111ce96f877be, type: 3}
+  - material: {fileID: -3495059430550747774, guid: 0d15095f8d45edd4c97014bcc2d879ce, type: 3}
     colorID: 2
-  - material: {fileID: 9114222131955934341, guid: de9f36f80a27aa74abc111ce96f877be, type: 3}
+  - material: {fileID: 9114222131955934341, guid: 0d15095f8d45edd4c97014bcc2d879ce, type: 3}
     colorID: 3
-  - material: {fileID: 591031639713082001, guid: de9f36f80a27aa74abc111ce96f877be, type: 3}
+  - material: {fileID: 591031639713082001, guid: 0d15095f8d45edd4c97014bcc2d879ce, type: 3}
     colorID: 4
-  - material: {fileID: 5106364046640926047, guid: de9f36f80a27aa74abc111ce96f877be, type: 3}
+  - material: {fileID: 5106364046640926047, guid: 0d15095f8d45edd4c97014bcc2d879ce, type: 3}
     colorID: 5
   zoomInfo:
     minZoom: 15
