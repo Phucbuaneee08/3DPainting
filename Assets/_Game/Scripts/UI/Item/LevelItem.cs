@@ -21,7 +21,7 @@ public class LevelItem : MonoBehaviour
     }
     public void SelectLevel()
     {
-        LevelManager.Ins.OnLoadLevel(level);
+        LevelManager.Ins.OnLoadLevel(levelID);
         UIManager.Ins.CloseUI<UIMainMenu>();
     }
    

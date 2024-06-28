@@ -61,7 +61,7 @@ public class BoosterManager : Singleton<BoosterManager>
     }
     private IEnumerator OnFilled(List<Cube> visited)
     {
-        Debug.LogError(visited.Count);
+       
         foreach (Cube cubez in visited)
         {
             if (cubez.IsState(CubeState.Colored)) yield return null;
