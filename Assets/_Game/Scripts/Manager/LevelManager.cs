@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private  int totalTime;
     [SerializeField] private int reviveTime;
     [SerializeField] private GameObject root;
+    [SerializeField] private Vector3 rotateOffset;
     private bool _isCanRevive;
     public Level currentLevel;
     public int currentColor;
@@ -111,6 +113,9 @@ public class LevelManager : Singleton<LevelManager>
             MaterialManager.Ins.SetDefaultColor(newCube, newCube.GetColorID() - 1);
             cubes.Add(newCube);
         }
+
+        //player.transform.DORotate(rotateOffset, 0f);
+        player.transform.DORotate(rotateOffset, 0f);
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
@@ -167,15 +172,17 @@ public class LevelManager : Singleton<LevelManager>
     }
     private IEnumerator OnCelebration()
     {
-        player.PlayAnim();
+        //player.PlayAnim();
         CameraManager.Ins.SetFieldOfView();
-        player.MoveToStartPosition();
+        player.MoveToStartPosition(Vector3.zero,rotateOffset);
         yield return new WaitForSeconds(2f);
 
         if (currentLevel.poolType != PoolType.None) 
         {
+           
             root.SetActive(false);
             _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
+          
         }
            
         Victory();
