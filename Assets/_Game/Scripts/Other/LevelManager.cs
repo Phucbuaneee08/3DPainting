@@ -14,6 +14,9 @@ public class LevelManager : Singleton<LevelManager>
     public Level currentLevel;
     public int currentColor;
     public int cubeTotal;
+    
+
+   
 
     public void OnInit()
     {

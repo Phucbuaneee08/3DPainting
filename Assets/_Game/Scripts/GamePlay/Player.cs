@@ -43,6 +43,7 @@ public class Player : GameUnit
     {
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
 
+
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -83,7 +84,7 @@ public class Player : GameUnit
 
             }
             else if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
-            {            
+            {
                 isLeftDragging = false;
                 isRightDragging = true;
                 Vector2 finger1Move = touch1.deltaPosition;
@@ -93,9 +94,10 @@ public class Player : GameUnit
 
 
                 Vector2 currentTouchDelta = finger2End - finger1End;
-                if (Mathf.Abs(currentTouchDelta.magnitude - initialTouchDelta.magnitude) > zoomDistance) 
-                {                  
+                if (Mathf.Abs(currentTouchDelta.magnitude - initialTouchDelta.magnitude) > zoomDistance)
+                {
                     CameraManager.Ins.IsZooming = true;
+                    isRightDragging = false;
                 }
                 else
                 {
@@ -103,13 +105,13 @@ public class Player : GameUnit
 
                     x = averageMove.x;
                     y = averageMove.y;
-                }              
+                }
             }
             else if (touch1.phase == TouchPhase.Ended || touch1.phase == TouchPhase.Canceled ||
                         touch2.phase == TouchPhase.Ended || touch2.phase == TouchPhase.Canceled)
             {
                 // Trường hợp một trong hai ngón tay rời khỏi màn hình
-                IsDragging = false;            
+                IsDragging = false;             
                 isRightDragging = false;
                 x = 0;
                 y = 0;
@@ -123,14 +125,12 @@ public class Player : GameUnit
                 y = 0;
             }
         }
-        else
-        {
-            isLeftDragging = false;
-            isRightDragging = false;
-        }
+
+
 
 
 #if UNITY_EDITOR
+        rotateSpeed = 500f;
         if (Input.GetMouseButtonDown(0))
         {
            
