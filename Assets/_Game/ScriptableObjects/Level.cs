@@ -14,6 +14,7 @@ public class Level : ScriptableObject
     public List<MaterialData> materials;
     public ZoomInfo zoomInfo = new ZoomInfo(5,60,50);
     public Sprite imageSource;
+    public PoolType poolType;
 }
 
 [System.Serializable]

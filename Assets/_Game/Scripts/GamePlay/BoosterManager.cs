@@ -7,17 +7,18 @@ using System.Collections;
 public class BoosterManager : Singleton<BoosterManager>
 {
     [SerializeField] private Player player;
+    [SerializeField] private int numberCubeFill = 10;
 
     private float maxDistance = 0.01f;
     private int boosterQuantity = 999;
     private int boosterFillByColorQuantity = 1000;
 
-    private bool _isCanUseFillBooster = false;
+    public bool _isCanUseFillBooster = false;
+    public bool _isCanUseFillByNumberBooster = false;
+
     private bool _isCanUseZoomBooster = true;
-    private bool _isCanUseFillByNumberBooster = false;
     bool isCountQuantity = false;
     private float delayFillBooster = 0.001f;
-
 
 
     private Vector3[] directions = new Vector3[]
@@ -75,7 +76,7 @@ public class BoosterManager : Singleton<BoosterManager>
 
     private IEnumerator OnFilledColor(List<Cube> visited)
     {
-        foreach (Cube cubez in new List<Cube>(visited))
+        foreach (Cube cubez in visited)
         {
             if (cubez.IsState(CubeState.Colored)) continue;
             yield return new WaitForSeconds(delayFillBooster);
@@ -91,9 +92,11 @@ public class BoosterManager : Singleton<BoosterManager>
     {
         List<Cube> visited = new List<Cube>();
         Queue<Cube> queue = new Queue<Cube>();
+        
         queue.Enqueue(currentCube);
         visited.Add(currentCube);
-        while (queue.Count > 0)
+        int totalProcessed = 0;
+        while (queue.Count > 0 && totalProcessed < numberCubeFill) 
         {
             Cube cube = queue.Dequeue();
             foreach (Vector3 direction in directions)
@@ -106,25 +109,29 @@ public class BoosterManager : Singleton<BoosterManager>
                     {
                         queue.Enqueue(adjacentCube);
                         visited.Add(adjacentCube);
-                        StartCoroutine(OnFilledColor(new List<Cube>(visited)));
-                        if(isCountQuantity == false)
-                        {
-                            boosterFillByColorQuantity -= 1;
-                            isCountQuantity = true;
-                        }
+                        totalProcessed++;
+                        if (totalProcessed >= numberCubeFill) break; 
                     }
                 }
             }
         }
+        StartCoroutine(OnFilledColor(visited));
+        if (!isCountQuantity)
+        {
+            boosterFillByColorQuantity -= 1;
+            isCountQuantity = true;
+        }
         isCountQuantity = false;
     }
-
     public void ChangeBoosterFillState(bool state)
     {
         _isCanUseFillByNumberBooster = state;
     }
 
+
+
     #endregion
+
     /*
      * Script cho booster Fill màu ****************************************************************************************************
      */

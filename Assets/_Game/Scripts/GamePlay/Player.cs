@@ -24,7 +24,7 @@ public class Player : GameUnit
 
     private bool isLeftDragging;
     private bool isRightDragging;
-    private bool isCanMove;
+    private bool isCanRotate;
     private bool isCanFillColor;
     
     private const string VICTORY_ANIM = "Victory";
@@ -57,7 +57,7 @@ public class Player : GameUnit
                 case TouchPhase.Ended:
                 case TouchPhase.Canceled:
                     isLeftDragging = false;
-                    isCanMove = true;
+                    isCanRotate = true;
                     isCanFillColor = true;
                     break;
 
@@ -144,7 +144,7 @@ public class Player : GameUnit
         if (Input.GetMouseButtonUp(0))
         {
             isLeftDragging = false;
-            isCanMove = true;
+            isCanRotate = true;
             isCanFillColor = true;
             isHaveFillBooster = true;
         }
@@ -171,26 +171,25 @@ public class Player : GameUnit
                     Cube cube = Cache.GetCube(hitInfo.collider);
                     if ( BoosterManager.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
-                        isCanMove = false;
+                        isCanRotate = false;
                         BoosterManager.Ins.FillBoosterByColor(cube);
                     }
-                    if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor)
+                    if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
                     {
-                        isCanMove = false;
                         BoosterManager.Ins.BoosterFillByNumber(cube);
                     }
                     if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         if (cube.GetColorID() == LevelManager.Ins.currentColor)
                         {
-                            isCanMove = false;
+                            isCanRotate = false;
                             LevelManager.Ins.OnFilledCube(cube);
                         }
-                        else if (isCanMove) isCanFillColor = false;
+                        else if (isCanRotate) isCanFillColor = false;
 
 
                     }
-                    else if (isCanMove)
+                    else if (isCanRotate)
                     {
                         isCanFillColor = false;
                         if (OnCheckIsTouching(0.01f))
@@ -202,10 +201,10 @@ public class Player : GameUnit
 
 
             }
-            else if (isCanMove)
+            else if (isCanRotate)
             {
                 isCanFillColor = false;
-                if (OnCheckIsTouching(0.01f) && isCanMove)
+                if (OnCheckIsTouching(0.01f) && isCanRotate)
                 {
                     OnRotate();
                 }
@@ -249,7 +248,7 @@ public class Player : GameUnit
         transform.position = Vector3.zero;
         isLeftDragging = false;
         isRightDragging = false;
-        isCanMove = false;
+        isCanRotate = false;
         isCanFillColor = false;
         
     }
@@ -260,7 +259,22 @@ public class Player : GameUnit
     }
     public void MoveToStartPosition()
     {
-        StartCoroutine(MovePlayer());
+        float moveDuration = 2f;
+        Vector3 startPosition = transform.position;
+        Vector3 targetPosition = Vector3.zero;
+
+        float timeElapsed = 0;
+
+        while (timeElapsed < moveDuration)
+        {
+
+            transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / moveDuration);
+
+            timeElapsed += Time.deltaTime;
+          
+        }
+
+        transform.position = targetPosition;
     }
     IEnumerator MovePlayer()
     {

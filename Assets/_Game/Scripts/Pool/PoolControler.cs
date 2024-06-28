@@ -153,6 +153,11 @@ public enum PoolType
 {
     None,
 
-    Cube
+    Cube,
+    House,
+    Pyramid,
+    Cloud,
+    Cake
+
 }
 

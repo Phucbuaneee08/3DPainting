@@ -11,10 +11,12 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private List<CubeType> cubeTypes;
     [SerializeField] private  int totalTime;
     [SerializeField] private int reviveTime;
+    [SerializeField] private GameObject root;
     private bool _isCanRevive;
     public Level currentLevel;
     public int currentColor;
     public int cubeTotal;
+ 
     
 
    
@@ -162,10 +164,12 @@ public class LevelManager : Singleton<LevelManager>
     }
     private IEnumerator OnCelebration()
     {
+        player.PlayAnim();
         CameraManager.Ins.SetFieldOfView();
         player.MoveToStartPosition();
-        player.PlayAnim();
         yield return new WaitForSeconds(2f);
+        root.SetActive(false);
+        SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
         Victory();
     }
     public void Fail()
