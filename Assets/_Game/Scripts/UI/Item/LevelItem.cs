@@ -11,7 +11,7 @@ public class LevelItem : MonoBehaviour
     private Level level;
 
 
-    public void SetData(int levelID,Level level,Sprite avatar)
+    public void SetData(int levelID, Level level, Sprite avatar)
     {
         this.levelID = levelID;
         this.level = level;
@@ -24,6 +24,9 @@ public class LevelItem : MonoBehaviour
         LevelManager.Ins.OnLoadLevel(level);
         UIManager.Ins.CloseUI<UIMainMenu>();
     }
-   
+    public int GetID()
+    {
+        return levelID;
+    }
 
 }

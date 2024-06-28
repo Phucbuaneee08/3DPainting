@@ -71,9 +71,6 @@ public class BoosterManager : Singleton<BoosterManager>
     }
 
 
-    /*
-     * Script cho booster Fill màu ****************************************************************************************************
-     */
     #region Booster Fill By Number
 
     private IEnumerator OnFilledColor(List<Cube> visited)
@@ -128,6 +125,9 @@ public class BoosterManager : Singleton<BoosterManager>
     }
 
     #endregion
+    /*
+     * Script cho booster Fill màu ****************************************************************************************************
+     */
     public bool CheckBoosterQuantity()
     {
         return boosterQuantity > 0 && _isCanUseFillBooster;

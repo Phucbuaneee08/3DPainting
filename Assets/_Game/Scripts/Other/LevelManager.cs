@@ -131,13 +131,13 @@ public class LevelManager : Singleton<LevelManager>
                 }               
             }
         }
-        
     }
     private IEnumerator OnRemoveCube(CubeType cubes)
     {
         yield return null;
-      
-        UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(cubes.colorID).SetFillAmount((float)cubes.quantity/(float)cubes.total);
+        ColorItem ci = UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(cubes.colorID);
+        if(ci!=null)
+            ci.SetFillAmount((float)cubes.quantity/(float)cubes.total);
     }
     private IEnumerator OnCelebration()
     {

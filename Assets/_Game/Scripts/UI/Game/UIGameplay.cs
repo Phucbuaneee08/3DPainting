@@ -13,10 +13,11 @@ public class UIGameplay : UICanvas
     [SerializeField] List<ColorItem> colorItems;
     [SerializeField] private Timer timer;
     [SerializeField] RectTransform scrollViewRect;
+
     public FillBoosterItem fillBoosterItem;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
     private ColorItem colorItemSelected;
-
+    public RectTransform tfContent;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class UIGameplay : UICanvas
     public override void Setup()
     {
         base.Setup();
-        if(fillBoosterItem.IsState(FillBoosterState.TurnOn))
+        if (fillBoosterItem.IsState(FillBoosterState.TurnOn))
         {
             fillBoosterItem.ChangeBoosterItemState();
         }
@@ -35,24 +36,25 @@ public class UIGameplay : UICanvas
     {
         base.Open();
         GameManager.Ins.ChangeState(GameState.GamePlay);
-        
+
     }
     public void OpenSetting()
     {
         UIManager.Ins.OpenUI<UISetting>();
     }
     public void InitColorItem(List<MaterialData> listMD)
+    {
+        foreach (MaterialData md in listMD)
         {
-            foreach(MaterialData md in  listMD)
-            {
-                ColorItem colorItem = miniPool.Spawn();
-                colorItem.SetData(md.colorID,md.material.color);
-                colorItems.Add(colorItem);
-            }
+            ColorItem colorItem = miniPool.Spawn();
+            colorItem.SetData(md.colorID, md.material.color);
+            colorItems.Add(colorItem);
         }
+    }
     public ColorItem FindItemByColorId(int colorID)
     {
-        foreach(ColorItem ci in colorItems)
+       
+        foreach (ColorItem ci in colorItems)
         {
             if (ci.GetColorID() == colorID)
                 return ci;
@@ -61,18 +63,23 @@ public class UIGameplay : UICanvas
     }
     public void RemoveColorItem(int colorID)
     {
-        foreach(ColorItem ci in colorItems)
-        {
-            if (ci.GetColorID() == colorID){
-                miniPool.Despawn(ci);
-            }
-        }
+        ColorItem colorItem = colorItems[colorID-1];
+        miniPool.Despawn(colorItem);
+        colorItems.Remove(colorItem);
+        //foreach (ColorItem ci in colorItems)
+        //{
+        //    if (ci.GetColorID() == colorID)
+        //    {
+        //        miniPool.Despawn(ci);
+        //        colorItems.Remove(ci);
+        //    }
+        //}
     }
     public void ResetColorItem()
     {
         foreach (ColorItem ci in colorItems)
         {
-             miniPool.Despawn(ci);  
+            miniPool.Despawn(ci);
         }
         colorItems.Clear();
     }
@@ -87,12 +94,11 @@ public class UIGameplay : UICanvas
     public void SetMoveDistance(float distance)
     {
         distanceText.text = distance.ToString();
-      
+
     }
     public void SetZoomStateButton()
     {
         CameraManager.Ins.ChangeZoomState();
     }
-  
-    
+   
 }

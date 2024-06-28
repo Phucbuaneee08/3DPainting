@@ -609,6 +609,7 @@ MonoBehaviour:
   timer: {fileID: 2486747461797379089}
   scrollViewRect: {fileID: 802974474551435451}
   fillBoosterItem: {fileID: 7280504719445165629}
+  tfContent: {fileID: 802974474489625536}
 --- !u!1 &802974474489625539
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +699,7 @@ GameObject:
   - component: {fileID: 802974474551435448}
   m_Layer: 5
   m_Name: Scroll View
-  m_TagString: ScrollView
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,8 +776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 802974474489625536}
   m_Horizontal: 1
-  m_Vertical: 1
-  m_MovementType: 2
+  m_Vertical: 0
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -1611,7 +1612,7 @@ GameObject:
   - component: {fileID: 4724047119830702953}
   m_Layer: 5
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: ScrollView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
