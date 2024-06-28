@@ -34,6 +34,7 @@ public class UIGameplay : UICanvas
         {
             fillBoosterItem2.ChangeBoosterFillItemState();
         }
+        boosterController.LoadData();
     }
     public override void Open()
     {
