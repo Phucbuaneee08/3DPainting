@@ -13,11 +13,14 @@ public class ColorItem : MonoBehaviour
     [SerializeField] private Text text;
     [SerializeField] private RectTransform element;
     [SerializeField] private ColorItemState colorItemState;
-    private float moveUpDistance = 50f;
-    private float duration = 0.5f;
-    private UIGameplay uIGameplay;
 
+    public Vector2 initialPosition;
 
+    private void Awake()
+    {
+        element = GetComponent<RectTransform>();
+        StartCoroutine(IE_SetTFdata());
+    }
     public void FocusCubeByColorID()
     {
         if (LevelManager.Ins.currentColor == colorID) return;
@@ -31,6 +34,12 @@ public class ColorItem : MonoBehaviour
         bg.color = color;
         text.text = colorID.ToString();
         colorItemState = ColorItemState.Default;
+        StartCoroutine(IE_SetTFdata());
+    }
+    IEnumerator IE_SetTFdata()
+    {
+        yield return new WaitForEndOfFrame();
+        initialPosition = element.anchoredPosition;
     }
     public int GetColorID()
     {
@@ -42,14 +51,19 @@ public class ColorItem : MonoBehaviour
         {
             case ColorItemState.Default:
                 if (UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.IsState(FillBoosterState.TurnOn))
+                {
                     UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.ChangeBoosterItemState();
+                }
+                if (UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.IsState2(FillBoosterState.TurnOn))
+                {
+                    UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.ChangeBoosterFillItemState();
+                }
                 colorItemState = ColorItemState.IsSelected;
-                element.DOMoveY(element.position.y + moveUpDistance, duration);
-         
+                MoveUp();
                 break;
             case ColorItemState.IsSelected:
                 colorItemState= ColorItemState.Default;
-                element.DOMoveY(element.position.y - moveUpDistance, duration);
+                MoveDown();
                 Debug.Log(element.position.y);
                 break;
         }
@@ -59,5 +73,13 @@ public class ColorItem : MonoBehaviour
 
         bg.fillAmount = amount;
     }
+    public void MoveUp()
+    {
+        element.DOAnchorPosY(initialPosition.y + 40f, 0.3f);
+    }
 
+    public void MoveDown()
+    {
+        element.DOAnchorPosY(initialPosition.y, 0.5f);
+    }
 }

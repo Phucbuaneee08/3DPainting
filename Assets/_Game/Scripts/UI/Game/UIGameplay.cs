@@ -15,14 +15,11 @@ public class UIGameplay : UICanvas
     [SerializeField] RectTransform scrollViewRect;
 
     public FillBoosterItem fillBoosterItem;
+    public FillBoosterItem fillBoosterItem2;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
-    private ColorItem colorItemSelected;
-    public RectTransform tfContent;
-
     private void Awake()
     {
         miniPool.OnInit(colorItemPrefab, 10, content);
-
     }
     public override void Setup()
     {
@@ -30,6 +27,10 @@ public class UIGameplay : UICanvas
         if (fillBoosterItem.IsState(FillBoosterState.TurnOn))
         {
             fillBoosterItem.ChangeBoosterItemState();
+        }  
+        if (fillBoosterItem2.IsState2(FillBoosterState.TurnOn))
+        {
+            fillBoosterItem2.ChangeBoosterFillItemState();
         }
     }
     public override void Open()
@@ -63,17 +64,13 @@ public class UIGameplay : UICanvas
     }
     public void RemoveColorItem(int colorID)
     {
-        ColorItem colorItem = colorItems[colorID-1];
-        miniPool.Despawn(colorItem);
-        colorItems.Remove(colorItem);
-        //foreach (ColorItem ci in colorItems)
-        //{
-        //    if (ci.GetColorID() == colorID)
-        //    {
-        //        miniPool.Despawn(ci);
-        //        colorItems.Remove(ci);
-        //    }
-        //}
+        foreach (ColorItem ci in colorItems)
+        {
+            if (ci.GetColorID() == colorID)
+            {
+                miniPool.Despawn(ci);
+            }
+        }
     }
     public void ResetColorItem()
     {
@@ -100,5 +97,12 @@ public class UIGameplay : UICanvas
     {
         CameraManager.Ins.ChangeZoomState();
     }
-   
+    public void MoveDownBtn(FillBoosterItem fillBoosterItem)
+    {
+        fillBoosterItem.MoveDown();
+    }
+    public void MoveUpBtn(FillBoosterItem fillBoosterItem)
+    {
+        fillBoosterItem.MoveUp();
+    }
 }
