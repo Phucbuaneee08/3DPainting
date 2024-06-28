@@ -7,7 +7,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class UIGameplay : UICanvas
 {
-    [SerializeField] private Text distanceText;
     [SerializeField] Transform content;
     [SerializeField] ColorItem colorItemPrefab;
     [SerializeField] List<ColorItem> colorItems;
@@ -87,11 +86,6 @@ public class UIGameplay : UICanvas
     public bool CheckInputOnUI()
     {
         return RectTransformUtility.RectangleContainsScreenPoint(scrollViewRect, Input.mousePosition, null);
-    }
-    public void SetMoveDistance(float distance)
-    {
-        distanceText.text = distance.ToString();
-
     }
     public void SetZoomStateButton()
     {

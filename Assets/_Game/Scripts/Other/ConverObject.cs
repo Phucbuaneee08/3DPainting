@@ -28,7 +28,7 @@ public class ConverObject : MonoBehaviour
         PrefabData pd = list[0];
         foreach (PoisitionData data in pd.poisitionDatas)
         {
-            CubeData cb = new CubeData(data.position, 2, 1);
+            CubeData cb = new CubeData(1,data.position, 2, 1);
             level.cubes.Add(cb);
         }
     }

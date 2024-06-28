@@ -49,7 +49,7 @@ public class ConvertTool : EditorWindow
                         {
                             if(Ultilities.AreColorsApproximatelyEqual(mat.color, listColor[i], app))
                             {
-                                CubeData cube = new CubeData(child.transform.position, i, 1);
+                                CubeData cube = new CubeData(level.cubes.Count,child.transform.position, i, 1);
                                 level.cubes.Add(cube);
                             }
                         }
@@ -58,7 +58,7 @@ public class ConvertTool : EditorWindow
                     {
                         listColor.Add(mat.color);
                         uniqueColors.Add(mat);
-                        CubeData cube = new CubeData(child.transform.position, listColor.Count-1, 1);
+                        CubeData cube = new CubeData(level.cubes.Count,child.transform.position, listColor.Count-1, 1);
                         level.cubes.Add(cube);
                     }
                    

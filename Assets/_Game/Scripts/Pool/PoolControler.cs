@@ -157,7 +157,9 @@ public enum PoolType
     House,
     Pyramid,
     Cloud,
-    Cake
+    Cake,
+    Dino,
+    Elephant
 
 }
 
