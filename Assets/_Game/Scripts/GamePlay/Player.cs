@@ -174,7 +174,11 @@ public class Player : GameUnit
                         isCanMove = false;
                         BoosterManager.Ins.FillBoosterByColor(cube);
                     }
-
+                    if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor)
+                    {
+                        isCanMove = false;
+                        BoosterManager.Ins.BoosterFillByNumber(cube);
+                    }
                     if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         if (cube.GetColorID() == LevelManager.Ins.currentColor)
