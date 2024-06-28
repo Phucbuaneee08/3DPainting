@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
+    [SerializeField] private LevelDatas levelDatas;
     [SerializeField] private Player player;
     [SerializeField] private List<Level> levels;
     [SerializeField] private List<Cube> cubes;
@@ -71,25 +72,45 @@ public class LevelManager : Singleton<LevelManager>
         MaterialManager.Ins.OnResetDefaultColor();
     }
 
-    public void OnLoadLevel(Level level)
+    //public void OnLoadLevel(Level level)
+    //{
+
+    //    currentLevel = level;
+    //    OnInit();
+    //    CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
+    //    MaterialManager.Ins.SetMatData(currentLevel.materials);
+        
+    //    for (int i = 0; i < currentLevel.cubes.Count; i++)
+    //    {
+    //        Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
+    //        newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);
+    //        MaterialManager.Ins.SetDefaultColor(newCube, newCube.GetColorID()-1);
+    //        cubes.Add(newCube);
+    //    }
+    //    UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
+    //    UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
+    //}
+
+    public void OnLoadLevel(int levelID)
     {
 
-        currentLevel = level;
+        currentLevel = levelDatas.level3D[levelID-1].level;
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
-        
+
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
             newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);
-            MaterialManager.Ins.SetDefaultColor(newCube, newCube.GetColorID()-1);
+            MaterialManager.Ins.SetDefaultColor(newCube, newCube.GetColorID() - 1);
             cubes.Add(newCube);
         }
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
-   
+
+
     public void OnFilledCube(Cube cube)
     {
         if (cube.IsState(CubeState.Colored)) return;

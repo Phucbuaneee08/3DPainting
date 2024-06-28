@@ -251,7 +251,7 @@ public class Player : GameUnit
         isRightDragging = false;
         isCanMove = false;
         isCanFillColor = false;
-        this.gameObject.SetActive(false);
+        
     }
     public void PlayAnim()
     {
