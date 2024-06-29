@@ -28,7 +28,6 @@ public class ColorItem : MonoBehaviour
         SetMovePosition();
         LevelManager.Ins.FocusByColorID(colorID);
         SetDoAchoBooster();
-
     }
     public void SetDoAchoBooster()
     {
