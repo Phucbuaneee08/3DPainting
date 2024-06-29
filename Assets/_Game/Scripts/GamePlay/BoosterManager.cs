@@ -137,9 +137,7 @@ public class BoosterManager : Singleton<BoosterManager>
 
     #endregion
 
-    /*
-     * Script cho booster Fill màu ****************************************************************************************************
-     */
+    #region Booster Fill All Number
     public bool CheckBoosterQuantity()
     {
         return boosterQuantity > 0 && _isCanUseFillBooster;
@@ -185,4 +183,5 @@ public class BoosterManager : Singleton<BoosterManager>
         Debug.Log("Remove cube ID " + currentCube.GetColorID() + ": " + visited.Count);
 #endif
     }
+    #endregion
 }
