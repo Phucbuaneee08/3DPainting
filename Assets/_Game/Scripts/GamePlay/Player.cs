@@ -246,7 +246,7 @@ public class Player : GameUnit
     {
         animator.enabled = false;
         transform.rotation = Quaternion.identity;
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
         isLeftDragging = false;
         isRightDragging = false;
         isCanRotate = false;

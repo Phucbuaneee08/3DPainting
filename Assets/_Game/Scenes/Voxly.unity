@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 0.48627448, g: 1, b: 0.9552552, a: 0.88235295}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -348,14 +348,6 @@ MonoBehaviour:
     collect: 0
   - root: {fileID: 2099514018}
     prefab: {fileID: 7700016533582991532, guid: 8f696544054c1e547b9c7c295af5b134, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: -6508557949581737986, guid: 1df2927f1c8536f4589c546658a8484c, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: 2072256429856787021, guid: 64c5086cd6681494e8f9ccb55a33383a, type: 3}
     amount: 0
     collect: 0
   Particle: []
@@ -587,7 +579,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
