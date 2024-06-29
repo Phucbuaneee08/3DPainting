@@ -6,14 +6,14 @@ using DG.Tweening;
 public enum FillBoosterState
 {
     TurnOn = 0,
-    TurnOff = 1,    
+    TurnOff = 1,
 }
 public class FillBoosterItem : MonoBehaviour
 {
     [SerializeField] private RectTransform element;
 
-    private FillBoosterState _state= FillBoosterState.TurnOff;
-    public FillBoosterState _state2= FillBoosterState.TurnOff;
+    private FillBoosterState _state = FillBoosterState.TurnOff;
+    public FillBoosterState _state2 = FillBoosterState.TurnOff;
     private float moveUpDistance = 50f;
     private float duration = 0.5f;
     public Vector2 initialPosition;
@@ -32,7 +32,8 @@ public class FillBoosterItem : MonoBehaviour
                 transform.DOMoveY(transform.position.y - moveUpDistance, duration);
                 break;
             case FillBoosterState.TurnOff:
-                if (LevelManager.Ins.currentColor != 0) {
+                if (LevelManager.Ins.currentColor != 0)
+                {
                     UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
                     LevelManager.Ins.ReleaseFocusCube();
                 }

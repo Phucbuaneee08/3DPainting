@@ -27,6 +27,17 @@ public class ColorItem : MonoBehaviour
         BoosterManager.Ins.ZoomBoosterByColor();
         SetMovePosition();
         LevelManager.Ins.FocusByColorID(colorID);
+        SetDoAchoBooster();
+    }
+    public void SetDoAchoBooster()
+    {
+        if(BoosterManager.Ins._isCanUseFillBooster == true)
+        {
+            BoosterManager.Ins.iDSelectBooster = 0;
+            BoosterManager.Ins._isCanUseFillBooster = false;
+            UIManager.Ins.GetUI<UIGameplay>().boosterController.SetUpDown(0);
+            MoveUp();
+        }
     }
     public void SetData(int colorID,Color color) 
     { 
@@ -68,6 +79,7 @@ public class ColorItem : MonoBehaviour
                 break;
         }
     }
+
     public void SetFillAmount(float amount)
     {
 

@@ -7,6 +7,7 @@ using System.Collections;
 public class BoosterManager : Singleton<BoosterManager>
 {
     [SerializeField] private Player player;
+    [SerializeField] private int numberCubeFillByNumber = 10;
     [SerializeField] private int numberCubeFill = 10;
 
     private float maxDistance = 0.01f;
@@ -18,8 +19,10 @@ public class BoosterManager : Singleton<BoosterManager>
 
     private bool _isCanUseZoomBooster = true;
     bool isCountQuantity = false;
+    bool isCountQuantity2 = false;
     private float delayFillBooster = 0.001f;
 
+    public int iDSelectBooster = 0;
 
     private Vector3[] directions = new Vector3[]
     {
@@ -62,7 +65,7 @@ public class BoosterManager : Singleton<BoosterManager>
     }
     private IEnumerator OnFilled(List<Cube> visited)
     {
-       
+
         foreach (Cube cubez in visited)
         {
             if (cubez.IsState(CubeState.Colored)) yield return null;
@@ -92,11 +95,13 @@ public class BoosterManager : Singleton<BoosterManager>
     {
         List<Cube> visited = new List<Cube>();
         Queue<Cube> queue = new Queue<Cube>();
-        
+
         queue.Enqueue(currentCube);
         visited.Add(currentCube);
         int totalProcessed = 0;
-        while (queue.Count > 0 && totalProcessed < numberCubeFill) 
+        while (queue.Count > 0 && totalProcessed < numberCubeFillByNumber)
+        
+     
         {
             Cube cube = queue.Dequeue();
             foreach (Vector3 direction in directions)
@@ -110,7 +115,7 @@ public class BoosterManager : Singleton<BoosterManager>
                         queue.Enqueue(adjacentCube);
                         visited.Add(adjacentCube);
                         totalProcessed++;
-                        if (totalProcessed >= numberCubeFill) break; 
+                        if (totalProcessed >= numberCubeFillByNumber) break;
                     }
                 }
             }
@@ -146,9 +151,8 @@ public class BoosterManager : Singleton<BoosterManager>
         Queue<Cube> queue = new Queue<Cube>();
         queue.Enqueue(currentCube);
         visited.Add(currentCube);
-
-
-        while (queue.Count > 0)
+        int totalProcessed = 0;
+        while (queue.Count > 0 && totalProcessed < numberCubeFill)
         {
             Cube cube = queue.Dequeue();
 
@@ -158,17 +162,22 @@ public class BoosterManager : Singleton<BoosterManager>
                 if (Physics.Raycast(cube.transform.position, direction, out hit, maxDistance))
                 {
                     Cube adjacentCube = hit.collider.GetComponent<Cube>();
-                    if (adjacentCube != null && adjacentCube.GetColorID() == currentCube.GetColorID() && !adjacentCube.IsState(CubeState.Colored) && !visited.Contains(adjacentCube))
+                    if (adjacentCube != null /*&& adjacentCube.GetColorID() == currentCube.GetColorID()*/ && !adjacentCube.IsState(CubeState.Colored) && !visited.Contains(adjacentCube))
                     {
-
                         queue.Enqueue(adjacentCube);
                         visited.Add(adjacentCube);
+                        totalProcessed++;
+                        if (totalProcessed >= numberCubeFillByNumber) break;
                     }
                 }
             }
         }
         StartCoroutine(OnFilled(visited));
-        boosterQuantity -= 1;
+        if (!isCountQuantity2)
+        {
+            boosterQuantity -= 1;
+            isCountQuantity2 = true;
+        }
 
 
 
