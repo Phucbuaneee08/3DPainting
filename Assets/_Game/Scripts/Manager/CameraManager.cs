@@ -44,8 +44,8 @@ public class CameraManager : Singleton<CameraManager>
     }
     private void Start()
     {
-        cam.transform.position = targetObject.transform.position+ offset;
-        cam.transform.rotation = Quaternion.Lerp(transform.rotation, rotateOffset, 1);
+        //cam.transform.position = targetObject.transform.position+ offset;
+        //cam.transform.rotation = Quaternion.Lerp(transform.rotation, rotateOffset, 1);
     }
     private void Update()
     {

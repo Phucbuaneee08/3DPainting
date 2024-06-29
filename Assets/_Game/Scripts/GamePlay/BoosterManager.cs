@@ -100,6 +100,8 @@ public class BoosterManager : Singleton<BoosterManager>
         visited.Add(currentCube);
         int totalProcessed = 0;
         while (queue.Count > 0 && totalProcessed < numberCubeFillByNumber)
+        
+     
         {
             Cube cube = queue.Dequeue();
             foreach (Vector3 direction in directions)

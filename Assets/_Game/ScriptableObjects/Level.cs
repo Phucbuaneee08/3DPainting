@@ -14,16 +14,19 @@ public class Level : ScriptableObject
     public List<MaterialData> materials;
     public ZoomInfo zoomInfo = new ZoomInfo(5,60,50);
     public Sprite imageSource;
+    public PoolType poolType;
 }
 
 [System.Serializable]
 public class CubeData
 {
     public Vector3 position;
+    public int ID;
     public int realColorID;
     public int defaultColorID;
-    public CubeData(Vector3 position, int realColorID, int defaultColorID)
+    public CubeData(int ID,Vector3 position, int realColorID, int defaultColorID)
     {
+        this.ID = ID;
         this.position = position;
         this.realColorID = realColorID;
         this.defaultColorID = defaultColorID;

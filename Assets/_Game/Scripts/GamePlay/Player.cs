@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -255,9 +256,36 @@ public class Player : GameUnit
         animator.enabled = true;
         animator.SetTrigger(VICTORY_ANIM);
     }
-    public void MoveToStartPosition()
+    public void MoveToStartPosition(Vector3 position, Vector3 quat)
     {
-        StartCoroutine(MovePlayer());
+        //float moveDuration = 2f;
+        //Vector3 startPosition = transform.position;
+        //Vector3 targetPosition = Vector3.zero;
+
+        //float timeElapsed = 0;
+
+        //while (timeElapsed < moveDuration)
+        //{
+
+        //    transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / moveDuration);
+
+        //    timeElapsed += Time.deltaTime;
+
+        //}
+
+        //transform.position = targetPosition;
+        StartCoroutine(MoveToEndPosition());
+        StartCoroutine(RotateToEndQuaternion(quat));
+    }
+    private IEnumerator MoveToEndPosition()
+    {
+        yield return null;
+        transform.DOMove(Vector3.zero, 2f);
+    }
+    private IEnumerator RotateToEndQuaternion(Vector3 quat)
+    {
+        yield return null;
+        transform.DORotate(quat, 2f);
     }
     IEnumerator MovePlayer()
     {

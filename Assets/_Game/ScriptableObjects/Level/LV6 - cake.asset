@@ -2092,6 +2092,7 @@ MonoBehaviour:
     colorID: 7
   zoomInfo:
     minZoom: 15
-    maxZoom: 60
+    maxZoom: 80
     checkPointZoom: 50
   imageSource: {fileID: 21300000, guid: 207ecfb825b30c44fae6eedf34569239, type: 3}
+  poolType: 5

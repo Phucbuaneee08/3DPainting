@@ -71,7 +71,7 @@ public class FillBoosterItem : MonoBehaviour
     public bool IsState(FillBoosterState state)
     {
         return _state == state;
-    }
+    } 
     public bool IsState2(FillBoosterState state)
     {
         return _state2 == state;
