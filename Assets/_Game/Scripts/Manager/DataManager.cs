@@ -16,7 +16,7 @@ public class DataManager : Singleton<DataManager>
     private void OnApplicationQuit() { SaveData(); }
 
     public void LoadData()
-    {
+    {   
         Debug.Log("START LOAD DATA");
         string d = PlayerPrefs.GetString(PLAYER_DATA, "");
         if (d != "")
@@ -53,12 +53,17 @@ public class PlayerData
     public bool isPassedTutorialBooster2;
     public bool isPassedTutorialBooster3;
 
-    public int levelIndex;
+    public int currentlevelID;
     public int gold;
+    public int boosterQuantity;
+    public int boosterFillByColorQuantity;
     public PlayerData()
     {
-        levelIndex = 0;
+        currentlevelID = 0;
         gold = 0;
+        boosterQuantity = 100;
+        boosterFillByColorQuantity = 100;
+
         isPassedTutorialBooster1 = false;
         isPassedTutorialBooster2 = false;
         isPassedTutorialBooster3 = false;

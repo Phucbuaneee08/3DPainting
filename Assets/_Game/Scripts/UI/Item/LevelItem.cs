@@ -5,12 +5,10 @@ using UnityEngine.UI;
 public class LevelItem : MonoBehaviour
 {
     [SerializeField] private Image bg;
-    [SerializeField] private Image imageSource;
+    public Image imageSource;
     [SerializeField] private int levelID;
     [SerializeField] private Text text;
     private Level level;
-
-
     public void SetData(int levelID, Level level, Sprite avatar)
     {
         this.levelID = levelID;
@@ -28,5 +26,14 @@ public class LevelItem : MonoBehaviour
     {
         return levelID;
     }
-
+    public void SetColorImg()
+    {
+        Color originalColor = imageSource.color;
+        Color grayscaleColor = Ultilities.ConvertToGrayscale(originalColor);
+        imageSource.color = grayscaleColor;
+    }
+    IEnumerator IE_SetColorImg()
+    {
+        yield return new WaitForEndOfFrame();
+    }
 }

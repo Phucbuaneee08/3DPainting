@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class BoosterFillCellUI : MonoBehaviour
 {
     public int id;
-    public TextMeshProUGUI textNumber;
+
     public Image imgBG;
     public RectTransform rectTransform;
     public Transform tf;
@@ -36,7 +36,6 @@ public class BoosterFillCellUI : MonoBehaviour
     {
         rectTransform.DOAnchorPosY(initialPosition.y + 40f, 0.5f);
     }
-
     public void MoveDown()
     {
         rectTransform.DOAnchorPosY(initialPosition.y, 0.5f);
@@ -51,6 +50,7 @@ public class BoosterFillCellUI : MonoBehaviour
     }
     public void Btn_BoosterFillItem()
     {
+        if (DataManager.Ins.playerData.boosterQuantity <= 0) return;
         if (isUseBooster == false)
         {
             BoosterManager.Ins.iDSelectBooster = id;
@@ -76,17 +76,18 @@ public class BoosterFillCellUI : MonoBehaviour
     }
     public void Btn_BoosterFillByNumber()
     {
+        if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0) return;
         if (isUseBooster == false)
         {
             BoosterManager.Ins.iDSelectBooster = id;
             BoosterManager.Ins._isCanUseFillByNumberBooster = true;
             BoosterManager.Ins._isCanUseFillBooster = false;
             boosterController.SetUpDown(BoosterManager.Ins.iDSelectBooster);
-            if(LevelManager.Ins.currentColor!=0)
+            if (LevelManager.Ins.currentColor != 0)
             {
                 UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
             }
-            
+
             LevelManager.Ins.ReleaseFocusCube();
             isUseBooster = true;
             return;

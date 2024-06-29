@@ -82,6 +82,7 @@ public class LevelManager : Singleton<LevelManager>
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetZoomBooster();
         UIManager.Ins.CloseAll();
+        BoosterManager.Ins.OnReset();
     }
 
     //public void OnLoadLevel(Level level)
@@ -107,7 +108,7 @@ public class LevelManager : Singleton<LevelManager>
     {
 
         currentLevel = levelDatas.level3D[levelID-1].level;
-        this.currentlevelID = levelID;
+        DataManager.Ins.playerData.currentlevelID = levelID;
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
@@ -127,11 +128,10 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void NextLevel()
     {
+        DataManager.Ins.playerData.currentlevelID += 1;
         OnReset();
-        OnLoadLevel(currentlevelID + 1);
+        OnLoadLevel(DataManager.Ins.playerData.currentlevelID);
     }
-
-
     public void OnFilledCube(Cube cube)
     {
         if (cube.IsState(CubeState.Colored)) return;

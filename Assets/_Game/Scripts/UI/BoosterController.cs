@@ -1,14 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BoosterController : MonoBehaviour
 {
     public List<BoosterFillCellUI> listBooster = new List<BoosterFillCellUI>();
-
+    public TextMeshProUGUI textNumber;
+    public TextMeshProUGUI textNumber2;
     private void Start()
     {
         LoadataList();
+    }
+    public void Update()
+    {
+        if (BoosterManager.Ins._isCanUseFillBooster == true)
+        {
+            textNumber.text = DataManager.Ins.playerData.boosterQuantity.ToString();
+        }
+        if (BoosterManager.Ins._isCanUseFillByNumberBooster == true)
+        {
+            textNumber2.text = DataManager.Ins.playerData.boosterFillByColorQuantity.ToString();
+        }
     }
     private void LoadataList()
     {
@@ -20,6 +33,8 @@ public class BoosterController : MonoBehaviour
                 listBooster[i].isUseBooster = false;
             }
         }
+        textNumber.text = DataManager.Ins.playerData.boosterQuantity.ToString();
+        textNumber2.text = DataManager.Ins.playerData.boosterFillByColorQuantity.ToString();
     }
     public void LoadData()
     {
@@ -51,6 +66,6 @@ public class BoosterController : MonoBehaviour
                 listBooster[i].MoveDown();
             }
         }
-       
+
     }
 }

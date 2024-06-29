@@ -11,8 +11,9 @@ public class BoosterManager : Singleton<BoosterManager>
     [SerializeField] private int numberCubeFill = 10;
 
     private float maxDistance = 0.01f;
-    private int boosterQuantity = 999;
-    private int boosterFillByColorQuantity = 1000;
+
+    public int boosterQuantity = 999;
+    public int boosterFillByColorQuantity = 999;
 
     public bool _isCanUseFillBooster = false;
     public bool _isCanUseFillByNumberBooster = false;
@@ -33,6 +34,12 @@ public class BoosterManager : Singleton<BoosterManager>
         Vector3.forward,
         Vector3.back
     };
+    public void OnReset()
+    {
+        _isCanUseFillBooster = false;
+        _isCanUseFillByNumberBooster = false;
+        _isCanUseZoomBooster = true;
+    }
     /*
     * Script cho booster zoom in và zoom out  ****************************************************************************************************
    */
@@ -44,6 +51,7 @@ public class BoosterManager : Singleton<BoosterManager>
     /*
     * Script cho booster zoom khi chọn Màu đầu tiên ****************************************************************************************************
    */
+
     public void ChangeBoosterState(bool state)
     {
         _isCanUseFillBooster = state;
@@ -89,7 +97,7 @@ public class BoosterManager : Singleton<BoosterManager>
 
     public bool CheckBooterFillByNumber()
     {
-        return boosterFillByColorQuantity > 0 && _isCanUseFillByNumberBooster;
+        return DataManager.Ins.playerData.boosterFillByColorQuantity > 0 && _isCanUseFillByNumberBooster;
     }
     public void BoosterFillByNumber(Cube currentCube)
     {
@@ -100,8 +108,6 @@ public class BoosterManager : Singleton<BoosterManager>
         visited.Add(currentCube);
         int totalProcessed = 0;
         while (queue.Count > 0 && totalProcessed < numberCubeFillByNumber)
-        
-     
         {
             Cube cube = queue.Dequeue();
             foreach (Vector3 direction in directions)
@@ -123,7 +129,7 @@ public class BoosterManager : Singleton<BoosterManager>
         StartCoroutine(OnFilledColor(visited));
         if (!isCountQuantity)
         {
-            boosterFillByColorQuantity -= 1;
+            DataManager.Ins.playerData.boosterFillByColorQuantity -= 1;
             isCountQuantity = true;
         }
         isCountQuantity = false;
@@ -132,17 +138,14 @@ public class BoosterManager : Singleton<BoosterManager>
     {
         _isCanUseFillByNumberBooster = state;
     }
-
-
-
     #endregion
-
     /*
      * Script cho booster Fill màu ****************************************************************************************************
      */
+    #region Booster Fill Item
     public bool CheckBoosterQuantity()
     {
-        return boosterQuantity > 0 && _isCanUseFillBooster;
+        return DataManager.Ins.playerData.boosterQuantity > 0 && _isCanUseFillBooster;
     }
 
     public void FillBoosterByColor(Cube currentCube)
@@ -175,14 +178,13 @@ public class BoosterManager : Singleton<BoosterManager>
         StartCoroutine(OnFilled(visited));
         if (!isCountQuantity2)
         {
-            boosterQuantity -= 1;
+            DataManager.Ins.playerData.boosterQuantity -= 1;
             isCountQuantity2 = true;
         }
-
-
-
+        isCountQuantity2 = false;
 #if UNITY_EDITOR
         Debug.Log("Remove cube ID " + currentCube.GetColorID() + ": " + visited.Count);
 #endif
     }
+    #endregion
 }
