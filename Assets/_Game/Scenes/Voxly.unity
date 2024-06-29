@@ -284,6 +284,7 @@ MonoBehaviour:
   currentLevel: {fileID: 0}
   currentColor: 0
   cubeTotal: 0
+  currentlevelID: 0
 --- !u!1 &464719733
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,9 +405,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2099514019}
+  numberCubeFillByNumber: 10
   numberCubeFill: 10
   _isCanUseFillBooster: 0
   _isCanUseFillByNumberBooster: 0
+  iDSelectBooster: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +817,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 84d0c008e7ba9594f92bebe83537de2f, type: 2}
   - {fileID: 2100000, guid: 4c6692575b84fe248bfd81fa8c660dbe, type: 2}
   defaultMats: []
+  focusNumberMats:
+  - {fileID: 2100000, guid: cce55f20829cceb4392a965106df243f, type: 2}
+  - {fileID: 2100000, guid: f2b14f1bfe01cac4bb0f72dace2a4a92, type: 2}
+  - {fileID: 2100000, guid: 1c9daead60e593940b6b4020c900fd2c, type: 2}
+  - {fileID: 2100000, guid: 154140eb313336041b8872819b1b259f, type: 2}
+  - {fileID: 2100000, guid: caaa052cc75af294bbf5c04f20f0cae1, type: 2}
+  - {fileID: 2100000, guid: 2a50dc99fe0956f48a59793d2a88014c, type: 2}
+  - {fileID: 2100000, guid: b6838207eadffce4eb93a34b5c0fcd9b, type: 2}
+  - {fileID: 2100000, guid: e00fc98b3ffcae54cb622fcef780d444, type: 2}
+  - {fileID: 2100000, guid: cd2cd29d9c2d12c4ab27b52d0d3e418d, type: 2}
+  - {fileID: 2100000, guid: c9ccc0f721db01b43bad65ee7db3764f, type: 2}
+  - {fileID: 2100000, guid: 2499f46e40e28d6479e5280d1210c24a, type: 2}
+  - {fileID: 2100000, guid: 4244a8fb451e71c498c37c39c2b71224, type: 2}
+  - {fileID: 2100000, guid: 1c18c3491b9ba494186a1ea844f0bb87, type: 2}
+  - {fileID: 2100000, guid: b6c00b2c53dad18479ddeb8ea5bd1d7d, type: 2}
+  - {fileID: 2100000, guid: 618c29e3bb3f27a42a609bf8e43156cf, type: 2}
   highLightColor: {r: 0.919147, g: 1, b: 0, a: 0}
   showTextColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1455351149

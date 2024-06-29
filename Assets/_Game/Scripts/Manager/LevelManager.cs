@@ -18,6 +18,7 @@ public class LevelManager : Singleton<LevelManager>
     public Level currentLevel;
     public int currentColor;
     public int cubeTotal;
+    public int currentlevelID;
     private AnimationGameUnit _currentAnim;
  
     
@@ -77,6 +78,10 @@ public class LevelManager : Singleton<LevelManager>
         cubes.Clear();
         SimplePool.CollectAll();
         MaterialManager.Ins.OnResetDefaultColor();
+        UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
+        CameraManager.Ins.Reset();
+        BoosterManager.Ins.ResetZoomBooster();
+        UIManager.Ins.CloseAll();
     }
 
     //public void OnLoadLevel(Level level)
@@ -102,6 +107,7 @@ public class LevelManager : Singleton<LevelManager>
     {
 
         currentLevel = levelDatas.level3D[levelID-1].level;
+        this.currentlevelID = levelID;
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
@@ -118,6 +124,11 @@ public class LevelManager : Singleton<LevelManager>
         player.transform.DORotate(rotateOffset, 0f);
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
+    }
+    public void NextLevel()
+    {
+        OnReset();
+        OnLoadLevel(currentlevelID + 1);
     }
 
 
@@ -216,10 +227,6 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void Home()
     {
-        UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
-        CameraManager.Ins.Reset();
-        BoosterManager.Ins.ResetZoomBooster();
-        UIManager.Ins.CloseAll();
         OnReset();
         UIManager.Ins.OpenUI<UIMainMenu>();
         

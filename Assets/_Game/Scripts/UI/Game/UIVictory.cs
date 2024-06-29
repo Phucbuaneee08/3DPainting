@@ -13,4 +13,9 @@ public class UIVictory : UICanvas
         base.Open();
         GameManager.Ins.ChangeState(GameState.Finish);
     }
+    public void NextLevel()
+    {
+        LevelManager.Ins.NextLevel();
+    }
+
 }
