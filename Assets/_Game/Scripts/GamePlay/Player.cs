@@ -168,14 +168,17 @@ public class Player : GameUnit
                 { 
                   
                     Cube cube = Cache.GetCube(hitInfo.collider);
+                    
                     if ( BoosterManager.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         isCanRotate = false;
                         BoosterManager.Ins.FillBoosterByColor(cube);
+                        Debug.LogError("1");
                     }
                     if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
                     {
                         BoosterManager.Ins.BoosterFillByNumber(cube);
+                        Debug.LogError("2");
                     }
                     if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {

@@ -2597,6 +2597,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6381043139582581408, guid: 3174066b29e47804ea2aa3b5d0175d00, type: 3}
+      propertyPath: textNumber
+      value: 
+      objectReference: {fileID: 8275931486923756847}
+    - target: {fileID: 6381043139582581408, guid: 3174066b29e47804ea2aa3b5d0175d00, type: 3}
+      propertyPath: textNumber2
+      value: 
+      objectReference: {fileID: 1187642449305430539}
     - target: {fileID: 6578617564774091351, guid: 3174066b29e47804ea2aa3b5d0175d00, type: 3}
       propertyPath: m_Name
       value: Scroll View Booster
@@ -2620,5 +2628,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 610830fc3d711134a9c6325c519418b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1187642449305430539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4861639419476696177, guid: 3174066b29e47804ea2aa3b5d0175d00, type: 3}
+  m_PrefabInstance: {fileID: 5981723449246594682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8275931486923756847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2439079759023973205, guid: 3174066b29e47804ea2aa3b5d0175d00, type: 3}
+  m_PrefabInstance: {fileID: 5981723449246594682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

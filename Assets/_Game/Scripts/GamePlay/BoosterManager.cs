@@ -170,7 +170,7 @@ public class BoosterManager : Singleton<BoosterManager>
                         queue.Enqueue(adjacentCube);
                         visited.Add(adjacentCube);
                         totalProcessed++;
-                        if (totalProcessed >= numberCubeFillByNumber) break;
+                        if (totalProcessed >= numberCubeFill) break;
                     }
                 }
             }
