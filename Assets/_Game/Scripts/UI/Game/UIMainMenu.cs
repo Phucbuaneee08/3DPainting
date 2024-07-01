@@ -26,8 +26,9 @@ public class UIMainMenu : UICanvas
     public override void Open()
     {
         ResetLevelItem();
+
         InitLevelItem();
-        
+
         GameManager.Ins.ChangeState(GameState.MainMenu);
         base.Open();
         StartCoroutine(IE_SetSizeDetal(0));
@@ -35,15 +36,25 @@ public class UIMainMenu : UICanvas
     }
     public void InitLevelItem()
     {
-        foreach(LevelData l3d in levelDatas.level3D) {
+        foreach (LevelData l3d in levelDatas.level3D)
+        {
             LevelItem levelItem = miniPool.Spawn();
-            levelItem.SetData(l3d.levelID,l3d.level,l3d.imageSource);
-            levelItems.Add(levelItem);
+            if (DataManager.Ins.playerData.currentlevelID >= l3d.levelID)
+            {
+                levelItem.SetData(l3d.levelID, l3d.level, l3d.imageSource,false);
+            }
+            else
+            {
+                levelItem.SetData(l3d.levelID, l3d.level, l3d.imageSource,true);
+            }
+                levelItems.Add(levelItem);
         }
+
     }
     public void ResetLevelItem()
     {
-        if(levelItems.Count > 0) { 
+        if (levelItems.Count > 0)
+        {
             foreach (LevelItem li in levelItems)
             {
                 miniPool.Despawn(li);

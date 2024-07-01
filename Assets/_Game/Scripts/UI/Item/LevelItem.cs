@@ -9,13 +9,14 @@ public class LevelItem : MonoBehaviour
     [SerializeField] private int levelID;
     [SerializeField] private Text text;
     private Level level;
-    public void SetData(int levelID, Level level, Sprite avatar)
+    public Image img;
+    public void SetData(int levelID, Level level, Sprite avatar, bool _isPassed)
     {
         this.levelID = levelID;
         this.level = level;
         text.text = levelID.ToString();
         imageSource.sprite = avatar;
-
+        img.gameObject.SetActive(_isPassed);
     }
     public void SelectLevel()
     {
