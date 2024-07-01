@@ -8,7 +8,6 @@ public class LevelItem : MonoBehaviour
     [SerializeField] private Image bg;
     public Image imageSource;
     [SerializeField] private int levelID;
-    [SerializeField] private TextMeshProUGUI text;
     private Level level;
     public Image img;
     [SerializeField] private Button button;
@@ -16,10 +15,8 @@ public class LevelItem : MonoBehaviour
     {
         this.levelID = levelID;
         this.level = level;
-        //text.text = levelID.ToString();
         imageSource.sprite = avatar;
-       // img.gameObject.SetActive(_isPassed);
-        text.gameObject.SetActive(_isShowTextPassed);
+        img.gameObject.SetActive(_isPassed);
         button.interactable = _isShowInter; 
     }
     public void SelectLevel()
@@ -37,8 +34,5 @@ public class LevelItem : MonoBehaviour
         Color grayscaleColor = Ultilities.ConvertToGrayscale(originalColor);
         imageSource.color = grayscaleColor;
     }
-    IEnumerator IE_SetColorImg()
-    {
-        yield return new WaitForEndOfFrame();
-    }
+    
 }

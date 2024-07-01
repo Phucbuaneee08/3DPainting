@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.XR;
-public enum LevelCategory 
-{ 
+public enum LevelCategory
+{
     ThreeDimention = 0,
     TrueDimention = 1,
     Popular = 2,
@@ -14,7 +14,10 @@ public enum LevelCategory
 public class LevelDatas : ScriptableObject
 {
     public List<LevelData> level3D;
-  
+    public LevelData GetLevelWithID(int _id)
+    {
+        return level3D.Find(id => id.levelID == _id);
+    }
 }
 [System.Serializable]
 public class LevelData
