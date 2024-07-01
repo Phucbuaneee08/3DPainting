@@ -20,6 +20,7 @@ public class Cube : GameUnit
     [SerializeField] private int colorID;
     [SerializeField] private int defaultColorID;
     [SerializeField] private CubeState cubeState;
+    public int ID => id;
     private void Start()
     {
         colorRender = GetComponent<MeshRenderer>();

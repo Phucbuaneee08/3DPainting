@@ -19,6 +19,7 @@ public class LevelManager : Singleton<LevelManager>
     public int currentColor;
     public int cubeTotal;
     public int currentlevelID;
+    public List<Cube> Cubes => cubes;
     private AnimationGameUnit _currentAnim;
  
     
