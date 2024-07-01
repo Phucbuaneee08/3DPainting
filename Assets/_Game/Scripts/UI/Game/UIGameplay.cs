@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
@@ -12,7 +12,7 @@ public class UIGameplay : UICanvas
     [SerializeField] List<ColorItem> colorItems;
     [SerializeField] private Timer timer;
     [SerializeField] RectTransform scrollViewRect;
-
+    public Canvas canvas;
     public FillBoosterItem fillBoosterItem;
     public FillBoosterItem fillBoosterItem2;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
@@ -85,6 +85,24 @@ public class UIGameplay : UICanvas
     public void SetCountDownTime(int time)
     {
         timer.SetRemainTime(time);
+    }
+    public bool CheckInput()
+    {
+  
+        EventSystem eventSystem = EventSystem.current;
+      
+        List<RaycastResult> results = new List<RaycastResult>();
+        // Tạo một PointerEventData mới, lấy thông tin từ input hiện tại
+        PointerEventData eventData = new PointerEventData(eventSystem)
+        {
+            position = Input.mousePosition
+        };
+        // Lấy GraphicRaycaster từ canvas
+        GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
+        // Thực hiện raycast và lưu trữ các kết quả vào danh sách
+        raycaster.Raycast(eventData, results);
+        // Nếu danh sách kết quả có bất kỳ phần tử nào, input đang chạm vào UI
+        return results.Count > 0;
     }
     public bool CheckInputOnUI()
     {

@@ -158,7 +158,8 @@ public class Player : GameUnit
 #endif
         if (isLeftDragging)
         {
-            if (UIManager.Ins.GetUI<UIGameplay>().CheckInputOnUI()) return;
+            //if (UIManager.Ins.GetUI<UIGameplay>().CheckInputOnUI()) return;
+            if (UIManager.Ins.GetUI<UIGameplay>().CheckInput()) return;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            
