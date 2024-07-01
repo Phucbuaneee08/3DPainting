@@ -10,7 +10,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private List<Level> levels;
     [SerializeField] private List<Cube> cubes;
     [SerializeField] private List<CubeType> cubeTypes;
-    [SerializeField] private  int totalTime;
+    [SerializeField] private int totalTime;
     [SerializeField] private int reviveTime;
     [SerializeField] private GameObject root;
     [SerializeField] private Vector3 rotateOffset;
@@ -20,10 +20,10 @@ public class LevelManager : Singleton<LevelManager>
     public int cubeTotal;
     public int currentlevelID;
     private AnimationGameUnit _currentAnim;
- 
-    
 
-   
+
+
+
 
     public void OnInit()
     {
@@ -33,17 +33,17 @@ public class LevelManager : Singleton<LevelManager>
         cubeTotal = currentLevel.cubes.Count;
         if (currentLevel.materials.Count > 0)
         {
-            foreach(MaterialData material in currentLevel.materials)
+            foreach (MaterialData material in currentLevel.materials)
             {
                 int count = 0;
-                foreach(CubeData cube in currentLevel.cubes)
+                foreach (CubeData cube in currentLevel.cubes)
                 {
-                    if(cube.realColorID == material.colorID)
+                    if (cube.realColorID == material.colorID)
                     {
                         count++;
                     }
                 }
-                cubeTypes.Add(new CubeType(material.colorID, count,count));
+                cubeTypes.Add(new CubeType(material.colorID, count, count));
             }
         }
     }
@@ -51,23 +51,23 @@ public class LevelManager : Singleton<LevelManager>
     public void FocusByColorID(int colorID)
     {
 
-        if(currentColor == 0)
+        if (currentColor == 0)
         {
             Focus(colorID);
             this.currentColor = colorID;
             return;
         }
-        if (currentColor != colorID) 
+        if (currentColor != colorID)
         {
             UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(currentColor).SetMovePosition();
             Focus(colorID);
             this.currentColor = colorID;
         }
-        
+
     }
     public void OnReset()
     {
-        if(_currentAnim != null)    Destroy(_currentAnim.gameObject);
+        if (_currentAnim != null) Destroy(_currentAnim.gameObject);
         root.SetActive(true);
         player.OnReset();
         cubeTypes.Clear();
@@ -82,7 +82,6 @@ public class LevelManager : Singleton<LevelManager>
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetZoomBooster();
         UIManager.Ins.CloseAll();
-        BoosterManager.Ins.OnReset();
     }
 
     //public void OnLoadLevel(Level level)
@@ -92,7 +91,7 @@ public class LevelManager : Singleton<LevelManager>
     //    OnInit();
     //    CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
     //    MaterialManager.Ins.SetMatData(currentLevel.materials);
-        
+
     //    for (int i = 0; i < currentLevel.cubes.Count; i++)
     //    {
     //        Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
@@ -107,8 +106,9 @@ public class LevelManager : Singleton<LevelManager>
     public void OnLoadLevel(int levelID)
     {
 
-        currentLevel = levelDatas.level3D[levelID-1].level;
-        DataManager.Ins.playerData.currentlevelID = levelID;
+        currentLevel = levelDatas.level3D[levelID - 1].level;
+        //if (levelID > DataManager.Ins.playerData.currentlevelID)
+        //DataManager.Ins.playerData.currentlevelID = levelID;
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
@@ -128,7 +128,6 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void NextLevel()
     {
-        DataManager.Ins.playerData.currentlevelID += 1;
         OnReset();
         OnLoadLevel(DataManager.Ins.playerData.currentlevelID);
     }
@@ -139,9 +138,9 @@ public class LevelManager : Singleton<LevelManager>
         MaterialManager.Ins.SetColor(cube, cube.GetColorID());
         ////ParticlePool.Play(ParticleType.Hit_1, cube.TF);
         RemoveCubeByColorID(cube.GetColorID());
-//#if UNITY_EDITOR
-//        cube.gameObject.SetActive(false);
-//#endif
+        //#if UNITY_EDITOR
+        //        cube.gameObject.SetActive(false);
+        //#endif
 
         if (cubeTotal == 0)
         {
@@ -152,9 +151,10 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void RemoveCubeByColorID(int colorID)
     {
-        foreach(CubeType cubes in cubeTypes) 
-        { 
-            if(cubes.colorID == colorID)
+
+        foreach (CubeType cubes in cubeTypes)
+        {
+            if (cubes.colorID == colorID)
             {
 
                 cubes.quantity--;
@@ -162,15 +162,16 @@ public class LevelManager : Singleton<LevelManager>
                 StartCoroutine(OnRemoveCube(cubes));
                 if (cubes.quantity == 0)
                 {
-                    if (cubeTypes.Count > 0 && cubeTotal>0 && !BoosterManager.Ins.CheckBoosterQuantity()) {                 
-                        CubeType currentColorType = Ultilities.CheckNextCubeTypeInList(cubeTypes,currentColor);
+                    if (cubeTypes.Count > 0 && cubeTotal > 0 && !BoosterManager.Ins.CheckBoosterQuantity())
+                    {
+                        CubeType currentColorType = Ultilities.CheckNextCubeTypeInList(cubeTypes, currentColor);
                         currentColor = currentColorType.colorID;
-                        if(currentColorType.colorID!=0)
+                        if (currentColorType.colorID != 0)
                             UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(currentColor).SetMovePosition();
-                        Focus(currentColor); 
+                        Focus(currentColor);
                     }
                     UIManager.Ins.GetUI<UIGameplay>().RemoveColorItem(colorID);
-                }               
+                }
             }
         }
     }
@@ -178,24 +179,24 @@ public class LevelManager : Singleton<LevelManager>
     {
         yield return null;
         ColorItem ci = UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(cubes.colorID);
-        if(ci!=null)
-            ci.SetFillAmount((float)cubes.quantity/(float)cubes.total);
+        if (ci != null)
+            ci.SetFillAmount((float)cubes.quantity / (float)cubes.total);
     }
     private IEnumerator OnCelebration()
     {
         //player.PlayAnim();
         CameraManager.Ins.SetFieldOfView();
-        player.MoveToStartPosition(Vector3.zero,rotateOffset);
+        player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
 
-        if (currentLevel.poolType != PoolType.None) 
+        if (currentLevel.poolType != PoolType.None)
         {
-           
+
             root.SetActive(false);
             _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
-          
+
         }
-           
+        DataManager.Ins.playerData.currentlevelID += 1;
         Victory();
     }
     public void Fail()
@@ -207,11 +208,11 @@ public class LevelManager : Singleton<LevelManager>
     {
         UIManager.Ins.CloseAll();
         UIManager.Ins.OpenUI<UIVictory>();
-       
+
     }
     public void CheckReviveOrFail()
     {
-        if(_isCanRevive)
+        if (_isCanRevive)
         {
             _isCanRevive = false;
             UIManager.Ins.OpenUI<UIRevive>();
@@ -229,7 +230,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         OnReset();
         UIManager.Ins.OpenUI<UIMainMenu>();
-        
+
     }
     //public void OnLoadLevel(int level)
     //{
@@ -275,7 +276,7 @@ public class LevelManager : Singleton<LevelManager>
                 case CubeState.Colored:
                     break;
                 case CubeState.Focus:
-                    MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID()-1);
+                    MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
 
                     break;
                 default:
@@ -332,9 +333,9 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void ReleaseFocusCube()
     {
-        foreach(Cube cube in cubes)
+        foreach (Cube cube in cubes)
         {
-            if(cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
+            if (cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
             {
                 if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
                 {
@@ -358,10 +359,10 @@ public class CubeType
     public int colorID;
     public int quantity;
     public int total;
-    public CubeType(int colorID, int quantity,int total)
+    public CubeType(int colorID, int quantity, int total)
     {
         this.quantity = quantity;
         this.colorID = colorID;
         this.total = total;
-    }   
+    }
 }

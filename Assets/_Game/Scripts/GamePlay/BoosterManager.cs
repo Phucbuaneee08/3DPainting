@@ -69,6 +69,8 @@ public class BoosterManager : Singleton<BoosterManager>
     }
     public void ResetZoomBooster()
     {
+        _isCanUseFillBooster = false;
+        _isCanUseFillByNumberBooster = false;
         _isCanUseZoomBooster = true;
     }
     private IEnumerator OnFilled(List<Cube> visited)
@@ -84,17 +86,6 @@ public class BoosterManager : Singleton<BoosterManager>
 
 
     #region Booster Fill By Number
-
-    private IEnumerator OnFilledColor(List<Cube> visited)
-    {
-        foreach (Cube cubez in visited)
-        {
-            if (cubez.IsState(CubeState.Colored)) continue;
-            yield return new WaitForSeconds(delayFillBooster);
-            LevelManager.Ins.OnFilledCube(cubez);
-        }
-    }
-
     public bool CheckBooterFillByNumber()
     {
         return DataManager.Ins.playerData.boosterFillByColorQuantity > 0 && _isCanUseFillByNumberBooster;
@@ -103,9 +94,9 @@ public class BoosterManager : Singleton<BoosterManager>
     {
         List<Cube> visited = new List<Cube>();
         Queue<Cube> queue = new Queue<Cube>();
-
         queue.Enqueue(currentCube);
         visited.Add(currentCube);
+        LevelManager.Ins.OnFilledCube(currentCube);
         int totalProcessed = 0;
         while (queue.Count > 0 && totalProcessed < numberCubeFillByNumber)
         {
@@ -126,13 +117,17 @@ public class BoosterManager : Singleton<BoosterManager>
                 }
             }
         }
-        StartCoroutine(OnFilledColor(visited));
+        StartCoroutine(OnFilled(visited));
         if (!isCountQuantity)
         {
             DataManager.Ins.playerData.boosterFillByColorQuantity -= 1;
             isCountQuantity = true;
         }
         isCountQuantity = false;
+        if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
+        {
+            UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
+        }
     }
     public void ChangeBoosterFillState(bool state)
     {
@@ -188,6 +183,10 @@ public class BoosterManager : Singleton<BoosterManager>
             isCountQuantity2 = true;
         }
         isCountQuantity2 = false;
+        if (DataManager.Ins.playerData.boosterQuantity <= 0)
+        {
+            UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
+        }
 #if UNITY_EDITOR
         Debug.Log("Remove cube ID " + currentCube.GetColorID() + ": " + visited.Count);
 #endif

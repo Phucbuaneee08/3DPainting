@@ -14,11 +14,11 @@ public class BoosterController : MonoBehaviour
     }
     public void Update()
     {
-        if (BoosterManager.Ins._isCanUseFillBooster == true)
+        //if (BoosterManager.Ins._isCanUseFillBooster == true)
         {
             textNumber.text = DataManager.Ins.playerData.boosterQuantity.ToString();
         }
-        if (BoosterManager.Ins._isCanUseFillByNumberBooster == true)
+     //   if (BoosterManager.Ins._isCanUseFillByNumberBooster == true)
         {
             textNumber2.text = DataManager.Ins.playerData.boosterFillByColorQuantity.ToString();
         }
@@ -48,7 +48,14 @@ public class BoosterController : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         BoosterManager.Ins.iDSelectBooster = 0;
-        SetUpDown(0);
+        SetUpDown(-1);
+        BoosterManager.Ins._isCanUseFillBooster = false;
+        BoosterManager.Ins._isCanUseFillByNumberBooster = false;
+    }
+    public void ReLoadUIBooster()
+    {
+        BoosterManager.Ins.iDSelectBooster = 0;
+        SetUpDown(-1);
         BoosterManager.Ins._isCanUseFillBooster = false;
         BoosterManager.Ins._isCanUseFillByNumberBooster = false;
     }

@@ -59,7 +59,7 @@ public class PlayerData
     public int boosterFillByColorQuantity;
     public PlayerData()
     {
-        currentlevelID = 0;
+        currentlevelID = 1;
         gold = 0;
         boosterQuantity = 100;
         boosterFillByColorQuantity = 100;

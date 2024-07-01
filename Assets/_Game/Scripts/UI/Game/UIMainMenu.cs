@@ -19,37 +19,31 @@ public class UIMainMenu : UICanvas
     }
     public override void Setup()
     {
-
         base.Setup();
-
     }
     public override void Open()
     {
         ResetLevelItem();
-
         InitLevelItem();
-
         GameManager.Ins.ChangeState(GameState.MainMenu);
         base.Open();
-        StartCoroutine(IE_SetSizeDetal(0));
-
+        StartCoroutine(IE_SetSizeDetal(DataManager.Ins.playerData.currentlevelID));
     }
     public void InitLevelItem()
     {
         foreach (LevelData l3d in levelDatas.level3D)
         {
             LevelItem levelItem = miniPool.Spawn();
-            if (DataManager.Ins.playerData.currentlevelID >= l3d.levelID)
+            if (DataManager.Ins.playerData.currentlevelID - 1 >= l3d.levelID)
             {
-                levelItem.SetData(l3d.levelID, l3d.level, l3d.imageSource,false);
+                levelItem.SetData(l3d.levelID, l3d.level, l3d.imageSource, false, true, false);
             }
             else
             {
-                levelItem.SetData(l3d.levelID, l3d.level, l3d.imageSource,true);
+                levelItem.SetData(l3d.levelID, l3d.level, l3d.imageSource, true, false, true);
             }
-                levelItems.Add(levelItem);
+            levelItems.Add(levelItem);
         }
-
     }
     public void ResetLevelItem()
     {
@@ -73,23 +67,26 @@ public class UIMainMenu : UICanvas
             tfContent.sizeDelta = new Vector2(tfContent.sizeDelta.x, totalHeight);
             ScrollRect scrollRect = tfContent.GetComponentInParent<ScrollRect>();
             scrollRect.verticalNormalizedPosition = 0;
-            //yield return new WaitForEndOfFrame();
-            /*if (targetButtonIndex >= 0 && targetButtonIndex < levelItems.Count)
+            yield return new WaitForEndOfFrame();
+            if (targetButtonIndex >= 0 && targetButtonIndex < levelItems.Count)
             {
                 RectTransform targetButtonRectTransform = levelItems.Find(id => id.GetID() == targetButtonIndex).GetComponent<RectTransform>();
-                float targetButtonYPos = Mathf.Abs(targetButtonRectTransform.anchoredPosition.y + 300);
+                float targetButtonYPos = Mathf.Abs(targetButtonRectTransform.anchoredPosition.y + 210);
                 float scrollPosition = (targetButtonYPos + buttonHeight / 2) / totalHeight;
                 scrollPosition = 1 - scrollPosition;
-                ScrollRect scrollRect = tfContent.GetComponentInParent<ScrollRect>();
                 if (targetButtonIndex >= levelItems.Count - 2)
                 {
                     scrollRect.verticalNormalizedPosition = 1;
+                }
+                else if (targetButtonIndex == 1)
+                {
+                    scrollRect.verticalNormalizedPosition = 0;
                 }
                 else
                 {
                     scrollRect.verticalNormalizedPosition = scrollPosition;
                 }
-            }*/
+            }
         }
     }
 

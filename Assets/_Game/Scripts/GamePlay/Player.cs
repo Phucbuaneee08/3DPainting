@@ -178,6 +178,7 @@ public class Player : GameUnit
                     }
                     if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
                     {
+                        isCanRotate = false;
                         BoosterManager.Ins.BoosterFillByNumber(cube);
                         Debug.LogError("2");
                     }

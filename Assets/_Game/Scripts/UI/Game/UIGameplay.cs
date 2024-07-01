@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 public class UIGameplay : UICanvas
 {
     [SerializeField] Transform content;
@@ -16,6 +17,7 @@ public class UIGameplay : UICanvas
     public FillBoosterItem fillBoosterItem;
     public FillBoosterItem fillBoosterItem2;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
+    public TextMeshProUGUI textLevel;
 
     public BoosterController boosterController;
     private void Awake()
@@ -34,12 +36,13 @@ public class UIGameplay : UICanvas
             fillBoosterItem2.ChangeBoosterFillItemState();
         }
         boosterController.LoadData();
+      
     }
     public override void Open()
     {
         base.Open();
         GameManager.Ins.ChangeState(GameState.GamePlay);
-
+        textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
     }
     public void OpenSetting()
     {
@@ -81,6 +84,8 @@ public class UIGameplay : UICanvas
             miniPool.Despawn(ci);
         }
         colorItems.Clear();
+        boosterController.ReLoadUIBooster();
+        textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
     }
     public void SetCountDownTime(int time)
     {
