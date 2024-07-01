@@ -154,6 +154,10 @@ public class BoosterManager : Singleton<BoosterManager>
         Queue<Cube> queue = new Queue<Cube>();
         queue.Enqueue(currentCube);
         visited.Add(currentCube);
+        // Set color for first cube 
+        MaterialManager.Ins.SetColor(currentCube, currentCube.GetColorID());
+        currentCube.ChangeState(CubeState.Colored);
+
         int totalProcessed = 0;
         while (queue.Count > 0 && totalProcessed < numberCubeFill)
         {

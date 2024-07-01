@@ -172,7 +172,7 @@ public class Player : GameUnit
                     if ( BoosterManager.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
                     {
                         isCanRotate = false;
-                        BoosterManager.Ins.FillBoosterByColor(cube);
+                        BoosterManager.Ins.FillBoosterByColor(cube);                     
                         Debug.LogError("1");
                     }
                     if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
