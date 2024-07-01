@@ -142,7 +142,7 @@ public class BoosterManager : Singleton<BoosterManager>
     /*
      * Script cho booster Fill màu ****************************************************************************************************
      */
-    #region Booster Fill Item
+    #region Booster Fill All Number
     public bool CheckBoosterQuantity()
     {
         return DataManager.Ins.playerData.boosterQuantity > 0 && _isCanUseFillBooster;
