@@ -2,7 +2,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
-
+using JetBrains.Annotations;
 
 public class BoosterManager : Singleton<BoosterManager>
 {
@@ -83,6 +83,70 @@ public class BoosterManager : Singleton<BoosterManager>
             LevelManager.Ins.OnFilledCube(cubez);
         }
     }
+    #region Booster Find Next Cube By Color
+    public void FindNextCubeByColor(int currentColorID)
+    {
+        Cube cub = Ultilities.CheckNextCubeInList(LevelManager.Ins.Cubes, currentColorID);
+        
+        Vector3 cameraPosition = Camera.main.transform.position;
+
+
+        Vector3 cubeDirection = cub.transform.position - player.transform.position;
+        Vector3 playerDirection = cameraPosition - player.transform.position;
+
+
+        Vector3 horizontalRotateCube = new Vector3(0, cubeDirection.y, cubeDirection.z);
+        Vector3 horizontalRotatePlayer = new Vector3(0, playerDirection.y, playerDirection.z);
+
+        float angle = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
+        if (cubeDirection.y > 0)
+            RotateXAxis(-angle, 1f);
+        else
+            RotateXAxis(angle, 1f);
+
+      
+        StartCoroutine(RotateYAxis(cub)); 
+         Debug.Log(angle);
+        
+    }
+    private void  RotateXAxis(float angle,float duration)
+    {
+     
+        player.transform.DORotate(new Vector3(angle, 0, 0), duration, RotateMode.WorldAxisAdd);
+    }
+    private IEnumerator RotateYAxis(Cube cub)
+    {
+        yield return new WaitForSeconds(1f);
+
+        Vector3 cameraPosition = Camera.main.transform.position;
+        Vector3 cubeDirection = cub.transform.position - player.transform.position;
+        Vector3 playerDirection = cameraPosition - player.transform.position;
+
+        Vector3 horizontalRotateCube = new Vector3(cubeDirection.x, 0, cubeDirection.z);
+        Vector3 horizontalRotatePlayer = new Vector3(playerDirection.x, 0, playerDirection.z);
+
+        float angle2 = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
+
+        Debug.Log(player.transform.up.y );
+
+        if(player.transform.up.y > 0)
+        {
+            if (cubeDirection.x > 0) player.transform.DORotate(new Vector3(0, angle2, 0), 1f, RotateMode.LocalAxisAdd);
+            else player.transform.DORotate(new Vector3(0, -angle2, 0), 1f, RotateMode.LocalAxisAdd);
+        }
+        else
+        {
+            if (cubeDirection.x > 0) player.transform.DORotate(new Vector3(0, -angle2, 0), 1f, RotateMode.LocalAxisAdd);
+            else player.transform.DORotate(new Vector3(0, +angle2, 0), 1f, RotateMode.LocalAxisAdd);
+        }
+       
+
+     
+
+    }
+
+
+    #endregion
 
 
     #region Booster Fill By Number

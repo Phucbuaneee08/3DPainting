@@ -1,9 +1,6 @@
-using JetBrains.Annotations;
-using System.Collections;
+
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using UnityEditor;
+
 using UnityEngine;
 
 public static class Ultilities
@@ -57,6 +54,14 @@ public static class Ultilities
         int nextType = currentColor % list.Count;
         if (list[nextType].quantity > 0) return list[nextType];
         return CheckNextCubeTypeInList(list, currentColor + 1);
+    }
+    public static Cube CheckNextCubeInList(List<Cube> list,int currentColor)
+    {
+        foreach (Cube c in list)
+        {
+            if(c.GetColorID() == currentColor && !c.IsState(CubeState.Colored)) return c;
+        }
+        return null;
     }
     public static Color ConvertToGrayscale(Color color)// doi mau trang den
     {
