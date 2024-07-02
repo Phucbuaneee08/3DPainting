@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
 public enum LevelCategory
@@ -18,16 +19,23 @@ public class LevelDatas : ScriptableObject
     {
         return level3D.Find(id => id.levelID == _id);
     }
+    public LevelData GetLevelWithType(LevelType _levelType)
+    {
+        return level3D.Find(type =>type.levelType == _levelType);
+    }
+    public List<LevelData> GetLevelsWithType(LevelType _levelType)
+    {
+        return level3D.FindAll(level => level.levelType == _levelType);
+    }
+
+   
 }
 [System.Serializable]
 public class LevelData
 {
     public int levelID;
+    public LevelType levelType;
     public Level level;
     public Sprite imageSource;
-
 }
-
-
-
 

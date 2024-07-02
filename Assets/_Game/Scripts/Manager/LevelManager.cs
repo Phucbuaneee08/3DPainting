@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    [SerializeField] private LevelDatas levelDatas;
+    [SerializeField] public LevelDatas levelDatas;
     [SerializeField] private Player player;
     [SerializeField] private List<Level> levels;
     [SerializeField] private List<Cube> cubes;
@@ -80,6 +80,7 @@ public class LevelManager : Singleton<LevelManager>
         SimplePool.CollectAll();
         MaterialManager.Ins.OnResetDefaultColor();
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
+        UIManager.Ins.GetUI<MainMenu>().ReLoadData();
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetZoomBooster();
         UIManager.Ins.CloseAll();
@@ -106,10 +107,10 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnLoadLevel(int levelID)
     {
-
+        
         currentLevel = levelDatas.level3D[levelID - 1].level;
         //if (levelID > DataManager.Ins.playerData.currentlevelID)
-        //DataManager.Ins.playerData.currentlevelID = levelID;
+        DataManager.Ins.playerData.currentlevelID = levelID;
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
@@ -124,7 +125,7 @@ public class LevelManager : Singleton<LevelManager>
 
         //player.transform.DORotate(rotateOffset, 0f);
         player.transform.DORotate(rotateOffset, 0f);
-        UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
+        UIManager.Ins.GetUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
     public void NextLevel()
@@ -197,7 +198,8 @@ public class LevelManager : Singleton<LevelManager>
             _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
 
         }
-        DataManager.Ins.playerData.currentlevelID += 1;
+        DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = 1;
+        DataManager.Ins.SaveData();
         Victory();
     }
     public void Fail()
@@ -216,7 +218,8 @@ public class LevelManager : Singleton<LevelManager>
         if (_isCanRevive)
         {
             _isCanRevive = false;
-            UIManager.Ins.OpenUI<UIRevive>();
+            if (UIManager.Ins.IsLoaded<UIGameplay>())
+                UIManager.Ins.OpenUI<UIRevive>();
         }
         else
         {
@@ -230,7 +233,8 @@ public class LevelManager : Singleton<LevelManager>
     public void Home()
     {
         OnReset();
-        UIManager.Ins.OpenUI<UIMainMenu>();
+        //UIManager.Ins.OpenUI<UIMainMenu>();
+        UIManager.Ins.OpenUI<MainMenu>();
 
     }
     //public void OnLoadLevel(int level)

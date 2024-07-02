@@ -11,18 +11,26 @@ public class LevelItem : MonoBehaviour
     private Level level;
     public Image img;
     [SerializeField] private Button button;
-    public void SetData(int levelID, Level level, Sprite avatar, bool _isPassed,bool _isShowTextPassed, bool _isShowInter)
+    public void SetData(int levelID, Level level, Sprite avatar, bool _isPassed, bool _isShowTextPassed, bool _isShowInter)
     {
         this.levelID = levelID;
         this.level = level;
         imageSource.sprite = avatar;
         img.gameObject.SetActive(_isPassed);
-        button.interactable = _isShowInter; 
+        button.interactable = _isShowInter;
     }
     public void SelectLevel()
     {
-        LevelManager.Ins.OnLoadLevel(levelID);
-        UIManager.Ins.CloseUI<UIMainMenu>();
+        if (DataManager.Ins.playerData.GetDataWithID(levelID).isColored == 0)
+        {
+            LevelManager.Ins.OnLoadLevel(levelID);
+            //UIManager.Ins.CloseUI<UIMainMenu>();
+            UIManager.Ins.CloseUI<MainMenu>();
+        }
+        else
+        {
+            UIManager.Ins.OpenUI<UIPassedLevel>();
+        }
     }
     public int GetID()
     {
@@ -34,5 +42,5 @@ public class LevelItem : MonoBehaviour
         Color grayscaleColor = Ultilities.ConvertToGrayscale(originalColor);
         imageSource.color = grayscaleColor;
     }
-    
+
 }

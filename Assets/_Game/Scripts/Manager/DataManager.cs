@@ -39,7 +39,12 @@ public class DataManager : Singleton<DataManager>
     }
     void FirstLoad()
     {
-
+        SaveLevelDataModels();
+    }
+    public void SaveLevelDataModels()
+    {
+        DataManager.Ins.playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D.Select(ld => new LevelDataModel(ld.levelID, 0)).ToList();
+        DataManager.Ins.SaveData();
     }
 }
 [System.Serializable]
@@ -57,18 +62,35 @@ public class PlayerData
     public int gold;
     public int boosterQuantity;
     public int boosterFillByColorQuantity;
+
+
+    public List<LevelDataModel> levelDataModels;
     public PlayerData()
     {
         currentlevelID = 1;
         gold = 0;
         boosterQuantity = 100;
         boosterFillByColorQuantity = 100;
-
         isPassedTutorialBooster1 = false;
         isPassedTutorialBooster2 = false;
         isPassedTutorialBooster3 = false;
         isPassedTutorialClick = false;
         isPassedTutorialRotate = false;
         isPassedTutorialZoom = false;
+    }
+    public LevelDataModel GetDataWithID(int _id)
+    {
+        return levelDataModels.Find(id => id.levelID ==  _id);
+    }
+}
+[System.Serializable]
+public class LevelDataModel
+{
+    public int levelID;
+    public int isColored; // 0 la fales, 1 true.
+    public LevelDataModel(int levelID, int isColored)
+    {
+        this.levelID = levelID;
+        this.isColored = isColored;
     }
 }
