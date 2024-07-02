@@ -36,11 +36,11 @@ public class ListLevelUI : MonoBehaviour
             LevelData lvData = levelDatasList[i];
             if (DataManager.Ins.playerData.GetDataWithID(lvData.levelID).isColored == 1)
             {
-                levelItem.SetData(lvData.levelID, lvData.level, lvData.imageSource, true, true, true);
+                levelItem.SetData(lvData.levelID, lvData.imageSource, true, true, true);
             }
             else
             {
-                levelItem.SetData(lvData.levelID, lvData.level, lvData.imageSource, false, true, true);
+                levelItem.SetData(lvData.levelID, lvData.imageSource, false, true, true);
             }
         }
         StartCoroutine(IE_SetSizeDetal());

@@ -49,10 +49,12 @@ public class HomeLevelUI : MonoBehaviour
             }
         }
         listLevelUIs.Clear();
+
         List<LevelType> uniqueLevelTypes = levelDatas.level3D
           .Select(level => level.levelType)
           .Distinct()
           .ToList();
+
         foreach (LevelType lvType in uniqueLevelTypes)
         {
             ListLevelUI listLevelUI = Instantiate(ListLevelUIPrefabs, tfContent);
@@ -60,6 +62,9 @@ public class HomeLevelUI : MonoBehaviour
             LevelData levelOfType = levelDatas.GetLevelWithType(lvType);
             List<LevelData> levelsOfType = levelDatas.GetLevelsWithType(lvType);
             listLevelUI.SetData(levelOfType, levelDatas, levelsOfType);
+
+            NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
+            nestedScrollHandler.parentScrollRect = scrollRect;
         }
         Debug.LogError("Load");
         SetSizeDetal();

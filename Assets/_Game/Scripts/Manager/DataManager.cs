@@ -60,6 +60,7 @@ public class PlayerData
 
     public int currentlevelID;
     public int gold;
+    public int diamond;
     public int boosterQuantity;
     public int boosterFillByColorQuantity;
 
@@ -68,7 +69,8 @@ public class PlayerData
     public PlayerData()
     {
         currentlevelID = 1;
-        gold = 0;
+        gold = 100;
+        diamond = 100;
         boosterQuantity = 100;
         boosterFillByColorQuantity = 100;
         isPassedTutorialBooster1 = false;

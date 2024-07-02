@@ -8,16 +8,15 @@ public class LevelItem : MonoBehaviour
     [SerializeField] private Image bg;
     public Image imageSource;
     [SerializeField] private int levelID;
-    private Level level;
     public Image img;
     [SerializeField] private Button button;
-    public void SetData(int levelID, Level level, Sprite avatar, bool _isPassed, bool _isShowTextPassed, bool _isShowInter)
+    public void SetData(int levelID,Sprite avatar, bool _isPassed, bool _isShowTextPassed, bool _isShowInter)
     {
         this.levelID = levelID;
-        this.level = level;
         imageSource.sprite = avatar;
         img.gameObject.SetActive(_isPassed);
         button.interactable = _isShowInter;
+
     }
     public void SelectLevel()
     {

@@ -11,3 +11,12 @@ public enum LevelType
     animal,
     human,
 }
+[Serializable]
+public enum UnlockType
+{
+    none,
+    free,
+    ads,
+    gold,
+    diamond,
+}
