@@ -8,6 +8,7 @@ public class MainMenu : UICanvas
     [SerializeField] private HomeLevelUI homeLevelUI;
     private void Awake()
     {
+        GameManager.Ins.ChangeState(GameState.MainMenu);
     }
     public void Start()
     {

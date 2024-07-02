@@ -125,7 +125,7 @@ public class LevelManager : Singleton<LevelManager>
 
         //player.transform.DORotate(rotateOffset, 0f);
         player.transform.DORotate(rotateOffset, 0f);
-        UIManager.Ins.GetUI<UIGameplay>().InitColorItem(currentLevel.materials);
+        UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
     }
     public void NextLevel()

@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
         else
         {
             _isCanCountDown = false;
+           
            // LevelManager.Ins.CheckReviveOrFail();
             Debug.LogError("111111");
             //UIManager.Ins.OpenUI<UIRevive>();

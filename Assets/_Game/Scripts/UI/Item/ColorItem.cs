@@ -19,7 +19,7 @@ public class ColorItem : MonoBehaviour
     private void Awake()
     {
         element = GetComponent<RectTransform>();
-        StartCoroutine(IE_SetTFdata());
+  
     }
     public void FocusCubeByColorID()
     {
@@ -45,13 +45,9 @@ public class ColorItem : MonoBehaviour
         bg.color = color;
         text.text = colorID.ToString();
         colorItemState = ColorItemState.Default;
-        StartCoroutine(IE_SetTFdata());
+   
     }
-    IEnumerator IE_SetTFdata()
-    {
-        yield return new WaitForEndOfFrame();
-        initialPosition = element.anchoredPosition;
-    }
+  
     public int GetColorID()
     {
         return colorID;
