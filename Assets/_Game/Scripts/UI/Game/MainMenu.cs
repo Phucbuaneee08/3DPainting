@@ -20,8 +20,8 @@ public class MainMenu : UICanvas
     }
     public override void Open()
     {
+        ReLoadData();
         base.Open();
-        //ReLoadData();
     }
     public void ReLoadData()
     {

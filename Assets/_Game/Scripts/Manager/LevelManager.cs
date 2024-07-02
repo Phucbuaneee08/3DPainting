@@ -80,7 +80,7 @@ public class LevelManager : Singleton<LevelManager>
         SimplePool.CollectAll();
         MaterialManager.Ins.OnResetDefaultColor();
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
-        UIManager.Ins.GetUI<MainMenu>().ReLoadData();
+        //UIManager.Ins.GetUI<MainMenu>().ReLoadData();
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetZoomBooster();
         UIManager.Ins.CloseAll();
@@ -233,9 +233,8 @@ public class LevelManager : Singleton<LevelManager>
     public void Home()
     {
         OnReset();
-        //UIManager.Ins.OpenUI<UIMainMenu>();
         UIManager.Ins.OpenUI<MainMenu>();
-
+        //UIManager.Ins.OpenUI<UIMainMenu>();
     }
     //public void OnLoadLevel(int level)
     //{

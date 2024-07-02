@@ -1058,10 +1058,10 @@ RectTransform:
   - {fileID: 1995751787515937797}
   m_Father: {fileID: 2817162668309087374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 21.277}
-  m_SizeDelta: {x: 1080, y: 1388.2}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -696.661}
+  m_SizeDelta: {x: 1080, y: 1392.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6523174386414119686
 CanvasRenderer:
@@ -1297,10 +1297,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1995751787515937797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -540, y: 0}
+  m_SizeDelta: {x: 1080, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6150301378056322234
 MonoBehaviour:
@@ -1319,7 +1319,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 20
     m_Bottom: 0
-  m_ChildAlignment: 7
+  m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 1080, y: 670}
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4372248363699303029}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
@@ -1562,10 +1562,10 @@ RectTransform:
   - {fileID: 7594222969908937599}
   m_Father: {fileID: 7245039305588521906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75}
-  m_SizeDelta: {x: 1080, y: 1430}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -1000}
+  m_SizeDelta: {x: 1080, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5862768351441979334
 MonoBehaviour:
@@ -1583,6 +1583,7 @@ MonoBehaviour:
   ListLevelUIPrefabs: {fileID: 1110129744871910740, guid: 8637e8f2e2188b948a815de15fc43f81, type: 3}
   listLevelUIs: []
   tfContent: {fileID: 4689595741790152755}
+  scrollRect: {fileID: 5663960242429416666}
 --- !u!1 &7245039305588521905
 GameObject:
   m_ObjectHideFlags: 0

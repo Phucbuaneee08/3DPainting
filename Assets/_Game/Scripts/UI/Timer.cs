@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private float remainingTime = 0; 
+    private float remainingTime = 0;
     public Text timerText;
     private bool _isCanCountDown;
 
@@ -21,9 +21,8 @@ public class Timer : MonoBehaviour
         else
         {
             _isCanCountDown = false;
-           
-           // LevelManager.Ins.CheckReviveOrFail();
-            Debug.LogError("111111");
+
+            LevelManager.Ins.CheckReviveOrFail();
             //UIManager.Ins.OpenUI<UIRevive>();
             timerText.text = "0:00";
         }
