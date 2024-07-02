@@ -57,9 +57,11 @@ public class ListLevelUI : MonoBehaviour
         if (tfContent != null && levelItems.Count > 0)
         {
             RectTransform buttonRectTransform = levelItems[0].GetComponent<RectTransform>();
-            float buttonHeight = buttonRectTransform.rect.width;
-            float totalHeight = buttonHeight * levelItems.Count;
-            tfContent.sizeDelta = new Vector2(totalHeight, tfContent.sizeDelta.y);
+            float buttonHeight = buttonRectTransform.rect.width + 20;
+            float totalHeight = buttonHeight * (levelItems.Count + 1);
+            tfContent.sizeDelta = new Vector2(totalHeight / 2, tfContent.sizeDelta.y);
+            ScrollRect scrollRect = tfContent.GetComponentInParent<ScrollRect>();
+            scrollRect.horizontalNormalizedPosition = 0;
         }
     }
 }

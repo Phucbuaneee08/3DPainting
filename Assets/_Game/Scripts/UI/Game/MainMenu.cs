@@ -21,8 +21,8 @@ public class MainMenu : UICanvas
     public override void Open()
     {
         GameManager.Ins.ChangeState(GameState.MainMenu);
+        ReLoadData();
         base.Open();
-        //ReLoadData();
     }
     public void ReLoadData()
     {

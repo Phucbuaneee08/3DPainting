@@ -11,9 +11,10 @@ public class HomeLevelUI : MonoBehaviour
     public List<ListLevelUI> listLevelUIs = new List<ListLevelUI>();
     private LevelType lvType = LevelType.none;
     public RectTransform tfContent;
+    public ScrollRect scrollRect;
     public void Start()
     {
-        LoadData();
+       // LoadData();
     }
     public void ReLoad()
     {
@@ -72,6 +73,7 @@ public class HomeLevelUI : MonoBehaviour
             float buttonHeight = buttonRectTransform.rect.height + 20;
             float totalHeight = buttonHeight * listLevelUIs.Count;
             tfContent.sizeDelta = new Vector2(tfContent.sizeDelta.x, totalHeight);
+            scrollRect.verticalNormalizedPosition = 1;
         }
     }
 }
