@@ -10,11 +10,12 @@ using UnityEngine.XR;
 public class Level : ScriptableObject
 {
     public int levelID;
-    public List<CubeData> cubes;
-    public List<MaterialData> materials;
+    public List<CubeData> cubes = new List<CubeData>();
+    public List<MaterialData> materials = new List<MaterialData>();
     public ZoomInfo zoomInfo = new ZoomInfo(5,60,50);
     public Sprite imageSource;
     public PoolType poolType;
+    public LevelType levelType;
 }
 
 [System.Serializable]
