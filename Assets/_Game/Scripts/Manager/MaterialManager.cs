@@ -50,7 +50,7 @@ public class MaterialManager : Singleton<MaterialManager>
         defaultMats.Clear();
         foreach(MaterialData mat in matData) 
         {
-            Material newMaterial = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+            Material newMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
             Color color = mat.material.color;
             newMaterial.color = Ultilities.ConvertToGrayscale(color);
             defaultMats.Add(newMaterial);

@@ -11,7 +11,12 @@ public class DataManager : Singleton<DataManager>
     public bool isLoaded = false;
     public PlayerData playerData;
     private const string PLAYER_DATA_PATH = "/GameData/PlayerData.json";
-    private static string systemPath = Application.dataPath + PLAYER_DATA_PATH;
+    private static string systemPath;
+
+    private void Awake()
+    {
+        systemPath = Application.persistentDataPath + PLAYER_DATA_PATH;
+    }
 
     private void OnApplicationPause(bool pause) { SaveData(); }
     private void OnApplicationQuit() { SaveData(); }
@@ -44,9 +49,10 @@ public class DataManager : Singleton<DataManager>
     public void SaveLevelDataModels()
     {
         playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D
-            .Select(ld => new LevelDataModel(ld.levelID, false,ld.level.unlockType)).ToList();
+            .Select(ld => new LevelDataModel(ld.levelID, false, ld.level.unlockType)).ToList();
         SaveData();
     }
+
 #if UNITY_EDITOR
     [MenuItem("UserDataManager/ResetData")]
     public static void ResetData()
@@ -54,6 +60,7 @@ public class DataManager : Singleton<DataManager>
         DataUtilities.UpdateData(new PlayerData());
         Debug.Log("Reset thành công Data người chơi ");
     }
+
     [MenuItem("UserDataManager/DelData")]
     public static void Delete()
     {
@@ -61,13 +68,14 @@ public class DataManager : Singleton<DataManager>
         Debug.Log("Reset thành công Data người chơi ");
     }
 #endif
+
     public void UnlockGold(LevelItem _levelItem)
     {
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
-        
+
         if (levelDataModel.unlockType == UnlockType.gold)
         {
-            if(LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.gold)
+            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.gold)
             {
 
             }
@@ -80,6 +88,7 @@ public class DataManager : Singleton<DataManager>
             }
         }
     }
+
     public void UnlockDiamond(LevelItem _levelItem)
     {
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
@@ -98,6 +107,7 @@ public class DataManager : Singleton<DataManager>
             }
         }
     }
+
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
@@ -123,7 +133,6 @@ public class PlayerData
     public int boosterQuantity;
     public int boosterFillByColorQuantity;
 
-
     public List<LevelDataModel> levelDataModels;
     public PlayerData()
     {
@@ -139,11 +148,13 @@ public class PlayerData
         isPassedTutorialRotate = false;
         isPassedTutorialZoom = false;
     }
+
     public LevelDataModel GetDataWithID(int _id)
     {
-        return levelDataModels.Find(id => id.levelID ==  _id);
+        return levelDataModels.Find(id => id.levelID == _id);
     }
 }
+
 [System.Serializable]
 public class LevelDataModel
 {

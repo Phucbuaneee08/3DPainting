@@ -7,19 +7,19 @@ public class DataUtilities : MonoBehaviour
 {
     private const string DEFAULT_PATH = "/GameData";
     private const string DEFAULT_FILE_NAME = "PlayerData.json";
-    private static string systemPath = Application.dataPath + DEFAULT_PATH + "/" + DEFAULT_FILE_NAME;
+    private static string systemPath = Application.persistentDataPath + DEFAULT_PATH + "/" + DEFAULT_FILE_NAME;
 
     public static void SaveData<T>(T data, string filePath = null)
     {
-        //if (filePath == null)
-        //{
-        //    filePath = systemPath;
-        //}
+        if (filePath == null)
+        {
+            filePath = systemPath;
+        }
 
-        //if (!Directory.Exists(Path.GetDirectoryName(filePath)))
-        //{
-        //    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-        //}
+        if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+        }
 
         string jsonData = JsonUtility.ToJson(data);
         File.WriteAllText(filePath, jsonData);
