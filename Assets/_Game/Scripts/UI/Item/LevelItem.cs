@@ -31,7 +31,8 @@ public class LevelItem : MonoBehaviour
             if (lvDataModel.unlockType == UnlockType.free)
             {
                 LevelManager.Ins.OnLoadLevel(levelID);
-                UIManager.Ins.CloseUI<MainMenu>();
+               
+                Debug.Log("Close UI Main");
             }
             else
             {

@@ -11,15 +11,15 @@ public class DataUtilities : MonoBehaviour
 
     public static void SaveData<T>(T data, string filePath = null)
     {
-        if (filePath == null)
-        {
-            filePath = systemPath;
-        }
+        //if (filePath == null)
+        //{
+        //    filePath = systemPath;
+        //}
 
-        if (!Directory.Exists(Path.GetDirectoryName(filePath)))
-        {
-            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-        }
+        //if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+        //{
+        //    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+        //}
 
         string jsonData = JsonUtility.ToJson(data);
         File.WriteAllText(filePath, jsonData);
