@@ -24,9 +24,10 @@ public class LevelItem : MonoBehaviour
     public void SelectLevel()
     {
         LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(levelID);
-
-        if (lvDataModel.isColored == 0)
+        Debug.Log(lvDataModel.isColored + " 1");
+        if (lvDataModel.isColored == false)
         {
+            Debug.Log(lvDataModel.unlockType);
             if (lvDataModel.unlockType == UnlockType.free)
             {
                 LevelManager.Ins.OnLoadLevel(levelID);

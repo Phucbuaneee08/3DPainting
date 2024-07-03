@@ -44,9 +44,10 @@ public class DataManager : Singleton<DataManager>
     public void SaveLevelDataModels()
     {
         playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D
-            .Select(ld => new LevelDataModel(ld.levelID, 0,ld.level.unlockType)).ToList();
+            .Select(ld => new LevelDataModel(ld.levelID, false,ld.level.unlockType)).ToList();
         SaveData();
     }
+#if UNITY_EDITOR
     [MenuItem("UserDataManager/ResetData")]
     public static void ResetData()
     {
@@ -59,9 +60,11 @@ public class DataManager : Singleton<DataManager>
         DataUtilities.DeleteData(systemPath);
         Debug.Log("Reset thành công Data người chơi ");
     }
+#endif
     public void UnlockGold(LevelItem _levelItem)
     {
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
+        
         if (levelDataModel.unlockType == UnlockType.gold)
         {
             if(LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.gold)
@@ -73,6 +76,7 @@ public class DataManager : Singleton<DataManager>
                 playerData.gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
+                StartCoroutine(IE_LoadData());
             }
         }
     }
@@ -90,10 +94,18 @@ public class DataManager : Singleton<DataManager>
                 playerData.diamond -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
+                StartCoroutine(IE_LoadData());
             }
         }
     }
+    IEnumerator IE_LoadData()
+    {
+        yield return new WaitForEndOfFrame();
+        UIManager.Ins.CloseAll();
+        UIManager.Ins.OpenUI<MainMenu>();
+    }
 }
+
 [System.Serializable]
 public class PlayerData
 {
@@ -116,10 +128,10 @@ public class PlayerData
     public PlayerData()
     {
         currentlevelID = 1;
-        gold = 100;
-        diamond = 100;
-        boosterQuantity = 100;
-        boosterFillByColorQuantity = 100;
+        gold = 10000;
+        diamond = 10000;
+        boosterQuantity = 1000;
+        boosterFillByColorQuantity = 1000;
         isPassedTutorialBooster1 = false;
         isPassedTutorialBooster2 = false;
         isPassedTutorialBooster3 = false;
@@ -136,9 +148,9 @@ public class PlayerData
 public class LevelDataModel
 {
     public int levelID;
-    public int isColored; // 0 la fales, 1 true.
+    public bool isColored; // 0 la fales, 1 true.
     public UnlockType unlockType;
-    public LevelDataModel(int levelID, int isColored, UnlockType unlockType)
+    public LevelDataModel(int levelID, bool isColored, UnlockType unlockType)
     {
         this.levelID = levelID;
         this.isColored = isColored;

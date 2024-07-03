@@ -198,7 +198,7 @@ public class LevelManager : Singleton<LevelManager>
             _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
 
         }
-        DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = 1;
+        DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
         DataManager.Ins.SaveData();
         Victory();
     }

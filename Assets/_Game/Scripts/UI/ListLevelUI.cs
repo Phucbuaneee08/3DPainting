@@ -38,7 +38,7 @@ public class ListLevelUI : MonoBehaviour
             LevelItem levelItem = miniPool.Spawn();
             levelItems.Add(levelItem);
             LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(lvData.levelID);
-            bool isColored = lvDataModel.isColored == 1;
+            bool isColored = lvDataModel.isColored == true;
             bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
             bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
 

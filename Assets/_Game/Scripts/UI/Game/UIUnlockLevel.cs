@@ -35,8 +35,7 @@ public class UIUnlockLevel : UICanvas
     public void BtnUnlockGold()
     {
         DataManager.Ins.UnlockGold(levelItem);
-        UIManager.Ins.CloseAll();
-        UIManager.Ins.OpenUI<MainMenu>();
+       
     }
     public void BtnUnlockAds()
     {
@@ -45,8 +44,7 @@ public class UIUnlockLevel : UICanvas
     public void BtnUnlockDiamond()
     {
         DataManager.Ins.UnlockDiamond(levelItem);
-        UIManager.Ins.CloseAll();
-        UIManager.Ins.OpenUI<MainMenu>();
+       
     }
     public void BtnExit()
     {
