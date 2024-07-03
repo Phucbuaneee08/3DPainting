@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -44,22 +44,33 @@ public class DataManager : Singleton<DataManager>
     public void SaveLevelDataModels()
     {
         playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D
-            .Select(ld => new LevelDataModel(ld.levelID, 0,UnlockType.free,100,1)).ToList();
+            .Select(ld => new LevelDataModel(ld.levelID, 0,UnlockType.free)).ToList();
         SaveData();
     }
-
+    [MenuItem("UserDataManager/ResetData")]
+    public static void ResetData()
+    {
+        DataUtilities.UpdateData(new PlayerData());
+        Debug.Log("Reset thành công Data người chơi ");
+    }
+    [MenuItem("UserDataManager/DelData")]
+    public static void Delete()
+    {
+        DataUtilities.DeleteData(systemPath);
+        Debug.Log("Reset thành công Data người chơi ");
+    }
     public void UnlockGold(LevelItem _levelItem)
     {
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
         if (levelDataModel.unlockType == UnlockType.gold)
         {
-            if(levelDataModel.goldUnlock > playerData.gold)
+            if(LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.gold)
             {
 
             }
             else
             {
-                playerData.gold -= levelDataModel.goldUnlock;
+                playerData.gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
             }
@@ -70,13 +81,13 @@ public class DataManager : Singleton<DataManager>
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
         if (levelDataModel.unlockType == UnlockType.diamond)
         {
-            if (levelDataModel.diamondUnlock > playerData.diamond)
+            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond > playerData.diamond)
             {
 
             }
             else
             {
-                playerData.diamond -= levelDataModel.diamondUnlock;
+                playerData.diamond -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
             }
@@ -127,14 +138,10 @@ public class LevelDataModel
     public int levelID;
     public int isColored; // 0 la fales, 1 true.
     public UnlockType unlockType;
-    public int goldUnlock;
-    public int diamondUnlock;
-    public LevelDataModel(int levelID, int isColored, UnlockType unlockType, int goldUnlock, int diamondUnlock)
+    public LevelDataModel(int levelID, int isColored, UnlockType unlockType)
     {
         this.levelID = levelID;
         this.isColored = isColored;
         this.unlockType = unlockType;
-        this.goldUnlock = goldUnlock;
-        this.diamondUnlock = diamondUnlock;
     }
 }

@@ -24,6 +24,7 @@ public class BoosterManager : Singleton<BoosterManager>
     private float delayFillBooster = 0.001f;
 
     public int iDSelectBooster = 0;
+    public int costBooster = 0;
 
     private Vector3[] directions = new Vector3[]
     {

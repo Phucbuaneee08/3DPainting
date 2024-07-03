@@ -16,6 +16,8 @@ public class Level : ScriptableObject
     public Sprite imageSource;
     public PoolType poolType;
     public LevelType levelType;
+    public int costGold = 100;
+    public int costDiamond = 10;
 }
 
 [System.Serializable]

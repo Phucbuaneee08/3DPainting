@@ -28,8 +28,8 @@ public class UIUnlockLevel : UICanvas
         this.objBtnUnlockGol.SetActive(_isShowBtnUnlockGol);
         this.objBtnUnlockAds.SetActive(_isShowBtnUnlockAds);
         this.objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
-        this.textGoldUnlock.text = DataManager.Ins.playerData.GetDataWithID(_levelItem.GetID()).goldUnlock.ToString();
-        this.textDiamondUnlock.text = DataManager.Ins.playerData.GetDataWithID(_levelItem.GetID()).diamondUnlock.ToString();
+        this.textGoldUnlock.text = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold.ToString();
+        this.textDiamondUnlock.text = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond.ToString();
 
     }
     public void BtnUnlockGold()
