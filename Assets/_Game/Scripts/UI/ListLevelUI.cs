@@ -28,7 +28,10 @@ public class ListLevelUI : MonoBehaviour
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
-        textLevelType.text = $"{levelData.level.levelType} {levelDatas.level3D.Count(type => type.level.levelType == levelData.level.levelType)}";
+        LevelType levelType = levelData.level.levelType;
+        string capitalizedLevelType = char.ToUpper(levelType.ToString()[0]) + levelType.ToString().Substring(1);
+        textLevelType.text = $"{capitalizedLevelType} {levelDatas.level3D.Count(type => type.level.levelType == levelData.level.levelType)}";
+
 
         foreach (var lvData in levelDatasList)
         {
@@ -56,7 +59,7 @@ public class ListLevelUI : MonoBehaviour
         if (tfContent != null && levelItems.Count > 0)
         {
             RectTransform buttonRectTransform = levelItems[0].GetComponent<RectTransform>();
-            float buttonHeight = buttonRectTransform.rect.width + 20;
+            float buttonHeight = buttonRectTransform.rect.width + 50;
             float totalHeight = buttonHeight * (levelItems.Count + 1);
             tfContent.sizeDelta = new Vector2(totalHeight / 2, tfContent.sizeDelta.y);
             ScrollRect scrollRect = tfContent.GetComponentInParent<ScrollRect>();
