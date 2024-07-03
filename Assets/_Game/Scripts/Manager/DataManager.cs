@@ -44,8 +44,43 @@ public class DataManager : Singleton<DataManager>
     public void SaveLevelDataModels()
     {
         playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D
-            .Select(ld => new LevelDataModel(ld.levelID, 0)).ToList();
+            .Select(ld => new LevelDataModel(ld.levelID, 0,UnlockType.free,100,1)).ToList();
         SaveData();
+    }
+
+    public void UnlockGold(LevelItem _levelItem)
+    {
+        LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
+        if (levelDataModel.unlockType == UnlockType.gold)
+        {
+            if(levelDataModel.goldUnlock > playerData.gold)
+            {
+
+            }
+            else
+            {
+                playerData.gold -= levelDataModel.goldUnlock;
+                levelDataModel.unlockType = UnlockType.free;
+                SaveData();
+            }
+        }
+    }
+    public void UnlockDiamond(LevelItem _levelItem)
+    {
+        LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
+        if (levelDataModel.unlockType == UnlockType.diamond)
+        {
+            if (levelDataModel.diamondUnlock > playerData.diamond)
+            {
+
+            }
+            else
+            {
+                playerData.diamond -= levelDataModel.diamondUnlock;
+                levelDataModel.unlockType = UnlockType.free;
+                SaveData();
+            }
+        }
     }
 }
 [System.Serializable]
@@ -91,9 +126,15 @@ public class LevelDataModel
 {
     public int levelID;
     public int isColored; // 0 la fales, 1 true.
-    public LevelDataModel(int levelID, int isColored)
+    public UnlockType unlockType;
+    public int goldUnlock;
+    public int diamondUnlock;
+    public LevelDataModel(int levelID, int isColored, UnlockType unlockType, int goldUnlock, int diamondUnlock)
     {
         this.levelID = levelID;
         this.isColored = isColored;
+        this.unlockType = unlockType;
+        this.goldUnlock = goldUnlock;
+        this.diamondUnlock = diamondUnlock;
     }
 }

@@ -28,23 +28,22 @@ public class ListLevelUI : MonoBehaviour
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
-        textLevelType.text = levelData.levelType.ToString() + " " + levelDatas.level3D.Count(type => type.levelType == levelData.levelType).ToString();
-        for (int i = 0; i < levelDatasList.Count; i++)
+        textLevelType.text = $"{levelData.level.levelType} {levelDatas.level3D.Count(type => type.level.levelType == levelData.level.levelType)}";
+
+        foreach (var lvData in levelDatasList)
         {
             LevelItem levelItem = miniPool.Spawn();
             levelItems.Add(levelItem);
-            LevelData lvData = levelDatasList[i];
-            if (DataManager.Ins.playerData.GetDataWithID(lvData.levelID).isColored == 1)
-            {
-                levelItem.SetData(lvData.levelID, lvData.imageSource, true, true, true);
-            }
-            else
-            {
-                levelItem.SetData(lvData.levelID, lvData.imageSource, false, true, true);
-            }
+            LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(lvData.levelID);
+            bool isColored = lvDataModel.isColored == 1;
+            bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
+            bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
+
+            levelItem.SetData(lvData.levelID, lvData.imageSource, isColored, !isColored && isGoldOrAds, !isColored && isDiamond);
         }
         StartCoroutine(IE_SetSizeDetal());
     }
+
     public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList)
     {
         levelData = _levelData;

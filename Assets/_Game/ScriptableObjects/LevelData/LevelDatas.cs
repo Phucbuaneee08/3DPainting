@@ -21,20 +21,18 @@ public class LevelDatas : ScriptableObject
     }
     public LevelData GetLevelWithType(LevelType _levelType)
     {
-        return level3D.Find(type =>type.levelType == _levelType);
+        return level3D.Find(type =>type.level.levelType == _levelType);
     }
     public List<LevelData> GetLevelsWithType(LevelType _levelType)
     {
-        return level3D.FindAll(level => level.levelType == _levelType);
+        return level3D.FindAll(level => level.level.levelType == _levelType);
     }
-
-   
 }
 [System.Serializable]
 public class LevelData
 {
     public int levelID;
-    public LevelType levelType;
+    //public LevelType levelType;
     public Level level;
     public Sprite imageSource;
 }

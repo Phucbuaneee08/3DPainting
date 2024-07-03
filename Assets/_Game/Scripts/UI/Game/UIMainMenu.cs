@@ -32,24 +32,24 @@ public class UIMainMenu : UICanvas
     }
     public void InitLevelItem()
     {
-        foreach (LevelData l3d in levelDatas.level3D)
+       /* foreach (LevelData l3d in levelDatas.level3D)
         {
             LevelItem levelItem = miniPool.Spawn();
             if (DataManager.Ins.playerData.currentlevelID - 1 >= l3d.levelID)
             {
-                levelItem.SetData(l3d.levelID, l3d.imageSource, true, false, true);
+                levelItem.SetData(l3d.levelID, l3d.imageSource, false, true);
             }
             else if (DataManager.Ins.playerData.currentlevelID  == l3d.levelID)
             {
-                levelItem.SetData(l3d.levelID, l3d.imageSource, false, true, true);
+                levelItem.SetData(l3d.levelID, l3d.imageSource, true, true);
                 levelItem.transform.DOScale(1.1f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
             }
             else
             {
-                levelItem.SetData(l3d.levelID, l3d.imageSource, false, false, true);
+                levelItem.SetData(l3d.levelID, l3d.imageSource, false, true);
             }
             levelItems.Add(levelItem);
-        }
+        }*/
     }
     public void ResetLevelItem()
     {

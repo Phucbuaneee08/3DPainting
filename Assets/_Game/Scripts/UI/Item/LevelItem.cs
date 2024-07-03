@@ -8,29 +8,42 @@ public class LevelItem : MonoBehaviour
     [SerializeField] private Image bg;
     public Image imageSource;
     [SerializeField] private int levelID;
-    public Image img;
+    public Image imgUnleckAdsAndGold;
+    public Image imgUnleckDiamond;
+    public Image imgLevelPassed;
     [SerializeField] private Button button;
-    public void SetData(int levelID,Sprite avatar, bool _isPassed, bool _isShowTextPassed, bool _isShowInter)
+
+    public void SetData(int levelID, Sprite avatar, bool _isPassed, bool _isShowImgUnlock, bool _isShowImgUnlock2)
     {
         this.levelID = levelID;
         imageSource.sprite = avatar;
-        img.gameObject.SetActive(_isPassed);
-        button.interactable = _isShowInter;
-
+        imgLevelPassed.gameObject.SetActive(_isPassed);
+        imgUnleckAdsAndGold.gameObject.SetActive(_isShowImgUnlock);
+        imgUnleckDiamond.gameObject.SetActive(_isShowImgUnlock2);
     }
     public void SelectLevel()
     {
-        if (DataManager.Ins.playerData.GetDataWithID(levelID).isColored == 0)
+        LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(levelID);
+
+        if (lvDataModel.isColored == 0)
         {
-            LevelManager.Ins.OnLoadLevel(levelID);
-            //UIManager.Ins.CloseUI<UIMainMenu>();
-            UIManager.Ins.CloseUI<MainMenu>();
+            if (lvDataModel.unlockType == UnlockType.free)
+            {
+                LevelManager.Ins.OnLoadLevel(levelID);
+                UIManager.Ins.CloseUI<MainMenu>();
+            }
+            else
+            {
+                bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
+                UIManager.Ins.OpenUI<UIUnlockLevel>().SetData(this, isGoldOrAds, isGoldOrAds, lvDataModel.unlockType == UnlockType.diamond);
+            }
         }
         else
         {
             UIManager.Ins.OpenUI<UIPassedLevel>();
         }
     }
+
     public int GetID()
     {
         return levelID;

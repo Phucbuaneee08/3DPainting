@@ -24,7 +24,7 @@ public class HomeLevelUI : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         List<LevelType> uniqueLevelTypes = levelDatas.level3D
-          .Select(level => level.levelType)
+          .Select(level => level.level.levelType)
           .Distinct()
           .ToList();
         foreach (LevelType lvType in uniqueLevelTypes)
@@ -51,7 +51,7 @@ public class HomeLevelUI : MonoBehaviour
         listLevelUIs.Clear();
 
         List<LevelType> uniqueLevelTypes = levelDatas.level3D
-          .Select(level => level.levelType)
+          .Select(level => level.level.levelType)
           .Distinct()
           .ToList();
 
