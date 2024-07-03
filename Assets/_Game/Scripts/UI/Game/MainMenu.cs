@@ -11,7 +11,7 @@ public class MainMenu : UICanvas
     [SerializeField] TextMeshProUGUI textDiamoind;
     private void Awake()
     {
-        GameManager.Ins.ChangeState(GameState.MainMenu);
+      
     }
     public void Start()
     {
@@ -28,6 +28,7 @@ public class MainMenu : UICanvas
     }
     public override void Open()
     {
+        GameManager.Ins.ChangeState(GameState.MainMenu);
         ReLoadData();
         base.Open();
     }

@@ -2,12 +2,13 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System;
+using System.IO;
 
 #if UNITY_EDITOR
 public class ConvertTool : EditorWindow
 {
     private GameObject model3D;
-    private Level level;
+    //private Level level;
 
     private float app;
     [MenuItem("Tools/ConvertObjectToLevel")]
@@ -18,11 +19,12 @@ public class ConvertTool : EditorWindow
 
     private void OnGUI()
     {
+        Level level = new Level();
         GUILayout.Label("Convert Object Settings", EditorStyles.boldLabel);
 
         model3D = (GameObject)EditorGUILayout.ObjectField("3DModel", model3D, typeof(GameObject), true);
        
-        level = (Level)EditorGUILayout.ObjectField("Level", level, typeof(Level), true);
+       
 
     
         if (GUILayout.Button("Generate Level"))
@@ -58,6 +60,7 @@ public class ConvertTool : EditorWindow
                     {
                         listColor.Add(mat.color);
                         uniqueColors.Add(mat);
+                        Debug.Log(level);
                         CubeData cube = new CubeData(level.cubes.Count,child.transform.position, listColor.Count-1, 1);
                         level.cubes.Add(cube);
                     }
@@ -73,9 +76,28 @@ public class ConvertTool : EditorWindow
                 }
                 level.materials.RemoveAt(0);
                 level.cubes.RemoveAt(0);
-             
 
-               
+
+
+
+                string folderPath = "Assets/_Game/ScriptableObjects/Level";
+                if (!AssetDatabase.IsValidFolder(folderPath))
+                {
+                    AssetDatabase.CreateFolder("Assets", "MyScriptableObjects");
+                    AssetDatabase.Refresh();
+                }
+
+                // Tạo ScriptableObject mới
+       
+
+                // Lưu ScriptableObject vào thư mục
+                string assetPath = Path.Combine(folderPath, "MyData.asset");
+                AssetDatabase.CreateAsset(level, assetPath);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+
+                Debug.Log("ScriptableObject saved at: " + assetPath);
+
             }
             else
             {
