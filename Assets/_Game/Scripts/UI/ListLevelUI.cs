@@ -28,23 +28,25 @@ public class ListLevelUI : MonoBehaviour
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
-        textLevelType.text = levelData.levelType.ToString() + " " + levelDatas.level3D.Count(type => type.levelType == levelData.levelType).ToString();
-        for (int i = 0; i < levelDatasList.Count; i++)
+        LevelType levelType = levelData.level.levelType;
+        string capitalizedLevelType = char.ToUpper(levelType.ToString()[0]) + levelType.ToString().Substring(1);
+        textLevelType.text = $"{capitalizedLevelType} {levelDatas.level3D.Count(type => type.level.levelType == levelData.level.levelType)}";
+
+
+        foreach (var lvData in levelDatasList)
         {
             LevelItem levelItem = miniPool.Spawn();
             levelItems.Add(levelItem);
-            LevelData lvData = levelDatasList[i];
-            if (DataManager.Ins.playerData.GetDataWithID(lvData.levelID).isColored == 1)
-            {
-                levelItem.SetData(lvData.levelID, lvData.level, lvData.imageSource, true, true, true);
-            }
-            else
-            {
-                levelItem.SetData(lvData.levelID, lvData.level, lvData.imageSource, false, true, true);
-            }
+            LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(lvData.levelID);
+            bool isColored = lvDataModel.isColored == 1;
+            bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
+            bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
+
+            levelItem.SetData(lvData.levelID, lvData.imageSource, isColored, !isColored && isGoldOrAds, !isColored && isDiamond);
         }
         StartCoroutine(IE_SetSizeDetal());
     }
+
     public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList)
     {
         levelData = _levelData;
@@ -57,7 +59,7 @@ public class ListLevelUI : MonoBehaviour
         if (tfContent != null && levelItems.Count > 0)
         {
             RectTransform buttonRectTransform = levelItems[0].GetComponent<RectTransform>();
-            float buttonHeight = buttonRectTransform.rect.width + 20;
+            float buttonHeight = buttonRectTransform.rect.width + 50;
             float totalHeight = buttonHeight * (levelItems.Count + 1);
             tfContent.sizeDelta = new Vector2(totalHeight / 2, tfContent.sizeDelta.y);
             ScrollRect scrollRect = tfContent.GetComponentInParent<ScrollRect>();

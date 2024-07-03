@@ -1,11 +1,14 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MainMenu : UICanvas
 {
     [SerializeField] private HomeLevelUI homeLevelUI;
+    [SerializeField] TextMeshProUGUI textGold;
+    [SerializeField] TextMeshProUGUI textDiamoind;
     private void Awake()
     {
       
@@ -13,6 +16,11 @@ public class MainMenu : UICanvas
     public void Start()
     {
 
+    }
+    void Update()
+    {
+        textGold.text = DataManager.Ins.playerData.gold.ToString();
+        textDiamoind.text = DataManager.Ins.playerData.diamond.ToString();
     }
     public override void Setup()
     {
@@ -27,9 +35,5 @@ public class MainMenu : UICanvas
     public void ReLoadData()
     {
         homeLevelUI.ReLoad();
-    }
-    private void Update()
-    {
-        
     }
 }
