@@ -29,7 +29,7 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
             else
             {
                 childScrollRect.OnBeginDrag(eventData);
-                parentScrollRect.enabled = false;
+                parentScrollRect.enabled = false; 
             }
         }
     }
@@ -39,14 +39,12 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
         if (isDraggingVertical)
         {
             parentScrollRect.OnEndDrag(eventData);
-            parentScrollRect.enabled = true;
-            childScrollRect.enabled = true;
+            parentScrollRect.enabled = true; 
         }
         else if (isDraggingHorizontal)
         {
             childScrollRect.OnEndDrag(eventData);
-            childScrollRect.enabled = true;
-            parentScrollRect.enabled = true; 
+            childScrollRect.enabled = true; 
         }
 
         isDraggingVertical = false;

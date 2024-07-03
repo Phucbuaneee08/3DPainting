@@ -13,7 +13,6 @@ public class UIGameplay : UICanvas
     [SerializeField] List<ColorItem> colorItems;
     [SerializeField] private Timer timer;
     [SerializeField] RectTransform scrollViewRect;
-    [SerializeField] private ZoomItem zoomItem;
     public Canvas canvas;
     public FillBoosterItem fillBoosterItem;
     public FillBoosterItem fillBoosterItem2;
@@ -116,16 +115,8 @@ public class UIGameplay : UICanvas
     }
     public void SetZoomStateButton()
     {
-        CameraManager.Ins.ChangeZoomState(); 
+        CameraManager.Ins.ChangeZoomState();
     }
-
-    public void ChangeZoomButtonState(CameraState camState)
-    {
-        zoomItem.ChangeButtonState(camState);
-    }
-
-
-
     public void MoveDownBtn(FillBoosterItem fillBoosterItem)
     {
         fillBoosterItem.MoveDown();
@@ -134,5 +125,4 @@ public class UIGameplay : UICanvas
     {
         fillBoosterItem.MoveUp();
     }
-   
 }

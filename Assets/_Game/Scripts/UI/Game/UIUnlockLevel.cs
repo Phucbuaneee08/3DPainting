@@ -20,24 +20,23 @@ public class UIUnlockLevel : UICanvas
     {
         base.Open();
     }
-    public void SetData(LevelItem _levelItem, bool _isShowBtnUnlockGold, bool _isShowBtnUnlockAds, bool _isShowBtnUnlockDiamond)
+    public void SetData(LevelItem _levelItem, bool _isShowBtnUnlockGol, bool _isShowBtnUnlockAds, bool _isShowBtnUnlockDiamond)
     {
+
         this.levelItem = _levelItem;
         this.imgLevel.sprite = _levelItem.imageSource.sprite;
-        this.objBtnUnlockGol.SetActive(_isShowBtnUnlockGold);
+        this.objBtnUnlockGol.SetActive(_isShowBtnUnlockGol);
         this.objBtnUnlockAds.SetActive(_isShowBtnUnlockAds);
         this.objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
-        var levelData = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level;
-        this.textGoldUnlock.text = levelData.costGold.ToString();
-        this.textGoldUnlock.color = levelData.costGold > DataManager.Ins.playerData.gold ? Color.red : Color.black;
-        this.textDiamondUnlock.text = levelData.costDiamond.ToString();
-        this.textDiamondUnlock.color = levelData.costDiamond > DataManager.Ins.playerData.diamond ? Color.red : Color.black;
-    }
+        this.textGoldUnlock.text = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold.ToString();
+        this.textDiamondUnlock.text = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond.ToString();
 
+    }
     public void BtnUnlockGold()
     {
         DataManager.Ins.UnlockGold(levelItem);
-      
+        UIManager.Ins.CloseAll();
+        UIManager.Ins.OpenUI<MainMenu>();
     }
     public void BtnUnlockAds()
     {
