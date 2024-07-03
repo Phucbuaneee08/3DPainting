@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -42,6 +43,8 @@ public class Player : GameUnit
     }
     private void Update()
     {
+        
+
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
 
 

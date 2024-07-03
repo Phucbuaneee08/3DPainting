@@ -15,6 +15,9 @@ public enum CameraState
 }
 public class CameraManager : Singleton<CameraManager>
 {
+    //public Material testMat;
+
+
     [SerializeField] private Vector3 offset;
     [SerializeField] private Quaternion rotateOffset;
     [SerializeField] private Player player;
@@ -49,7 +52,9 @@ public class CameraManager : Singleton<CameraManager>
     }
     private void Update()
     {
-    
+        float fov = cam.fieldOfView;
+        //testMat.SetFloat("_FOV", fov);
+
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 

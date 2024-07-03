@@ -74,8 +74,7 @@ public class ColorItem : MonoBehaviour
                 break;
             case ColorItemState.IsSelected:
                 colorItemState= ColorItemState.Default;
-                MoveDown();
-                Debug.Log(element.position.y);
+                MoveDown();            
                 break;
         }
     }

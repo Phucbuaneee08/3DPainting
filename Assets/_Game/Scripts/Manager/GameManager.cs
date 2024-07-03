@@ -7,7 +7,7 @@ public enum GameState { GamePlay, MainMenu, Finish, Revive, Setting }
 
 public class GameManager : Singleton<GameManager>
 {
-    private GameState gameState;
+    private GameState gameState = GameState.MainMenu;
 
     public void ChangeState(GameState gameState)
     {
@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Awake()
     {
+      
         Application.targetFrameRate = 60;
         //tranh viec tat man hinh
         Screen.sleepTimeout = SleepTimeout.NeverSleep;

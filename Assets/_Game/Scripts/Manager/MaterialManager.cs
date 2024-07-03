@@ -10,7 +10,7 @@ public class MaterialManager : Singleton<MaterialManager>
     [SerializeField] private List<Material> numberMats;
     [SerializeField] private List<Material> defaultMats;
     [SerializeField] private List<Material> focusNumberMats;
-    [SerializeField] private Color highLightColor;
+    [SerializeField] private Material unHighLightMaterial;
     [SerializeField] private Color showTextColor;
     
     public void SetColor(Cube cube,int colorID)
@@ -32,12 +32,17 @@ public class MaterialManager : Singleton<MaterialManager>
         this.matData = md;
         ConvertFromRealColorToDefaultColor();
     }
+    public void SetUnHightLightColor(Cube cube)
+    {
+        cube.colorRender.material = unHighLightMaterial;        
+    }
     public void SetHighLightColor(Cube cube)
     {
         cube.colorRender.material = focusNumberMats[cube.GetColorID()-1];
     }
     public void SetShowTextColor(Cube cube) 
     {
+        numberMats[cube.GetColorID() - 1].color = defaultMats[cube.GetColorID()-1].color;
         cube.colorRender.material = numberMats[cube.GetColorID() - 1];
     }
     public void ConvertFromRealColorToDefaultColor()

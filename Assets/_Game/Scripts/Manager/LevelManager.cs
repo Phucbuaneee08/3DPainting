@@ -281,7 +281,6 @@ public class LevelManager : Singleton<LevelManager>
                     break;
                 case CubeState.Focus:
                     MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
-
                     break;
                 default:
                     MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
@@ -310,6 +309,7 @@ public class LevelManager : Singleton<LevelManager>
                         break;
                     case CubeState.Focus:
                         break;
+                     
                     default:
                         MaterialManager.Ins.SetHighLightColor(cube);
                         cube.ChangeState(CubeState.Focus);
@@ -330,7 +330,7 @@ public class LevelManager : Singleton<LevelManager>
                         cube.ChangeState(CubeState.Default);
                     }
 
-                }
+                }            
             }
 
         }
