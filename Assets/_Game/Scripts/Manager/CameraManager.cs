@@ -99,7 +99,6 @@ public class CameraManager : Singleton<CameraManager>
             isZoomedOut = true;
             isZoomedIn = false;
             camState = CameraState.ZoomOut;
-            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
         }
         else if (cam.fieldOfView < checkPointZoom && !isZoomedIn)
         {
@@ -108,7 +107,6 @@ public class CameraManager : Singleton<CameraManager>
             isZoomedIn = true;
             isZoomedOut = false;
             camState = CameraState.ZoomIn;
-            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
         }
     }
     public bool IsCameraState(CameraState cs)
@@ -157,17 +155,13 @@ public class CameraManager : Singleton<CameraManager>
         switch (camState)
         {
             case CameraState.ZoomIn:
-
                 cam.DOFieldOfView(maxZoom, zoomDuration);
-
                 break;
             case CameraState.ZoomOut:
                 cam.DOFieldOfView((minZoom + checkPointZoom) / 2, zoomDuration);
                 break;
         }
-
     }
-    public CameraState CameraState { get { return camState; } }
 
 
 }

@@ -1,11 +1,10 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     private float remainingTime = 0;
-    public TextMeshProUGUI timerText;
+    public Text timerText;
     private bool _isCanCountDown;
 
     void Update()

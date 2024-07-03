@@ -47,7 +47,6 @@ public class DataManager : Singleton<DataManager>
             .Select(ld => new LevelDataModel(ld.levelID, 0,ld.level.unlockType)).ToList();
         SaveData();
     }
-#if UNITY_EDITOR
     [MenuItem("UserDataManager/ResetData")]
     public static void ResetData()
     {
@@ -60,8 +59,6 @@ public class DataManager : Singleton<DataManager>
         DataUtilities.DeleteData(systemPath);
         Debug.Log("Reset thành công Data người chơi ");
     }
-#endif
-
     public void UnlockGold(LevelItem _levelItem)
     {
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
@@ -76,8 +73,6 @@ public class DataManager : Singleton<DataManager>
                 playerData.gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
-                UIManager.Ins.CloseAll();
-                UIManager.Ins.OpenUI<MainMenu>();
             }
         }
     }
@@ -121,10 +116,10 @@ public class PlayerData
     public PlayerData()
     {
         currentlevelID = 1;
-        gold = 10000;
-        diamond = 1000;
-        boosterQuantity = 1000;
-        boosterFillByColorQuantity = 1000;
+        gold = 100;
+        diamond = 100;
+        boosterQuantity = 100;
+        boosterFillByColorQuantity = 100;
         isPassedTutorialBooster1 = false;
         isPassedTutorialBooster2 = false;
         isPassedTutorialBooster3 = false;
