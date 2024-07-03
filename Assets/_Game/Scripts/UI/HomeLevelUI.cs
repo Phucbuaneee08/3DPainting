@@ -66,7 +66,6 @@ public class HomeLevelUI : MonoBehaviour
             NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
             nestedScrollHandler.parentScrollRect = scrollRect;
         }
-        Debug.LogError("Load");
         SetSizeDetal();
     }
 

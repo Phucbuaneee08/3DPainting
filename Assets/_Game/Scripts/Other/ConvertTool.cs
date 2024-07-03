@@ -19,7 +19,7 @@ public class ConvertTool : EditorWindow
 
     private void OnGUI()
     {
-        Level level = new Level();
+        Level level = ScriptableObject.CreateInstance<Level>();
         GUILayout.Label("Convert Object Settings", EditorStyles.boldLabel);
 
         model3D = (GameObject)EditorGUILayout.ObjectField("3DModel", model3D, typeof(GameObject), true);
