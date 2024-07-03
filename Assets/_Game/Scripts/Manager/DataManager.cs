@@ -44,7 +44,7 @@ public class DataManager : Singleton<DataManager>
     public void SaveLevelDataModels()
     {
         playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D
-            .Select(ld => new LevelDataModel(ld.levelID, 0,UnlockType.free)).ToList();
+            .Select(ld => new LevelDataModel(ld.levelID, 0,ld.level.unlockType)).ToList();
         SaveData();
     }
     [MenuItem("UserDataManager/ResetData")]

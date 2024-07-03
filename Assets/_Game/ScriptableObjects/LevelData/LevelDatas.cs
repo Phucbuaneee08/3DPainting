@@ -32,7 +32,6 @@ public class LevelDatas : ScriptableObject
 public class LevelData
 {
     public int levelID;
-    //public LevelType levelType;
     public Level level;
     public Sprite imageSource;
 }
