@@ -10,41 +10,42 @@ public class DataManager : Singleton<DataManager>
 {
     public bool isLoaded = false;
     public PlayerData playerData;
-    public const string PLAYER_DATA = "PLAYER_DATA";
+    private const string PLAYER_DATA_PATH = "/GameData/PlayerData.json";
+    private static string systemPath = Application.dataPath + PLAYER_DATA_PATH;
 
     private void OnApplicationPause(bool pause) { SaveData(); }
     private void OnApplicationQuit() { SaveData(); }
 
     public void LoadData()
-    {   
+    {
         Debug.Log("START LOAD DATA");
-        string d = PlayerPrefs.GetString(PLAYER_DATA, "");
-        if (d != "")
-        {
-            playerData = JsonUtility.FromJson<PlayerData>(d);
-        }
-        else
+        playerData = DataUtilities.LoadData<PlayerData>(systemPath);
+
+        if (playerData == null)
         {
             playerData = new PlayerData();
             FirstLoad();
         }
         isLoaded = true;
     }
+
     public void SaveData()
     {
         if (!isLoaded) return;
-        string json = JsonUtility.ToJson(playerData);
-        PlayerPrefs.SetString(PLAYER_DATA, json);
+        DataUtilities.SaveData(playerData, systemPath);
         Debug.Log("SAVE DATA");
     }
+
     void FirstLoad()
     {
         SaveLevelDataModels();
     }
+
     public void SaveLevelDataModels()
     {
-        DataManager.Ins.playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D.Select(ld => new LevelDataModel(ld.levelID, 0)).ToList();
-        DataManager.Ins.SaveData();
+        playerData.levelDataModels = LevelManager.Ins.levelDatas.level3D
+            .Select(ld => new LevelDataModel(ld.levelID, 0)).ToList();
+        SaveData();
     }
 }
 [System.Serializable]
