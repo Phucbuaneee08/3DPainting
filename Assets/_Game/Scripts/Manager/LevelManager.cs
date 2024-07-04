@@ -55,14 +55,13 @@ public class LevelManager : Singleton<LevelManager>
         if (currentColor == 0)
         {
             Focus(colorID);
-            this.currentColor = colorID;
             return;
         }
         if (currentColor != colorID)
         {
             UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(currentColor).SetMovePosition();
             Focus(colorID);
-            this.currentColor = colorID;
+          
         }
 
     }
@@ -79,6 +78,7 @@ public class LevelManager : Singleton<LevelManager>
         cubes.Clear();
         SimplePool.CollectAll();
         MaterialManager.Ins.OnResetDefaultColor();
+        MaterialManager.Ins.ResetFloatShaderColor();
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
         //UIManager.Ins.GetUI<MainMenu>().ReLoadData();
         CameraManager.Ins.Reset();
@@ -114,12 +114,12 @@ public class LevelManager : Singleton<LevelManager>
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
-
+     
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
-            newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);
-            MaterialManager.Ins.SetDefaultColor(newCube, newCube.GetColorID() - 1);
+            newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
+            MaterialManager.Ins.SetDefaultShaderColor(newCube, newCube.GetColorID() - 1);
             cubes.Add(newCube);
         }
 
@@ -256,85 +256,97 @@ public class LevelManager : Singleton<LevelManager>
 
     public void Zoomin()
     {
-        foreach (Cube cube in cubes)
-        {
-            switch (cube.GetState())
-            {
-                case CubeState.Colored:
-                    break;
-                case CubeState.Focus:
-                    MaterialManager.Ins.SetHighLightColor(cube);
-                    break;
-                default:
-                    MaterialManager.Ins.SetShowTextColor(cube);
-                    cube.ChangeState(CubeState.Zoomin);
-                    break;
-            }
-        }
+        //foreach (Cube cube in cubes)
+        //{
+        //    switch (cube.GetState())
+        //    {
+        //        case CubeState.Colored:
+        //            break;
+        //        case CubeState.Focus:
+        //            MaterialManager.Ins.SetHighLightColor(cube);
+        //            break;
+        //        default:
+        //            MaterialManager.Ins.SetShowTextColor(cube);
+        //            cube.ChangeState(CubeState.Zoomin);
+        //            break;
+        //    }
+        //}
     }
     public void Zoomout()
     {
-        foreach (Cube cube in cubes)
-        {
-            switch (cube.GetState())
-            {
-                case CubeState.Colored:
-                    break;
-                case CubeState.Focus:
-                    MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
-                    break;
-                default:
-                    MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
-                    cube.ChangeState(CubeState.Default);
+        //foreach (Cube cube in cubes)
+        //{
+        //    switch (cube.GetState())
+        //    {
+        //        case CubeState.Colored:
+        //            break;
+        //        case CubeState.Focus:
+        //            MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
+        //            break;
+        //        default:
+        //            MaterialManager.Ins.SetDefaultColor(cube, cube.GetColorID() - 1);
+        //            cube.ChangeState(CubeState.Default);
 
-                    break;
-            }
+        //            break;
+        //    }
 
-        }
+        //}
     }
     public void Focus(int colorID)
     {
+        if(currentColor!=0)
+                MaterialManager.Ins.SetShowTextShaderColor(currentColor);
+        MaterialManager.Ins.SetHightLigtShaderColor(colorID);
+        currentColor = colorID;
 
+        //foreach (Cube cube in cubes)
+        //{
 
-        foreach (Cube cube in cubes)
-        {
+        //    if (cube.GetColorID() == colorID)
+        //    {
+        //        MaterialManager.Ins.SetHightLigtShaderColor(colorID);
 
-            if (cube.GetColorID() == colorID)
-            {
-                switch (cube.GetState())
-                {
-                    case CubeState.Colored:
-                        break;
-                    case CubeState.Default:
-                        cube.ChangeState(CubeState.Focus);
-                        break;
-                    case CubeState.Focus:
-                        break;
-                     
-                    default:
-                        MaterialManager.Ins.SetHighLightColor(cube);
-                        cube.ChangeState(CubeState.Focus);
-                        break;
-                }
-            }
-            else
-            {
-                if (cube.IsState(CubeState.Focus))
-                {
-                    if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
-                    {
-                        MaterialManager.Ins.SetShowTextColor(cube);
-                        cube.ChangeState(CubeState.Zoomin);
-                    }
-                    if (CameraManager.Ins.IsCameraState(CameraState.ZoomOut))
-                    {
-                        cube.ChangeState(CubeState.Default);
-                    }
+        //        //switch (cube.GetState())
+        //        //{
+        //        //    case CubeState.Colored:
+        //        //        break;
+        //        //    //case CubeState.Default:
+        //        //    //    cube.ChangeState(CubeState.Focus);
+        //        //    //    break;
+        //        //    case CubeState.Focus:
+        //        //        break;
 
-                }            
-            }
+        //        //    default:
+        //        //        //MaterialManager.Ins.SetHighLightColor(cube);
+        //        //        MaterialManager.Ins.SetHightLigtShaderColor(cube, colorID);
+        //        //        cube.ChangeState(CubeState.Focus);
+        //        //        break;
+        //        //}
+        //    }
+        //    else
+        //    {
+        //        MaterialManager.Ins.SetShowTextShaderColor(currentColor);
+        //    }
 
-        }
+        //    //else
+        //    //{
+        //    //    if (cube.IsState(CubeState.Focus))
+        //    //    {
+        //    //        if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
+        //    //        {
+        //    //            //MaterialManager.Ins.SetShowTextColor(cube);
+        //    //            cube.ChangeState(CubeState.Zoomin);
+        //    //        }
+        //    //        if (CameraManager.Ins.IsCameraState(CameraState.ZoomOut))
+        //    //        {
+        //    //            cube.ChangeState(CubeState.Default);
+        //    //        }
+
+        //    //    }            
+        //    //}
+
+        //}
+        //this.currentColor = colorID;
     }
     public void ReleaseFocusCube()
     {

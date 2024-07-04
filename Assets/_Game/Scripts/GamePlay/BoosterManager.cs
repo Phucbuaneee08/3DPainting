@@ -64,7 +64,8 @@ public class BoosterManager : Singleton<BoosterManager>
     {
         if (_isCanUseZoomBooster)
         {
-            CameraManager.Ins.cam.DOFieldOfView((CameraManager.Ins.minZoom + CameraManager.Ins.checkPointZoom) / 2, 0.5f);
+            CameraManager.Ins.cam.DOOrthoSize((CameraManager.Ins.minZoom + CameraManager.Ins.checkPointZoom) / 2, 0.5f);
+            CameraManager.Ins.LerpInCreaseOrthoSize(1f);
             _isCanUseZoomBooster = false;
         }
     }

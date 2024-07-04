@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,7 +27,7 @@ public class CameraManager : Singleton<CameraManager>
     
     public Transform targetObject;
     
-    public float zoomSpeed = 15f;
+    public float zoomSpeed = 10f;
     public bool IsZooming = false;
     public float smoothy;
     private bool isZoomedIn = false;
@@ -34,16 +35,16 @@ public class CameraManager : Singleton<CameraManager>
     private CameraState camState = CameraState.ZoomOut;
 
     [Header("ZoomInfo")]
-    public float minZoom = 20.0f;
-    public float maxZoom = 60.0f;
-    public float checkPointZoom = 50f;
+    public float minZoom = 0.1f;
+    public float maxZoom = 0.25f;
+    public float checkPointZoom = 0.2f;
 
     public void SetZoomInfo(ZoomInfo zoomInfo)
     {
         this.minZoom = zoomInfo.minZoom;
         this.checkPointZoom = zoomInfo.checkPointZoom;
         this.maxZoom = zoomInfo.maxZoom;
-        cam.fieldOfView = maxZoom;
+        cam.orthographicSize = maxZoom;
     }
     private void Start()
     {
@@ -52,8 +53,7 @@ public class CameraManager : Singleton<CameraManager>
     }
     private void Update()
     {
-        float fov = cam.fieldOfView;
-        //testMat.SetFloat("_FOV", fov);
+      
 
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
@@ -73,11 +73,17 @@ public class CameraManager : Singleton<CameraManager>
 
             //float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-            cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed * Time.deltaTime;
-            IsZooming = true;
-            // Giới hạn giá trị zoom của camera
-            cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
-       
+
+
+            Zoom(-deltaMagnitudeDiff, zoomSpeed);
+
+
+            //cam.orthographicSize += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed * Time.deltaTime;
+            //IsZooming = true;
+            //// Giới hạn giá trị zoom của camera
+            //cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+            //MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - minZoom)/(maxZoom-minZoom));
+
         }
         else
         {
@@ -88,11 +94,10 @@ public class CameraManager : Singleton<CameraManager>
         if (scrollInput != 0)
         {
             Zoom(-scrollInput, zoomSpeed);
-            //cam.fieldOfView -= scrollInput * zoomSpeed;
-            //cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
+          
         }
 #endif
-        if (cam.fieldOfView > checkPointZoom && !isZoomedOut)
+        if (cam.orthographicSize > checkPointZoom && !isZoomedOut)
         {
             Debug.Log("!!!ZoomOut");
             LevelManager.Ins.Zoomout();
@@ -101,7 +106,7 @@ public class CameraManager : Singleton<CameraManager>
             camState = CameraState.ZoomOut;
             UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
         }
-        else if (cam.fieldOfView < checkPointZoom && !isZoomedIn)
+        else if (cam.orthographicSize < checkPointZoom && !isZoomedIn)
         {
             Debug.Log("!!!ZoomIn");
             LevelManager.Ins.Zoomin();
@@ -117,56 +122,60 @@ public class CameraManager : Singleton<CameraManager>
     }
     public void Reset()
     {
-        cam.fieldOfView = 60f;
+        cam.orthographicSize = maxZoom;
         camState = CameraState.ZoomOut;
     }
     private void Zoom(float deltaMagnitudeDiff, float speed)
     {
         IsZooming = true;
-        cam.fieldOfView += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * speed;
-        //cam.fieldOfView += deltaMagnitudeDiff * speed;
-        cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minZoom, maxZoom);
-    } 
+        cam.orthographicSize += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * speed * Time.deltaTime;
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+        MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - minZoom) / (maxZoom - minZoom));
 
-    private IEnumerator StartSetFOV()
-    {
-        float duration = 1f;
-        float elapsedTime = 0f;
-        float initialFOV = cam.fieldOfView;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / duration;
-            t = t * t * (3f - 2f * t);
-            cam.fieldOfView = Mathf.Lerp(initialFOV, checkPointZoom, t);
-            yield return null;
-        }
-
-        
-        cam.fieldOfView = checkPointZoom;
-     
     }
     public void SetFieldOfView()
     {
-        StartCoroutine(StartSetFOV());
-      
+        //StartCoroutine(StartSetFOV());
+        cam.DOOrthoSize(checkPointZoom, 2f);
     }
     public void ChangeZoomState()
     {
         switch (camState)
         {
             case CameraState.ZoomIn:
-
-                cam.DOFieldOfView(maxZoom, zoomDuration);
-
+                LerpDeCreaseOrthoSize(1f);
+                cam.DOOrthoSize(maxZoom, zoomDuration);
                 break;
             case CameraState.ZoomOut:
-                cam.DOFieldOfView((minZoom + checkPointZoom) / 2, zoomDuration);
+                LerpInCreaseOrthoSize(1f);
+                cam.DOOrthoSize((minZoom + checkPointZoom) / 2, zoomDuration);
                 break;
         }
 
     }
+    public void LerpDeCreaseOrthoSize(float duration) {
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            MaterialManager.Ins.ChangeColorStateByFOV(time);    
+        }
+        MaterialManager.Ins.ChangeColorStateByFOV(1);
+    }
+    public void LerpInCreaseOrthoSize(float duration)
+    {
+        float time = duration;
+        while (time>0)
+        {
+            time -= Time.deltaTime;
+            MaterialManager.Ins.ChangeColorStateByFOV(time);
+        }
+        MaterialManager.Ins.ChangeColorStateByFOV(0);
+    }
+
+
+
+
     public CameraState CameraState { get { return camState; } }
 
 

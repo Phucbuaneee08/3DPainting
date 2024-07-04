@@ -2762,9 +2762,9 @@ MonoBehaviour:
   - material: {fileID: 591031639713082001, guid: fcad07d3ab2858f48a316e8b80d98953, type: 3}
     colorID: 11
   zoomInfo:
-    minZoom: 15
-    maxZoom: 60
-    checkPointZoom: 50
+    minZoom: 0.1
+    maxZoom: 0.25
+    checkPointZoom: 0.2
   imageSource: {fileID: 0}
   poolType: 0
   levelType: 1
