@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public enum ColorItemState { Default = 0, IsSelected =1 }
 
@@ -10,7 +11,7 @@ public class ColorItem : MonoBehaviour
 {
     [SerializeField] private Image bg;
     [SerializeField] private int colorID;
-    [SerializeField] private Text text;
+    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private RectTransform element;
     [SerializeField] private ColorItemState colorItemState;
 
@@ -61,14 +62,6 @@ public class ColorItem : MonoBehaviour
         switch (colorItemState)
         {
             case ColorItemState.Default:
-                if (UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.IsState(FillBoosterState.TurnOn))
-                {
-                    UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.ChangeBoosterItemState();
-                }
-                if (UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.IsState2(FillBoosterState.TurnOn))
-                {
-                    UIManager.Ins.GetUI<UIGameplay>().fillBoosterItem.ChangeBoosterFillItemState();
-                }
                 colorItemState = ColorItemState.IsSelected;
                 MoveUp();
                 break;

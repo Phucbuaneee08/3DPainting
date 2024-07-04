@@ -83,12 +83,7 @@ public class DataManager : Singleton<DataManager>
                 playerData.gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
-
                 StartCoroutine(IE_LoadData());
-
-                UIManager.Ins.CloseAll();
-                UIManager.Ins.OpenUI<MainMenu>();
-
             }
         }
     }

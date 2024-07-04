@@ -12,6 +12,21 @@ public class UIBuyBooster : UICanvas
     public Image imgBG2;
     public Image imgBG3;
     private int id;
+    [SerializeField] TextMeshProUGUI textGold;
+    [SerializeField] TextMeshProUGUI textDiamoind;
+    private void Awake()
+    {
+
+    }
+    public void Start()
+    {
+
+    }
+    void Update()
+    {
+        textGold.text = DataManager.Ins.playerData.gold.ToString();
+        textDiamoind.text = DataManager.Ins.playerData.diamond.ToString();
+    }
     public override void Setup()
     {
         base.Setup();
@@ -54,5 +69,6 @@ public class UIBuyBooster : UICanvas
     public void BtnExit()
     {
         UIManager.Ins.CloseUI<UIBuyBooster>();
+        GameManager.Ins.ChangeState(GameState.GamePlay);
     }
 }

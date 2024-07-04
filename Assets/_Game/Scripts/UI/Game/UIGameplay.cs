@@ -19,8 +19,8 @@ public class UIGameplay : UICanvas
     public FillBoosterItem fillBoosterItem2;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
     public TextMeshProUGUI textLevel;
-
     public BoosterController boosterController;
+    public Image imgBG;
     private void Awake()
     {
         miniPool.OnInit(colorItemPrefab, 10, content);
@@ -28,14 +28,6 @@ public class UIGameplay : UICanvas
     public override void Setup()
     {
         base.Setup();
-        if (fillBoosterItem.IsState(FillBoosterState.TurnOn))
-        {
-            fillBoosterItem.ChangeBoosterItemState();
-        }  
-        if (fillBoosterItem2.IsState2(FillBoosterState.TurnOn))
-        {
-            fillBoosterItem2.ChangeBoosterFillItemState();
-        }
         boosterController.LoadData();
       
     }

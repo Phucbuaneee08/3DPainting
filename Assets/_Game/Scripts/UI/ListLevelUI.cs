@@ -41,8 +41,8 @@ public class ListLevelUI : MonoBehaviour
             bool isColored = lvDataModel.isColored == true;
             bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
             bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
-
-            levelItem.SetData(lvData.levelID, lvData.imageSource, isColored, !isColored && isGoldOrAds, !isColored && isDiamond);
+            bool isUnlock = lvDataModel.unlockType != UnlockType.free;
+            levelItem.SetData(lvData.levelID, lvData.imageSource, isColored, !isColored && isGoldOrAds, !isColored && isDiamond, isUnlock);
         }
         StartCoroutine(IE_SetSizeDetal());
     }
