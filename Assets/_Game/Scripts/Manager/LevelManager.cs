@@ -350,13 +350,14 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void ReleaseFocusCube()
     {
+     
         foreach (Cube cube in cubes)
         {
             if (cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
             {
                 if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
                 {
-                    MaterialManager.Ins.SetShowTextColor(cube);
+                    //MaterialManager.Ins.SetShowTextColor(cube);
                     cube.ChangeState(CubeState.Zoomin);
                 }
                 if (CameraManager.Ins.IsCameraState(CameraState.ZoomOut))

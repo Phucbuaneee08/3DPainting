@@ -27,7 +27,7 @@ public class CameraManager : Singleton<CameraManager>
     
     public Transform targetObject;
     
-    public float zoomSpeed = 10f;
+    public float zoomSpeed = 1f;
     public bool IsZooming = false;
     public float smoothy;
     private bool isZoomedIn = false;
@@ -75,7 +75,7 @@ public class CameraManager : Singleton<CameraManager>
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
 
-            Zoom(-deltaMagnitudeDiff, zoomSpeed);
+            Zoom(deltaMagnitudeDiff, zoomSpeed);
 
 
             //cam.orthographicSize += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed * Time.deltaTime;

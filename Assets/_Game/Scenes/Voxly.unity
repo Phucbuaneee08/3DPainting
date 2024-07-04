@@ -1231,7 +1231,7 @@ MonoBehaviour:
   zoomDuration: 0.5
   cam: {fileID: 963194227}
   targetObject: {fileID: 2099514018}
-  zoomSpeed: 10
+  zoomSpeed: 0.8
   IsZooming: 0
   smoothy: 0.5
   minZoom: 0.1
@@ -1310,6 +1310,10 @@ PrefabInstance:
     - target: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_Name
       value: IngameDebugConsole
+      objectReference: {fileID: 0}
+    - target: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11490438, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_BlockingMask.m_Bits

@@ -27,6 +27,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: fdf8c6e36ae67e843b79931eab894e23, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _so:
+        m_Texture: {fileID: 2800000, guid: fdf8c6e36ae67e843b79931eab894e23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _sub:
         m_Texture: {fileID: 2800000, guid: 92d01c7017a510f4692e0a2a1efba927, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -53,6 +57,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0}
     - _DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+    - _NearColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8289887604600979595
 MonoBehaviour:

@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _so:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fbf05b87ed9c60042a4965a5990b5a94, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _sub:
@@ -49,15 +49,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 1
+    - _Float: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _metal: 0
     - _sm: 0
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0}
-    - _DefaultColor: {r: 0.7106851, g: 0.7106851, b: 0.7106851, a: 1}
-    - _NearColor: {r: 0.96194696, g: 1, b: 0, a: 0}
+    - _DefaultColor: {r: 0.88079226, g: 0.88079226, b: 0.88079226, a: 1}
+    - _NearColor: {r: 0.88079226, g: 0.88079226, b: 0.88079226, a: 1}
     - _near_color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8289887604600979595

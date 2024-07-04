@@ -33,11 +33,11 @@ public class MaterialManager : Singleton<MaterialManager>
         cube.colorRender.material = matData[colorID-1].material;
        
     }
-    public void SetDefaultColor(Cube cube,int colorID)
-    {
-        cube.colorRender.material = defaultMats[colorID%(defaultMats.Count)];
+    //public void SetDefaultColor(Cube cube,int colorID)
+    //{
+    //    cube.colorRender.material = defaultMats[colorID%(defaultMats.Count)];
        
-    }
+    //}
     public void SetMatData(List<MaterialData> md)
     {
         this.matData = md;
@@ -83,7 +83,7 @@ public class MaterialManager : Singleton<MaterialManager>
     }
     public void SetDefaultShaderColor(Cube cube, int colorID)
     {
-        cube.colorRender.sharedMaterial = currentShaderMaterials[colorID % (currentShaderMaterials.Count)];
+        cube.colorRender.sharedMaterial = currentShaderMaterials[colorID];
 
     }
     public void ResetFloatShaderColor()
