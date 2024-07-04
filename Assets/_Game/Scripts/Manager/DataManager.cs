@@ -126,13 +126,12 @@ public class PlayerData
     public bool isPassedTutorialBooster1;
     public bool isPassedTutorialBooster2;
     public bool isPassedTutorialBooster3;
-
     public int currentlevelID;
     public int gold;
     public int diamond;
     public int boosterQuantity;
     public int boosterFillByColorQuantity;
-
+    [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
     public PlayerData()
     {
@@ -148,13 +147,11 @@ public class PlayerData
         isPassedTutorialRotate = false;
         isPassedTutorialZoom = false;
     }
-
     public LevelDataModel GetDataWithID(int _id)
     {
         return levelDataModels.Find(id => id.levelID == _id);
     }
 }
-
 [System.Serializable]
 public class LevelDataModel
 {

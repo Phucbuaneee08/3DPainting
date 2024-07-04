@@ -15,12 +15,10 @@ public class DataUtilities : MonoBehaviour
         {
             filePath = systemPath;
         }
-
         if (!Directory.Exists(Path.GetDirectoryName(filePath)))
         {
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
         }
-
         string jsonData = JsonUtility.ToJson(data);
         File.WriteAllText(filePath, jsonData);
         Debug.Log("Đã lưu thành công Data tại: " + filePath);
@@ -32,7 +30,6 @@ public class DataUtilities : MonoBehaviour
         {
             filePath = systemPath;
         }
-
         if (File.Exists(filePath))
         {
             string jsonData = File.ReadAllText(filePath);
@@ -45,14 +42,12 @@ public class DataUtilities : MonoBehaviour
             return default(T);
         }
     }
-
     public static void UpdateData<T>(T newData, string filePath = null)
     {
         if (filePath == null)
         {
             filePath = systemPath;
         }
-
         if (File.Exists(filePath))
         {
             string jsonData = JsonUtility.ToJson(newData);
@@ -63,14 +58,12 @@ public class DataUtilities : MonoBehaviour
             Debug.LogError("Không tìm thấy đường dẫn: " + filePath);
         }
     }
-
     public static void DeleteData(string filePath = null)
     {
         if (filePath == null)
         {
             filePath = systemPath;
         }
-
         if (File.Exists(filePath))
         {
             File.Delete(filePath);

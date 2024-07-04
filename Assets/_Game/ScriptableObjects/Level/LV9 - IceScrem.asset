@@ -1810,3 +1810,6 @@ MonoBehaviour:
   imageSource: {fileID: 0}
   poolType: 0
   levelType: 2
+  costGold: 100
+  costDiamond: 10
+  unlockType: 4

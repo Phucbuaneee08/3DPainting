@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6809014368791173556}
   - component: {fileID: 1907076142418289062}
   m_Layer: 5
-  m_Name: ImgBoosterMagnifir (1)
+  m_Name: ImgBoosterPaintBucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,9 +406,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIUnlockLevel, Assembly-CSharp
-        m_MethodName: BtnUnlockGold
+      - m_Target: {fileID: 831086544966847640}
+        m_TargetAssemblyTypeName: UIBuyBooster, Assembly-CSharp
+        m_MethodName: BtnBuyBoosterGold
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -490,8 +490,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b3f0d976f6d6802479d6465d11b3aa68, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -696,8 +696,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIUnlockLevel, Assembly-CSharp
+      - m_Target: {fileID: 831086544966847640}
+        m_TargetAssemblyTypeName: UIBuyBooster, Assembly-CSharp
         m_MethodName: BtnExit
         m_Mode: 1
         m_Arguments:
@@ -1249,7 +1249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5446698473854592371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1423,7 +1423,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
-  textCostBooster: {fileID: 0}
+  textCostBooster: {fileID: 8463369425600558273}
+  numberBooster: {fileID: 0}
+  imgBG1: {fileID: 7017937836323355055}
+  imgBG2: {fileID: 1907076142418289062}
+  imgBG3: {fileID: 0}
 --- !u!1 &7365313904367760011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,12 +1574,12 @@ GameObject:
   - component: {fileID: 49253323961652120}
   - component: {fileID: 7017937836323355055}
   m_Layer: 5
-  m_Name: ImgBoosterMagnifir (2)
+  m_Name: ImgBoosterPaintBrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4042253103161397139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1645,7 +1649,7 @@ GameObject:
   - component: {fileID: 5187225605014131987}
   - component: {fileID: 8532421052149708021}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageTille
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

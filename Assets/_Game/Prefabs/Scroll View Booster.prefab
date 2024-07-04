@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  imgBG: {fileID: 0}
+  imgBG: {fileID: 8614955981291182875}
   rectTransform: {fileID: 478355100172888691}
   tf: {fileID: 0}
   initialPosition: {x: 0, y: 0}
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  imgBG: {fileID: 0}
+  imgBG: {fileID: 2926965934021688938}
   rectTransform: {fileID: 5758398879674641020}
   tf: {fileID: 0}
   initialPosition: {x: 0, y: 0}

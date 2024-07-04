@@ -1744,3 +1744,6 @@ MonoBehaviour:
   imageSource: {fileID: 21300000, guid: b2463c77541aef3418337b564518b1a3, type: 3}
   poolType: 6
   levelType: 2
+  costGold: 100
+  costDiamond: 10
+  unlockType: 4

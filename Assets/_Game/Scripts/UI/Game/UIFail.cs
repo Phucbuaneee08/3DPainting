@@ -14,4 +14,3 @@ public class UIFail : UICanvas
         GameManager.Ins.ChangeState(GameState.Finish);
     }
 }
-

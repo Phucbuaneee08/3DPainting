@@ -21,7 +21,6 @@ public class Timer : MonoBehaviour
         else
         {
             _isCanCountDown = false;
-
             LevelManager.Ins.CheckReviveOrFail();
             //UIManager.Ins.OpenUI<UIRevive>();
             timerText.text = "0:00";
