@@ -87,28 +87,19 @@ public class BoosterManager : Singleton<BoosterManager>
     #region Booster Find Next Cube By Color
     public void FindNextCubeByColor(int currentColorID)
     {
+        if (currentColorID == 0) return;
         Cube cub = Ultilities.CheckNextCubeInList(LevelManager.Ins.Cubes, currentColorID);
-        
         Vector3 cameraPosition = Camera.main.transform.position;
-
-
         Vector3 cubeDirection = cub.transform.position - player.transform.position;
         Vector3 playerDirection = cameraPosition - player.transform.position;
-
-
         Vector3 horizontalRotateCube = new Vector3(0, cubeDirection.y, cubeDirection.z);
         Vector3 horizontalRotatePlayer = new Vector3(0, playerDirection.y, playerDirection.z);
-
         float angle = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
         if (cubeDirection.y > 0)
             RotateXAxis(-angle, 1f);
         else
             RotateXAxis(angle, 1f);
-
-      
         StartCoroutine(RotateYAxis(cub)); 
-         Debug.Log(angle);
-        
     }
     private void  RotateXAxis(float angle,float duration)
     {

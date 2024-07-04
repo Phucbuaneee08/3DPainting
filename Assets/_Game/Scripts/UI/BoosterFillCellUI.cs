@@ -53,6 +53,7 @@ public class BoosterFillCellUI : MonoBehaviour
         if (DataManager.Ins.playerData.boosterQuantity <= 0)
         {
             UIManager.Ins.OpenUI<UIBuyBooster>().SetData(id);
+            GameManager.Ins.ChangeState(GameState.Pause);
         }
         else
         {
@@ -84,6 +85,7 @@ public class BoosterFillCellUI : MonoBehaviour
         if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
         {
             UIManager.Ins.OpenUI<UIBuyBooster>().SetData(id);
+            GameManager.Ins.ChangeState(GameState.Pause);
         }
         else
         {

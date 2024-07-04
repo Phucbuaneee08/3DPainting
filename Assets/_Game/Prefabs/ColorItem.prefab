@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg: {fileID: 5269299965747385257}
   colorID: 0
-  text: {fileID: 7647784626823678808}
+  text: {fileID: 0}
   element: {fileID: 2751117985361770005}
   colorItemState: 0
   initialPosition: {x: 0, y: 0}
