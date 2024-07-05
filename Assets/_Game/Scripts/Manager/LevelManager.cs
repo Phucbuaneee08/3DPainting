@@ -80,7 +80,7 @@ public class LevelManager : Singleton<LevelManager>
         MaterialManager.Ins.OnResetDefaultColor();
         MaterialManager.Ins.ResetFloatShaderColor();
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
-        BackGroundManager.Ins.ResetToInitialColor();
+        //BackGroundManager.Ins.ResetToInitialColor();
         //UIManager.Ins.GetUI<MainMenu>().ReLoadData();
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetZoomBooster();
@@ -193,7 +193,7 @@ public class LevelManager : Singleton<LevelManager>
         CameraManager.Ins.SetFieldOfView();
         UIManager.Ins.CloseAll();
         Color lightPink = new Color(1f, 0.71f, 0.76f);
-        BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
+        //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
 
