@@ -10,4 +10,8 @@ public enum LevelType
     none,
     animal,
     human,
+    machines,
+    beverages,
+    food,
+    other
 }

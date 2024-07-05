@@ -15,6 +15,7 @@ MonoBehaviour:
   levelID: 0
   cubes:
   - position: {x: 0, y: 0, z: 0}
+    ID: 0
     realColorID: 1
     defaultColorID: 1
   materials:
@@ -25,3 +26,5 @@ MonoBehaviour:
     maxZoom: 16
     checkPointZoom: 12
   imageSource: {fileID: 21300000, guid: 4646bfa7370a2324f85473078060f59d, type: 3}
+  poolType: 1
+  levelType: 6
