@@ -80,6 +80,7 @@ public class LevelManager : Singleton<LevelManager>
         MaterialManager.Ins.OnResetDefaultColor();
         MaterialManager.Ins.ResetFloatShaderColor();
         UIManager.Ins.GetUI<UIGameplay>().ResetColorItem();
+        BackGroundManager.Ins.ResetToInitialColor();
         //UIManager.Ins.GetUI<MainMenu>().ReLoadData();
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetZoomBooster();
@@ -188,7 +189,11 @@ public class LevelManager : Singleton<LevelManager>
     private IEnumerator OnCelebration()
     {
         //player.PlayAnim();
+        GameManager.Ins.ChangeState(GameState.Pause);
         CameraManager.Ins.SetFieldOfView();
+        UIManager.Ins.CloseAll();
+        Color lightPink = new Color(1f, 0.71f, 0.76f);
+        BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
 
@@ -201,11 +206,11 @@ public class LevelManager : Singleton<LevelManager>
         }
         DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
         DataManager.Ins.SaveData();
+        yield return new WaitForSeconds(2f);
         Victory();
     }
     public void Fail()
     {
-        UIManager.Ins.CloseAll();
         UIManager.Ins.OpenUI<UIFail>();
     }
     public void Victory()
