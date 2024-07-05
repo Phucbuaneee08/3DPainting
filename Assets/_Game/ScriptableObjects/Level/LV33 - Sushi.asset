@@ -8867,8 +8867,8 @@ MonoBehaviour:
     colorID: 11
   zoomInfo:
     minZoom: 0.1
-    maxZoom: 0.25
-    checkPointZoom: 0.2
+    maxZoom: 0.5
+    checkPointZoom: 0.4
   imageSource: {fileID: 21300000, guid: b278c29800665c946982205d69b86c52, type: 3}
   poolType: 48
   levelType: 5
