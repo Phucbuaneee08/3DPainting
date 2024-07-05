@@ -3980,9 +3980,12 @@ MonoBehaviour:
   - material: {fileID: -4827960292722580231, guid: bbe104e2c1cf44e4191abc8acfd5d312, type: 3}
     colorID: 8
   zoomInfo:
-    minZoom: 5
-    maxZoom: 60
-    checkPointZoom: 50
+    minZoom: 0.1
+    maxZoom: 0.25
+    checkPointZoom: 0.2
   imageSource: {fileID: 21300000, guid: 5faff36f07e2fde469b0e43847711df8, type: 3}
   poolType: 47
   levelType: 1
+  costGold: 100
+  costDiamond: 10
+  unlockType: 1
