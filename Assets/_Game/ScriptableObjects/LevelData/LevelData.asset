@@ -14,207 +14,155 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level3D:
   - levelID: 1
-    levelType: 0
     level: {fileID: 11400000, guid: 019c0ab9150d92c439a4e48a5b7dc081, type: 2}
     imageSource: {fileID: 21300000, guid: 4646bfa7370a2324f85473078060f59d, type: 3}
   - levelID: 2
-    levelType: 6
     level: {fileID: 11400000, guid: 631b1a2f3522a8643b909b4a1afc9097, type: 2}
     imageSource: {fileID: 21300000, guid: ee6f5e4edb7f94d4fbefd358fc8f4186, type: 3}
   - levelID: 3
-    levelType: 6
     level: {fileID: 11400000, guid: 8032de724507a05499943bf5002b03da, type: 2}
     imageSource: {fileID: 21300000, guid: bcebc6e75df836843a933c93780cd5bf, type: 3}
   - levelID: 4
-    levelType: 6
     level: {fileID: 11400000, guid: e84de0449d6306e42bca2157fa8fa8e3, type: 2}
     imageSource: {fileID: 21300000, guid: 6badffcbd0739f0408ef6495b96f529e, type: 3}
   - levelID: 5
-    levelType: 1
     level: {fileID: 11400000, guid: feec62aed18a0e24594e7b54c06b50f8, type: 2}
     imageSource: {fileID: 21300000, guid: 87979945e8028444c9983cad9c0aa6f6, type: 3}
   - levelID: 6
-    levelType: 5
     level: {fileID: 11400000, guid: 20c02cd773d41ef47aea786b20e4da88, type: 2}
     imageSource: {fileID: 21300000, guid: 207ecfb825b30c44fae6eedf34569239, type: 3}
   - levelID: 7
-    levelType: 3
     level: {fileID: 11400000, guid: 64287505a6bc7604bb39186a7c778fac, type: 2}
     imageSource: {fileID: 21300000, guid: 4445e21875bd6fd418678907de4224dc, type: 3}
   - levelID: 8
-    levelType: 4
     level: {fileID: 11400000, guid: af11fbe8af837a2448cddf43a79683b8, type: 2}
     imageSource: {fileID: 21300000, guid: 406958414cf341d49b0383c5d97f4a7b, type: 3}
   - levelID: 9
-    levelType: 5
     level: {fileID: 11400000, guid: c11f2a1fa4656cc48bd884892da75857, type: 2}
     imageSource: {fileID: 21300000, guid: 162e56f6ec5898146b701568e9c03267, type: 3}
   - levelID: 10
-    levelType: 1
     level: {fileID: 11400000, guid: d4d32da964ee4e64e92cf9fd9ba08ed1, type: 2}
     imageSource: {fileID: 21300000, guid: 918836eb986ef104abaa410153607315, type: 3}
   - levelID: 11
-    levelType: 1
     level: {fileID: 11400000, guid: 979b9eb60c0dbba4fa60bbffb7f73367, type: 2}
     imageSource: {fileID: 21300000, guid: 3ae8e4d134d19fd439730319962227f2, type: 3}
   - levelID: 12
-    levelType: 1
     level: {fileID: 11400000, guid: 225b8d66fb7eb464f9f79e7884c9885a, type: 2}
     imageSource: {fileID: 21300000, guid: 5f6b3f33aaf21ea42916561d36cfce2e, type: 3}
   - levelID: 13
-    levelType: 5
     level: {fileID: 11400000, guid: dc50849feb321484c9143cd78dd6228a, type: 2}
     imageSource: {fileID: 21300000, guid: ccfa5fd9346cd96499bd32a784ff80df, type: 3}
   - levelID: 14
-    levelType: 1
     level: {fileID: 11400000, guid: d9494302907459e46b22823eb33ab9e7, type: 2}
     imageSource: {fileID: 21300000, guid: 16ef4aa9c9e716a48ae415cdd3af4ef7, type: 3}
   - levelID: 15
-    levelType: 3
     level: {fileID: 11400000, guid: bda27a034fd3bf244b3f0b14296bd85b, type: 2}
     imageSource: {fileID: 21300000, guid: d2f51e81a2b86664ab27c1df76ef1b99, type: 3}
   - levelID: 16
-    levelType: 1
     level: {fileID: 11400000, guid: bdf52f7d6a174a84eafdf24c1fb43a97, type: 2}
     imageSource: {fileID: 21300000, guid: 0ff2d0ceb7606e24886431303dcdd957, type: 3}
   - levelID: 17
-    levelType: 1
     level: {fileID: 11400000, guid: 765836a2245b32e4d8d3ba96bbac6f93, type: 2}
     imageSource: {fileID: 21300000, guid: b2463c77541aef3418337b564518b1a3, type: 3}
   - levelID: 18
-    levelType: 1
     level: {fileID: 11400000, guid: 30f329eb20ab5544c8aca751af738212, type: 2}
     imageSource: {fileID: 21300000, guid: 4352928bf943bdc4db5d0d107a34d6ee, type: 3}
   - levelID: 19
-    levelType: 1
     level: {fileID: 11400000, guid: 94465a2754e946743a8b9c50892bc1b7, type: 2}
     imageSource: {fileID: 21300000, guid: 013d39ec88aa5c34897b6416b39733c6, type: 3}
   - levelID: 20
-    levelType: 1
     level: {fileID: 11400000, guid: 660dc809554a31042b145434503b60cb, type: 2}
     imageSource: {fileID: 21300000, guid: 157987aedc44cce4cb61b2f95b84c000, type: 3}
   - levelID: 21
-    levelType: 4
     level: {fileID: 11400000, guid: 20b43161b773a664e9d90cb80f18b996, type: 2}
     imageSource: {fileID: 21300000, guid: cd2b130be259fe14e9bb1f6602db6916, type: 3}
   - levelID: 22
-    levelType: 4
     level: {fileID: 11400000, guid: 93a4060ddc881fd419e591365ce8428b, type: 2}
     imageSource: {fileID: 21300000, guid: 9fa7383c75d4ae4489ee610a98feb56e, type: 3}
   - levelID: 23
-    levelType: 1
     level: {fileID: 11400000, guid: 913c2ed3d7f441d45b59fa0813479a98, type: 2}
     imageSource: {fileID: 21300000, guid: ffa54e87bac9c47418d73655df06f8e0, type: 3}
   - levelID: 24
-    levelType: 1
     level: {fileID: 11400000, guid: 9bb7395a5edae28408b4c65282e40a40, type: 2}
     imageSource: {fileID: 21300000, guid: a457622fcb8aaed40b2f16e4736a074c, type: 3}
   - levelID: 25
-    levelType: 1
     level: {fileID: 11400000, guid: 67f97b360a4a6cd47915b73a2148e870, type: 2}
     imageSource: {fileID: 21300000, guid: 388261de3f7215345bfbfa99bb00a44f, type: 3}
   - levelID: 26
-    levelType: 6
     level: {fileID: 11400000, guid: ffe79b5c69b310747a1b3c9b14e7d918, type: 2}
     imageSource: {fileID: 21300000, guid: 06d426f3111e65741930aa3e5bba168e, type: 3}
   - levelID: 27
-    levelType: 1
     level: {fileID: 11400000, guid: f95c7447cc022cc49a6401d0b9cd61a6, type: 2}
     imageSource: {fileID: 21300000, guid: 8edb654f7d613564fa1448601a8d95bb, type: 3}
   - levelID: 28
-    levelType: 6
     level: {fileID: 11400000, guid: ecc82a8bb1ba48e4685dc6b5f19edfa8, type: 2}
     imageSource: {fileID: 21300000, guid: 4618415051ea29b45992998c25d4244b, type: 3}
   - levelID: 29
-    levelType: 1
     level: {fileID: 11400000, guid: 1389513bd42e72a458b656669927a613, type: 2}
     imageSource: {fileID: 21300000, guid: 1f3cddc61cfc45e458237faec3878adc, type: 3}
   - levelID: 30
-    levelType: 3
-    level: {fileID: 11400000, guid: 260bf6a64dc87794ca258117aa747396, type: 2}
+    level: {fileID: 11400000, guid: 5a092ac77f3ffa645b84e231e7a75993, type: 2}
     imageSource: {fileID: 21300000, guid: dfe6048cbc2485442a8dd9c36b2950c7, type: 3}
   - levelID: 31
-    levelType: 2
     level: {fileID: 11400000, guid: d4a138bd059d67247a25592133a4472c, type: 2}
     imageSource: {fileID: 21300000, guid: ddc311b895d86864fa02e4512c3cd6c7, type: 3}
   - levelID: 32
-    levelType: 1
     level: {fileID: 11400000, guid: 0a11d6a4c7324d947a6b43e527cd6da5, type: 2}
     imageSource: {fileID: 21300000, guid: 9d85aded1faa2e745b9f11a8f46de8db, type: 3}
   - levelID: 33
-    levelType: 5
     level: {fileID: 11400000, guid: ba8ce39539d4bb44daf5b4028d5c23bf, type: 2}
     imageSource: {fileID: 21300000, guid: b278c29800665c946982205d69b86c52, type: 3}
   - levelID: 34
-    levelType: 1
     level: {fileID: 11400000, guid: 9b8a758c443175c4990062ac6293065f, type: 2}
     imageSource: {fileID: 21300000, guid: 5faff36f07e2fde469b0e43847711df8, type: 3}
   - levelID: 35
-    levelType: 5
     level: {fileID: 11400000, guid: 185e2668f945f014eb5bd8be95685a67, type: 2}
     imageSource: {fileID: 21300000, guid: 0b76fb6e968235148a452cf25d3ca3e9, type: 3}
   - levelID: 36
-    levelType: 3
     level: {fileID: 11400000, guid: ef3b2fa85050c5341bce481dc798072a, type: 2}
     imageSource: {fileID: 21300000, guid: d2f51e81a2b86664ab27c1df76ef1b99, type: 3}
   - levelID: 37
-    levelType: 2
     level: {fileID: 11400000, guid: b1ce867179b530d418b801b4aed4ccdb, type: 2}
     imageSource: {fileID: 21300000, guid: 93a11eb20a4f2564182036b173d1580f, type: 3}
   - levelID: 38
-    levelType: 1
     level: {fileID: 11400000, guid: ab99a95062acb4e4f968bbe1fadbe89a, type: 2}
     imageSource: {fileID: 21300000, guid: 0413cb9743e3ba74cb8bd30659294acc, type: 3}
   - levelID: 39
-    levelType: 1
     level: {fileID: 11400000, guid: 2d382e6bfd91b90479a9125989ed45af, type: 2}
     imageSource: {fileID: 21300000, guid: f0562683b8c4ccc43a3b53922da94f8e, type: 3}
   - levelID: 40
-    levelType: 3
     level: {fileID: 11400000, guid: dd3fc94da938b6244b2b96ec6aadde12, type: 2}
     imageSource: {fileID: 21300000, guid: 8276af04395b47a4cb2d34985b8aac0c, type: 3}
   - levelID: 41
-    levelType: 1
     level: {fileID: 11400000, guid: f2721fa6308a4d541b8df6498ccfc631, type: 2}
     imageSource: {fileID: 21300000, guid: d6c690ff94c34f642ac92dbaaae98bbe, type: 3}
   - levelID: 42
-    levelType: 5
     level: {fileID: 11400000, guid: 0cf146501dcd0fc4bb9f18b3686949a7, type: 2}
     imageSource: {fileID: 21300000, guid: 93f61a209f244cb4d89cd485466bc8df, type: 3}
   - levelID: 43
-    levelType: 1
     level: {fileID: 11400000, guid: 91aec32b56ef254458210fb7ec2cbdfc, type: 2}
     imageSource: {fileID: 21300000, guid: 2fa9af86aa1976e4e9ceee607ca9b3a9, type: 3}
   - levelID: 44
-    levelType: 6
     level: {fileID: 11400000, guid: 009becb1969a51242b2c6756bc939bd9, type: 2}
     imageSource: {fileID: 21300000, guid: dcb3053ba7cf9ce4d9755582b4493660, type: 3}
   - levelID: 45
-    levelType: 1
     level: {fileID: 11400000, guid: 807d6ae7bf125194db4d23e09304cb0c, type: 2}
     imageSource: {fileID: 21300000, guid: 8e6bff55493590349aa7eec3cffcd8a6, type: 3}
   - levelID: 46
-    levelType: 1
     level: {fileID: 11400000, guid: bcbb503a81c96dd4683f43d38d3999f5, type: 2}
     imageSource: {fileID: 21300000, guid: 3020a811a8fe3b1449419a55d8bd9234, type: 3}
   - levelID: 47
-    levelType: 2
     level: {fileID: 11400000, guid: a5c379bf7a3071d439c07795be4d3a0d, type: 2}
     imageSource: {fileID: 21300000, guid: 60746173884aff643b867c10288d4e84, type: 3}
   - levelID: 48
-    levelType: 2
     level: {fileID: 11400000, guid: 62e121daea4491440929cceaffa9933c, type: 2}
     imageSource: {fileID: 21300000, guid: 6d5a1aef104267b49b026b500965a96d, type: 3}
   - levelID: 49
-    levelType: 1
     level: {fileID: 11400000, guid: 0eceda5696ef6b1448018ae78a792b22, type: 2}
     imageSource: {fileID: 21300000, guid: 509c82e92b389b34ea7b849f897f4f57, type: 3}
   - levelID: 50
-    levelType: 1
     level: {fileID: 11400000, guid: 4968fb6d86697b3448b1f3f3f1270ed2, type: 2}
     imageSource: {fileID: 21300000, guid: 0d2dd4f1be538e140a78ac1bcc8f6be3, type: 3}
   - levelID: 51
-    levelType: 1
     level: {fileID: 11400000, guid: ae30f603d1db4c34ab997ca4410c8e43, type: 2}
     imageSource: {fileID: 21300000, guid: 128286c5a5eea764da9b2618f59678ab, type: 3}
-

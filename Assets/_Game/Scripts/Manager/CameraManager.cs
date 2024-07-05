@@ -184,10 +184,10 @@ public class CameraManager : Singleton<CameraManager>
 [System.Serializable]
 public class ZoomInfo
 {
-    public float minZoom = 5;
-    public float maxZoom = 60;
-    public float checkPointZoom = 50;
-    public ZoomInfo(float minZoom = 5,float maxZoom = 60, float checkPointZoom = 50)
+    public float minZoom = 0.1f;
+    public float maxZoom = 0.25f;
+    public float checkPointZoom = 0.2f;
+    public ZoomInfo(float minZoom = 0.1f,float maxZoom = 0.25f, float checkPointZoom = 0.2f)
     {
         this.minZoom = minZoom;
         this.maxZoom = maxZoom;

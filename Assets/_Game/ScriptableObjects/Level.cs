@@ -12,7 +12,7 @@ public class Level : ScriptableObject
     public int levelID;
     public List<CubeData> cubes = new List<CubeData>();
     public List<MaterialData> materials = new List<MaterialData>();
-    public ZoomInfo zoomInfo = new ZoomInfo(5,60,50);
+    public ZoomInfo zoomInfo = new ZoomInfo();
     public Sprite imageSource;
     public PoolType poolType;
     public LevelType levelType;
