@@ -393,30 +393,6 @@ MonoBehaviour:
     prefab: {fileID: 8299759871928989229, guid: a8e7dd7ff34e02c4d8b3a8bb3c86f458, type: 3}
     amount: 10
     collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: -8847651563541387185, guid: 31ae0af3e9166bc448b672154b651072, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: -8447948581546144437, guid: 660cded91b2f90e4f8b27d7c70756e33, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: 1021315432802920924, guid: 83df4c0ae4363d44c83c08868041734d, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: 7700016533582991532, guid: 8f696544054c1e547b9c7c295af5b134, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: -6508557949581737986, guid: 1df2927f1c8536f4589c546658a8484c, type: 3}
-    amount: 0
-    collect: 0
-  - root: {fileID: 2099514018}
-    prefab: {fileID: 2072256429856787021, guid: 64c5086cd6681494e8f9ccb55a33383a, type: 3}
-    amount: 0
-    collect: 0
   Particle: []
 --- !u!1 &568955731
 GameObject:
@@ -1040,7 +1016,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 618c29e3bb3f27a42a609bf8e43156cf, type: 2}
   unHighLightMaterial: {fileID: -4827960292722580231, guid: c7979a320d436a84aa4fa9f6564107a4, type: 3}
   showTextColor: {r: 1, g: 1, b: 1, a: 0}
-  hightLightColor: {r: 0, g: 0, b: 0, a: 0}
+  hightLightColor: {r: 1, g: 0.9879074, b: 0, a: 0}
 --- !u!1 &1455351149
 GameObject:
   m_ObjectHideFlags: 0
