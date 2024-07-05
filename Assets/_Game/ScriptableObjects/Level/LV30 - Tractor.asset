@@ -18360,9 +18360,9 @@ MonoBehaviour:
   - material: {fileID: 3414458580157682184, guid: 1e251e491af45ef4ea75cb67eefa802f, type: 3}
     colorID: 8
   zoomInfo:
-    minZoom: 0.1
-    maxZoom: 0.25
-    checkPointZoom: 0.2
+    minZoom: 0.2
+    maxZoom: 0.5
+    checkPointZoom: 0.4
   imageSource: {fileID: 21300000, guid: dfe6048cbc2485442a8dd9c36b2950c7, type: 3}
   poolType: 51
   levelType: 3
