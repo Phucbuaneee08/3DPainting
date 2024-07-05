@@ -44,19 +44,19 @@ public class MaterialManager : Singleton<MaterialManager>
         ConvertFromRealColorToDefaultColor();
         SetCurrentShaderMaterial(md.Count);
     }
-    public void SetUnHightLightColor(Cube cube)
-    {
-        cube.colorRender.material = unHighLightMaterial;        
-    }
-    public void SetHighLightColor(Cube cube)
-    {
-        cube.colorRender.material = focusNumberMats[cube.GetColorID()-1];
-    }
-    public void SetShowTextColor(Cube cube) 
-    {
-        numberMats[cube.GetColorID() - 1].color = defaultMats[cube.GetColorID()-1].color;
-        cube.colorRender.material = numberMats[cube.GetColorID() - 1];
-    }
+    //public void SetUnHightLightColor(Cube cube)
+    //{
+    //    cube.colorRender.material = unHighLightMaterial;        
+    //}
+    //public void SetHighLightColor(Cube cube)
+    //{
+    //    cube.colorRender.material = focusNumberMats[cube.GetColorID()-1];
+    //}
+    //public void SetShowTextColor(Cube cube) 
+    //{
+    //    numberMats[cube.GetColorID() - 1].color = defaultMats[cube.GetColorID()-1].color;
+    //    cube.colorRender.material = numberMats[cube.GetColorID() - 1];
+    //}
 
     #region Change color by shader
     public void SetCurrentShaderMaterial(int colorQuantity)
@@ -91,7 +91,9 @@ public class MaterialManager : Singleton<MaterialManager>
         foreach (Material mat in currentShaderMaterials)
         {
             StartCoroutine(_SetFloatMaterial(mat, 1));
+          
         }
+        currentShaderMaterials.Clear();
     }
     public void SetHightLigtShaderColor(int colorID) 
     {

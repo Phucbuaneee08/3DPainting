@@ -91,6 +91,7 @@ public class CameraManager : Singleton<CameraManager>
         }
 
 #if UNITY_EDITOR
+        zoomSpeed = 10f;
         if (scrollInput != 0)
         {
             Zoom(-scrollInput, zoomSpeed);

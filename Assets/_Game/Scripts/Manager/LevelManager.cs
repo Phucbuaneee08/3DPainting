@@ -192,11 +192,11 @@ public class LevelManager : Singleton<LevelManager>
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
 
-        if (currentLevel.poolType != PoolType.None)
+        if (SimplePool.FindPrefabByType(currentLevel.poolType))
         {
 
             root.SetActive(false);
-            _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType);
+            _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
 
         }
         DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
@@ -350,23 +350,28 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void ReleaseFocusCube()
     {
-     
-        foreach (Cube cube in cubes)
-        {
-            if (cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
-            {
-                if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
-                {
-                    //MaterialManager.Ins.SetShowTextColor(cube);
-                    cube.ChangeState(CubeState.Zoomin);
-                }
-                if (CameraManager.Ins.IsCameraState(CameraState.ZoomOut))
-                {
-                    cube.ChangeState(CubeState.Default);
-                }
-            }
+
+        if (currentColor != 0)
+        { 
+            MaterialManager.Ins.SetShowTextShaderColor(currentColor);
+            currentColor = 0;
         }
-        currentColor = 0;
+  
+        //foreach (Cube cube in cubes)
+        //{
+        //    if (cube.GetColorID() == currentColor && !cube.IsState(CubeState.Colored))
+        //    {
+        //        if (CameraManager.Ins.IsCameraState(CameraState.ZoomIn))
+        //        {
+        //            //MaterialManager.Ins.SetShowTextColor(cube);
+        //            cube.ChangeState(CubeState.Zoomin);
+        //        }
+        //        if (CameraManager.Ins.IsCameraState(CameraState.ZoomOut))
+        //        {
+        //            cube.ChangeState(CubeState.Default);
+        //        }
+        //    }
+        //}
     }
 
 

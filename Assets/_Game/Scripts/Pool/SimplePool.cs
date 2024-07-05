@@ -210,6 +210,18 @@ public static class SimplePool
     {
         return poolInstance[obj.poolType];
     }
+    public static bool FindPrefabByType(PoolType poolType)
+    {
+        
+            GameUnit[] resources = Resources.LoadAll<GameUnit>("Pool");
+
+            for (int i = 0; i < resources.Length; i++)
+            {
+                if (poolType == resources[i].poolType) return true;                                 
+            }
+
+            return false;
+    }
     public static GameUnit GetPrefabByType(PoolType poolType)
     {
         if (!poolTypes.ContainsKey(poolType) || poolTypes[poolType] == null)
