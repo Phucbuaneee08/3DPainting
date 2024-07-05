@@ -10,6 +10,11 @@ public enum LevelType
     none,
     animal,
     human,
+    machines,
+    beverages,
+    food,
+    other
+
 }
 [Serializable]
 public enum UnlockType
@@ -18,5 +23,6 @@ public enum UnlockType
     free,
     ads,
     gold,
-    diamond,
+    diamond
+
 }
