@@ -1231,12 +1231,60 @@ MonoBehaviour:
   zoomDuration: 0.5
   cam: {fileID: 963194227}
   targetObject: {fileID: 2099514018}
-  zoomSpeed: 0.8
+  zoomSpeed: 10
   IsZooming: 0
   smoothy: 0.5
   minZoom: 0.1
-  maxZoom: 0.25
+  maxZoom: 10
   checkPointZoom: 0.2
+--- !u!1 &1844971599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844971600}
+  - component: {fileID: 1844971601}
+  m_Layer: 0
+  m_Name: BackGroundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1844971600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844971599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1844971601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844971599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d879795bc43fd24ebb32aa9723113fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  backGround: {fileID: 196987363}
 --- !u!1 &1926666201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1765,7 @@ SceneRoots:
   - {fileID: 1085724521}
   - {fileID: 568955732}
   - {fileID: 182523575}
+  - {fileID: 1844971600}
   - {fileID: 1548949512}
   - {fileID: 1455351150}
   - {fileID: 1053684849}
