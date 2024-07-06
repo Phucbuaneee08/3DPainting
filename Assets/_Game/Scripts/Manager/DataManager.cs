@@ -110,8 +110,7 @@ public class DataManager : Singleton<DataManager>
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
-        UIManager.Ins.CloseAll();
-        UIManager.Ins.OpenUI<MainMenu>();
+        UIManager.Ins.GetUI<MainMenu>();
     }
 }
 

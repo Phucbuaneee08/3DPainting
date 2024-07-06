@@ -204,6 +204,7 @@ public class LevelManager : Singleton<LevelManager>
         }
         DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
         DataManager.Ins.SaveData();
+        yield return new WaitForSeconds(2f);
         Victory();
     }
     public void Fail()

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
 public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public ScrollRect parentScrollRect;
@@ -15,7 +16,7 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (IsPointerOverUIElement(eventData, childScrollRect))
+        if (IsPointerOverUIElement(eventData))
         {
             Vector2 delta = eventData.delta;
             isDraggingVertical = Mathf.Abs(delta.y) > Mathf.Abs(delta.x);
@@ -46,7 +47,7 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
         {
             childScrollRect.OnEndDrag(eventData);
             childScrollRect.enabled = true;
-            parentScrollRect.enabled = true; 
+            parentScrollRect.enabled = true;
         }
 
         isDraggingVertical = false;
@@ -65,9 +66,9 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
         }
     }
 
-    private bool IsPointerOverUIElement(PointerEventData eventData, ScrollRect scrollRect)
+    private bool IsPointerOverUIElement(PointerEventData eventData)
     {
-        RectTransform rectTransform = scrollRect.GetComponent<RectTransform>();
+        RectTransform rectTransform = childScrollRect.GetComponent<RectTransform>();
         return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, eventData.position, eventData.pressEventCamera);
     }
 }
