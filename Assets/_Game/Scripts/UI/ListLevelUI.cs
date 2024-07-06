@@ -16,6 +16,7 @@ public class ListLevelUI : MonoBehaviour
     LevelData levelData;
     LevelDatas levelDatas;
     List<LevelData> levelDatasList;
+    public LevelType levelType;
     private void Awake()
     {
         miniPool.OnInit(levelItemPrefab, 10, tfContent);
@@ -47,8 +48,9 @@ public class ListLevelUI : MonoBehaviour
         StartCoroutine(IE_SetSizeDetal());
     }
 
-    public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList)
+    public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList,LevelType _levelType)
     {
+        this.levelType = _levelType;
         levelData = _levelData;
         levelDatas = _levelDatas;
         this.levelDatasList = _leveldataList;

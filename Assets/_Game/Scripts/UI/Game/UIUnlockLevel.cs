@@ -12,6 +12,7 @@ public class UIUnlockLevel : UICanvas
     public TextMeshProUGUI textGoldUnlock;
     public TextMeshProUGUI textDiamondUnlock;
     public LevelItem levelItem;
+    public int id;
     public override void Setup()
     {
         base.Setup();
@@ -22,6 +23,7 @@ public class UIUnlockLevel : UICanvas
     }
     public void SetData(LevelItem _levelItem, bool _isShowBtnUnlockGold, bool _isShowBtnUnlockAds, bool _isShowBtnUnlockDiamond)
     {
+        this.id = _levelItem.GetID();
         this.levelItem = _levelItem;
         this.imgLevel.sprite = _levelItem.imageSource.sprite;
         this.objBtnUnlockGol.SetActive(_isShowBtnUnlockGold);
