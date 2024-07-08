@@ -228,6 +228,7 @@ MonoBehaviour:
   levelItems: []
   tfContent: {fileID: 5762192082946387812}
   textLevelType: {fileID: 1775021275928315521}
+  levelType: 0
 --- !u!1 &4124864163279608207
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,4 +575,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd671e28cd5ddb541a1c0bca88d1d51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentScrollRect: {fileID: 0}
+  parentScrollRect: {fileID: 7287770740834136814}
