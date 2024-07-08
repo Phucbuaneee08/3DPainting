@@ -22,32 +22,29 @@ public class HomeLevelUI : MonoBehaviour
     }
     public void LoadData()
     {
-        if (listLevelUIs.Count > 0)
+        foreach (ListLevelUI levelUI in listLevelUIs)
         {
-            foreach (ListLevelUI levelUI in listLevelUIs)
-            {
-                miniPool.Despawn(levelUI);
-            }
+            miniPool.Despawn(levelUI);
         }
         listLevelUIs.Clear();
 
-        List<LevelType> uniqueLevelTypes = levelDatas.level3D
-          .Select(level => level.level.levelType)
-          .Distinct()
-          .ToList();
-
+        HashSet<LevelType> uniqueLevelTypes = new HashSet<LevelType>();
+        foreach (var levelData in levelDatas.level3D)
+        {
+            uniqueLevelTypes.Add(levelData.level.levelType);
+        }
         foreach (LevelType lvType in uniqueLevelTypes)
         {
             ListLevelUI listLevelUI = miniPool.Spawn();
             listLevelUIs.Add(listLevelUI);
+
             LevelData levelOfType = levelDatas.GetLevelWithType(lvType);
             List<LevelData> levelsOfType = levelDatas.GetLevelsWithType(lvType);
-            listLevelUI.SetData(levelOfType, levelDatas, levelsOfType,lvType);
-            NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
-            nestedScrollHandler.parentScrollRect = scrollRect;
+            listLevelUI.SetData(levelOfType, levelDatas, levelsOfType, lvType);
         }
         SetSizeDetal();
     }
+
     public void SetSizeDetal()
     {
         if (tfContent != null && listLevelUIs.Count > 0)
