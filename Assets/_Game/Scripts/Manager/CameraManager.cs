@@ -27,7 +27,7 @@ public class CameraManager : Singleton<CameraManager>
     
     public Transform targetObject;
     
-    public float zoomSpeed = 1f;
+    public float zoomSpeed = 0.1f;
     public bool IsZooming = false;
     public float smoothy;
     private bool isZoomedIn = false;
@@ -48,8 +48,10 @@ public class CameraManager : Singleton<CameraManager>
     }
     private void Start()
     {
-        //cam.transform.position = targetObject.transform.position+ offset;
-        //cam.transform.rotation = Quaternion.Lerp(transform.rotation, rotateOffset, 1);
+        
+#if UNITY_EDITOR
+        zoomSpeed = 10f;
+#endif
     }
     private void Update()
     {
@@ -74,15 +76,7 @@ public class CameraManager : Singleton<CameraManager>
             //float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-
             Zoom(deltaMagnitudeDiff, zoomSpeed);
-
-
-            //cam.orthographicSize += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * zoomSpeed * Time.deltaTime;
-            //IsZooming = true;
-            //// Giới hạn giá trị zoom của camera
-            //cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
-            //MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - minZoom)/(maxZoom-minZoom));
 
         }
         else
@@ -91,29 +85,18 @@ public class CameraManager : Singleton<CameraManager>
         }
 
 #if UNITY_EDITOR
-        zoomSpeed = 10f;
         if (scrollInput != 0)
         {
             Zoom(-scrollInput, zoomSpeed);
           
         }
 #endif
-        if (cam.orthographicSize > checkPointZoom && !isZoomedOut)
+        if (cam.orthographicSize > checkPointZoom && IsZooming)
         {
-            Debug.Log("!!!ZoomOut");
-            LevelManager.Ins.Zoomout();
-            isZoomedOut = true;
-            isZoomedIn = false;
-            camState = CameraState.ZoomOut;
             UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
         }
-        else if (cam.orthographicSize < checkPointZoom && !isZoomedIn)
+        else if (cam.orthographicSize < checkPointZoom && IsZooming)
         {
-            Debug.Log("!!!ZoomIn");
-            LevelManager.Ins.Zoomin();
-            isZoomedIn = true;
-            isZoomedOut = false;
-            camState = CameraState.ZoomIn;
             UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
         }
     }
@@ -132,7 +115,6 @@ public class CameraManager : Singleton<CameraManager>
         cam.orthographicSize += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * speed * Time.deltaTime;
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - minZoom) / (maxZoom - minZoom));
-
     }
     public void SetFieldOfView()
     {
@@ -144,15 +126,17 @@ public class CameraManager : Singleton<CameraManager>
         switch (camState)
         {
             case CameraState.ZoomIn:
+                camState = CameraState.ZoomOut;
                 LerpDeCreaseOrthoSize(1f);
                 cam.DOOrthoSize(maxZoom, zoomDuration);
                 break;
             case CameraState.ZoomOut:
+                camState = CameraState.ZoomIn;
                 LerpInCreaseOrthoSize(1f);
                 cam.DOOrthoSize((minZoom + checkPointZoom) / 2, zoomDuration);
                 break;
         }
-
+        UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
     }
     public void LerpDeCreaseOrthoSize(float duration) {
         float time = 0;
