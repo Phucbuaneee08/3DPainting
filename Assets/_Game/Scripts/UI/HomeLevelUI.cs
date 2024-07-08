@@ -41,6 +41,9 @@ public class HomeLevelUI : MonoBehaviour
             LevelData levelOfType = levelDatas.GetLevelWithType(lvType);
             List<LevelData> levelsOfType = levelDatas.GetLevelsWithType(lvType);
             listLevelUI.SetData(levelOfType, levelDatas, levelsOfType, lvType);
+            NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
+            nestedScrollHandler.parentScrollRect = scrollRect;
+            listLevelUI.SetData(levelOfType, levelDatas, levelsOfType, lvType);
         }
         SetSizeDetal();
     }
