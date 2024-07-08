@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
       
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
         //tranh viec tat man hinh
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
