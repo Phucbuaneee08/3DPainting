@@ -49,6 +49,8 @@ public class ListLevelUI : MonoBehaviour
         }
 
         StartCoroutine(IE_SetSizeDetal());
+        Debug.Log(GameManager.Ins.gameState);
+
     }
 
     public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList, LevelType _levelType)

@@ -7,8 +7,7 @@ public enum GameState { GamePlay, MainMenu, Finish, Revive, Setting,Pause }
 
 public class GameManager : Singleton<GameManager>
 {
-    private GameState gameState = GameState.MainMenu;
-
+    public GameState gameState = GameState.MainMenu;
     public void ChangeState(GameState gameState)
     {
         this.gameState = gameState;

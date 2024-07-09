@@ -47,7 +47,7 @@ public class Player : GameUnit
 
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
 
-
+       
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -222,7 +222,7 @@ public class Player : GameUnit
             OnMoving();
         }
 
-
+        Debug.LogError("11");
     }
     public void OnMoving()
     {

@@ -55,7 +55,7 @@ public class HomeLevelUI : MonoBehaviour
         if (tfContent != null && listLevelUIs.Count > 0)
         {
             RectTransform buttonRectTransform = listLevelUIs[0].GetComponent<RectTransform>();
-            float buttonHeight = buttonRectTransform.rect.height + 20;
+            float buttonHeight = buttonRectTransform.rect.height + 50;
             float totalHeight = buttonHeight * listLevelUIs.Count;
             tfContent.sizeDelta = new Vector2(tfContent.sizeDelta.x, totalHeight);
             scrollRect.verticalNormalizedPosition = 1;

@@ -35,11 +35,49 @@ public class UIUnlockLevel : UICanvas
         this.textDiamondUnlock.text = levelData.costDiamond.ToString();
         this.textDiamondUnlock.color = levelData.costDiamond > DataManager.Ins.playerData.Diamond ? Color.red : Color.black;
     }
-
     public void BtnUnlockGold()
     {
-        DataManager.Ins.UnlockGold(levelItem);
+        UnlockGold(levelItem);
+    }
+    public void UnlockGold(LevelItem _levelItem)
+    {
+        LevelDataModel levelDataModel = DataManager.Ins.playerData.GetDataWithID(_levelItem.GetID());
 
+        if (levelDataModel.unlockType == UnlockType.gold)
+        {
+            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > DataManager.Ins.playerData.Gold)
+            {
+
+            }
+            else
+            {
+                DataManager.Ins.playerData.Gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
+                levelDataModel.unlockType = UnlockType.free;
+                DataManager.Ins.SaveData();
+                StartCoroutine(IE_LoadData());
+                _levelItem.UnlockUI();
+            }
+        }
+    }
+
+    public void UnlockDiamond(LevelItem _levelItem)
+    {
+        LevelDataModel levelDataModel = DataManager.Ins.playerData.GetDataWithID(_levelItem.GetID());
+        if (levelDataModel.unlockType == UnlockType.diamond)
+        {
+            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond > DataManager.Ins.playerData.Diamond)
+            {
+
+            }
+            else
+            {
+                DataManager.Ins.playerData.Diamond -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond;
+                levelDataModel.unlockType = UnlockType.free;
+                DataManager.Ins.SaveData();
+                StartCoroutine(IE_LoadData());
+                _levelItem.UnlockUI();
+            }
+        }
     }
     public void BtnUnlockAds()
     {
@@ -47,11 +85,16 @@ public class UIUnlockLevel : UICanvas
     }
     public void BtnUnlockDiamond()
     {
-        DataManager.Ins.UnlockDiamond(levelItem);
-       
+        UnlockDiamond(levelItem);
     }
     public void BtnExit()
     {
+        UIManager.Ins.CloseUI<UIUnlockLevel>();
+    }
+    IEnumerator IE_LoadData()
+    {
+        yield return new WaitForEndOfFrame();
+        UIManager.Ins.GetUI<MainMenu>();
         UIManager.Ins.CloseUI<UIUnlockLevel>();
     }
 }

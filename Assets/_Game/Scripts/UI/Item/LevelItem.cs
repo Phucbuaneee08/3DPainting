@@ -34,6 +34,7 @@ public class LevelItem : MonoBehaviour
             if (lvDataModel.unlockType == UnlockType.free)
             {
                 LevelManager.Ins.OnLoadLevel(levelID);
+                Debug.Log(GameManager.Ins.gameState);
             }
             else
             {
@@ -57,5 +58,9 @@ public class LevelItem : MonoBehaviour
         Color originalColor = imageSource.color;
         Color grayscaleColor = Ultilities.ConvertToGrayscale(originalColor);
         imageSource.color = grayscaleColor;
+    }
+    public void UnlockUI()
+    {
+        imgUnlock.gameObject.SetActive(false);
     }
 }

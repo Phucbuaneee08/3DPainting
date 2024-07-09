@@ -68,50 +68,9 @@ public class DataManager : Singleton<DataManager>
     }
 #endif
 
-    public void UnlockGold(LevelItem _levelItem)
-    {
-        LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
+   
 
-        if (levelDataModel.unlockType == UnlockType.gold)
-        {
-            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.Gold)
-            {
-
-            }
-            else
-            {
-                playerData.Gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
-                levelDataModel.unlockType = UnlockType.free;
-                SaveData();
-                StartCoroutine(IE_LoadData());
-            }
-        }
-    }
-
-    public void UnlockDiamond(LevelItem _levelItem)
-    {
-        LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
-        if (levelDataModel.unlockType == UnlockType.diamond)
-        {
-            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond > playerData.Diamond)
-            {
-
-            }
-            else
-            {
-                playerData.Diamond -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond;
-                levelDataModel.unlockType = UnlockType.free;
-                SaveData();
-                StartCoroutine(IE_LoadData());
-            }
-        }
-    }
-
-    IEnumerator IE_LoadData()
-    {
-        yield return new WaitForEndOfFrame();
-        UIManager.Ins.GetUI<MainMenu>();
-    }
+  
 }
 
 [System.Serializable]
