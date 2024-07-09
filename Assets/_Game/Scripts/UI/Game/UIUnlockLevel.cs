@@ -21,38 +21,21 @@ public class UIUnlockLevel : UICanvas
     {
         base.Open();
     }
-    public void SetData(LevelItem _levelItem,bool _isShowBtnUnlockDiamond)
+    public void SetData(LevelItem _levelItem, bool _isShowBtnUnlockDiamond)
     {
-        this.id = _levelItem.GetID();
-        this.levelItem = _levelItem;
-        this.imgLevel.sprite = _levelItem.imageSource.sprite;
-        if (_isShowBtnUnlockDiamond)
-        {
-            this.objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
-            this.objBtnUnlockGol.SetActive(!_isShowBtnUnlockDiamond);
-            this.objBtnUnlockAds.SetActive(!_isShowBtnUnlockDiamond);
-        }
-        else
-        {
-            if (DataManager.Ins.playerData.unlockAds < 3)
-            {
-                this.objBtnUnlockGol.SetActive(!_isShowBtnUnlockDiamond);
-                this.objBtnUnlockAds.SetActive(!_isShowBtnUnlockDiamond);
-                this.objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
-            }
-            else
-            {
-                this.objBtnUnlockGol.SetActive(!_isShowBtnUnlockDiamond);
-                this.objBtnUnlockAds.SetActive(_isShowBtnUnlockDiamond);
-                this.objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
-            }
-        }
+        id = _levelItem.GetID();
+        levelItem = _levelItem;
+        imgLevel.sprite = _levelItem.imageSource.sprite;
+        objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
+        objBtnUnlockGol.SetActive(!_isShowBtnUnlockDiamond && DataManager.Ins.playerData.unlockAds < 3);
+        objBtnUnlockAds.SetActive(!_isShowBtnUnlockDiamond && DataManager.Ins.playerData.unlockAds >= 3);
         var levelData = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level;
-        this.textGoldUnlock.text = levelData.costGold.ToString();
-        this.textGoldUnlock.color = levelData.costGold > DataManager.Ins.playerData.gold ? Color.red : Color.black;
-        this.textDiamondUnlock.text = levelData.costDiamond.ToString();
-        this.textDiamondUnlock.color = levelData.costDiamond > DataManager.Ins.playerData.diamond ? Color.red : Color.black;
+        textGoldUnlock.text = levelData.costGold.ToString();
+        textGoldUnlock.color = levelData.costGold > DataManager.Ins.playerData.gold ? Color.red : Color.black;
+        textDiamondUnlock.text = levelData.costDiamond.ToString();
+        textDiamondUnlock.color = levelData.costDiamond > DataManager.Ins.playerData.diamond ? Color.red : Color.black;
     }
+
     public void BtnUnlockGold()
     {
         UnlockGold(levelItem);
