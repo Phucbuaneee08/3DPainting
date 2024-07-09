@@ -137,6 +137,7 @@ public class LevelManager : Singleton<LevelManager>
     public void OnFilledCube(Cube cube)
     {
         if (cube.IsState(CubeState.Colored)) return;
+        ParticlePool.Play(ParticleType.Explosion,cube.transform.position);
         cube.ChangeState(CubeState.Colored);
         MaterialManager.Ins.SetColor(cube, cube.GetColorID());
         ////ParticlePool.Play(ParticleType.Hit_1, cube.TF);

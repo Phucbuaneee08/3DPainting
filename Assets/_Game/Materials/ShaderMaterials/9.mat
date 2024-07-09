@@ -49,7 +49,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 0.55551755
+    - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _metal: 0
