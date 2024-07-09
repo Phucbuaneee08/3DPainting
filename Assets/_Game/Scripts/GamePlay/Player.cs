@@ -226,8 +226,6 @@ public class Player : GameUnit
         {
             OnMoving();
         }
-
-        Debug.LogError("11");
     }
     public void OnMoving()
     {
