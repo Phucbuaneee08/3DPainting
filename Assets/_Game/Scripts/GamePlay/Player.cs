@@ -40,6 +40,10 @@ public class Player : GameUnit
     private void Start()
     {
         animator.enabled = false;
+
+#if UNITY_EDITOR
+        rotateSpeed = 500f;
+#endif
     }
     private void Update()
     {
@@ -134,7 +138,7 @@ public class Player : GameUnit
 
 
 #if UNITY_EDITOR
-        rotateSpeed = 500f;
+        
         if (Input.GetMouseButtonDown(0))
         {
            
@@ -159,6 +163,7 @@ public class Player : GameUnit
         x = Input.GetAxis("Mouse X");
         y = Input.GetAxis("Mouse Y");
 #endif
+
         if (isLeftDragging)
         {
 

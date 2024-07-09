@@ -393,7 +393,11 @@ MonoBehaviour:
     prefab: {fileID: 8299759871928989229, guid: a8e7dd7ff34e02c4d8b3a8bb3c86f458, type: 3}
     amount: 10
     collect: 0
-  Particle: []
+  Particle:
+  - root: {fileID: 292409514}
+    particleType: 6
+    prefab: {fileID: 4937759962910529734, guid: 7fad789a98a41f24aa20f5b4a933446c, type: 3}
+    amount: 5
 --- !u!1 &568955731
 GameObject:
   m_ObjectHideFlags: 0
