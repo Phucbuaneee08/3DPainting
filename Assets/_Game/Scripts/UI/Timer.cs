@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     private bool _isCanCountDown;
 
     void Update()
-    {
+    {/*
         if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
         if (remainingTime >= 0)
         {
@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
             LevelManager.Ins.CheckReviveOrFail();
             //UIManager.Ins.OpenUI<UIRevive>();
             timerText.text = "0:00";
-        }
+        }*/
     }
     public void SetRemainTime(int time)
     {

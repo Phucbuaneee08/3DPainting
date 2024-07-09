@@ -31,9 +31,18 @@ public class DataManager : Singleton<DataManager>
             playerData = new PlayerData();
             FirstLoad();
         }
+        else
+        {
+            if (DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays - playerData.timeLastOpen >= 1)
+            {
+                //nếu sang ngày mới
+                playerData.unlockAds = 0;
+                playerData.daysPlayed += 1;
+                playerData.timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
+            }
+        }
         isLoaded = true;
     }
-
     public void SaveData()
     {
         if (!isLoaded) return;
@@ -76,6 +85,9 @@ public class DataManager : Singleton<DataManager>
 [System.Serializable]
 public class PlayerData
 {
+    [Header("------Chỉ số Game--------")]
+    public double timeLastOpen;//days
+    public int daysPlayed;
     [Header("--------- Game Params ---------")]
     public bool isPassedTutorialClick;
     public bool isPassedTutorialRotate;
@@ -84,42 +96,23 @@ public class PlayerData
     public bool isPassedTutorialBooster2;
     public bool isPassedTutorialBooster3;
     public int currentlevelID;
-    private int gold;
-    public int Gold
-    {
-        get { return gold; }
-        set
-        {
-            gold = value;
-            OnGoldChanged?.Invoke(gold);
-        }
-    }
-
-    private int diamond;
-    public int Diamond
-    {
-        get { return diamond; }
-        set
-        {
-            diamond = value;
-            OnDiamondChanged?.Invoke(diamond);
-        }
-    }
+    public int gold;
+    public int diamond;
     public int boosterQuantity;
     public int boosterFillByColorQuantity;
-    public event Action<int> OnGoldChanged;
-    public event Action<int> OnDiamondChanged;
+    public int unlockAds;
     [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
     public PlayerData()
     {
+        timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
+        daysPlayed = 0;
         currentlevelID = 1;
         gold = 10000;
         diamond = 10000;
-
-
         boosterQuantity = 1000;
         boosterFillByColorQuantity = 1000;
+        unlockAds = 0;
         isPassedTutorialBooster1 = false;
         isPassedTutorialBooster2 = false;
         isPassedTutorialBooster3 = false;

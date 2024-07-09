@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
       
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = 60;
         //tranh viec tat man hinh
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
             && DataManager.Ins != null
             && UIManager.Ins != null
             && LevelManager.Ins != null
-            && MaterialManager.Ins != null
             )
         );
         UIManager.Ins.OpenUI<Loading>();

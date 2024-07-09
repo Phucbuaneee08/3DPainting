@@ -25,6 +25,10 @@ public class HomeLevelUI : MonoBehaviour
 
     public void LoadData()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
         miniPool.Release();
         listLevelUIs.Clear();
         HashSet<LevelType> uniqueLevelTypes = new HashSet<LevelType>();
@@ -33,7 +37,6 @@ public class HomeLevelUI : MonoBehaviour
         {
             uniqueLevelTypes.Add(levelData.level.levelType);
         }
-
         foreach (LevelType lvType in uniqueLevelTypes)
         {
             ListLevelUI listLevelUI = miniPool.Spawn();
@@ -46,7 +49,6 @@ public class HomeLevelUI : MonoBehaviour
             NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
             nestedScrollHandler.parentScrollRect = scrollRect;
         }
-
         SetSizeDetal();
     }
 

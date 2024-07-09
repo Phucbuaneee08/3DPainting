@@ -14,7 +14,6 @@ public class LevelItem : MonoBehaviour
     public Image imgUnlock;
     public Image imgLevelPassed;
     [SerializeField] private Button button;
-    [SerializeField] private Material grayScaleMaterial;
 
     public void SetData(int levelID, Sprite avatar, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock)
     {
@@ -38,8 +37,7 @@ public class LevelItem : MonoBehaviour
             }
             else
             {
-                bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
-                UIManager.Ins.OpenUI<UIUnlockLevel>().SetData(this, isGoldOrAds, isGoldOrAds, lvDataModel.unlockType == UnlockType.diamond);
+                UIManager.Ins.OpenUI<UIUnlockLevel>().SetData(this, lvDataModel.unlockType == UnlockType.diamond);
             }
         }
         else
