@@ -1780,7 +1780,7 @@ MonoBehaviour:
   IsDestroyOnClose: 0
   homeLevelUI: {fileID: 5862768351441979334}
   textGold: {fileID: 167513140049147139}
-  textDiamoind: {fileID: 6439287999076421794}
+  textDiamond: {fileID: 6439287999076421794}
 --- !u!1 &7295306050946766911
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,16 +16,24 @@ public class UIBuyBooster : UICanvas
     [SerializeField] TextMeshProUGUI textDiamoind;
     private void Awake()
     {
-
+        DataManager.Ins.playerData.OnGoldChanged += UpdateGoldText;
+        DataManager.Ins.playerData.OnDiamondChanged += UpdateDiamondText;
     }
+
     public void Start()
     {
-
+        UpdateGoldText(DataManager.Ins.playerData.Gold);
+        UpdateDiamondText(DataManager.Ins.playerData.Diamond);
     }
-    void Update()
+
+    void UpdateGoldText(int gold)
     {
-        textGold.text = DataManager.Ins.playerData.gold.ToString();
-        textDiamoind.text = DataManager.Ins.playerData.diamond.ToString();
+        textGold.text = gold.ToString();
+    }
+
+    void UpdateDiamondText(int diamond)
+    {
+        textDiamoind.text = diamond.ToString();
     }
     public override void Setup()
     {
@@ -47,9 +55,9 @@ public class UIBuyBooster : UICanvas
     {
         if (UIManager.Ins.IsOpened<UIGameplay>())
         {
-            if (DataManager.Ins.playerData.gold >= BoosterManager.Ins.costBooster)
+            if (DataManager.Ins.playerData.Gold >= BoosterManager.Ins.costBooster)
             {
-                DataManager.Ins.playerData.gold -= BoosterManager.Ins.costBooster;
+                DataManager.Ins.playerData.Gold -= BoosterManager.Ins.costBooster;
                 if (id == 1)
                 {
                     DataManager.Ins.playerData.boosterQuantity += 3;

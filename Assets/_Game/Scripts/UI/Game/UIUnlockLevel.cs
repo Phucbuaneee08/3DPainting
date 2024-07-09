@@ -31,9 +31,9 @@ public class UIUnlockLevel : UICanvas
         this.objBtnUnlockDiamond.SetActive(_isShowBtnUnlockDiamond);
         var levelData = LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level;
         this.textGoldUnlock.text = levelData.costGold.ToString();
-        this.textGoldUnlock.color = levelData.costGold > DataManager.Ins.playerData.gold ? Color.red : Color.black;
+        this.textGoldUnlock.color = levelData.costGold > DataManager.Ins.playerData.Gold ? Color.red : Color.black;
         this.textDiamondUnlock.text = levelData.costDiamond.ToString();
-        this.textDiamondUnlock.color = levelData.costDiamond > DataManager.Ins.playerData.diamond ? Color.red : Color.black;
+        this.textDiamondUnlock.color = levelData.costDiamond > DataManager.Ins.playerData.Diamond ? Color.red : Color.black;
     }
 
     public void BtnUnlockGold()

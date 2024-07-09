@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class LevelItem : MonoBehaviour
 {
     [SerializeField] private Image bg;
@@ -14,26 +15,22 @@ public class LevelItem : MonoBehaviour
     public Image imgLevelPassed;
     [SerializeField] private Button button;
     [SerializeField] private Material grayScaleMaterial;
-    public void SetData(int levelID, Sprite avatar, bool _isPassed, bool _isShowImgUnlock,bool _isShowImgUnlock2, bool _isUnlock)
+
+    public void SetData(int levelID, Sprite avatar, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock)
     {
         this.levelID = levelID;
         imageSource.sprite = avatar;
-       /* if(_isUnlock)
-        {
-            imageSource.color = Color.gray;
-        }*/
-        imgLevelPassed.gameObject.SetActive(_isPassed);
-        imgUnlock.gameObject.SetActive(_isUnlock);
-        imgUnleckAdsAndGold.gameObject.SetActive(_isShowImgUnlock);
-        imgUnleckDiamond.gameObject.SetActive(_isShowImgUnlock2);
-
+        imgLevelPassed.gameObject.SetActive(isPassed);
+        imgUnlock.gameObject.SetActive(isUnlock);
+        imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);
+        imgUnleckDiamond.gameObject.SetActive(showImgUnlock2);
     }
+
     public void SelectLevel()
     {
         LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(levelID);
-        if (lvDataModel.isColored == false)
+        if (!lvDataModel.isColored)
         {
-            Debug.Log(lvDataModel.unlockType);
             if (lvDataModel.unlockType == UnlockType.free)
             {
                 LevelManager.Ins.OnLoadLevel(levelID);
@@ -54,11 +51,11 @@ public class LevelItem : MonoBehaviour
     {
         return levelID;
     }
+
     public void SetColorImg()
     {
         Color originalColor = imageSource.color;
         Color grayscaleColor = Ultilities.ConvertToGrayscale(originalColor);
         imageSource.color = grayscaleColor;
     }
-
 }

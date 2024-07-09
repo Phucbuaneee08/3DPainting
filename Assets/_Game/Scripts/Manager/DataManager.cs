@@ -74,13 +74,13 @@ public class DataManager : Singleton<DataManager>
 
         if (levelDataModel.unlockType == UnlockType.gold)
         {
-            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.gold)
+            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold > playerData.Gold)
             {
 
             }
             else
             {
-                playerData.gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
+                playerData.Gold -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
                 StartCoroutine(IE_LoadData());
@@ -93,13 +93,13 @@ public class DataManager : Singleton<DataManager>
         LevelDataModel levelDataModel = playerData.GetDataWithID(_levelItem.GetID());
         if (levelDataModel.unlockType == UnlockType.diamond)
         {
-            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond > playerData.diamond)
+            if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond > playerData.Diamond)
             {
 
             }
             else
             {
-                playerData.diamond -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond;
+                playerData.Diamond -= LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond;
                 levelDataModel.unlockType = UnlockType.free;
                 SaveData();
                 StartCoroutine(IE_LoadData());
@@ -125,10 +125,31 @@ public class PlayerData
     public bool isPassedTutorialBooster2;
     public bool isPassedTutorialBooster3;
     public int currentlevelID;
-    public int gold;
-    public int diamond;
+    private int gold;
+    public int Gold
+    {
+        get { return gold; }
+        set
+        {
+            gold = value;
+            OnGoldChanged?.Invoke(gold);
+        }
+    }
+
+    private int diamond;
+    public int Diamond
+    {
+        get { return diamond; }
+        set
+        {
+            diamond = value;
+            OnDiamondChanged?.Invoke(diamond);
+        }
+    }
     public int boosterQuantity;
     public int boosterFillByColorQuantity;
+    public event Action<int> OnGoldChanged;
+    public event Action<int> OnDiamondChanged;
     [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
     public PlayerData()

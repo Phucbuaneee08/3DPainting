@@ -12,27 +12,28 @@ public class HomeLevelUI : MonoBehaviour
     public RectTransform tfContent;
     public ScrollRect scrollRect;
     MiniPool<ListLevelUI> miniPool = new MiniPool<ListLevelUI>();
+
     private void Awake()
     {
         miniPool.OnInit(ListLevelUIPrefabs, 10, tfContent);
     }
+
     public void ReLoad()
     {
         LoadData();
     }
+
     public void LoadData()
     {
-        foreach (ListLevelUI levelUI in listLevelUIs)
-        {
-            miniPool.Despawn(levelUI);
-        }
+        miniPool.Release();
         listLevelUIs.Clear();
-
         HashSet<LevelType> uniqueLevelTypes = new HashSet<LevelType>();
+
         foreach (var levelData in levelDatas.level3D)
         {
             uniqueLevelTypes.Add(levelData.level.levelType);
         }
+
         foreach (LevelType lvType in uniqueLevelTypes)
         {
             ListLevelUI listLevelUI = miniPool.Spawn();
@@ -41,10 +42,11 @@ public class HomeLevelUI : MonoBehaviour
             LevelData levelOfType = levelDatas.GetLevelWithType(lvType);
             List<LevelData> levelsOfType = levelDatas.GetLevelsWithType(lvType);
             listLevelUI.SetData(levelOfType, levelDatas, levelsOfType, lvType);
+
             NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
             nestedScrollHandler.parentScrollRect = scrollRect;
-            listLevelUI.SetData(levelOfType, levelDatas, levelsOfType, lvType);
         }
+
         SetSizeDetal();
     }
 
