@@ -7,23 +7,7 @@ using UnityEngine;
 public class MainMenu : UICanvas
 {
     [SerializeField] private HomeLevelUI homeLevelUI;
-    [SerializeField] TextMeshProUGUI textGold;
-    [SerializeField] TextMeshProUGUI textDiamond;
-
-    public void Update()
-    {
-        UpdateGoldText(DataManager.Ins.playerData.gold);
-        UpdateDiamondText(DataManager.Ins.playerData.diamond);
-    }
-
-    void UpdateGoldText(int gold)
-    {
-        textGold.text = gold.ToString();
-    }
-    void UpdateDiamondText(int diamond)
-    {
-        textDiamond.text = diamond.ToString();
-    }
+  
     public override void Setup()
     {
         base.Setup();

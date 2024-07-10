@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 using System.Linq;
+using UnityEngine.Events;
 
 [Serializable]
 public class DataManager : Singleton<DataManager>
@@ -17,7 +18,11 @@ public class DataManager : Singleton<DataManager>
     {
         systemPath = Application.persistentDataPath + PLAYER_DATA_PATH;
     }
-
+    private void OnDestroy()
+    {
+        OnGoldChanged = null;
+        OnDiamondChanged = null;
+    }
     private void OnApplicationPause(bool pause) { SaveData(); }
     private void OnApplicationQuit() { SaveData(); }
 
@@ -77,9 +82,32 @@ public class DataManager : Singleton<DataManager>
     }
 #endif
 
-   
 
-  
+    public void ChangeGold(int newGold)
+    {
+        playerData.gold = newGold;
+        OnGoldChanged?.Invoke(newGold);
+    }
+
+    public void ChangeDiamond(int newDiamond)
+    {
+        playerData.diamond = newDiamond;
+        OnDiamondChanged?.Invoke(newDiamond);
+    }
+    public void ChangeCoin(int amount)
+    {
+        playerData.gold += amount;
+        if (playerData.gold < 0)
+        {
+            playerData.gold = 0;
+        }
+        SaveData();
+        OnCoinChanged?.Invoke((int)playerData.gold);
+    }
+
+    public event Action<int> OnGoldChanged;
+    public event Action<int> OnDiamondChanged;
+    public UnityAction<int> OnCoinChanged;
 }
 
 [System.Serializable]

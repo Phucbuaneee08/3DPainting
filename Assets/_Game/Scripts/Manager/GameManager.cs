@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
       
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 1200;
         //tranh viec tat man hinh
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
@@ -28,14 +28,15 @@ public class GameManager : Singleton<GameManager>
     }
     IEnumerator I_InitGame()
     {
-        yield return new WaitUntil(
+        /*yield return new WaitUntil(
             () => (
             Ins != null
             && DataManager.Ins != null
             && UIManager.Ins != null
             && LevelManager.Ins != null
             )
-        );
+        );*/
+        yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<Loading>();
         DataManager.Ins.LoadData();
     }

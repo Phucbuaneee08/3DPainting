@@ -61,4 +61,29 @@ SpriteAtlasAsset:
     - {fileID: 2800000, guid: dfe6048cbc2485442a8dd9c36b2950c7, type: 3}
     - {fileID: 2800000, guid: 8c6b5b10354877a428bb983e82d6521e, type: 3}
     - {fileID: 2800000, guid: eb7eb7d8132775046877754ace72914b, type: 3}
+    - {fileID: 102900000, guid: aad8d2de8d8c38643a6d418b517f5a82, type: 3}
+    - {fileID: 2800000, guid: 6b7544ee2d587324eb6a73f6d81aee34, type: 3}
+    - {fileID: 2800000, guid: d326956141bfb9944bf78360ed03f8a7, type: 3}
+    - {fileID: 2800000, guid: eb2dd5aea90ea1b45a914471fb526559, type: 3}
+    - {fileID: 2800000, guid: 1c4c27fa60070e245a0c35964de341f2, type: 3}
+    - {fileID: 2800000, guid: a13bc52fc5cdc09408da35dadd673ef7, type: 3}
+    - {fileID: 2800000, guid: 2cf1410cbb1a8bf40879253ad6058507, type: 3}
+    - {fileID: 2800000, guid: 60e33c9ab4aa6954b8361792da75172a, type: 3}
+    - {fileID: 2800000, guid: 3b22cce68e7498a4cb867a7b0d18e9ea, type: 3}
+    - {fileID: 2800000, guid: 36b91e801dba4704aa3c6b0fac42d9b1, type: 3}
+    - {fileID: 2800000, guid: f044d9bfc695326479ea97b5d52b0509, type: 3}
+    - {fileID: 2800000, guid: 99b7e059c6cce214aaa96b26ab68a2f6, type: 3}
+    - {fileID: 2800000, guid: 06d1584f36b6c3e4f80a3a24f5277f0a, type: 3}
+    - {fileID: 2800000, guid: 63346fc3bc6a6fe4bb8130a44478e4b5, type: 3}
+    - {fileID: 2800000, guid: cacbbedcac2f0b640856c47353537389, type: 3}
+    - {fileID: 2800000, guid: f92f4b53cbc90214592838d1921e477b, type: 3}
+    - {fileID: 2800000, guid: 80261a2984613364686096fda8b68c76, type: 3}
+    - {fileID: 2800000, guid: ac54fc4589c31354e902099a78b50e75, type: 3}
+    - {fileID: 2800000, guid: 1aab91d68231fef48acfd14a310653cb, type: 3}
+    - {fileID: 2800000, guid: ed216a83fd2a29345aec95e2b2b64e89, type: 3}
+    - {fileID: 2800000, guid: 3d4c9d4330082384e99a4eb4d362c198, type: 3}
+    - {fileID: 2800000, guid: 4d0f18de1efb6434398934386503b568, type: 3}
+    - {fileID: 2800000, guid: 3be3d68d6c3e7e546a9da554c970c454, type: 3}
+    - {fileID: 2800000, guid: ec73483f2c079a64d8f8a44d5619123d, type: 3}
+    - {fileID: 2800000, guid: 4f6a1046d497bcf4bab9fc7adb6124d8, type: 3}
   m_IsVariant: 0

@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
-
+using System;
+using System.Collections;
 using UnityEngine;
 
 public static class Ultilities
@@ -69,5 +70,18 @@ public static class Ultilities
         return new Color(gray, gray, gray, color.a);
     }
 
+    public static Coroutine DelayThenDoTask(MonoBehaviour mb, float delay, Action task)
+    {
+        if (mb != null && mb.gameObject.activeInHierarchy)
+        {
+            return mb.StartCoroutine(DelayRoutine(delay, task));
+        }
 
+        return null;
+    }
+    private static IEnumerator DelayRoutine(float delayTime, Action task)
+    {
+        yield return new WaitForSeconds(delayTime);
+        task?.Invoke();
+    }
 }

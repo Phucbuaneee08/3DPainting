@@ -25,14 +25,9 @@ public class HomeLevelUI : MonoBehaviour
 
     public void LoadData()
     {
-        if (!gameObject.activeInHierarchy)
-        {
-            return;
-        }
         miniPool.Release();
         listLevelUIs.Clear();
         HashSet<LevelType> uniqueLevelTypes = new HashSet<LevelType>();
-
         foreach (var levelData in levelDatas.level3D)
         {
             uniqueLevelTypes.Add(levelData.level.levelType);
