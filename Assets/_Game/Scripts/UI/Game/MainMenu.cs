@@ -22,4 +22,8 @@ public class MainMenu : UICanvas
     {
         homeLevelUI.ReLoad();
     }
+    public void BtnSpin()
+    {
+        
+    }
 }

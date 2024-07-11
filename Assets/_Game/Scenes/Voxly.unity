@@ -830,6 +830,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7154432956f6a6449a3276b8011db0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiResources:
+  - {fileID: 2120918184011404945, guid: 6471cd5f9b17f004f9b372ba16c692ff, type: 3}
+  - {fileID: 8619572439367032732, guid: 4cc96c905a2ef1445b252aabb71c02d4, type: 3}
+  - {fileID: 831086544966847640, guid: 4757f8c2650d2444ab9cfa40840b4c0a, type: 3}
+  - {fileID: -6283247285865067434, guid: be9ee9bc2fe601e44b6d3eb7d2c05723, type: 3}
+  - {fileID: 802974473960311097, guid: 5463c0af99dd9d242a113ff1a8decdcf, type: 3}
+  - {fileID: 1343092283070848475, guid: b656870cedac5ee4c9ab249872721ebb, type: 3}
+  - {fileID: 1503425182139161175, guid: 25c9b0f6eb4c4f64aa43b24af282efaa, type: 3}
+  - {fileID: 9048824720846685158, guid: fe3381cb222d2d240bb8b26940c27954, type: 3}
+  - {fileID: 6926427920295031896, guid: d4cd8adf0f6dd144280979ce610436d9, type: 3}
+  - {fileID: -5724821075474623286, guid: f470768f8aca65d4db783d6934f71f0b, type: 3}
+  - {fileID: 8786710960147856186, guid: b97b6261c298850438668a5f7d8634a3, type: 3}
   CanvasParentTF: {fileID: 1053684849}
 --- !u!1 &1085724520
 GameObject:
