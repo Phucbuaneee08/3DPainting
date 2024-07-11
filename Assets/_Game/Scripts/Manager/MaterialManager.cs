@@ -79,7 +79,8 @@ public class MaterialManager : Singleton<MaterialManager>
     private IEnumerator _SetFloatMaterial(Material mat,float FOV)
     {
         yield return null;
-        mat.SetFloat("_Float", FOV);
+
+        mat.SetFloat("_Float", Math.Clamp(FOV,0,1));
     }
     public void SetDefaultShaderColor(Cube cube, int colorID)
     {

@@ -114,7 +114,7 @@ public class CameraManager : Singleton<CameraManager>
         IsZooming = true;
         cam.orthographicSize += Mathf.Log(Mathf.Abs(deltaMagnitudeDiff) + 1) * Mathf.Sign(deltaMagnitudeDiff) * speed * Time.deltaTime;
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
-        MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - minZoom) / (maxZoom - minZoom));
+        MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - checkPointZoom) / (maxZoom - checkPointZoom));
     }
     public void SetFieldOfView()
     {
