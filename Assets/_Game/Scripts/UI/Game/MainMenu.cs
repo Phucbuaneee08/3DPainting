@@ -1,3 +1,4 @@
+using AssetKits.ParticleImage;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class MainMenu : UICanvas
 {
     [SerializeField] private HomeLevelUI homeLevelUI;
+    public GameObject textGold;
   
     public override void Setup()
     {
@@ -24,6 +26,6 @@ public class MainMenu : UICanvas
     }
     public void BtnSpin()
     {
-        
+        UIManager.Ins.OpenUI<UISpin>();
     }
 }
