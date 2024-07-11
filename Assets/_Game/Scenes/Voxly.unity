@@ -342,6 +342,7 @@ MonoBehaviour:
   reviveTime: 60
   root: {fileID: 2085022473}
   rotateOffset: {x: 342.70062, y: 332.61923, z: 8.755474}
+  vibrationDuration: 500
   currentLevel: {fileID: 0}
   currentColor: 0
   cubeTotal: 0
@@ -403,8 +404,8 @@ MonoBehaviour:
   Particle:
   - root: {fileID: 292409514}
     particleType: 6
-    prefab: {fileID: 4937759962910529734, guid: 7fad789a98a41f24aa20f5b4a933446c, type: 3}
-    amount: 5
+    prefab: {fileID: 4500899529804157160, guid: a8d31e36126985e40b89dd5b8a620d3a, type: 3}
+    amount: 50
 --- !u!1 &568955731
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +636,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10
   field of view: 50
   orthographic: 1
   orthographic size: 0.25

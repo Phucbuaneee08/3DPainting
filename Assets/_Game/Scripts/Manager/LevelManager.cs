@@ -14,6 +14,9 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private int reviveTime;
     [SerializeField] private GameObject root;
     [SerializeField] private Vector3 rotateOffset;
+
+    public long vibrationDuration = 500;
+
     private bool _isCanRevive;
     public Level currentLevel;
     public int currentColor;
@@ -137,7 +140,10 @@ public class LevelManager : Singleton<LevelManager>
     public void OnFilledCube(Cube cube)
     {
         if (cube.IsState(CubeState.Colored)) return;
-        ParticlePool.Play(ParticleType.Explosion,cube.transform.position);
+
+        ParticlePool.Play(ParticleType.Explosion,cube.transform.position); // hieu ung cube 
+        
+
         cube.ChangeState(CubeState.Colored);
         MaterialManager.Ins.SetColor(cube, cube.GetColorID());
         ////ParticlePool.Play(ParticleType.Hit_1, cube.TF);
@@ -151,6 +157,8 @@ public class LevelManager : Singleton<LevelManager>
             //UIManager.Ins.OpenUI<UIVictory>();
             StartCoroutine(OnCelebration());
         }
+
+        Vibration.Vibrate(vibrationDuration); // rung man hinh 
 
     }
     public void RemoveCubeByColorID(int colorID)

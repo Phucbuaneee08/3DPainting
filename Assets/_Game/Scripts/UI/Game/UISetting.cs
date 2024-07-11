@@ -9,6 +9,7 @@ public class UISetting : UICanvas
     public InputField dragSpeed;
     public InputField rotateSpeed;
     public InputField moveDistance;
+    public InputField vibrationDura;
     public override void Setup()
     {
         base.Setup();
@@ -60,6 +61,18 @@ public class UISetting : UICanvas
         {
             FindObjectOfType<Player>().rotateSpeed = newRotateSpeed;
             Debug.Log("Rotate speed changed to: " + newRotateSpeed);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid input for rotate speed.");
+        }
+    }
+    public void ChangeVibrationDuration()
+    {
+        if (long.TryParse(vibrationDura.text, out long vibrationDuration))
+        {
+           LevelManager.Ins.vibrationDuration = vibrationDuration;
+            Debug.Log("Rotate speed changed to: " + vibrationDuration);
         }
         else
         {
