@@ -342,6 +342,7 @@ MonoBehaviour:
   reviveTime: 60
   root: {fileID: 2085022473}
   rotateOffset: {x: 342.70062, y: 332.61923, z: 8.755474}
+  vibrationDuration: 500
   currentLevel: {fileID: 0}
   currentColor: 0
   cubeTotal: 0
@@ -635,7 +636,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10
   field of view: 50
   orthographic: 1
   orthographic size: 0.25
