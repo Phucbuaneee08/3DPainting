@@ -91,8 +91,12 @@ public class DataManager : Singleton<DataManager>
     public void ChangeDiamond(int newDiamond)
     {
         playerData.diamond += newDiamond;
+        if (playerData.diamond < 0)
+        {
+            playerData.diamond = 0;
+        }
         SaveData();
-        OnDiamondChanged?.Invoke(newDiamond);
+        OnDiamondChanged?.Invoke((int)playerData.diamond);
     }
 
     public void ChangeCoin(int amount)

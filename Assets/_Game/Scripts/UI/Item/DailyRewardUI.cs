@@ -13,8 +13,6 @@ public class DailyRewardUI : MonoBehaviour
     [SerializeField] private GameObject collectingObj;
     [SerializeField] private TMP_Text dayTmp;
     [SerializeField] private Image bgImg;
-    [SerializeField] private Sprite normalBg;
-    [SerializeField] private Sprite todayBg;
 
     private Transform tf;
     public List<DailyRewardTypeUI> typeList = new List<DailyRewardTypeUI>();
@@ -30,12 +28,11 @@ public class DailyRewardUI : MonoBehaviour
     {
         dayTmp.text = "DAY " + (data.dayIndex + 1).ToString();
         bool isToday = data.dayIndex == todayIndex;
-        bool todayCollected = false;
+        bool todayCollected = DataManager.Ins.playerData.isTodayCollected == 1 && isToday;
         bool isCollected = data.dayIndex < todayIndex || todayCollected;
         collectedObj.SetActive(isCollected);
-        collectingObj.SetActive(!isCollected);
-
-       // bgImg.sprite = isToday ? todayBg : normalBg;
+        collectingObj.SetActive(isCollected);
+        bgImg.color = isToday ? new Color(0, 255, 0) : bgImg.color;
 
         if (!isCollected)
         {
@@ -89,7 +86,7 @@ public class DailyRewardUI : MonoBehaviour
                 {
                     OnComplete?.Invoke();
                     collectedObj.SetActive(true);
-                    collectingObj.SetActive(false);
+                    collectingObj.SetActive(true);
                 });
             }
             else

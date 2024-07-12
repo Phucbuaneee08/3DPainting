@@ -22,7 +22,7 @@ public class UIVictory : UICanvas
    
     public void Home()
     {
-        CollectCoin(DataManager.Ins.playerData.gold + goldBonus);
+        CollectCoin(goldBonus);
         DataManager.Ins.SaveData();
         DOVirtual.DelayedCall(3f, () =>
         {
@@ -34,6 +34,7 @@ public class UIVictory : UICanvas
         base.Open();
         textGoldBonus.text = $"{"+"} {goldBonus}";
         GameManager.Ins.ChangeState(GameState.Finish);
+        btnClaimX2.transform.DOScale(1.1f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
     }
     public void NextLevel()
     {
@@ -41,7 +42,7 @@ public class UIVictory : UICanvas
     }
     public void ButtonClaimX2()
     {
-        CollectCoin(DataManager.Ins.playerData.gold + (goldBonus * 2));
+        CollectCoin(goldBonus * 2);
         DataManager.Ins.SaveData();
         DOVirtual.DelayedCall(3.2f, () =>
         {
