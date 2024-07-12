@@ -118,7 +118,7 @@ public class DataManager : Singleton<DataManager>
     {
         DateTime now = DateTime.Now;
         int daysNow = (int)now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
-        bool isNewDay = daysNow > playerData.daysLastOpen;
+        bool isNewDay = daysNow - playerData.daysLastOpen >= 1;
 
         if (isNewDay && playerData.isTodayCollected == 1)
         {

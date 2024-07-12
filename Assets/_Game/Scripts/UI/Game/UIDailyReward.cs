@@ -37,9 +37,9 @@ public class UIDailyReward : UICanvas
         weekIndex = DataManager.Ins.playerData.daysCollected / 7;
         weekIndex %= weeklyRewardList.GetWeekAmount();
 
-        claimObj.SetActive(DataManager.Ins.playerData.isTodayCollected == 0);
-        claimX2Obj.SetActive(DataManager.Ins.playerData.isTodayCollected == 0);
-        waitObj.SetActive(DataManager.Ins.playerData.isTodayCollected == 1);
+        claimObj.SetActive(DataManager.Ins.playerData.isTodayCollected == 0 || DataManager.Ins.playerData.isTodayCollectFree == 1);
+        claimX2Obj.SetActive(DataManager.Ins.playerData.isTodayCollected == 0 || DataManager.Ins.playerData.isTodayCollectFree == 1);
+        waitObj.SetActive(DataManager.Ins.playerData.isTodayCollected == 1 && DataManager.Ins.playerData.isTodayCollectFree == 1);
 
         weeklyData = weeklyRewardList.weeklyList[weekIndex];
         DailyRewardData dailyData;
@@ -78,8 +78,8 @@ public class UIDailyReward : UICanvas
 
     public void ButtonClaim()
     {
-        if (DataManager.Ins.playerData.isTodayCollected == 1) return;
         if (DataManager.Ins.playerData.isTodayCollectFree == 1) return;
+        DataManager.Ins.playerData.isTodayCollected = 1;
         DataManager.Ins.playerData.isTodayCollectFree = 1;
         DataManager.Ins.SaveData();
         claimObj.SetActive(true);
@@ -107,7 +107,6 @@ public class UIDailyReward : UICanvas
         claimObj.SetActive(false);
         claimX2Obj.SetActive(false);
         waitObj.SetActive(true);
-        DataManager.Ins.playerData.isTodayCollected = 1;
         DataManager.Ins.playerData.isTodayCollectFree = 1;
         DataManager.Ins.SaveData();
     }
