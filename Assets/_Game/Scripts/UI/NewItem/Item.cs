@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Compilation;
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class Item : MonoBehaviour
 {

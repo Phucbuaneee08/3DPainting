@@ -706,10 +706,6 @@ MonoBehaviour:
     ID: 0
     realColorID: 3
     defaultColorID: 1
-  - position: {x: 0, y: 0.03, z: 0}
-    ID: 0
-    realColorID: 3
-    defaultColorID: 1
   - position: {x: -0.01, y: 0.03, z: 0}
     ID: 0
     realColorID: 3
