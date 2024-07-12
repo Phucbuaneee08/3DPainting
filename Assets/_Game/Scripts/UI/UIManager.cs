@@ -28,7 +28,7 @@ public class UIManager : Singleton<UIManager>
 
     //list from resource
     //list load ui resource
-    public UICanvas[] uiResources;
+    private UICanvas[] uiResources;
 
     //dict for UI active
     //dict luu cac ui dang dung
@@ -37,7 +37,7 @@ public class UIManager : Singleton<UIManager>
     //canvas container, it should be a canvas - root
     //canvas chua dung cac canvas con, nen la mot canvas - root de chua cac canvas nay
     public Transform CanvasParentTF;
-    private bool isBlockUI;
+
     #region Canvas
 
     //open UI
@@ -48,8 +48,6 @@ public class UIManager : Singleton<UIManager>
 
         canvas.Setup();
         canvas.Open();
-
-        canvas.transform.SetAsLastSibling();
 
         return canvas as T;
     }
@@ -121,9 +119,9 @@ public class UIManager : Singleton<UIManager>
     {
         if (!uiCanvasPrefab.ContainsKey(typeof(T)))
         {
-            if (uiResources == null || uiResources.Length == 0)
+            if (uiResources == null)
             {
-                uiResources = Resources.LoadAll<UICanvas>("./_UICanvas");
+                uiResources = Resources.LoadAll<UICanvas>("UI/");
             }
 
             for (int i = 0; i < uiResources.Length; i++)

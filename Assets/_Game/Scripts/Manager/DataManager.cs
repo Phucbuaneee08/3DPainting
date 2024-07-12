@@ -6,7 +6,6 @@ using UnityEditor;
 using System.Linq;
 using UnityEngine.Events;
 
-[Serializable]
 public class DataManager : Singleton<DataManager>
 {
     public bool isLoaded = false;
@@ -38,16 +37,11 @@ public class DataManager : Singleton<DataManager>
         }
         else
         {
-            if (DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays - playerData.timeLastOpen >= 1)
-            {
-                //nếu sang ngày mới
-                playerData.unlockAds = 0;
-                playerData.daysPlayed += 1;
-                playerData.timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
-            }
+            CheckDailyReward();
         }
         isLoaded = true;
     }
+
     public void SaveData()
     {
         if (!isLoaded) return;
@@ -66,6 +60,7 @@ public class DataManager : Singleton<DataManager>
             .Select(ld => new LevelDataModel(ld.levelID, false, ld.level.unlockType)).ToList();
         SaveData();
     }
+
 #if UNITY_EDITOR
     [MenuItem("UserDataManager/ResetData")]
     public static void ResetData()
@@ -81,7 +76,6 @@ public class DataManager : Singleton<DataManager>
         Debug.Log("Reset thành công Data người chơi ");
     }
 #endif
-
 
     public void ChangeGold(int newGold)
     {
@@ -100,6 +94,7 @@ public class DataManager : Singleton<DataManager>
         SaveData();
         OnDiamondChanged?.Invoke(newDiamond);
     }
+
     public void ChangeCoin(int amount)
     {
         playerData.gold += amount;
@@ -114,6 +109,21 @@ public class DataManager : Singleton<DataManager>
     public event Action<int> OnGoldChanged;
     public event Action<int> OnDiamondChanged;
     public UnityAction<int> OnCoinChanged;
+
+    private void CheckDailyReward()
+    {
+        DateTime now = DateTime.Now;
+        int daysNow = (int)now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
+        bool isNewDay = daysNow > playerData.daysLastOpen;
+
+        if (isNewDay && playerData.isTodayCollected == 1)
+        {
+            playerData.isTodayCollected = 0;
+            playerData.daysCollected++;
+        }
+
+        playerData.daysLastOpen = daysNow;
+    }
 }
 
 [System.Serializable]
@@ -137,6 +147,12 @@ public class PlayerData
     public int unlockAds;
     [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
+
+    [Header("--------- Daily Reward ---------")]
+    public int daysCollected;
+    public int daysLastOpen;
+    public int isTodayCollected; // 0: not collected, 1: collected
+    public int isTodayCollectFree;
     public PlayerData()
     {
         timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
@@ -153,12 +169,19 @@ public class PlayerData
         isPassedTutorialClick = false;
         isPassedTutorialRotate = false;
         isPassedTutorialZoom = false;
+
+        daysCollected = 0;
+        daysLastOpen = (int)timeLastOpen;
+        isTodayCollected = 0;
+        isTodayCollectFree = 0;
     }
+
     public LevelDataModel GetDataWithID(int _id)
     {
         return levelDataModels.Find(id => id.levelID == _id);
     }
 }
+
 [System.Serializable]
 public class LevelDataModel
 {

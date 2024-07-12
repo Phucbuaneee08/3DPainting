@@ -35,3 +35,13 @@ public enum SpinRewardType
     bucket,
     brush
 }
+[Serializable]
+public enum DailyRewardType
+{
+    none,
+    gold,
+    magnifier,
+    bucket,
+    brush
+}
+
