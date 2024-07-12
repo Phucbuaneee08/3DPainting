@@ -43,11 +43,16 @@ public class BoosterManager : Singleton<BoosterManager>
         Vector3.back
     };
 
-    private void Start()
+ 
+    public void OnInit()
     {
+        PlayerData playerData = DataManager.Ins.playerData;
+        UIManager.Ins.GetUI<UIGameplay>().OnInitBoosterItem(
+            playerData.boosterFillByColorQuantity,
+            playerData.boosterFillAllColorQuantity,
+            playerData.boosterFindByColorQuantity);
         ResetAllBooster();
     }
-
     public void ChangeBoosterState(bool state)
     {
         IsCanUseFillAllNumberBooster = state;
@@ -61,6 +66,7 @@ public class BoosterManager : Singleton<BoosterManager>
         {
             CameraManager.Ins.cam.DOOrthoSize((CameraManager.Ins.minZoom + CameraManager.Ins.checkPointZoom) / 2, 0.5f);
             CameraManager.Ins.LerpInCreaseOrthoSize(1f);
+            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(CameraState.ZoomIn);
             IsCanUseZoomBooster = false;
         }
     }
@@ -96,7 +102,11 @@ public class BoosterManager : Singleton<BoosterManager>
             RotateXAxis(-angle, 1f);
         else
             RotateXAxis(angle, 1f);
-        StartCoroutine(RotateYAxis(cub)); 
+        StartCoroutine(RotateYAxis(cub));
+
+        int qty = DataManager.Ins.playerData.boosterFindByColorQuantity -= 1;
+        UIManager.Ins.GetUI<UIGameplay>().findByColorItem.SetQuantityText(qty);
+
     }
     private void  RotateXAxis(float angle,float duration)
     {
@@ -116,7 +126,6 @@ public class BoosterManager : Singleton<BoosterManager>
 
         float angle2 = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
 
-        Debug.Log(player.transform.up.y );
 
         if(player.transform.up.y > 0)
         {
@@ -128,7 +137,7 @@ public class BoosterManager : Singleton<BoosterManager>
             if (cubeDirection.x > 0) player.transform.DORotate(new Vector3(0, -angle2, 0), 1f, RotateMode.LocalAxisAdd);
             else player.transform.DORotate(new Vector3(0, +angle2, 0), 1f, RotateMode.LocalAxisAdd);
         }
-       
+        ItemManager.Ins.TurnOffAllBoosterItem();
 
      
 
@@ -173,7 +182,8 @@ public class BoosterManager : Singleton<BoosterManager>
         StartCoroutine(OnFilled(visited));
         if (!isCountQuantity)
         {
-            DataManager.Ins.playerData.boosterFillByColorQuantity -= 1;
+            int qty = DataManager.Ins.playerData.boosterFillByColorQuantity -= 1;
+            UIManager.Ins.GetUI<UIGameplay>().fillByColorItem.SetQuantityText(qty);
             isCountQuantity = true;
         }
         isCountQuantity = false;
@@ -193,7 +203,7 @@ public class BoosterManager : Singleton<BoosterManager>
     #region Booster Fill All Number
     public bool CheckBoosterQuantity()
     {
-        return DataManager.Ins.playerData.boosterQuantity > 0 && IsCanUseFillAllNumberBooster;
+        return DataManager.Ins.playerData.boosterFillAllColorQuantity > 0 && IsCanUseFillAllNumberBooster;
     }
 
     public void FillBoosterByColor(Cube currentCube)
@@ -232,11 +242,12 @@ public class BoosterManager : Singleton<BoosterManager>
         StartCoroutine(OnFilled(visited));
         if (!isCountQuantity2)
         {
-            DataManager.Ins.playerData.boosterQuantity -= 1;
+            int qty = DataManager.Ins.playerData.boosterFillAllColorQuantity -= 1;
+            UIManager.Ins.GetUI<UIGameplay>().fillAllColorItem.SetQuantityText(qty);
             isCountQuantity2 = true;
         }
         isCountQuantity2 = false;
-        if (DataManager.Ins.playerData.boosterQuantity <= 0)
+        if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
         {
             //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
         }

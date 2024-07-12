@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class BoosterItem : Item
 {
-  
+    public TextMeshProUGUI quantityText;
     public BoosterType BoosterType;
-    public int quantity;
-  
+    private int quantity;
+    
+    public void SetQuantity(int quantity)
+    {
+        this.quantity = quantity;
+    }
     public virtual bool CheckQuantity => quantity > 0;
 
     public override void OnClick()
     {
-        if (DataManager.Ins.playerData.boosterQuantity <= 0)
-        {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(_id);
-            GameManager.Ins.ChangeState(GameState.Pause);
-        }
+      
         if (CurrentItemState == ItemState.TurnOff)
         {
             ChangeItemState(ItemState.TurnOn);
@@ -33,7 +34,7 @@ public class BoosterItem : Item
 
         BoosterManager.Ins.SelectedBoosterType = BoosterType;
         ItemManager.Ins.TurnOffBoosterItemExceptEnum(BoosterType);
-        ItemManager.Ins.TurnOffAllColorItem();
+        
 
         MoveUp();
 
@@ -45,6 +46,11 @@ public class BoosterItem : Item
         MoveDown();
 
     }
+    public void SetQuantityText(int quantity)
+    {
+        quantityText.text = quantity.ToString();
+    }
+
 
 
 

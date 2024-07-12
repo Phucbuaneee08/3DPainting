@@ -142,8 +142,9 @@ public class PlayerData
     public int currentlevelID;
     public int gold;
     public int diamond;
-    public int boosterQuantity;
+    public int boosterFillAllColorQuantity;
     public int boosterFillByColorQuantity;
+    public int boosterFindByColorQuantity;
     public int unlockAds;
     [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
@@ -160,8 +161,11 @@ public class PlayerData
         currentlevelID = 1;
         gold = 10000;
         diamond = 10000;
-        boosterQuantity = 1000;
+
+        boosterFillAllColorQuantity = 1000;
         boosterFillByColorQuantity = 1000;
+        boosterFindByColorQuantity = 1000;
+
         unlockAds = 0;
         isPassedTutorialBooster1 = false;
         isPassedTutorialBooster2 = false;

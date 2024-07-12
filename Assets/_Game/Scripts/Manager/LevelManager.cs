@@ -94,10 +94,12 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         //player.transform.DORotate(rotateOffset, 0f);
+    
         player.transform.DORotate(rotateOffset, 0f);
         UIManager.Ins.CloseAll();
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
+        BoosterManager.Ins.OnInit();
     }
     public void NextLevel()
     {

@@ -20,10 +20,17 @@ public class UIGameplay : UICanvas
     [SerializeField] RectTransform scrollViewRect;
     [SerializeField] private ZoomItem zoomItem;
     public Canvas canvas;
+
     public FillBoosterItem fillBoosterItem;
     public FillBoosterItem fillBoosterItem2;
+
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
     public TextMeshProUGUI textLevel;
+
+    public FillByColorItem fillByColorItem;
+    public FilllAllColorItem fillAllColorItem;
+    public FindByColorItem findByColorItem;
+
 
     //public BoosterController boosterController;
     public Image imgBG;
@@ -42,6 +49,12 @@ public class UIGameplay : UICanvas
         base.Open();
         GameManager.Ins.ChangeState(GameState.GamePlay);
         textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
+    }
+    public void OnInitBoosterItem(int fillByColor,int fillAlColor,int findByColor)
+    {
+        fillByColorItem.SetQuantityText(fillByColor);
+        fillAllColorItem.SetQuantityText(fillAlColor);
+        findByColorItem.SetQuantityText(findByColor);
     }
     public void OpenSetting()
     {
@@ -133,7 +146,6 @@ public class UIGameplay : UICanvas
     }
 
 
-
     public void MoveDownBtn(FillBoosterItem fillBoosterItem)
     {
         fillBoosterItem.MoveDown();
@@ -142,5 +154,6 @@ public class UIGameplay : UICanvas
     {
         fillBoosterItem.MoveUp();
     }
+
    
 }

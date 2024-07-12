@@ -10,6 +10,8 @@ public class ItemManager : Singleton<ItemManager>
     public List<BoosterItem> boosterItems;
 
 
+   
+
     public void TurnOffBoosterItemExceptEnum(BoosterType boosterType)
     {
         foreach (var item in boosterItems)
@@ -65,11 +67,10 @@ public class ItemManager : Singleton<ItemManager>
     }
     public void TurnOffAllBoosterItem()
     {
+        BoosterManager.Ins.SelectedBoosterType = BoosterType.None;
         foreach (var item in boosterItems)
-        {
-            
+        {          
             item.ChangeItemState(ItemState.TurnOff);
-            
         }
     }
     public void TurnOffAllItems()

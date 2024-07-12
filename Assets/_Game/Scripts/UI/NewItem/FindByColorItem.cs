@@ -6,10 +6,17 @@ public class FindByColorItem : BoosterItem
 {
     public override void OnClick()
     {
+     
+        if (DataManager.Ins.playerData.boosterFindByColorQuantity <= 0)
+        {
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(_id);
+            GameManager.Ins.ChangeState(GameState.Pause);
+        }
         base.OnClick();
         if(LevelManager.Ins.currentColor!=0)
             BoosterManager.Ins.FindNextCubeByColor(LevelManager.Ins.currentColor);
     }
+  
 }
 
 

@@ -48,76 +48,7 @@ public class BoosterFillCellUI : MonoBehaviour
     {
         id = _id;
     }
-    public void Btn_BoosterFillItem()
-    {
-      
-        if (DataManager.Ins.playerData.boosterQuantity <= 0)
-        {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(id);
-            GameManager.Ins.ChangeState(GameState.Pause);
-        }
-        else
-        {
-            if (isUseBooster == false)
-            {
-                BoosterManager.Ins.IsCanUseZoomBooster = true;
-                BoosterManager.Ins.ZoomBoosterByColor();
-
-                BoosterManager.Ins.IsCanUseFillAllNumberBooster = true;
-                BoosterManager.Ins.IsCanUseFillByNumberBooster = false;
-
-                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
-                if (LevelManager.Ins.currentColor != 0)
-                {
-                    UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).MoveDown();
-                }
-                LevelManager.Ins.ReleaseFocusCube();
-                isUseBooster = true;
-                return;
-            }
-            if (isUseBooster == true)
-            {
-                BoosterManager.Ins.IsCanUseZoomBooster = false;
-                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
-                isUseBooster = false;
-            }
-        }
-    }
-    public void Btn_BoosterFillByNumber()
-    {
-        if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
-        {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(id);
-            GameManager.Ins.ChangeState(GameState.Pause);
-        }
-        else
-        {
-            if (isUseBooster == false)
-            {
-                BoosterManager.Ins.IsCanUseFillByNumberBooster = true;
-                BoosterManager.Ins.IsCanUseZoomBooster = false;
-                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
-                if (LevelManager.Ins.currentColor != 0)
-                {
-                    //UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
-                    ItemManager.Ins.TurnOffAllColorItem();
-                }
-
-                LevelManager.Ins.ReleaseFocusCube();
-                isUseBooster = true;
-                return;
-            }
-            if (isUseBooster == true)
-            {
-                BoosterManager.Ins.IsCanUseFillByNumberBooster = false;
-                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
-                if (LevelManager.Ins.currentColor != 0)
-                {
-                    UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).MoveUp();
-                }
-                isUseBooster = false;
-            }
-        }
-    }
+    
+   
 
 }

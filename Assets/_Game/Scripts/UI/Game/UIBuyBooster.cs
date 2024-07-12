@@ -48,7 +48,7 @@ public class UIBuyBooster : UICanvas
                 DataManager.Ins.playerData.gold -= BoosterManager.Ins.costBooster;
                 if (id == 1)
                 {
-                    DataManager.Ins.playerData.boosterQuantity += 3;
+                    DataManager.Ins.playerData.boosterFillAllColorQuantity += 3;
                 }
                 if(id == 2)
                 {

@@ -7,7 +7,15 @@ public class FilllAllColorItem : BoosterItem
     public override void OnInit()
     {
     }
-
+    public override void OnClick()
+    {
+        if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
+        {
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(_id);
+            GameManager.Ins.ChangeState(GameState.Pause);
+        }
+        base.OnClick();
+    }
     public override void TurnOff()
     {
         base.TurnOff();
@@ -19,7 +27,8 @@ public class FilllAllColorItem : BoosterItem
     public override void TurnOn()
     {
         base.TurnOn();
-       
+        ItemManager.Ins.TurnOffAllColorItem();
+
         BoosterManager.Ins.IsCanUseZoomBooster = true;
         BoosterManager.Ins.ZoomBoosterByColor();
 

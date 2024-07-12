@@ -251,6 +251,7 @@ MonoBehaviour:
   boosterItems:
   - {fileID: 8133721878430492741}
   - {fileID: 8581692503331305505}
+  - {fileID: 2887785108812332634}
   timer: {fileID: 2486747461797379089}
   scrollViewRect: {fileID: 6863108811028876499}
   zoomItem: {fileID: 7451585313106452909}
@@ -258,6 +259,9 @@ MonoBehaviour:
   fillBoosterItem: {fileID: 0}
   fillBoosterItem2: {fileID: 0}
   textLevel: {fileID: 7008778748801345072}
+  fillByColorItem: {fileID: 8581692503331305505}
+  fillAllColorItem: {fileID: 8133721878430492741}
+  findByColorItem: {fileID: 2887785108812332634}
   imgBG: {fileID: 0}
 --- !u!1 &1074095393499047935
 GameObject:
@@ -410,8 +414,8 @@ MonoBehaviour:
   rectTransform: {fileID: 2907868268757619583}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40
+  quantityText: {fileID: 8275931486923756847}
   BoosterType: 2
-  quantity: 0
 --- !u!1 &1237651245739054986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,8 +1873,8 @@ MonoBehaviour:
   rectTransform: {fileID: 7621007700943679808}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40
+  quantityText: {fileID: 1187642449305430539}
   BoosterType: 1
-  quantity: 0
 --- !u!1 &7830336493381230809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,8 +2442,8 @@ MonoBehaviour:
   rectTransform: {fileID: 0}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40
+  quantityText: {fileID: 7054444128852312782}
   BoosterType: 3
-  quantity: 0
 --- !u!1001 &8176754876365734724
 PrefabInstance:
   m_ObjectHideFlags: 0
