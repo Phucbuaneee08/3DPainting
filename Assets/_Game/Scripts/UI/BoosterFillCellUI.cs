@@ -16,7 +16,7 @@ public class BoosterFillCellUI : MonoBehaviour
     public Transform tf;
     public Vector2 initialPosition;
     public bool isUseBooster = false;
-    BoosterController boosterController;
+    //BoosterController boosterController;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -29,7 +29,7 @@ public class BoosterFillCellUI : MonoBehaviour
     }
     public void Start()
     {
-        boosterController = GetComponentInParent<BoosterController>();
+        //boosterController = GetComponentInParent<BoosterController>();
         
     }
     public void MoveUp()
@@ -50,6 +50,7 @@ public class BoosterFillCellUI : MonoBehaviour
     }
     public void Btn_BoosterFillItem()
     {
+      
         if (DataManager.Ins.playerData.boosterQuantity <= 0)
         {
             UIManager.Ins.OpenUI<UIBuyBooster>().SetData(id);
@@ -59,10 +60,13 @@ public class BoosterFillCellUI : MonoBehaviour
         {
             if (isUseBooster == false)
             {
-                BoosterManager.Ins.iDSelectBooster = id;
-                BoosterManager.Ins._isCanUseFillBooster = true;
-                BoosterManager.Ins._isCanUseFillByNumberBooster = false;
-                boosterController.SetUpDown(BoosterManager.Ins.iDSelectBooster);
+                BoosterManager.Ins.IsCanUseZoomBooster = true;
+                BoosterManager.Ins.ZoomBoosterByColor();
+
+                BoosterManager.Ins.IsCanUseFillAllNumberBooster = true;
+                BoosterManager.Ins.IsCanUseFillByNumberBooster = false;
+
+                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
                 if (LevelManager.Ins.currentColor != 0)
                 {
                     UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).MoveDown();
@@ -73,9 +77,8 @@ public class BoosterFillCellUI : MonoBehaviour
             }
             if (isUseBooster == true)
             {
-                BoosterManager.Ins.iDSelectBooster = 0;
-                BoosterManager.Ins._isCanUseFillBooster = false;
-                boosterController.SetUpDown(BoosterManager.Ins.iDSelectBooster);
+                BoosterManager.Ins.IsCanUseZoomBooster = false;
+                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
                 isUseBooster = false;
             }
         }
@@ -91,13 +94,13 @@ public class BoosterFillCellUI : MonoBehaviour
         {
             if (isUseBooster == false)
             {
-                BoosterManager.Ins.iDSelectBooster = id;
-                BoosterManager.Ins._isCanUseFillByNumberBooster = true;
-                BoosterManager.Ins._isCanUseFillBooster = false;
-                boosterController.SetUpDown(BoosterManager.Ins.iDSelectBooster);
+                BoosterManager.Ins.IsCanUseFillByNumberBooster = true;
+                BoosterManager.Ins.IsCanUseZoomBooster = false;
+                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
                 if (LevelManager.Ins.currentColor != 0)
                 {
-                    UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
+                    //UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
+                    ItemManager.Ins.TurnOffAllColorItem();
                 }
 
                 LevelManager.Ins.ReleaseFocusCube();
@@ -106,9 +109,8 @@ public class BoosterFillCellUI : MonoBehaviour
             }
             if (isUseBooster == true)
             {
-                BoosterManager.Ins.iDSelectBooster = 0;
-                BoosterManager.Ins._isCanUseFillByNumberBooster = false;
-                boosterController.SetUpDown(BoosterManager.Ins.iDSelectBooster);
+                BoosterManager.Ins.IsCanUseFillByNumberBooster = false;
+                //boosterController.SetUpDown(BoosterManager.Ins.IDSelectBooster);
                 if (LevelManager.Ins.currentColor != 0)
                 {
                     UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).MoveUp();

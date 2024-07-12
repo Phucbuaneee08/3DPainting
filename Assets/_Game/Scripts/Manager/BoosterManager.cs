@@ -3,7 +3,13 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using JetBrains.Annotations;
-
+public enum BoosterType
+{
+    None = 0,
+    FillByColor = 1,
+    FillAllColor = 2,
+    FindByColor = 3
+}
 public class BoosterManager : Singleton<BoosterManager>
 {
     [SerializeField] private Player player;
@@ -15,15 +21,16 @@ public class BoosterManager : Singleton<BoosterManager>
     public int boosterQuantity = 999;
     public int boosterFillByColorQuantity = 999;
 
-    public bool _isCanUseFillBooster = false;
-    public bool _isCanUseFillByNumberBooster = false;
+    public bool IsCanUseFillAllNumberBooster { get; set; }
+    public bool IsCanUseZoomBooster { get; set; }
+    public bool IsCanUseFillByNumberBooster { get; set; }
 
-    private bool _isCanUseZoomBooster = true;
     bool isCountQuantity = false;
     bool isCountQuantity2 = false;
     private float delayFillBooster = 0.001f;
 
-    public int iDSelectBooster = 0;
+
+    public BoosterType SelectedBoosterType;
     public int costBooster = 0;
 
     private Vector3[] directions = new Vector3[]
@@ -35,45 +42,34 @@ public class BoosterManager : Singleton<BoosterManager>
         Vector3.forward,
         Vector3.back
     };
-    public void OnReset()
+
+    private void Start()
     {
-        _isCanUseFillBooster = false;
-        _isCanUseFillByNumberBooster = false;
-        _isCanUseZoomBooster = true;
+        ResetAllBooster();
     }
-    /*
-    * Script cho booster zoom in và zoom out  ****************************************************************************************************
-   */
-
-
-
-
-
-    /*
-    * Script cho booster zoom khi chọn Màu đầu tiên ****************************************************************************************************
-   */
 
     public void ChangeBoosterState(bool state)
     {
-        _isCanUseFillBooster = state;
+        IsCanUseFillAllNumberBooster = state;
 #if UNITY_EDITOR
         Debug.Log("Turn Fill Booster :" + state);
 #endif
     }
     public void ZoomBoosterByColor()
     {
-        if (_isCanUseZoomBooster)
+        if (IsCanUseZoomBooster)
         {
             CameraManager.Ins.cam.DOOrthoSize((CameraManager.Ins.minZoom + CameraManager.Ins.checkPointZoom) / 2, 0.5f);
             CameraManager.Ins.LerpInCreaseOrthoSize(1f);
-            _isCanUseZoomBooster = false;
+            IsCanUseZoomBooster = false;
         }
     }
-    public void ResetZoomBooster()
+
+    public void ResetAllBooster()
     {
-        _isCanUseFillBooster = false;
-        _isCanUseFillByNumberBooster = false;
-        _isCanUseZoomBooster = true;
+        IsCanUseFillAllNumberBooster = false;
+        IsCanUseFillByNumberBooster = false;
+        IsCanUseZoomBooster = true;
     }
     private IEnumerator OnFilled(List<Cube> visited)
     {
@@ -137,7 +133,7 @@ public class BoosterManager : Singleton<BoosterManager>
      
 
     }
-
+   
 
     #endregion
 
@@ -145,7 +141,7 @@ public class BoosterManager : Singleton<BoosterManager>
     #region Booster Fill By Number
     public bool CheckBooterFillByNumber()
     {
-        return DataManager.Ins.playerData.boosterFillByColorQuantity > 0 && _isCanUseFillByNumberBooster;
+        return DataManager.Ins.playerData.boosterFillByColorQuantity > 0 && IsCanUseFillByNumberBooster;
     }
     public void BoosterFillByNumber(Cube currentCube)
     {
@@ -183,12 +179,12 @@ public class BoosterManager : Singleton<BoosterManager>
         isCountQuantity = false;
         if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
         {
-            UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
+            //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
         }
     }
     public void ChangeBoosterFillState(bool state)
     {
-        _isCanUseFillByNumberBooster = state;
+        IsCanUseFillByNumberBooster = state;
     }
     #endregion
     /*
@@ -197,7 +193,7 @@ public class BoosterManager : Singleton<BoosterManager>
     #region Booster Fill All Number
     public bool CheckBoosterQuantity()
     {
-        return DataManager.Ins.playerData.boosterQuantity > 0 && _isCanUseFillBooster;
+        return DataManager.Ins.playerData.boosterQuantity > 0 && IsCanUseFillAllNumberBooster;
     }
 
     public void FillBoosterByColor(Cube currentCube)
@@ -242,7 +238,7 @@ public class BoosterManager : Singleton<BoosterManager>
         isCountQuantity2 = false;
         if (DataManager.Ins.playerData.boosterQuantity <= 0)
         {
-            UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
+            //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
         }
 #if UNITY_EDITOR
         Debug.Log("Remove cube ID " + currentCube.GetColorID() + ": " + visited.Count);

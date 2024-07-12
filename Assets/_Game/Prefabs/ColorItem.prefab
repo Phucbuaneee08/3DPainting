@@ -286,12 +286,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74111d913e16c5846ad4ee179b9cbdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
+  rectTransform: {fileID: 2751117985361770005}
+  initialPosition: {x: 0, y: 0, z: 0}
+  moveDistance: 40
   bg: {fileID: 5269299965747385257}
   colorID: 0
   text: {fileID: 0}
-  element: {fileID: 2751117985361770005}
-  colorItemState: 0
-  initialPosition: {x: 0, y: 0}
 --- !u!114 &7486121455503703808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +339,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -6442484015460213999}
         m_TargetAssemblyTypeName: ColorItem, Assembly-CSharp
-        m_MethodName: FocusCubeByColorID
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

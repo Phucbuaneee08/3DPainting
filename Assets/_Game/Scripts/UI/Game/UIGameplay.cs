@@ -10,7 +10,12 @@ public class UIGameplay : UICanvas
 {
     [SerializeField] Transform content;
     [SerializeField] ColorItem colorItemPrefab;
+
+
     [SerializeField] List<ColorItem> colorItems;
+    [SerializeField] List<BoosterItem> boosterItems;
+
+
     [SerializeField] private Timer timer;
     [SerializeField] RectTransform scrollViewRect;
     [SerializeField] private ZoomItem zoomItem;
@@ -19,7 +24,8 @@ public class UIGameplay : UICanvas
     public FillBoosterItem fillBoosterItem2;
     MiniPool<ColorItem> miniPool = new MiniPool<ColorItem>();
     public TextMeshProUGUI textLevel;
-    public BoosterController boosterController;
+
+    //public BoosterController boosterController;
     public Image imgBG;
     private void Awake()
     {
@@ -28,7 +34,7 @@ public class UIGameplay : UICanvas
     public override void Setup()
     {
         base.Setup();
-        boosterController.LoadData();
+        //boosterController.LoadData();
       
     }
     public override void Open()
@@ -49,6 +55,9 @@ public class UIGameplay : UICanvas
             colorItem.SetData(md.colorID, md.material.color);
             colorItems.Add(colorItem);
         }
+        ItemManager.Ins.colorItems = this.colorItems;
+        ItemManager.Ins.boosterItems = this.boosterItems;
+        
     }
     public ColorItem FindItemByColorId(int colorID)
     {
@@ -77,9 +86,16 @@ public class UIGameplay : UICanvas
             miniPool.Despawn(ci);
         }
         colorItems.Clear();
-        boosterController.ReLoadUIBooster();
+        //boosterController.ReLoadUIBooster();
         textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
     }
+
+    public void ResetItem()
+    {
+        ResetColorItem();
+        ItemManager.Ins.TurnOffAllBoosterItem();
+    }
+    
     public void SetCountDownTime(int time)
     {
         timer.SetRemainTime(time);

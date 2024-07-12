@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3718065044297887059}
   - component: {fileID: 7562396796649392175}
-  - component: {fileID: 9216028790544671872}
   m_Layer: 5
   m_Name: Btn_Booster
   m_TagString: Untagged
@@ -48,23 +47,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364943159582362949}
   m_CullTransparentMesh: 1
---- !u!114 &9216028790544671872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364943159582362949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610830fc3d711134a9c6325c519418b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listBooster:
-  - {fileID: 1153540940111433047}
-  - {fileID: 2387525916991177766}
-  textNumber: {fileID: 8275931486923756847}
-  textNumber2: {fileID: 1187642449305430539}
 --- !u!1 &802974473828578240
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +248,9 @@ MonoBehaviour:
   content: {fileID: 6678620222208763090}
   colorItemPrefab: {fileID: 1843936334347403482, guid: 9d6b00c81e8fa3a4c8249233a35d1d27, type: 3}
   colorItems: []
+  boosterItems:
+  - {fileID: 8133721878430492741}
+  - {fileID: 8581692503331305505}
   timer: {fileID: 2486747461797379089}
   scrollViewRect: {fileID: 6863108811028876499}
   zoomItem: {fileID: 7451585313106452909}
@@ -273,7 +258,6 @@ MonoBehaviour:
   fillBoosterItem: {fileID: 0}
   fillBoosterItem2: {fileID: 0}
   textLevel: {fileID: 7008778748801345072}
-  boosterController: {fileID: 9216028790544671872}
   imgBG: {fileID: 0}
 --- !u!1 &1074095393499047935
 GameObject:
@@ -287,7 +271,7 @@ GameObject:
   - component: {fileID: 2133507272150084316}
   - component: {fileID: 1478792290506090052}
   - component: {fileID: 1442293759045826526}
-  - component: {fileID: 1153540940111433047}
+  - component: {fileID: 8133721878430492741}
   m_Layer: 5
   m_Name: BoosterPaintBucket
   m_TagString: Untagged
@@ -398,9 +382,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153540940111433047}
-        m_TargetAssemblyTypeName: BoosterFillCellUI, Assembly-CSharp
-        m_MethodName: Btn_BoosterFillItem
+      - m_Target: {fileID: 8133721878430492741}
+        m_TargetAssemblyTypeName: FilllAllColorItem, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -410,7 +394,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1153540940111433047
+--- !u!114 &8133721878430492741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,15 +403,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1074095393499047935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c746d64ceed1d1248aa004f84594ea04, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec90d789add8634ba4452fd815ebc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  imgBG: {fileID: 1940243224625859751}
+  _id: 1
   rectTransform: {fileID: 2907868268757619583}
-  tf: {fileID: 0}
-  initialPosition: {x: 0, y: 0}
-  isUseBooster: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  moveDistance: 40
+  BoosterType: 2
+  quantity: 0
 --- !u!1 &1237651245739054986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1730,7 @@ GameObject:
   - component: {fileID: 5321979414844706586}
   - component: {fileID: 6404974090309499373}
   - component: {fileID: 1906072876326739237}
-  - component: {fileID: 2387525916991177766}
+  - component: {fileID: 8581692503331305505}
   m_Layer: 5
   m_Name: BoosterPaintBrush
   m_TagString: Untagged
@@ -1857,9 +1841,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2387525916991177766}
-        m_TargetAssemblyTypeName: BoosterFillCellUI, Assembly-CSharp
-        m_MethodName: Btn_BoosterFillByNumber
+      - m_Target: {fileID: 8581692503331305505}
+        m_TargetAssemblyTypeName: BoosterItem, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1869,7 +1853,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2387525916991177766
+--- !u!114 &8581692503331305505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1878,15 +1862,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7709560170729608608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c746d64ceed1d1248aa004f84594ea04, type: 3}
+  m_Script: {fileID: 11500000, guid: b87b71cecf4e6a345a2374d5ba0b9f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  imgBG: {fileID: 0}
+  _id: 2
   rectTransform: {fileID: 7621007700943679808}
-  tf: {fileID: 0}
-  initialPosition: {x: 0, y: 0}
-  isUseBooster: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  moveDistance: 40
+  BoosterType: 1
+  quantity: 0
 --- !u!1 &7830336493381230809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +2299,7 @@ GameObject:
   - component: {fileID: 4124609312923757282}
   - component: {fileID: 7271198761673658976}
   - component: {fileID: 381610994987252444}
-  - component: {fileID: 3052423067625922425}
+  - component: {fileID: 2887785108812332634}
   m_Layer: 5
   m_Name: BoosterMagnifier
   m_TagString: Untagged
@@ -2426,9 +2410,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3052423067625922425}
-        m_TargetAssemblyTypeName: FindItem, Assembly-CSharp
-        m_MethodName: FindNextCube
+      - m_Target: {fileID: 2887785108812332634}
+        m_TargetAssemblyTypeName: FindByColorItem, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2438,7 +2422,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3052423067625922425
+--- !u!114 &2887785108812332634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2447,9 +2431,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8376457766751440771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5cc0de189f8a44f9d5e6b2d58fbe63, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b244fe3346430949ab65ddbe8a18d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
+  rectTransform: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  moveDistance: 40
+  BoosterType: 3
+  quantity: 0
 --- !u!1001 &8176754876365734724
 PrefabInstance:
   m_ObjectHideFlags: 0
