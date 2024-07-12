@@ -26,3 +26,22 @@ public enum UnlockType
     diamond
 
 }
+[Serializable]
+public enum SpinRewardType
+{
+    none,
+    gold,
+    magnifier,
+    bucket,
+    brush
+}
+[Serializable]
+public enum DailyRewardType
+{
+    none,
+    gold,
+    magnifier,
+    bucket,
+    brush
+}
+
