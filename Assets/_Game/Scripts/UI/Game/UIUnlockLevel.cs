@@ -65,7 +65,7 @@ public class UIUnlockLevel : UICanvas
         {
             if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold <= DataManager.Ins.playerData.gold)
             {
-                DataManager.Ins.ChangeGold(DataManager.Ins.playerData.gold - LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold);
+                DataManager.Ins.ChangeGold( - LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costGold);
                 UnLock(_levelItem, levelDataModel);
             }
         }
@@ -84,7 +84,7 @@ public class UIUnlockLevel : UICanvas
         {
             if (LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond <= DataManager.Ins.playerData.diamond)
             {
-                DataManager.Ins.ChangeDiamond(DataManager.Ins.playerData.diamond - LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond);
+                DataManager.Ins.ChangeDiamond( - LevelManager.Ins.levelDatas.GetLevelWithID(_levelItem.GetID()).level.costDiamond);
                 UnLock(_levelItem, levelDataModel);
                 Debug.Log("Diamond");
             }

@@ -55,8 +55,8 @@ public class UIDailyReward : UICanvas
     private void UpdateTimeRemaining(DateTime now)
     {
         nextDay = now.Date.AddDays(1);
-       // TimeSpan timeRemaining = nextDay - now;
-       // timeTmp.text = $"Next reward in: {timeRemaining.Hours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
+        // TimeSpan timeRemaining = nextDay - now;
+        // timeTmp.text = $"Next reward in: {timeRemaining.Hours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
     }
 
     private void Update()
@@ -85,23 +85,28 @@ public class UIDailyReward : UICanvas
         claimObj.SetActive(true);
         claimX2Obj.SetActive(true);
         waitObj.SetActive(false);
+        dayArray[todayIndex].OnCollect(1, () =>
+        {
+        });
     }
 
     public void ButtonClaimX2()
     {
-        bool adsFreeClaims = true;
-        if (adsFreeClaims)
+        if (DataManager.Ins.playerData.isTodayCollectFree == 1)
         {
-            claimObj.SetActive(false);
-            claimX2Obj.SetActive(false);
-            waitObj.SetActive(true);
+            dayArray[todayIndex].OnCollect(1, () =>
+            {
+            });
         }
         else
         {
-            claimObj.SetActive(false);
-            claimX2Obj.SetActive(false);
-            waitObj.SetActive(true);
+            dayArray[todayIndex].OnCollect(2, () =>
+            {
+            });
         }
+        claimObj.SetActive(false);
+        claimX2Obj.SetActive(false);
+        waitObj.SetActive(true);
         DataManager.Ins.playerData.isTodayCollected = 1;
         DataManager.Ins.playerData.isTodayCollectFree = 1;
         DataManager.Ins.SaveData();

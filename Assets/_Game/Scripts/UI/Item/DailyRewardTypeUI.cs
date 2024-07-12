@@ -16,6 +16,10 @@ public class DailyRewardTypeUI : MonoBehaviour
     [SerializeField] private TMP_Text amountTmp;
 
     private DailyReward reward;
+    private void Awake()
+    {
+        coinPi.gameObject.SetActive(false);
+    }
     public void Init(DailyReward reward)
     {
         this.reward = reward;
@@ -48,9 +52,16 @@ public class DailyRewardTypeUI : MonoBehaviour
         switch (reward.rewardType)
         {
             case DailyRewardType.gold:
+                coinPi.gameObject.SetActive(true);
+                coinPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
                 coinPi.Play();
                 coinPi.onFirstParticleFinish.AddListener(() =>
                 {
+                    coinPi.onFirstParticleFinish.RemoveAllListeners();
+                });
+                coinPi.onFirstParticleFinish.AddListener(() =>
+                {
+                    DataManager.Ins.ChangeGold(reward.amount * multiplier);
                     coinPi.onFirstParticleFinish.RemoveAllListeners();
                 });
                 coinPi.onLastParticleFinish.AddListener(() =>
@@ -58,6 +69,7 @@ public class DailyRewardTypeUI : MonoBehaviour
                     OnComplete?.Invoke();
                     coinPi.onLastParticleFinish.RemoveAllListeners();
                 });
+                Debug.Log("collect Gold");
                 break;
             case DailyRewardType.magnifier:
 
