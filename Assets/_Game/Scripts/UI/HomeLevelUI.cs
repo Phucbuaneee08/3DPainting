@@ -28,7 +28,7 @@ public class HomeLevelUI : MonoBehaviour
         miniPool.Release();
         listLevelUIs.Clear();
         HashSet<LevelType> uniqueLevelTypes = new HashSet<LevelType>();
-        foreach (var levelData in levelDatas.level3D)
+        foreach (LevelData levelData in levelDatas.level3D)
         {
             uniqueLevelTypes.Add(levelData.level.levelType);
         }

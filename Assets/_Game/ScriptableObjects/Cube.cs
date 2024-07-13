@@ -32,7 +32,7 @@ public class Cube : GameUnit
         this.defaultColorID = defaultColorID;
         cubeState = CubeState.Default;
     }
-
+                                                                                                                           
     public bool IsState(CubeState state)
     {
         return this.cubeState == state;
