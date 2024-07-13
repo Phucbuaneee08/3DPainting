@@ -393,7 +393,7 @@ MonoBehaviour:
   reviveTime: 60
   root: {fileID: 2085022473}
   rotateOffset: {x: 342.70062, y: 332.61923, z: 8.755474}
-  vibrationDuration: 500
+  vibrationDuration: 10
   currentLevel: {fileID: 0}
   currentColor: 0
   cubeTotal: 0

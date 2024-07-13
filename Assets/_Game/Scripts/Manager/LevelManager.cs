@@ -77,8 +77,8 @@ public class LevelManager : Singleton<LevelManager>
    
     public void OnLoadLevel(int levelID)
     {
-        
-        currentLevel = levelDatas.level3D[levelID - 1].level;
+        currentLevel = levelDatas.GetLevelWithID(levelID).level;
+        //currentLevel = levelDatas.level3D[levelID - 1].level;
         //if (levelID > DataManager.Ins.playerData.currentlevelID)
         DataManager.Ins.playerData.currentlevelID = levelID;
         OnInit();

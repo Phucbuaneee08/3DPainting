@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   level3D:
-  - levelID: 1
-    level: {fileID: 11400000, guid: 019c0ab9150d92c439a4e48a5b7dc081, type: 2}
-  - levelID: 2
-    level: {fileID: 11400000, guid: 631b1a2f3522a8643b909b4a1afc9097, type: 2}
   - levelID: 3
     level: {fileID: 11400000, guid: 8032de724507a05499943bf5002b03da, type: 2}
   - levelID: 4
