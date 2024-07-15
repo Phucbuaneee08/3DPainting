@@ -14,8 +14,9 @@ public class UISpin : UICanvas
     [SerializeField] private List<SpinPieceUI> pieceList = new List<SpinPieceUI>();
     [SerializeField] private Transform circleTf;
     [SerializeField] private Transform circleCenter;
-    [SerializeField]
-    private ParticleImage goldPi;
+    [SerializeField] private ParticleImage goldPi;
+    [SerializeField] private GameObject btnPlaySpin;
+    [SerializeField] private GameObject btnPlayIap;
     private int rewardIndex;
     private bool isRotate = false;
     public override void Setup()
@@ -28,11 +29,6 @@ public class UISpin : UICanvas
         base.Open();
         goldPi.Stop();
         isRotate = false;
-    }
-
-    private void Awake()
-    {
-       
         if (rewardList == null || rewardList.Count == 0)
         {
             return;
@@ -50,6 +46,28 @@ public class UISpin : UICanvas
         goldPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
         goldPi.duration = 0.25f;
         goldPi.lifetime = 1.25f;
+    }
+
+    private void Awake()
+    {
+
+       /* if (rewardList == null || rewardList.Count == 0)
+        {
+            return;
+        }
+
+        if (pieceList == null || pieceList.Count != rewardList.Count)
+        {
+            return;
+        }
+
+        for (int i = 0; i < rewardList.Count; i++)
+        {
+            pieceList[i].Init(rewardList[i]);
+        }
+        goldPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
+        goldPi.duration = 0.25f;
+        goldPi.lifetime = 1.25f;*/
 
     }
 
@@ -63,21 +81,24 @@ public class UISpin : UICanvas
 
     private void StartSpinning()
     {
+        if (DataManager.Ins.playerData.isSpinReward == 0) return;
         isRotate = true;
         if (circleTf == null)
         {
             return;
         }
         rewardIndex = GetRandomIndex();
+        DataManager.Ins.playerData.isSpinReward = 0;
+        DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
-        float rotationZ = 10 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;
+        float rotationZ = 12 * 360f + rewardIndex * pieceRotZ + extraSpin;
         Vector3 rotation = new Vector3(0f, 0f, rotationZ);
-        Tween tween = circleTf.DOLocalRotate(rotation, 2f, RotateMode.FastBeyond360);
+        Tween tween = circleTf.DOLocalRotate(rotation, 3.5f, RotateMode.FastBeyond360);
         tween.SetEase(Ease.InOutCubic).OnComplete(() =>
         {
             SpinCompleted();
-           
+
         });
     }
 
@@ -106,7 +127,7 @@ public class UISpin : UICanvas
                 Debug.LogError("Invalid spin reward type !!?");
                 break;
         }
-       
+
     }
 
     private int GetRandomIndex()
@@ -138,7 +159,6 @@ public class UISpin : UICanvas
                 return i;
             }
         }
-
         return Random.Range(0, pieceList.Count);
     }
 
@@ -156,7 +176,6 @@ public class UISpin : UICanvas
             DataManager.Ins.ChangeGold(amount);
             isRotate = false;
         });
-
     }
     private void CollectMagnifierReward(int amount)
     {
@@ -190,6 +209,7 @@ public class UISpin : UICanvas
     public void BtnExit()
     {
         UIManager.Ins.CloseUI<UISpin>();
+        UIManager.Ins.GetUI<MainMenu>().UIBtnSpin();
     }
 }
 

@@ -30,8 +30,10 @@ public class DailyRewardUI : MonoBehaviour
         bool isToday = data.dayIndex == todayIndex;
         bool todayCollected = DataManager.Ins.playerData.isTodayCollected == 1 && isToday;
         bool isCollected = data.dayIndex < todayIndex || todayCollected;
+
         collectedObj.SetActive(isCollected);
-        collectingObj.SetActive(isCollected);
+        collectingObj.SetActive(todayCollected);
+
         bgImg.color = isToday ? new Color(0, 255, 0) : bgImg.color;
         switch (data.dailyList.Count)
         {

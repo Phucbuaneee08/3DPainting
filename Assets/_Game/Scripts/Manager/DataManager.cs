@@ -148,16 +148,18 @@ public class DataManager : Singleton<DataManager>
     private void CheckDailyReward()
     {
         DateTime now = DateTime.Now;
-        int daysNow = (int)now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
-        bool isNewDay = daysNow - playerData.daysLastOpen >= 1;
-
+        double daysNow = (int)now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
+        bool isNewDay = daysNow - playerData.timeLastOpen >= 1;
         if (isNewDay && playerData.isTodayCollected == 1)
         {
             playerData.isTodayCollected = 0;
+            playerData.isCollectFullInDay = 0;
+            playerData.isTodayCollectFree = 0;
             playerData.daysCollected++;
         }
-
-        playerData.daysLastOpen = daysNow;
+        playerData.timeLastOpen = daysNow;
+        SaveData();
+       
     }
 }
 
@@ -167,6 +169,7 @@ public class PlayerData
     [Header("------Chỉ số Game--------")]
     public double timeLastOpen;//days
     public int daysPlayed;
+    public int CountLevelPassed;
     [Header("--------- Game Params ---------")]
     public bool isPassedTutorialClick;
     public bool isPassedTutorialRotate;
@@ -186,14 +189,21 @@ public class PlayerData
 
     [Header("--------- Daily Reward ---------")]
     public int daysCollected;
-    public int daysLastOpen;
+    public double daysLastOpen;
     public int isTodayCollected; // 0: not collected, 1: collected
     public int isTodayCollectFree;
+    public int isCollectFullInDay;
+    public bool isShowDailyRewardFirst;
+    [Header("--------- Spin  ---------")]
+    public int isSpinReward;
+    public bool isShowSpinRewardFirst;
+
     public PlayerData()
     {
         timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
         daysPlayed = 0;
         currentlevelID = 1;
+        CountLevelPassed = 0;
         gold = 10000;
         diamond = 10000;
 
@@ -213,6 +223,12 @@ public class PlayerData
         daysLastOpen = (int)timeLastOpen;
         isTodayCollected = 0;
         isTodayCollectFree = 0;
+        isCollectFullInDay = 0;
+
+        isSpinReward = 1;
+
+        isShowDailyRewardFirst = false;
+        isShowSpinRewardFirst = false;
     }
 
     public LevelDataModel GetDataWithID(int _id)
