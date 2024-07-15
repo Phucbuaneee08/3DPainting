@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using JetBrains.Annotations;
+using System.Linq;
 public enum BoosterType
 {
     None = 0,
@@ -12,6 +13,7 @@ public enum BoosterType
 }
 public class BoosterManager : Singleton<BoosterManager>
 {
+    public List<BoosterDetail> boosterDetails;
     [SerializeField] private Player player;
     [SerializeField] private int numberCubeFillByNumber = 10;
     [SerializeField] private int numberCubeFill = 10;
@@ -107,6 +109,12 @@ public class BoosterManager : Singleton<BoosterManager>
         int qty = DataManager.Ins.playerData.boosterFindByColorQuantity -= 1;
         UIManager.Ins.GetUI<UIGameplay>().findByColorItem.SetQuantityText(qty);
 
+        if (DataManager.Ins.playerData.boosterFindByColorQuantity <= 0)
+        {
+            ItemManager.Ins.TurnOffBoosterItemByEnum(BoosterType.FindByColor);
+            //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
+        }
+
     }
     private void  RotateXAxis(float angle,float duration)
     {
@@ -189,6 +197,7 @@ public class BoosterManager : Singleton<BoosterManager>
         isCountQuantity = false;
         if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
         {
+            ItemManager.Ins.TurnOffBoosterItemByEnum(BoosterType.FillByColor);
             //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
         }
     }
@@ -250,10 +259,29 @@ public class BoosterManager : Singleton<BoosterManager>
         if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
         {
             //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
+            ItemManager.Ins.TurnOffBoosterItemByEnum(BoosterType.FillAllColor);
         }
 #if UNITY_EDITOR
         Debug.Log("Remove cube ID " + currentCube.GetColorID() + ": " + visited.Count);
 #endif
     }
     #endregion
+
+    public int GetBoosterPrice(BoosterType boosterType)
+    {
+       return boosterDetails.FirstOrDefault(b => b.boosterType == boosterType).GetBoosterPrice();
+    }
+}
+
+[System.Serializable]
+public class BoosterDetail
+{
+    public BoosterType boosterType;
+    [SerializeField] private int boosterPrice;
+
+    public int GetBoosterPrice()
+    {
+        return boosterPrice;
+    }
+    
 }

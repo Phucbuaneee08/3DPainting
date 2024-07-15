@@ -1999,7 +1999,7 @@ MonoBehaviour:
   numberBooster: {fileID: 0}
   imgBG1: {fileID: 7017937836323355055}
   imgBG2: {fileID: 1907076142418289062}
-  imgBG3: {fileID: 0}
+  imgBG3: {fileID: 8271023980682088234}
   textGold: {fileID: 984314702542240284}
   textDiamoind: {fileID: 5634066247569913191}
 --- !u!1 &7365313904367760011

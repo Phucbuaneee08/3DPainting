@@ -166,9 +166,9 @@ public class PlayerData
         gold = 10000;
         diamond = 10000;
 
-        boosterFillAllColorQuantity = 1000;
-        boosterFillByColorQuantity = 1000;
-        boosterFindByColorQuantity = 1000;
+        boosterFillAllColorQuantity = 10;
+        boosterFillByColorQuantity = 10;
+        boosterFindByColorQuantity = 10;
 
         unlockAds = 0;
         isPassedTutorialBooster1 = false;

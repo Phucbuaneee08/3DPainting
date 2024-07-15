@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b244fe3346430949ab65ddbe8a18d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 0
+  _id: 3
   rectTransform: {fileID: 0}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40

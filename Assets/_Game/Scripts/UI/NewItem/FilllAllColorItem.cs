@@ -11,10 +11,11 @@ public class FilllAllColorItem : BoosterItem
     {
         if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
         {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(_id);
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType);
             GameManager.Ins.ChangeState(GameState.Pause);
         }
-        base.OnClick();
+        else
+            base.OnClick();
     }
     public override void TurnOff()
     {

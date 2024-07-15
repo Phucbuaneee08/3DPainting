@@ -9,14 +9,21 @@ public class ItemManager : Singleton<ItemManager>
     public List<ColorItem> colorItems;
     public List<BoosterItem> boosterItems;
 
-
-   
-
     public void TurnOffBoosterItemExceptEnum(BoosterType boosterType)
     {
         foreach (var item in boosterItems)
         {
             if (item.BoosterType != boosterType)
+            {
+                item.ChangeItemState(ItemState.TurnOff);
+            }
+        }
+    }
+    public void TurnOffBoosterItemByEnum(BoosterType boosterType) 
+    {
+        foreach (var item in boosterItems)
+        {
+            if (item.BoosterType == boosterType)
             {
                 item.ChangeItemState(ItemState.TurnOff);
             }

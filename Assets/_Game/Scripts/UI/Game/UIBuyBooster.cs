@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class UIBuyBooster : UICanvas
     public Image imgBG2;
     public Image imgBG3;
     private int id;
+    
     [SerializeField] TextMeshProUGUI textGold;
     [SerializeField] TextMeshProUGUI textDiamoind;
  
@@ -31,13 +33,12 @@ public class UIBuyBooster : UICanvas
     {
         base.Open();
     }
-    public void SetData(int id)
+    public void SetData(BoosterType boosterType)
     {
-        this.id = id;
-        textCostBooster.text = BoosterManager.Ins.costBooster.ToString();
-        imgBG1.gameObject.SetActive(id == 1);
-        imgBG2.gameObject.SetActive(id == 2);
-        //imgBG3.gameObject.SetActive(id == 3);
+        textCostBooster.text = BoosterManager.Ins.GetBoosterPrice(boosterType).ToString();
+        imgBG1.gameObject.SetActive(boosterType == BoosterType.FillAllColor);
+        imgBG2.gameObject.SetActive(boosterType == BoosterType.FillByColor);
+        imgBG3.gameObject.SetActive(boosterType == BoosterType.FindByColor);
     }
     public void BtnBuyBoosterGold()
     {
