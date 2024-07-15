@@ -92,7 +92,7 @@ public class UISpin : UICanvas
         DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
-        float rotationZ = 12 * 360f + rewardIndex * pieceRotZ + extraSpin;
+        float rotationZ = 12 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;
         Vector3 rotation = new Vector3(0f, 0f, rotationZ);
         Tween tween = circleTf.DOLocalRotate(rotation, 3.5f, RotateMode.FastBeyond360);
         tween.SetEase(Ease.InOutCubic).OnComplete(() =>
