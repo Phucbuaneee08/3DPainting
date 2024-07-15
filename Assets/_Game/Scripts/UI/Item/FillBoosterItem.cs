@@ -24,6 +24,7 @@ public class FillBoosterItem : MonoBehaviour
     }
     public void ChangeBoosterItemState()
     {
+       
         switch (_state)
         {
             case FillBoosterState.TurnOn:
@@ -34,7 +35,7 @@ public class FillBoosterItem : MonoBehaviour
             case FillBoosterState.TurnOff:
                 if (LevelManager.Ins.currentColor != 0)
                 {
-                    UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
+                    //UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
                     LevelManager.Ins.ReleaseFocusCube();
                 }
                 BoosterManager.Ins.ChangeBoosterState(true);
@@ -55,7 +56,7 @@ public class FillBoosterItem : MonoBehaviour
             case FillBoosterState.TurnOff:
                 if (LevelManager.Ins.currentColor != 0)
                 {
-                    UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
+                    //UIManager.Ins.GetUI<UIGameplay>().FindItemByColorId(LevelManager.Ins.currentColor).SetMovePosition();
                     LevelManager.Ins.ReleaseFocusCube();
                 }
                 BoosterManager.Ins.ChangeBoosterFillState(true);

@@ -5,85 +5,52 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
-public enum ColorItemState { Default = 0, IsSelected =1 }
 
-public class ColorItem : MonoBehaviour
+public class ColorItem : Item
 {
     [SerializeField] private Image bg;
     [SerializeField] private int colorID;
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private RectTransform element;
-    [SerializeField] private ColorItemState colorItemState;
 
-    public Vector2 initialPosition;
-
-    private void Awake()
-    {
-        element = GetComponent<RectTransform>();
-        StartCoroutine(IE_SetTFdata());
-    }
-    public void FocusCubeByColorID()
+ 
+    public override void OnClick()
     {
         if (LevelManager.Ins.currentColor == colorID) return;
         BoosterManager.Ins.ZoomBoosterByColor();
-        SetMovePosition();
-        LevelManager.Ins.FocusByColorID(colorID);
-        SetDoAchoBooster();
+
+        ChangeItemState(ItemState.TurnOn);
+
+        ItemManager.Ins.TurnOffColorItemExceptID(LevelManager.Ins.currentColor);
+        ItemManager.Ins.TurnOffBoosterItemExceptEnum(BoosterType.FillByColor);
     }
-    public void SetDoAchoBooster()
-    {
-        if(BoosterManager.Ins._isCanUseFillBooster == true)
-        {
-            BoosterManager.Ins.iDSelectBooster = 0;
-            BoosterManager.Ins._isCanUseFillBooster = false;
-            UIManager.Ins.GetUI<UIGameplay>().boosterController.SetUpDown(0);
-            MoveUp();
-        }
-    }
+   
     public void SetData(int colorID,Color color) 
     { 
         this.colorID = colorID;
         bg.color = color;
         text.text = colorID.ToString();
-        colorItemState = ColorItemState.Default;
-        StartCoroutine(IE_SetTFdata());
-    }
-    IEnumerator IE_SetTFdata()
-    {
-        yield return new WaitForEndOfFrame();
-        initialPosition = element.anchoredPosition;
+        CurrentItemState = ItemState.TurnOff;
     }
     public int GetColorID()
     {
         return colorID;
     }
-    public void SetMovePosition()
+    public override void TurnOff()
     {
-        switch (colorItemState)
-        {
-            case ColorItemState.Default:
-                colorItemState = ColorItemState.IsSelected;
-                MoveUp();
-                break;
-            case ColorItemState.IsSelected:
-                colorItemState= ColorItemState.Default;
-                MoveDown();            
-                break;
-        }
+        base.TurnOff();
+        MoveDown();
     }
+    public override void TurnOn() 
+    { 
+        base.TurnOn();
 
+        LevelManager.Ins.FocusByColorId(colorID);
+        MoveUp();
+    }
     public void SetFillAmount(float amount)
     {
 
         bg.fillAmount = amount;
     }
-    public void MoveUp()
-    {
-        element.DOAnchorPosY(initialPosition.y + 40f, 0.3f);
-    }
-
-    public void MoveDown()
-    {
-        element.DOAnchorPosY(initialPosition.y, 0.5f);
-    }
+   
 }

@@ -26,37 +26,18 @@ public class MaterialManager : Singleton<MaterialManager>
     
     public void SetColor(Cube cube,int colorID)
     {
-        //foreach(MaterialData md in matData)
-        //{
-        //    if(md.colorID == colorID) cube.colorRender.material = md.material;
-        //}
-        cube.colorRender.material = matData[colorID-1].material;
+     
+        cube.colorRender.sharedMaterial = matData[colorID-1].material;
        
     }
-    //public void SetDefaultColor(Cube cube,int colorID)
-    //{
-    //    cube.colorRender.material = defaultMats[colorID%(defaultMats.Count)];
-       
-    //}
+  
     public void SetMatData(List<MaterialData> md)
     {
         this.matData = md;
         ConvertFromRealColorToDefaultColor();
         SetCurrentShaderMaterial(md.Count);
     }
-    //public void SetUnHightLightColor(Cube cube)
-    //{
-    //    cube.colorRender.material = unHighLightMaterial;        
-    //}
-    //public void SetHighLightColor(Cube cube)
-    //{
-    //    cube.colorRender.material = focusNumberMats[cube.GetColorID()-1];
-    //}
-    //public void SetShowTextColor(Cube cube) 
-    //{
-    //    numberMats[cube.GetColorID() - 1].color = defaultMats[cube.GetColorID()-1].color;
-    //    cube.colorRender.material = numberMats[cube.GetColorID() - 1];
-    //}
+    
 
     #region Change color by shader
     public void SetCurrentShaderMaterial(int colorQuantity)
