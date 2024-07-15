@@ -109,11 +109,42 @@ public class DataManager : Singleton<DataManager>
         SaveData();
         OnCoinChanged?.Invoke((int)playerData.gold);
     }
-
+    public void ChangeMagnifier(int amount)
+    {
+        playerData.boosterFindByColorQuantity += amount;
+        if(playerData.boosterFindByColorQuantity < 0)
+        {
+            playerData.boosterFindByColorQuantity = 0;
+        }
+        SaveData();
+        OnMagnifierChanged?.Invoke(playerData.boosterFindByColorQuantity);
+    }
+    public void ChangeBucket(int amount)
+    {
+        playerData.boosterFillAllColorQuantity += amount;
+        if (playerData.boosterFillAllColorQuantity < 0)
+        {
+            playerData.boosterFillAllColorQuantity = 0;
+        }
+        SaveData();
+        OnBucketChanged?.Invoke(playerData.boosterFillAllColorQuantity);
+    }
+    public void ChangeBrush(int amount)
+    {
+        playerData.boosterFillByColorQuantity += amount;
+        if (playerData.boosterFillByColorQuantity < 0)
+        {
+            playerData.boosterFillByColorQuantity = 0;
+        }
+        SaveData();
+        OnBrushChanged?.Invoke(playerData.boosterFillByColorQuantity);
+    }
     public event Action<int> OnGoldChanged;
     public event Action<int> OnDiamondChanged;
     public UnityAction<int> OnCoinChanged;
-
+    public event Action<int> OnMagnifierChanged;
+    public event Action<int> OnBucketChanged;
+    public event Action<int> OnBrushChanged;
     private void CheckDailyReward()
     {
         DateTime now = DateTime.Now;

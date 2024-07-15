@@ -91,12 +91,15 @@ public class UISpin : UICanvas
                 Debug.Log("Gold " + reward.amount);
                 break;
             case SpinRewardType.magnifier:
+                CollectMagnifierReward(reward.amount);
                 Debug.Log("magnifier " + reward.amount);
                 break;
             case SpinRewardType.bucket:
+                CollectBucketReward(reward.amount);
                 Debug.Log("bucket " + reward.amount);
                 break;
             case SpinRewardType.brush:
+                CollectBrushReward(reward.amount);
                 Debug.Log("brush " + reward.amount);
                 break;
             default:
@@ -155,7 +158,30 @@ public class UISpin : UICanvas
         });
 
     }
-
+    private void CollectMagnifierReward(int amount)
+    {
+        Ultilities.DelayThenDoTask(this, 2f, () =>
+        {
+            DataManager.Ins.ChangeMagnifier(amount);
+            isRotate = false;
+        });
+    }
+    private void CollectBucketReward(int amount)
+    {
+        Ultilities.DelayThenDoTask(this, 2f, () =>
+        {
+            DataManager.Ins.ChangeBucket(amount);
+            isRotate = false;
+        });
+    }
+    private void CollectBrushReward(int amount)
+    {
+        Ultilities.DelayThenDoTask(this, 2f, () =>
+        {
+            DataManager.Ins.ChangeBrush(amount);
+            isRotate = false;
+        });
+    }
     public void ButtonSpin()
     {
         if (isRotate == true) return;

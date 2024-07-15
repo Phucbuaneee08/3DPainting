@@ -1167,8 +1167,8 @@ MonoBehaviour:
   IsDestroyOnClose: 0
   claimObj: {fileID: 392604424039767991}
   claimX2Obj: {fileID: 437253842207350293}
-  waitObj: {fileID: 58888021620530417}
   timeTmp: {fileID: 8698951194181188418}
+  rewardMsg: {fileID: 8761603046921738584}
   dayArray:
   - {fileID: 4663851615738926792}
   - {fileID: 7246100962420062800}
