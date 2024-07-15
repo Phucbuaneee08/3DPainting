@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FilllAllColorItem : BoosterItem
 {
-    public override void OnInit()
+    public void Start()
     {
+        DataManager.Ins.OnBoosterFillAllColorQuantityChanged += SetQuantityText;
     }
     public override void OnClick()
     {

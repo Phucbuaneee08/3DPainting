@@ -10,6 +10,7 @@ public class BoosterItem : Item
     public BoosterType BoosterType;
     private int quantity;
     
+    
     public void SetQuantity(int quantity)
     {
         this.quantity = quantity;

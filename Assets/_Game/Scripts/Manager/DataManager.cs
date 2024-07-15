@@ -109,9 +109,42 @@ public class DataManager : Singleton<DataManager>
         SaveData();
         OnCoinChanged?.Invoke((int)playerData.gold);
     }
+    public void ChangeBoosterFillByColor(int amount)
+    {
+        playerData.boosterFillByColorQuantity += amount;
+        if (playerData.boosterFillByColorQuantity < 0)
+        {
+            playerData.boosterFillByColorQuantity = 0;
+        }
+        SaveData();
+        OnBoosterFillByColorQuantityChanged?.Invoke((int)playerData.boosterFillByColorQuantity);
+    }
+    public void ChangeBoosterFillAllColor(int amount)
+    {
+        playerData.boosterFillAllColorQuantity += amount;
+        if (playerData.boosterFillAllColorQuantity < 0)
+        {
+            playerData.boosterFillAllColorQuantity = 0;
+        }
+        SaveData();
+        OnBoosterFillAllColorQuantityChanged?.Invoke((int)playerData.boosterFillAllColorQuantity);
+    }
+    public void ChangeBoosterFindByColor(int amount)
+    {
+        playerData.boosterFindByColorQuantity += amount;
+        if (playerData.boosterFindByColorQuantity < 0)
+        {
+            playerData.boosterFindByColorQuantity = 0;
+        }
+        SaveData();
+        OnBoosterFindByColorQuantityChanged?.Invoke((int)playerData.boosterFindByColorQuantity);
+    }
 
     public event Action<int> OnGoldChanged;
     public event Action<int> OnDiamondChanged;
+    public event Action<int> OnBoosterFillByColorQuantityChanged;
+    public event Action<int> OnBoosterFillAllColorQuantityChanged;
+    public event Action<int> OnBoosterFindByColorQuantityChanged;
     public UnityAction<int> OnCoinChanged;
 
     private void CheckDailyReward()

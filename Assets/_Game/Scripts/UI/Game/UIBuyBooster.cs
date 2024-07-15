@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class UIBuyBooster : UICanvas
 {
+    private int _cost;
+    private BoosterType _boosterType;
+
+    public GameObject adsButton;
+
     public TextMeshProUGUI textCostBooster;
     public TextMeshProUGUI numberBooster;
     public Image imgBG1;
@@ -33,30 +38,66 @@ public class UIBuyBooster : UICanvas
     {
         base.Open();
     }
+
+   
     public void SetData(BoosterType boosterType)
     {
-        textCostBooster.text = BoosterManager.Ins.GetBoosterPrice(boosterType).ToString();
+        if (LevelManager.Ins.IsCanUseAds) 
+        { 
+            adsButton.SetActive(true); 
+            LevelManager.Ins.IsCanUseAds = false;
+        }
+        else adsButton.SetActive(false);
+
+
+        _cost = BoosterManager.Ins.GetBoosterPrice(boosterType);
+        _boosterType = boosterType;
+
+      
+        textCostBooster.text = _cost.ToString();
+        if(DataManager.Ins.playerData.gold < _cost)
+        {
+            textCostBooster.color = Color.red;
+        }
+
+   
+
         imgBG1.gameObject.SetActive(boosterType == BoosterType.FillAllColor);
         imgBG2.gameObject.SetActive(boosterType == BoosterType.FillByColor);
         imgBG3.gameObject.SetActive(boosterType == BoosterType.FindByColor);
     }
+
+
+
     public void BtnBuyBoosterGold()
     {
         if (UIManager.Ins.IsOpened<UIGameplay>())
         {
-            if (DataManager.Ins.playerData.gold >= BoosterManager.Ins.costBooster)
+            if (DataManager.Ins.playerData.gold >= _cost)
             {
-                DataManager.Ins.playerData.gold -= BoosterManager.Ins.costBooster;
-                if (id == 1)
+                DataManager.Ins.ChangeGold(-_cost);
+                if (_boosterType == BoosterType.FillAllColor)
                 {
-                    DataManager.Ins.playerData.boosterFillAllColorQuantity += 3;
+                 
+                    DataManager.Ins.ChangeBoosterFillAllColor(3);
                 }
-                if(id == 2)
+                if(_boosterType == BoosterType.FillByColor)
                 {
-                    DataManager.Ins.playerData.boosterFillByColorQuantity += 3;
+                    DataManager.Ins.ChangeBoosterFillByColor(3);
+                }
+                if (_boosterType == BoosterType.FindByColor)
+                {
+                    DataManager.Ins.ChangeBoosterFindByColor(3);
+                }
+
+                if (DataManager.Ins.playerData.gold < _cost)
+                {
+                    textCostBooster.color = Color.red;
                 }
                 DataManager.Ins.SaveData();
+                BtnExit();
             }
+            
         }
     }
     public void BtnBuyBoosterByAds()

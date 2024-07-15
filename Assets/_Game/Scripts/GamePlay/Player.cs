@@ -267,22 +267,7 @@ public class Player : GameUnit
     }
     public void MoveToStartPosition(Vector3 position, Vector3 quat)
     {
-        //float moveDuration = 2f;
-        //Vector3 startPosition = transform.position;
-        //Vector3 targetPosition = Vector3.zero;
-
-        //float timeElapsed = 0;
-
-        //while (timeElapsed < moveDuration)
-        //{
-
-        //    transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / moveDuration);
-
-        //    timeElapsed += Time.deltaTime;
-
-        //}
-
-        //transform.position = targetPosition;
+       
         StartCoroutine(MoveToEndPosition());
         StartCoroutine(RotateToEndQuaternion(quat));
     }

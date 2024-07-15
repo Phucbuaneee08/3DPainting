@@ -154,6 +154,18 @@ public class UIGameplay : UICanvas
     {
         fillBoosterItem.MoveUp();
     }
+    public void UpdateBoosterFillByColorQuantity()
+    {
 
-   
+    }
+    public void UpdateBoosterFillAllColorQuantity()
+    {
+        
+    }
+    public void UpdateBoosterFindByColorQuantity()
+    {
+
+    }
+
+
 }

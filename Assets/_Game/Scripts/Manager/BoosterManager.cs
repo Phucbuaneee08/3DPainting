@@ -106,13 +106,13 @@ public class BoosterManager : Singleton<BoosterManager>
             RotateXAxis(angle, 1f);
         StartCoroutine(RotateYAxis(cub));
 
-        int qty = DataManager.Ins.playerData.boosterFindByColorQuantity -= 1;
-        UIManager.Ins.GetUI<UIGameplay>().findByColorItem.SetQuantityText(qty);
+
+       
+        DataManager.Ins.ChangeBoosterFindByColor(-1);
 
         if (DataManager.Ins.playerData.boosterFindByColorQuantity <= 0)
         {
             ItemManager.Ins.TurnOffBoosterItemByEnum(BoosterType.FindByColor);
-            //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
         }
 
     }
@@ -190,15 +190,13 @@ public class BoosterManager : Singleton<BoosterManager>
         StartCoroutine(OnFilled(visited));
         if (!isCountQuantity)
         {
-            int qty = DataManager.Ins.playerData.boosterFillByColorQuantity -= 1;
-            UIManager.Ins.GetUI<UIGameplay>().fillByColorItem.SetQuantityText(qty);
+            DataManager.Ins.ChangeBoosterFillByColor(-1);
             isCountQuantity = true;
         }
         isCountQuantity = false;
         if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
         {
             ItemManager.Ins.TurnOffBoosterItemByEnum(BoosterType.FillByColor);
-            //UIManager.Ins.GetUI<UIGameplay>().boosterController.ReLoadUIBooster();
         }
     }
     public void ChangeBoosterFillState(bool state)
@@ -222,9 +220,6 @@ public class BoosterManager : Singleton<BoosterManager>
         queue.Enqueue(currentCube);
         visited.Add(currentCube);
         LevelManager.Ins.OnFilledCube(currentCube);
-        // Set color for first cube 
-        //MaterialManager.Ins.SetColor(currentCube, currentCube.GetColorID());
-        //currentCube.ChangeState(CubeState.Colored);
 
 
         int totalProcessed = 0;
@@ -251,9 +246,9 @@ public class BoosterManager : Singleton<BoosterManager>
         StartCoroutine(OnFilled(visited));
         if (!isCountQuantity2)
         {
-            int qty = DataManager.Ins.playerData.boosterFillAllColorQuantity -= 1;
-            UIManager.Ins.GetUI<UIGameplay>().fillAllColorItem.SetQuantityText(qty);
+            DataManager.Ins.ChangeBoosterFillAllColor(-1);
             isCountQuantity2 = true;
+
         }
         isCountQuantity2 = false;
         if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)

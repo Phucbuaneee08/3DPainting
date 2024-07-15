@@ -14,9 +14,10 @@ public class LevelItem : MonoBehaviour
     public Image imgUnleckDiamond;
     public Image imgUnlock;
     public Image imgLevelPassed;
+    public PoolType  poolType;
     [SerializeField] private Button button;
 
-    public void SetData(int levelID, Sprite avatar, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock)
+    public void SetData(int levelID, Sprite avatar, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock,PoolType poolType)
     {
         this.levelID = levelID;
         imageSource.sprite = avatar;
@@ -24,6 +25,7 @@ public class LevelItem : MonoBehaviour
         imgUnlock.gameObject.SetActive(isUnlock);
         imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);
         imgUnleckDiamond.gameObject.SetActive(showImgUnlock2);
+        this.poolType = poolType;
     }
 
     public void SelectLevel()
@@ -43,7 +45,7 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
-            UIManager.Ins.OpenUI<UIPassedLevel>();
+            UIManager.Ins.OpenUI<UIPassedLevel>().CreateAnimation(poolType);
         }
     }
 

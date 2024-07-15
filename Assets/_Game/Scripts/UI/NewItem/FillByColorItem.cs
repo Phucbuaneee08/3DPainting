@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FillByColorItem : BoosterItem
 {
+    public void Start()
+    {
+        DataManager.Ins.OnBoosterFillByColorQuantityChanged += SetQuantityText;
+    }
     public override void OnInit()
     {
        

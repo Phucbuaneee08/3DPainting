@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FindByColorItem : BoosterItem
 {
+    public void Start()
+    {
+        DataManager.Ins.OnBoosterFindByColorQuantityChanged += SetQuantityText;
+    }
     public override void OnClick()
     {
 

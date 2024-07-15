@@ -18,12 +18,16 @@ public class LevelManager : Singleton<LevelManager>
     public long vibrationDuration = 500;
 
     private bool _isCanRevive;
+
+
+    
     public Level currentLevel;
     public int currentColor;
     public int cubeTotal;
     public int currentlevelID;
     public List<Cube> Cubes => cubes;
     private AnimationGameUnit _currentAnim;
+    public bool IsCanUseAds { get; set; }   
 
 
 
@@ -31,6 +35,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnInit()
     {
+        IsCanUseAds = true;
         currentColor = 0;
         _isCanRevive = true;
         player.gameObject.SetActive(true);
@@ -56,6 +61,7 @@ public class LevelManager : Singleton<LevelManager>
     public void OnReset()
     {
         if (_currentAnim != null) Destroy(_currentAnim.gameObject);
+        IsCanUseAds = true;
         root.SetActive(true);
         player.OnReset();
         cubeTypes.Clear();
@@ -114,9 +120,9 @@ public class LevelManager : Singleton<LevelManager>
 
         ParticlePool.Play(ParticleType.Explosion,cube.transform.position); // hieu ung cube 
 
-#if UNITY_EDITOR
-        cubes.Remove(cube);
-#endif
+//#if UNITY_EDITOR
+//        cubes.Remove(cube);
+//#endif
 
         cube.ChangeState(CubeState.Colored);
         MaterialManager.Ins.SetColor(cube, cube.GetColorID());
