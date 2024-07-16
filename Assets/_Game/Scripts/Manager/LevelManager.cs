@@ -13,7 +13,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private int totalTime;
     [SerializeField] private int reviveTime;
     [SerializeField] private GameObject root;
-    [SerializeField] private Vector3 rotateOffset;
+    public Vector3 rotateOffset;
 
     public long vibrationDuration = 500;
 

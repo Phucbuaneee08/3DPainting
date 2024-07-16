@@ -33,8 +33,6 @@ MonoBehaviour:
     level: {fileID: 11400000, guid: a3d7b61f6e485db428ea1b6093ee3e60, type: 2}
   - levelID: 12
     level: {fileID: 11400000, guid: 225b8d66fb7eb464f9f79e7884c9885a, type: 2}
-  - levelID: 13
-    level: {fileID: 11400000, guid: 225b8d66fb7eb464f9f79e7884c9885a, type: 2}
   - levelID: 14
     level: {fileID: 11400000, guid: d9494302907459e46b22823eb33ab9e7, type: 2}
   - levelID: 15

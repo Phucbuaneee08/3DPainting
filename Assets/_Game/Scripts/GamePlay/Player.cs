@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -36,6 +37,9 @@ public class Player : GameUnit
     private Vector2 finger1Last, finger2Last;
     private Vector2 initialTouchDelta;
 
+    public bool IsCanRotate => GameManager.Ins.IsState(GameState.GamePlay) || GameManager.Ins.IsState(GameState.ShowPassedLevel);
+    public bool IsCanMove => GameManager.Ins.IsState(GameState.GamePlay);
+
     private Cube cachedCube;
     private void Start()
     {
@@ -49,7 +53,7 @@ public class Player : GameUnit
     {
         
 
-        if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
+        if (!IsCanRotate) return;
 
        
         if (Input.touchCount == 1)
@@ -166,62 +170,68 @@ public class Player : GameUnit
 
         if (isLeftDragging)
         {
+            if(GameManager.Ins.IsState(GameState.GamePlay))
+            { 
+                if (UIManager.Ins.GetUI<UIGameplay>().CheckInput()) return;
 
-            if (UIManager.Ins.GetUI<UIGameplay>().CheckInput()) return;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
-            {
-                if (hitInfo.collider.CompareTag("Cube")) 
-                { 
+                if (Physics.Raycast(ray, out RaycastHit hitInfo))
+                {
+                    if (hitInfo.collider.CompareTag("Cube")) 
+                    { 
                   
-                    Cube cube = Cache.GetCube(hitInfo.collider);
+                        Cube cube = Cache.GetCube(hitInfo.collider);
                     
-                    if ( BoosterManager.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
-                    {
-                        isCanRotate = false;
-                        BoosterManager.Ins.FillBoosterByColor(cube);                     
-                    }
-                    if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
-                    {
-                        isCanRotate = false;
-                        BoosterManager.Ins.BoosterFillByNumber(cube);
-                    }
-                    if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
-                    {
-                        if (cube.GetColorID() == LevelManager.Ins.currentColor)
+                        if ( BoosterManager.Ins.CheckBoosterQuantity() && !cube.IsState(CubeState.Colored) && isCanFillColor)
                         {
                             isCanRotate = false;
-                            LevelManager.Ins.OnFilledCube(cube);
+                            BoosterManager.Ins.FillBoosterByColor(cube);                     
                         }
-                        else if (isCanRotate) isCanFillColor = false;
-
-
-                    }
-                    else if (isCanRotate)
-                    {
-                        isCanFillColor = false;
-                        if (OnCheckIsTouching(0.01f))
+                        if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
                         {
-                            OnRotate();
+                            isCanRotate = false;
+                            BoosterManager.Ins.BoosterFillByNumber(cube);
+                        }
+                        if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
+                        {
+                            if (cube.GetColorID() == LevelManager.Ins.currentColor)
+                            {
+                                isCanRotate = false;
+                                LevelManager.Ins.OnFilledCube(cube);
+                            }
+                            else if (isCanRotate) isCanFillColor = false;
+
+
+                        }
+                        else if (isCanRotate)
+                        {
+                            isCanFillColor = false;
+                            if (OnCheckIsTouching(0.01f))
+                            {
+                                OnRotate();
+                            }
                         }
                     }
                 }
-
-
-            }
-            else if (isCanRotate)
-            {
-                isCanFillColor = false;
-                if (OnCheckIsTouching(0.01f) && isCanRotate)
+            
+                else if (isCanRotate)
                 {
-                    OnRotate();
+                    isCanFillColor = false;
+                    if (OnCheckIsTouching(0.01f) && isCanRotate)
+                    {
+                        OnRotate();
+                    }
                 }
             }
+            else if(GameManager.Ins.IsState(GameState.ShowPassedLevel))
+            {
+                OnRotate();
+            }
 
-        }
+    }
 
+        if (!IsCanMove) return;
         if (isRightDragging)
         {
             OnMoving();

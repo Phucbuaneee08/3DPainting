@@ -325,3 +325,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
   quaternion: {x: 17.838413, y: 136.0471, z: 344.92587}
+  player: {fileID: 0}
