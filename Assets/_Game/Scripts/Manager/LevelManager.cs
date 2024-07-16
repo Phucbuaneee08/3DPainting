@@ -97,9 +97,9 @@ public class LevelManager : Singleton<LevelManager>
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
             newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
             MaterialManager.Ins.SetDefaultShaderColor(newCube, newCube.GetColorID() - 1);
-#if UNITY_EDITOR
+
             cubes.Add(newCube);
-#endif
+
         }
 
         //player.transform.DORotate(rotateOffset, 0f);

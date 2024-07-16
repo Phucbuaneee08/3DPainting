@@ -13,6 +13,7 @@ public class UIPassedLevel : UICanvas
         base.Setup();
         player = FindObjectOfType<Player>();
         GameManager.Ins.ChangeState(GameState.ShowPassedLevel);
+        BackgroundManager.Ins.ChangeBackground();
     }
     public void Btn_Home()
     {
@@ -20,7 +21,7 @@ public class UIPassedLevel : UICanvas
         UIManager.Ins.OpenUI<MainMenu>();
         if(passedLevel!=null)
         SimplePool.Collect(passedLevel);
-      
+        BackgroundManager.Ins.ChangeDefaultBackground();
         player.OnReset();
     }
     public override void Open()
@@ -33,7 +34,7 @@ public class UIPassedLevel : UICanvas
         if (SimplePool.FindPrefabByType(poolType))
         {
             passedLevel = SimplePool.Spawn<AnimationGameUnit>(poolType,player.transform);
-            player.transform.DORotate(LevelManager.Ins.rotateOffset, 0f);
+            player.TF.DORotate(LevelManager.Ins.rotateOffset, 0f);
         }
     }
 }
