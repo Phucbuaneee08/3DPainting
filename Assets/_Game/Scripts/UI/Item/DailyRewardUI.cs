@@ -30,35 +30,33 @@ public class DailyRewardUI : MonoBehaviour
         bool isToday = data.dayIndex == todayIndex;
         bool todayCollected = DataManager.Ins.playerData.isTodayCollected == 1 && isToday;
         bool isCollected = data.dayIndex < todayIndex || todayCollected;
+
         collectedObj.SetActive(isCollected);
-        collectingObj.SetActive(isCollected);
+        collectingObj.SetActive(todayCollected);
+
         bgImg.color = isToday ? new Color(0, 255, 0) : bgImg.color;
-
-        if (!isCollected)
+        switch (data.dailyList.Count)
         {
-            switch (data.dailyList.Count)
-            {
-                case 1:
-                    type1Obj.SetActive(true);
-                    typeList = GetTypeList(type1Obj.transform);
-                    break;
-                case 2:
-                    type2Obj.SetActive(true);
-                    typeList = GetTypeList(type2Obj.transform);
-                    break;
-                case 4:
-                    type4Obj.SetActive(true);
-                    typeList = GetTypeList(type4Obj.transform);
-                    break;
-                default:
-                    Debug.Log("Null");
-                    break;
-            }
+            case 1:
+                type1Obj.SetActive(true);
+                typeList = GetTypeList(type1Obj.transform);
+                break;
+            case 2:
+                type2Obj.SetActive(true);
+                typeList = GetTypeList(type2Obj.transform);
+                break;
+            case 4:
+                type4Obj.SetActive(true);
+                typeList = GetTypeList(type4Obj.transform);
+                break;
+            default:
+                Debug.Log("Null");
+                break;
+        }
 
-            for (int i = 0; i < typeList.Count; i++)
-            {
-                typeList[i].Init(data.dailyList[i]);
-            }
+        for (int i = 0; i < typeList.Count; i++)
+        {
+            typeList[i].Init(data.dailyList[i]);
         }
     }
 
