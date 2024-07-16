@@ -14,7 +14,9 @@ public class UIVictory : UICanvas
     [SerializeField] Button btnClaimX2;
     [SerializeField] TextMeshProUGUI textGoldBonus;
     [SerializeField] private int goldBonus;
-    [SerializeField] private ParticleImage coinPi;
+    [SerializeField] private RectTransform tfCointBonus;
+
+  [SerializeField] private ParticleImage coinPi;
     private bool isClickBtn = false;
  
     private void Start()
@@ -39,10 +41,20 @@ public class UIVictory : UICanvas
     {
         base.Open(); 
         isClickBtn = false;
-        textGoldBonus.text = $"{"+"} {goldBonus}";
         GameManager.Ins.ChangeState(GameState.Finish);
+        ReLoadUI();
+        LoopButton();
+    }
+    private void ReLoadUI()
+    {
+        textGoldBonus.text = $"{"+"} {goldBonus}";
+        coinPi.transform.position = tfCointBonus.position;
+    }
+    private void LoopButton()
+    {
         btnClaimX2.transform.DOScale(1.1f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
     }
+
     public void NextLevel()
     {
         LevelManager.Ins.NextLevel();

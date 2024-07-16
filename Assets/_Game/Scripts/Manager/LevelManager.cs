@@ -96,9 +96,7 @@ public class LevelManager : Singleton<LevelManager>
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
             newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
             MaterialManager.Ins.SetDefaultShaderColor(newCube, newCube.GetColorID() - 1);
-#if UNITY_EDITOR
             cubes.Add(newCube);
-#endif
         }
 
         //player.transform.DORotate(rotateOffset, 0f);
@@ -172,23 +170,17 @@ public class LevelManager : Singleton<LevelManager>
     }
     private IEnumerator OnCelebration()
     {
-        //player.PlayAnim();
         CameraManager.Ins.SetFieldOfView();
         UIManager.Ins.CloseAll();
         Color lightPink = new Color(1f, 0.71f, 0.76f);
-        //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
-
         if (SimplePool.FindPrefabByType(currentLevel.poolType))
         {
-
             root.SetActive(false);
             _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
-
         }
         SaveLevelData();
-        yield return new WaitForSeconds(2f);
         Victory();
     }
 

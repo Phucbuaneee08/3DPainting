@@ -579,6 +579,9 @@ MonoBehaviour:
   circleTf: {fileID: 8129035626545891822}
   circleCenter: {fileID: 5639365190178896454}
   goldPi: {fileID: 5338584695104560641}
+  btnPlaySpin: {fileID: 0}
+  btnPlayIap: {fileID: 0}
+  textPlay: {fileID: 3614433289434427736}
 --- !u!1 &3818596904011108952
 GameObject:
   m_ObjectHideFlags: 0

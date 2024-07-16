@@ -27,26 +27,31 @@ public class HomeLevelUI : MonoBehaviour
     {
         miniPool.Release();
         listLevelUIs.Clear();
-        HashSet<LevelType> uniqueLevelTypes = new HashSet<LevelType>();
+        Dictionary<LevelType, LevelData> firstLevelByType = new Dictionary<LevelType, LevelData>();
+        Dictionary<LevelType, List<LevelData>> levelsByType = new Dictionary<LevelType, List<LevelData>>();
         foreach (LevelData levelData in levelDatas.level3D)
         {
-            uniqueLevelTypes.Add(levelData.level.levelType);
+            LevelType levelType = levelData.level.levelType;
+            if (!levelsByType.ContainsKey(levelType))
+            {
+                levelsByType[levelType] = new List<LevelData>();
+                firstLevelByType[levelType] = levelData;
+            }
+            levelsByType[levelType].Add(levelData);
         }
-        foreach (LevelType lvType in uniqueLevelTypes)
+        foreach (var kvp in levelsByType)
         {
             ListLevelUI listLevelUI = miniPool.Spawn();
             listLevelUIs.Add(listLevelUI);
-
-            LevelData levelOfType = levelDatas.GetLevelWithType(lvType);
-            List<LevelData> levelsOfType = levelDatas.GetLevelsWithType(lvType);
-            listLevelUI.SetData(levelOfType, levelDatas, levelsOfType, lvType);
-
+            LevelType lvType = kvp.Key;
+            List<LevelData> levelsOfType = kvp.Value;
+            LevelData firstLevelOfType = firstLevelByType[lvType];
+            listLevelUI.SetData(firstLevelOfType, levelDatas, levelsOfType, lvType);
             NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
             nestedScrollHandler.parentScrollRect = scrollRect;
         }
         SetSizeDetal();
     }
-
     public void SetSizeDetal()
     {
         if (tfContent != null && listLevelUIs.Count > 0)
