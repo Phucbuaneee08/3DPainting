@@ -188,9 +188,7 @@ public class PlayerData
     public int boosterFillByColorQuantity;
     public int boosterFindByColorQuantity;
     public int unlockAds;
-    [Header("--------- Level Data ---------")]
-    public List<LevelDataModel> levelDataModels;
-
+  
     [Header("--------- Daily Reward ---------")]
     public int daysCollected;
     public double daysLastOpen;
@@ -201,6 +199,10 @@ public class PlayerData
     [Header("--------- Spin  ---------")]
     public int isSpinReward;
     public bool isShowSpinRewardFirst;
+
+    [Header("--------- Level Data ---------")]
+    public List<LevelDataModel> levelDataModels;
+
     public PlayerData()
     {
         timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;

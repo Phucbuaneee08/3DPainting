@@ -37,6 +37,7 @@ public class MainMenu : UICanvas
         {
             if (DataManager.Ins.playerData.isShowDailyRewardFirst == false)
             {
+                GameManager.Ins.ChangeState(GameState.Pause);
                 StartCoroutine(IE_AutoShowDailyReward());
                 DataManager.Ins.playerData.isShowDailyRewardFirst = true;
                 DataManager.Ins.SaveData();
@@ -85,6 +86,7 @@ public class MainMenu : UICanvas
             UIManager.Ins.OpenUI<UISpin>();
             lockBtnSpin.SetActive(false);
             notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
+            GameManager.Ins.ChangeState(GameState.MainMenu);
         });
     }
     IEnumerator IE_AutoShowDailyReward()
@@ -97,6 +99,8 @@ public class MainMenu : UICanvas
             UIManager.Ins.OpenUI<UIDailyReward>();
             lockBtnDailyReward.SetActive(false);
             notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
+            GameManager.Ins.ChangeState(GameState.MainMenu);
+
         });
     }
     public void ReLoadData()
