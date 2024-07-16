@@ -181,7 +181,7 @@ public class UISpin : UICanvas
     {
         Ultilities.DelayThenDoTask(this, 2f, () =>
         {
-            DataManager.Ins.ChangeMagnifier(amount);
+            DataManager.Ins.ChangeBoosterFindByColor(amount);
             isRotate = false;
         });
     }
@@ -189,7 +189,7 @@ public class UISpin : UICanvas
     {
         Ultilities.DelayThenDoTask(this, 2f, () =>
         {
-            DataManager.Ins.ChangeBucket(amount);
+            DataManager.Ins.ChangeBoosterFillAllColor(amount);
             isRotate = false;
         });
     }
@@ -197,7 +197,7 @@ public class UISpin : UICanvas
     {
         Ultilities.DelayThenDoTask(this, 2f, () =>
         {
-            DataManager.Ins.ChangeBrush(amount);
+            DataManager.Ins.ChangeBoosterFillByColor(amount);
             isRotate = false;
         });
     }

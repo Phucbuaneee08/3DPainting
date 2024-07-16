@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,6 +108,8 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
         UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
         BoosterManager.Ins.OnInit();
+
+
     }
     public void NextLevel()
     {
@@ -185,10 +187,25 @@ public class LevelManager : Singleton<LevelManager>
             _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
 
         }
-        DataManager.Ins.playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
-        DataManager.Ins.SaveData();
+        SaveLevelData();
         yield return new WaitForSeconds(2f);
         Victory();
+    }
+
+    // tăng số level mà người chơi đã hoàn thành trong data
+
+    public void SaveLevelData()
+    {
+        PlayerData playerData = DataManager.Ins.playerData;
+
+        playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
+        playerData.CountLevelPassed += 1;
+        if (playerData.CountLevelPassed % 10 == 0)
+        {
+            playerData.isSpinReward = 1;
+        }
+
+        DataManager.Ins.SaveData();
     }
     public void Fail()
     {

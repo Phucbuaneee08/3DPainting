@@ -89,19 +89,19 @@ public class DailyRewardTypeUI : MonoBehaviour
     }
     private void CollectMagnifier(int multiplier, UnityAction OnComplete = null)
     {
-        DataManager.Ins.ChangeMagnifier(reward.amount * multiplier);
+        DataManager.Ins.ChangeBoosterFindByColor(reward.amount * multiplier);
         OnComplete?.Invoke();
         Debug.Log("collect Magnfier");
     }
     private void Collectbucket(int multiplier, UnityAction OnComplete = null)
     {
-        DataManager.Ins.ChangeBucket(reward.amount * multiplier);
+        DataManager.Ins.ChangeBoosterFillAllColor(reward.amount * multiplier);
         OnComplete?.Invoke();
         Debug.Log("collect Bucket");
     }
     private void CollectBrush(int multiplier, UnityAction OnComplete = null)
     {
-        DataManager.Ins.ChangeBrush(reward.amount * multiplier);
+        DataManager.Ins.ChangeBoosterFillByColor(reward.amount * multiplier);
         OnComplete?.Invoke();
         Debug.Log("collect brush");
     }

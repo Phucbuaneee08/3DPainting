@@ -16,10 +16,7 @@ public class UIVictory : UICanvas
     [SerializeField] private int goldBonus;
     [SerializeField] private ParticleImage coinPi;
     private bool isClickBtn = false;
-    private void Awake()
-    {
-        isClickBtn = false;
-    }
+ 
     private void Start()
     {
         coinPi.Stop();
@@ -40,7 +37,8 @@ public class UIVictory : UICanvas
     }
     public override void Open()
     {
-        base.Open();
+        base.Open(); 
+        isClickBtn = false;
         textGoldBonus.text = $"{"+"} {goldBonus}";
         GameManager.Ins.ChangeState(GameState.Finish);
         btnClaimX2.transform.DOScale(1.1f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);

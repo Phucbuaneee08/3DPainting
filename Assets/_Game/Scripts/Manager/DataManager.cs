@@ -109,6 +109,8 @@ public class DataManager : Singleton<DataManager>
         SaveData();
         OnCoinChanged?.Invoke((int)playerData.gold);
     }
+
+    //booster fill nhiều màu 
     public void ChangeBoosterFillByColor(int amount)
     {
         playerData.boosterFillByColorQuantity += amount;
@@ -119,6 +121,7 @@ public class DataManager : Singleton<DataManager>
         SaveData();
         OnBoosterFillByColorQuantityChanged?.Invoke((int)playerData.boosterFillByColorQuantity);
     }
+    //booster fill theo màu 
     public void ChangeBoosterFillAllColor(int amount)
     {
         playerData.boosterFillAllColorQuantity += amount;
@@ -129,6 +132,7 @@ public class DataManager : Singleton<DataManager>
         SaveData();
         OnBoosterFillAllColorQuantityChanged?.Invoke((int)playerData.boosterFillAllColorQuantity);
     }
+    // booster tìm cube theo màu 
     public void ChangeBoosterFindByColor(int amount)
     {
         playerData.boosterFindByColorQuantity += amount;
@@ -169,6 +173,7 @@ public class PlayerData
     [Header("------Chỉ số Game--------")]
     public double timeLastOpen;//days
     public int daysPlayed;
+    public int CountLevelPassed;
     [Header("--------- Game Params ---------")]
     public bool isPassedTutorialClick;
     public bool isPassedTutorialRotate;
@@ -188,20 +193,26 @@ public class PlayerData
 
     [Header("--------- Daily Reward ---------")]
     public int daysCollected;
-    public int daysLastOpen;
+    public double daysLastOpen;
     public int isTodayCollected; // 0: not collected, 1: collected
     public int isTodayCollectFree;
+    public int isCollectFullInDay;
+    public bool isShowDailyRewardFirst;
+    [Header("--------- Spin  ---------")]
+    public int isSpinReward;
+    public bool isShowSpinRewardFirst;
     public PlayerData()
     {
         timeLastOpen = DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalDays;
         daysPlayed = 0;
         currentlevelID = 1;
+        CountLevelPassed = 0;
         gold = 10000;
         diamond = 10000;
 
-        boosterFillAllColorQuantity = 10;
-        boosterFillByColorQuantity = 10;
-        boosterFindByColorQuantity = 10;
+        boosterFillAllColorQuantity = 1000;
+        boosterFillByColorQuantity = 1000;
+        boosterFindByColorQuantity = 1000;
 
         unlockAds = 0;
         isPassedTutorialBooster1 = false;
@@ -215,6 +226,13 @@ public class PlayerData
         daysLastOpen = (int)timeLastOpen;
         isTodayCollected = 0;
         isTodayCollectFree = 0;
+
+        isCollectFullInDay = 0;
+
+        isSpinReward = 1;
+
+        isShowDailyRewardFirst = false;
+        isShowSpinRewardFirst = false;
     }
 
     public LevelDataModel GetDataWithID(int _id)
