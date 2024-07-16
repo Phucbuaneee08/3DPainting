@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace TilePush
+namespace Paint3D
 {
     public class AudioManager : Singleton<AudioManager>
     {

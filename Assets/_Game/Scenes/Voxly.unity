@@ -186,7 +186,7 @@ MonoBehaviour:
     unlockAds: 3
     levelDataModels: []
     daysCollected: 0
-    daysLastOpen: 19916
+    daysLastOpen: 19920
     isTodayCollected: 0
     isTodayCollectFree: 0
     isCollectFullInDay: 0
@@ -937,6 +937,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 1
+--- !u!1 &1135058977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135058978}
+  - component: {fileID: 1135058979}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1135058978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135058977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00014432031, y: 0.0009615681, z: 0.0047402666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1135058979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135058977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c807cc3271df74289614bf1cd21174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
+  SFXSource: {fileID: 0}
+  bgmHome: {fileID: 0}
+  bgmInGame: {fileID: 0}
+  GetCoins: {fileID: 0}
+  clickBtn: {fileID: 0}
+  completeColumn: {fileID: 0}
+  fireWork: {fileID: 0}
+  loseSound: {fileID: 0}
+  winSound: {fileID: 0}
+  mahjongFalling_1: {fileID: 0}
+  mahjongFalling_2: {fileID: 0}
+  mahjongIn: {fileID: 0}
+  mahjongOut: {fileID: 0}
+  moveFail: {fileID: 0}
+  rankItemRollSound: {fileID: 0}
+  reward: {fileID: 0}
+  rewardSpin: {fileID: 0}
+  spin: {fileID: 0}
 --- !u!1 &1140087532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1820,7 @@ SceneRoots:
   - {fileID: 568955732}
   - {fileID: 182523575}
   - {fileID: 237622975}
+  - {fileID: 1135058978}
   - {fileID: 1548949512}
   - {fileID: 1455351150}
   - {fileID: 1053684849}
