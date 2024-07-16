@@ -15,19 +15,28 @@ public class UIVictory : UICanvas
     [SerializeField] TextMeshProUGUI textGoldBonus;
     [SerializeField] private int goldBonus;
     [SerializeField] private ParticleImage coinPi;
+    private bool isClickBtn = false;
+    private void Awake()
+    {
+        isClickBtn = false;
+    }
     private void Start()
     {
         coinPi.Stop();
     }
-   
+
     public void Home()
     {
-        CollectCoin(goldBonus);
-        DataManager.Ins.SaveData();
-        DOVirtual.DelayedCall(3f, () =>
+        if (isClickBtn == false)
         {
-            LevelManager.Ins.Home();
-        });
+            CollectCoin(goldBonus);
+            DataManager.Ins.SaveData();
+            DOVirtual.DelayedCall(3f, () =>
+            {
+                LevelManager.Ins.Home();
+            });
+            isClickBtn = true;
+        }
     }
     public override void Open()
     {
@@ -42,12 +51,16 @@ public class UIVictory : UICanvas
     }
     public void ButtonClaimX2()
     {
-        CollectCoin(goldBonus * 2);
-        DataManager.Ins.SaveData();
-        DOVirtual.DelayedCall(3.2f, () =>
+        if (isClickBtn == false)
         {
-            LevelManager.Ins.Home();
-        });
+            CollectCoin(goldBonus * 2);
+            DataManager.Ins.SaveData();
+            DOVirtual.DelayedCall(3.2f, () =>
+            {
+                LevelManager.Ins.Home();
+            });
+            isClickBtn= true;
+        }
     }
     private void CollectCoin(int amount)
     {
