@@ -8,12 +8,12 @@ using UnityEngine;
 public enum LevelType
 {
     none,
-    animal,
-    human,
-    machines,
-    beverages,
-    food,
-    other
+    Animals,
+    Humans,
+    Machines,
+    Drinks,
+    Foods,
+    Others
 
 }
 [Serializable]

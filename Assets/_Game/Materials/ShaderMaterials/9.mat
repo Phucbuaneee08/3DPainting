@@ -56,8 +56,8 @@ Material:
     - _sm: 0
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0}
-    - _DefaultColor: {r: 0.93429947, g: 0.93429947, b: 0.93429947, a: 1}
-    - _NearColor: {r: 0.93429947, g: 0.93429947, b: 0.93429947, a: 1}
+    - _DefaultColor: {r: 0.24375707, g: 0.24375707, b: 0.24375707, a: 1}
+    - _NearColor: {r: 0.24375707, g: 0.24375707, b: 0.24375707, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8289887604600979595
 MonoBehaviour:
