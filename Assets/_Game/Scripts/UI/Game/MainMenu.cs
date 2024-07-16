@@ -1,5 +1,6 @@
 using AssetKits.ParticleImage;
 using DG.Tweening;
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -27,6 +28,7 @@ public class MainMenu : UICanvas
     public override void Open()
     {
         GameManager.Ins.ChangeState(GameState.MainMenu);
+        AudioManager.Ins.OnPlayHomeMusic();
         ReLoadData();
         base.Open();
         UpdateNotfi();

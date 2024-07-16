@@ -9,8 +9,10 @@ namespace Paint3D
         [Header("----------- Audio Clip ------------")]
         [SerializeField] AudioClip bgmHome;
         [SerializeField] AudioClip bgmInGame;
+        [SerializeField] AudioClip filledCube;
         [SerializeField] AudioClip GetCoins;
         [SerializeField] AudioClip clickBtn;
+
         [SerializeField] AudioClip completeColumn;
         [SerializeField] AudioClip fireWork;
         [SerializeField] AudioClip loseSound;
@@ -128,6 +130,11 @@ namespace Paint3D
             {
                 OnGetCoins();
             }
+        }
+
+        public void OnFilledCube()
+        {
+            PlaySound(filledCube);
         }
         public void OnFireWork()
         {

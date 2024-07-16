@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -121,6 +122,7 @@ public class LevelManager : Singleton<LevelManager>
         if (cube.IsState(CubeState.Colored)) return;
 
         ParticlePool.Play(ParticleType.Explosion,cube.transform.position); // hieu ung cube 
+        AudioManager.Ins.OnFilledCube();
 
 //#if UNITY_EDITOR
 //        cubes.Remove(cube);
@@ -173,6 +175,7 @@ public class LevelManager : Singleton<LevelManager>
     private IEnumerator OnCelebration()
     {
         //player.PlayAnim();
+        GameManager.Ins.ChangeState(GameState.Finish);
         CameraManager.Ins.SetFieldOfView();
         UIManager.Ins.CloseAll();
         Color lightPink = new Color(1f, 0.71f, 0.76f);
