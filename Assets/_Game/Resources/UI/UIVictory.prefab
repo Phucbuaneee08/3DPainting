@@ -1254,6 +1254,7 @@ MonoBehaviour:
   btnClaimX2: {fileID: 83270694245528342}
   textGoldBonus: {fileID: 545941359859490352}
   goldBonus: 10
+  tfCointBonus: {fileID: 629270807319969596}
   coinPi: {fileID: 6819595506902103350}
 --- !u!1 &9061348563746357880
 GameObject:

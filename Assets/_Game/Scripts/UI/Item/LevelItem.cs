@@ -30,6 +30,7 @@ public class LevelItem : MonoBehaviour
 
     public void SelectLevel()
     {
+        if (GameManager.Ins.gameState != GameState.MainMenu) return;
         LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(levelID);
         if (!lvDataModel.isColored)
         {

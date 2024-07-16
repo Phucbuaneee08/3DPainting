@@ -3,6 +3,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,6 +18,7 @@ public class UISpin : UICanvas
     [SerializeField] private ParticleImage goldPi;
     [SerializeField] private GameObject btnPlaySpin;
     [SerializeField] private GameObject btnPlayIap;
+    [SerializeField] private TMP_Text textPlay;
     private int rewardIndex;
     private bool isRotate = false;
     public override void Setup()
@@ -46,31 +48,19 @@ public class UISpin : UICanvas
         goldPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
         goldPi.duration = 0.25f;
         goldPi.lifetime = 1.25f;
+        UpdateBtn();
     }
-
-    private void Awake()
+    private void UpdateBtn()
     {
-
-       /* if (rewardList == null || rewardList.Count == 0)
+        if(DataManager.Ins.playerData.isSpinReward != 0)
         {
-            return;
+            textPlay.text = $"Spin";
         }
-
-        if (pieceList == null || pieceList.Count != rewardList.Count)
+        else
         {
-            return;
+            textPlay.text = $"Pass: {DataManager.Ins.playerData.CountLevelPassed % 10}/10";
         }
-
-        for (int i = 0; i < rewardList.Count; i++)
-        {
-            pieceList[i].Init(rewardList[i]);
-        }
-        goldPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
-        goldPi.duration = 0.25f;
-        goldPi.lifetime = 1.25f;*/
-
     }
-
     private void Update()
     {
         if (circleCenter != null)
@@ -101,7 +91,6 @@ public class UISpin : UICanvas
 
         });
     }
-
     private void SpinCompleted()
     {
         SpinReward reward = rewardList[rewardIndex];
