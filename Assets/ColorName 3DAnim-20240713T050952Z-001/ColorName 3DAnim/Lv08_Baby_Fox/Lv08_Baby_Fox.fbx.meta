@@ -3,7 +3,32 @@ guid: f9eaabd5ea440644088f74cf84ae3be7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cube_text89
+    second: {fileID: 2100000, guid: d91fb95b68719144bb7739059b5c62b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cube_text90
+    second: {fileID: 2100000, guid: ee092234ecd1f8a448e7e8c179e97400, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cube_text91
+    second: {fileID: 2100000, guid: 9f2e9c71b0495374ea8e52e2410b744c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cube_text92
+    second: {fileID: 2100000, guid: bf09f29a785acc740a13036edb46422a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert36
+    second: {fileID: 2100000, guid: f57396fd414856044b30a12b0b53e121, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
