@@ -1,4 +1,5 @@
 using AssetKits.ParticleImage;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,7 +14,7 @@ public class RewardTypeUI : MonoBehaviour
     [SerializeField] private GameObject brush;
     [SerializeField] private ParticleImage coinPi;
     [SerializeField] private TMP_Text amountTmp;
-
+    [SerializeField] RectTransform tfEnd;
     private DailyReward dailyReward;
     private SpinReward spinReward;
     private void Awake()
@@ -58,7 +59,7 @@ public class RewardTypeUI : MonoBehaviour
                 CollectMagnifier(multiplier, dailyReward.amount, OnComplete);
                 break;
             case DailyRewardType.bucket:
-                Collectbucket(multiplier, dailyReward.amount, OnComplete);
+                CollectBucket(multiplier, dailyReward.amount, OnComplete);
                 break;
             case DailyRewardType.brush:
                 CollectBrush(multiplier, dailyReward.amount, OnComplete);
@@ -106,7 +107,7 @@ public class RewardTypeUI : MonoBehaviour
                 CollectMagnifier(multiplier, spinReward.amount, OnComplete);
                 break;
             case SpinRewardType.bucket:
-                Collectbucket(multiplier, spinReward.amount, OnComplete);
+                CollectBucket(multiplier, spinReward.amount, OnComplete);
                 break;
             case SpinRewardType.brush:
                 CollectBrush(multiplier, spinReward.amount, OnComplete);
@@ -134,21 +135,51 @@ public class RewardTypeUI : MonoBehaviour
         {
             OnComplete?.Invoke();
             coinPi.onLastParticleFinish.RemoveAllListeners();
+            coinSmall.SetActive(false);
         });
     }
+
     private void CollectMagnifier(int multiplier, int amount, UnityAction OnComplete = null)
     {
-        DataManager.Ins.ChangeBoosterFindByColor(amount * multiplier);
-        OnComplete?.Invoke();
+        MoveImgItem(magnifier, () =>
+        {
+            DataManager.Ins.ChangeBoosterFindByColor(amount * multiplier);
+            OnComplete?.Invoke();
+            magnifier.SetActive(false);
+        });
     }
-    private void Collectbucket(int multiplier, int amount, UnityAction OnComplete = null)
+
+    private void CollectBucket(int multiplier, int amount, UnityAction OnComplete = null)
     {
-        DataManager.Ins.ChangeBoosterFillAllColor(amount * multiplier);
-        OnComplete?.Invoke();
+        MoveImgItem(bucket, () =>
+        {
+            DataManager.Ins.ChangeBoosterFillAllColor(amount * multiplier);
+            OnComplete?.Invoke();
+            bucket.SetActive(false);
+        });
     }
+
     private void CollectBrush(int multiplier, int amount, UnityAction OnComplete = null)
     {
-        DataManager.Ins.ChangeBoosterFillByColor(amount * multiplier);
-        OnComplete?.Invoke();
+        MoveImgItem(brush, () =>
+        {
+            DataManager.Ins.ChangeBoosterFillByColor(amount * multiplier);
+            OnComplete?.Invoke();
+            brush.SetActive(false);
+        });
     }
+
+    private void MoveImgItem(GameObject gameObject, UnityAction onMoveComplete = null)
+    {
+        GameObject objIns = Instantiate(gameObject,gameObject.transform);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(objIns.transform.DOMove(tfEnd.position, 1.5f).SetEase(Ease.InOutQuad))
+                .Join(objIns.transform.DOScale(Vector3.one / 2, 1.5f).SetEase(Ease.InOutQuad))
+                .OnComplete(() =>
+                {
+                    onMoveComplete?.Invoke();
+                   Destroy(objIns);
+                });
+    }
+
 }

@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1253.54}
-  m_SizeDelta: {x: 1080, y: 1812.92}
+  m_AnchoredPosition: {x: 0, y: -929.93506}
+  m_SizeDelta: {x: 1080, y: 1281.6522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4108848677602596639
 CanvasRenderer:
@@ -325,8 +325,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -906.5}
-  m_SizeDelta: {x: 1080, y: 1813}
+  m_AnchoredPosition: {x: 0, y: -640.84}
+  m_SizeDelta: {x: 1080, y: 1281.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2850249050324639967
 CanvasRenderer:
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
-  probabilities: 9001000014000000c8000000140000000a0000002c010000280000000a000000
+  probabilities: 01000000e803000001000000e8030000e803000001000000e8030000e8030000
   rewardList:
   - amount: 5
     rewardType: 1
@@ -582,6 +582,7 @@ MonoBehaviour:
   btnPlaySpin: {fileID: 0}
   btnPlayIap: {fileID: 0}
   textPlay: {fileID: 3614433289434427736}
+  isRotate: 0
 --- !u!1 &3818596904011108952
 GameObject:
   m_ObjectHideFlags: 0

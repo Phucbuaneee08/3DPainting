@@ -9,6 +9,24 @@ public class ButtonUI : MonoBehaviour
     [SerializeField] private List<ButtonCellUI> listCell = new List<ButtonCellUI>();
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
 
+    public void SetRecTF(int idSlect)
+    {
+        for (int i = 0; i < listCell.Count; i++)
+        {
+            if (listCell[i].isActive != false)
+            {
+                if (listCell[i].idSelect == idSlect)
+                {
+                    listCell[i].MoveUp();
+                }
+                else
+                {
+                    listCell[i].MoveDown();
+                }
+            }
+
+        }
+    }
     public void LoadUIButtonItem(PlayerData playerData)
     {
         SetCellActive(0, true);
@@ -39,20 +57,22 @@ public class ButtonUI : MonoBehaviour
         if (index >= 0 && index < listCell.Count)
         {
             listCell[index].isActive = isActive;
-           
+
         }
     }
 
     private int CountActiveCells()
     {
         int activeCount = 0;
+        int id = 0;
         foreach (var cell in listCell)
         {
             if (cell.isActive)
             {
                 activeCount++;
             }
-            cell.SetData();
+            cell.SetData(id);
+            id++;
         }
         return activeCount;
     }

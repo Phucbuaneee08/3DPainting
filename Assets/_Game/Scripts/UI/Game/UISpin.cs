@@ -20,7 +20,7 @@ public class UISpin : UICanvas
     [SerializeField] private GameObject btnPlayIap;
     [SerializeField] private TMP_Text textPlay;
     private int rewardIndex;
-    private bool isRotate = false;
+    public bool isRotate = false;
     public override void Setup()
     {
         base.Setup();
@@ -78,8 +78,8 @@ public class UISpin : UICanvas
             return;
         }
         rewardIndex = GetRandomIndex();
-        DataManager.Ins.playerData.isSpinReward = 0;
-        DataManager.Ins.SaveData();
+        //DataManager.Ins.playerData.isSpinReward = 0;
+        //DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
         float rotationZ = 12 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;
@@ -87,11 +87,11 @@ public class UISpin : UICanvas
         Tween tween = circleTf.DOLocalRotate(rotation, 3.5f, RotateMode.FastBeyond360);
         tween.SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            SpinCompleted();
-
+            //SpinCompleted();
+            UIManager.Ins.OpenUI<PopupClaim>().OnintSpin(rewardList[rewardIndex]);
         });
     }
-    private void SpinCompleted()
+    public void SpinCompleted()
     {
         SpinReward reward = rewardList[rewardIndex];
         switch (reward.rewardType)
