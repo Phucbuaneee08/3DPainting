@@ -15,29 +15,39 @@ public class MainMenu : UICanvas
     [SerializeField] private GameObject notiDailyReward;
     [SerializeField] private GameObject notiShop;
     [SerializeField] private GameObject notiTut;
-    [SerializeField] private GameObject lockBtnSpin;
-    [SerializeField] private GameObject lockBtnDailyReward;
     [SerializeField] private TMP_Text textNumberPass;
-
+    [SerializeField] private ButtonUI buttonUI;
     public RectTransform tfBtnSpin;
     public RectTransform tfBtnDailyReward;
-
+    private PlayerData playerData;
     public override void Setup() => base.Setup();
 
     public override void Open()
     {
+        base.Open();
+        playerData = DataManager.Ins.playerData;
         GameManager.Ins.ChangeState(GameState.MainMenu);
         AudioManager.Ins.OnPlayHomeMusic();
         ReLoadData();
-        base.Open();
+        LoadUIButtonHome();
         UpdateNotfi();
+    }
+
+    private void LoadUIButtonHome()
+    {
+        if (playerData != null)
+        {
+            buttonUI.LoadUIButtonItem(playerData);
+        }
     }
 
     public void UIBtnDailyReward()
     {
-        int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
-        bool isFirstDailyReward = DataManager.Ins.playerData.isShowDailyRewardFirst;
-        bool isFullCollect = DataManager.Ins.playerData.isCollectFullInDay == 1;
+        if (playerData == null) return;
+
+        int levelsPassed = playerData.CountLevelPassed;
+        bool isFirstDailyReward = playerData.isShowDailyRewardFirst;
+        bool isFullCollect = playerData.isCollectFullInDay == 1;
 
         if (levelsPassed >= 3)
         {
@@ -45,12 +55,11 @@ public class MainMenu : UICanvas
             {
                 GameManager.Ins.ChangeState(GameState.Pause);
                 StartCoroutine(IE_AutoShowDailyReward());
-                DataManager.Ins.playerData.isShowDailyRewardFirst = true;
+                playerData.isShowDailyRewardFirst = true;
                 DataManager.Ins.SaveData();
             }
             else
             {
-                lockBtnDailyReward.SetActive(false);
                 notiDailyReward.SetActive(!isFullCollect);
             }
         }
@@ -58,9 +67,11 @@ public class MainMenu : UICanvas
 
     public void UIBtnSpin()
     {
-        int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
-        bool isFirstSpinReward = DataManager.Ins.playerData.isShowSpinRewardFirst;
-        bool isSpinReward = DataManager.Ins.playerData.isSpinReward != 0;
+        if (playerData == null) return;
+
+        int levelsPassed = playerData.CountLevelPassed;
+        bool isFirstSpinReward = playerData.isShowSpinRewardFirst;
+        bool isSpinReward = playerData.isSpinReward != 0;
 
         if (levelsPassed >= 5)
         {
@@ -68,17 +79,15 @@ public class MainMenu : UICanvas
             {
                 GameManager.Ins.ChangeState(GameState.Pause);
                 StartCoroutine(IE_AutoShowSpin());
-                DataManager.Ins.playerData.isShowSpinRewardFirst = true;
+                playerData.isShowSpinRewardFirst = true;
                 DataManager.Ins.SaveData();
             }
             else
             {
-                lockBtnSpin.SetActive(false);
                 notiSpin.SetActive(isSpinReward);
                 textNumberPass.gameObject.SetActive(!isSpinReward);
                 if (!isSpinReward)
                 {
-                    
                     textNumberPass.text = $"{levelsPassed % 10}/10";
                 }
             }
@@ -89,12 +98,11 @@ public class MainMenu : UICanvas
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton();
-        Ultilities.DelayThenDoTask(this, 6f, () =>
+        Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnSpin>();
             UIManager.Ins.OpenUI<UISpin>();
-            lockBtnSpin.SetActive(false);
-            notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
+            notiSpin.SetActive(playerData.isSpinReward != 0);
             GameManager.Ins.ChangeState(GameState.MainMenu);
         });
     }
@@ -103,12 +111,11 @@ public class MainMenu : UICanvas
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnDaily>().UnlockButton();
-        Ultilities.DelayThenDoTask(this, 6f, () =>
+        Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnDaily>();
             UIManager.Ins.OpenUI<UIDailyReward>();
-            lockBtnDailyReward.SetActive(false);
-            notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
+            notiDailyReward.SetActive(playerData.isCollectFullInDay != 1);
             GameManager.Ins.ChangeState(GameState.MainMenu);
         });
     }
@@ -117,14 +124,18 @@ public class MainMenu : UICanvas
 
     public void BtnSpin()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed >= 5)
+        if (playerData != null && playerData.CountLevelPassed >= 5)
+        {
             UIManager.Ins.OpenUI<UISpin>();
+        }
     }
 
-    public void BtnOpenDailtReward()
+    public void BtnOpenDailyReward()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed >= 3)
+        if (playerData != null && playerData.CountLevelPassed >= 3)
+        {
             UIManager.Ins.OpenUI<UIDailyReward>();
+        }
     }
 
     public void UpdateNotfi()

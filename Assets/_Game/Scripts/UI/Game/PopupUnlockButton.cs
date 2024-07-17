@@ -15,10 +15,6 @@ public class PopupUnlockButton : UICanvas
     {
         canvasGroup = objBtnUnlockPrefab.GetComponent<CanvasGroup>();
     }
-    public override void Open()
-    {
-       
-    }
     public void UnlockButton()
     {
         StartCoroutine(UnlockButtonRoutine());
@@ -39,8 +35,6 @@ public class PopupUnlockButton : UICanvas
                 .Join(canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad));
         yield return sequence.WaitForCompletion();
         yield return new WaitForSeconds(0.8f);
-        objBtnUnlockInstance.PlayAnim();
-        yield return new WaitForSeconds(1.5f);
         sequence = DOTween.Sequence();
         sequence.Append(objBtnUnlockInstance.transform.DOMove(tfStart.position, 2f).SetEase(Ease.InOutQuad))
                 .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InOutQuad))
