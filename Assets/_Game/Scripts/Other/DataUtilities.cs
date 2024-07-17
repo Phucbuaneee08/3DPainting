@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using Newtonsoft.Json; 
+
 public class DataUtilities : MonoBehaviour
 {
     private const string DEFAULT_PATH = "/GameData";
@@ -19,7 +19,7 @@ public class DataUtilities : MonoBehaviour
         {
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
         }
-        string jsonData = JsonConvert.SerializeObject(data, Formatting.Indented);
+        string jsonData = JsonUtility.ToJson(data);
         File.WriteAllText(filePath, jsonData);
         Debug.Log("Đã lưu thành công Data tại: " + filePath);
     }
@@ -34,7 +34,7 @@ public class DataUtilities : MonoBehaviour
         {
             string jsonData = File.ReadAllText(filePath);
             Debug.Log("Đã tải thành công Data tại: " + filePath);
-            return JsonConvert.DeserializeObject<T>(jsonData);
+            return JsonUtility.FromJson<T>(jsonData);
         }
         else
         {
@@ -42,7 +42,6 @@ public class DataUtilities : MonoBehaviour
             return default(T);
         }
     }
-
     public static void UpdateData<T>(T newData, string filePath = null)
     {
         if (filePath == null)
@@ -51,7 +50,7 @@ public class DataUtilities : MonoBehaviour
         }
         if (File.Exists(filePath))
         {
-            string jsonData = JsonConvert.SerializeObject(newData, Formatting.Indented);
+            string jsonData = JsonUtility.ToJson(newData);
             File.WriteAllText(filePath, jsonData);
         }
         else
@@ -59,7 +58,6 @@ public class DataUtilities : MonoBehaviour
             Debug.LogError("Không tìm thấy đường dẫn: " + filePath);
         }
     }
-
     public static void DeleteData(string filePath = null)
     {
         if (filePath == null)
