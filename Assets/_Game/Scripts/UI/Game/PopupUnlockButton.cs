@@ -22,24 +22,21 @@ public class PopupUnlockButton : UICanvas
     private IEnumerator UnlockButtonRoutine()
     {
         objBtnUnlockInstance = Instantiate(objBtnUnlockPrefab);
-        objBtnUnlockInstance.transform.SetParent(tfStart, false);
-        objBtnUnlockInstance.transform.position = tfStart.position;
+        objBtnUnlockInstance.transform.SetParent(tfEnd, false);
+        objBtnUnlockInstance.transform.position = tfEnd.position;
         canvasGroup = objBtnUnlockInstance.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
         {
             canvasGroup = objBtnUnlockInstance.gameObject.AddComponent<CanvasGroup>();
         }
+        yield return new WaitForSeconds(2f);
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(objBtnUnlockInstance.transform.DOMove(tfEnd.position, 1.5f).SetEase(Ease.InOutQuad))
-                .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one * 2, 1.5f).SetEase(Ease.InOutQuad))
+        sequence.Append(objBtnUnlockInstance.transform.DOMove(tfStart.position, 1.5f).SetEase(Ease.InOutQuad))
+                .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one / 2, 1.5f).SetEase(Ease.InOutQuad))
                 .Join(canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad));
         yield return sequence.WaitForCompletion();
-        yield return new WaitForSeconds(0.8f);
-        sequence = DOTween.Sequence();
-        sequence.Append(objBtnUnlockInstance.transform.DOMove(tfStart.position, 2f).SetEase(Ease.InOutQuad))
-                .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InOutQuad))
-                .Join(canvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutQuad));
+        Destroy(objBtnUnlockInstance.gameObject);
         yield return sequence.WaitForCompletion();
-        objBtnUnlockInstance.gameObject.SetActive(false);
+       
     }
 }

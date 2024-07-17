@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.7179813, b: 0.56537026, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -156,8 +156,9 @@ MonoBehaviour:
   imgUnleckDiamond: {fileID: 7319600012016208554}
   imgUnlock: {fileID: 6377092671698014526}
   imgLevelPassed: {fileID: 8814999441729324452}
+  poolType: 0
   button: {fileID: 4313770240912333837}
-  grayScaleMaterial: {fileID: 2100000, guid: 12020f3bdee12ff4d9b7abea10311dd4, type: 2}
+  imageSourcePass: {fileID: 0}
 --- !u!1 &1320968015609958824
 GameObject:
   m_ObjectHideFlags: 0

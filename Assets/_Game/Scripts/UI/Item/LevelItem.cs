@@ -14,13 +14,25 @@ public class LevelItem : MonoBehaviour
     public Image imgUnleckDiamond;
     public Image imgUnlock;
     public Image imgLevelPassed;
-    public PoolType  poolType;
+    public PoolType poolType;
     [SerializeField] private Button button;
-
-    public void SetData(int levelID, Sprite avatar, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock,PoolType poolType)
+    public Sprite imageSourcePass;
+    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType)
     {
         this.levelID = levelID;
-        imageSource.sprite = avatar;
+
+        if (isPassed)
+        {
+            imageSource.sprite = avatarPass;
+        }
+        else
+        {
+            imageSource.sprite = avatar;
+        }
+        if (avatarPass != null)
+        {
+            this.imageSourcePass = avatarPass;
+        }
         imgLevelPassed.gameObject.SetActive(isPassed);
         imgUnlock.gameObject.SetActive(isUnlock);
         imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);

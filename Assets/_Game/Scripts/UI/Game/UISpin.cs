@@ -19,6 +19,7 @@ public class UISpin : UICanvas
     [SerializeField] private GameObject btnPlaySpin;
     [SerializeField] private GameObject btnPlayIap;
     [SerializeField] private TMP_Text textPlay;
+    [SerializeField] private RectTransform tfGold;
     private int rewardIndex;
     public bool isRotate = false;
     public override void Setup()
@@ -45,7 +46,7 @@ public class UISpin : UICanvas
         {
             pieceList[i].Init(rewardList[i]);
         }
-        goldPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
+        goldPi.attractorTarget = tfGold.transform;
         goldPi.duration = 0.25f;
         goldPi.lifetime = 1.25f;
         UpdateBtn();

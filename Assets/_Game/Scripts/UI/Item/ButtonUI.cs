@@ -27,17 +27,26 @@ public class ButtonUI : MonoBehaviour
 
         }
     }
-    public void LoadUIButtonItem(PlayerData playerData)
+    public void LoadUIButtonItem()
     {
         SetCellActive(0, true);
         SetCellActive(2, true);
         SetCellActive(4, true);
-
-        if (playerData.CountLevelPassed >= 3)
+        if (DataManager.Ins.playerData.CountLevelPassed >= 3)
         {
-            SetCellActive(1, true);
+            if (DataManager.Ins.playerData.isShowDailyRewardFirst == true)
+            {
+                SetCellActive(1, true);
+                Debug.Log("0");
+            }
+            else
+            {
+                Debug.Log("0 00");
+                SetCellActive(1, false);
+            }
+               
         }
-        if (playerData.CountLevelPassed >= 5)
+        if (DataManager.Ins.playerData.CountLevelPassed >= 5)
         {
             SetCellActive(3, true);
         }
@@ -52,7 +61,7 @@ public class ButtonUI : MonoBehaviour
         }
     }
 
-    private void SetCellActive(int index, bool isActive)
+    public void SetCellActive(int index, bool isActive)
     {
         if (index >= 0 && index < listCell.Count)
         {

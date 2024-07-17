@@ -2651,7 +2651,8 @@ MonoBehaviour:
     minZoom: 0.1
     maxZoom: 0.25
     checkPointZoom: 0.2
-  imageSource: {fileID: 21300000, guid: 128286c5a5eea764da9b2618f59678ab, type: 3}
+  imageSource: {fileID: 21300000, guid: 79d0ce05da6641e488932a45054988a1, type: 3}
+  imageSourcePassed: {fileID: 21300000, guid: d596d6173a4c8cf4eaf92d1499aac5cc, type: 3}
   poolType: 46
   levelType: 1
   costGold: 100
