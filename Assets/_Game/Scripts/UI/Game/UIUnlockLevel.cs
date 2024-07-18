@@ -25,7 +25,7 @@ public class UIUnlockLevel : UICanvas
     {
         this.id = _levelItem.GetID();
         this.levelItem = _levelItem;
-        this.imgLevel.sprite = _levelItem.imageSource.sprite;
+        this.imgLevel.sprite = _levelItem.imageSourcePass;
         if (_isUnlockTypeDiamond)
         {
             this.objBtnUnlockDiamond.SetActive(_isUnlockTypeDiamond);

@@ -19,8 +19,9 @@ public class UISpin : UICanvas
     [SerializeField] private GameObject btnPlaySpin;
     [SerializeField] private GameObject btnPlayIap;
     [SerializeField] private TMP_Text textPlay;
+    [SerializeField] private RectTransform tfGold;
     private int rewardIndex;
-    private bool isRotate = false;
+    public bool isRotate = false;
     public override void Setup()
     {
         base.Setup();
@@ -45,20 +46,20 @@ public class UISpin : UICanvas
         {
             pieceList[i].Init(rewardList[i]);
         }
-        goldPi.attractorTarget = UIManager.Ins.GetUI<MainMenu>().textGold.transform;
+        goldPi.attractorTarget = tfGold.transform;
         goldPi.duration = 0.25f;
         goldPi.lifetime = 1.25f;
         UpdateBtn();
     }
-    private void UpdateBtn()
+    public void UpdateBtn()
     {
-        if(DataManager.Ins.playerData.isSpinReward != 0)
+        if (DataManager.Ins.playerData.isSpinReward != 0)
         {
             textPlay.text = $"Spin";
         }
         else
         {
-            textPlay.text = $"Pass: {DataManager.Ins.playerData.CountLevelPassed % 10}/10";
+            textPlay.text = $"Pass: {(DataManager.Ins.playerData.CountLevelPassed + 5) % 10}/10";
         }
     }
     private void Update()
@@ -87,11 +88,11 @@ public class UISpin : UICanvas
         Tween tween = circleTf.DOLocalRotate(rotation, 3.5f, RotateMode.FastBeyond360);
         tween.SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            SpinCompleted();
-
+            //SpinCompleted();
+            UIManager.Ins.OpenUI<PopupClaim>().OnintSpin(rewardList[rewardIndex]);
         });
     }
-    private void SpinCompleted()
+    public void SpinCompleted()
     {
         SpinReward reward = rewardList[rewardIndex];
         switch (reward.rewardType)

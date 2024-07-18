@@ -184,7 +184,6 @@ MonoBehaviour:
     boosterFillByColorQuantity: 10
     boosterFindByColorQuantity: 10
     unlockAds: 3
-    levelDataModels: []
     daysCollected: 0
     daysLastOpen: 19920
     isTodayCollected: 0
@@ -193,6 +192,7 @@ MonoBehaviour:
     isShowDailyRewardFirst: 0
     isSpinReward: 1
     isShowSpinRewardFirst: 0
+    levelDataModels: []
 --- !u!1 &196987361
 GameObject:
   m_ObjectHideFlags: 0

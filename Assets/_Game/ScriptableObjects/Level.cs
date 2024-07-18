@@ -14,6 +14,7 @@ public class Level : ScriptableObject
     public List<MaterialData> materials = new List<MaterialData>();
     public ZoomInfo zoomInfo = new ZoomInfo();
     public Sprite imageSource;
+    public Sprite imageSourcePassed;
     public PoolType poolType;
     public LevelType levelType;
     public int costGold = 100;
