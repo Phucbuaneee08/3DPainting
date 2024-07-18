@@ -203,11 +203,14 @@ public class LevelManager : Singleton<LevelManager>
 
         playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
         playerData.CountLevelPassed += 1;
-        if (playerData.CountLevelPassed % 10 == 0)
+        if(DataManager.Ins.playerData.isSpinReward == 0)
         {
-            playerData.isSpinReward = 1;
+            playerData.countProgresses += 1;
+            if (playerData.countProgresses == 10)
+            {
+                playerData.isSpinReward = 1;
+            }
         }
-
         DataManager.Ins.SaveData();
     }
     public void Fail()

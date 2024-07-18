@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class MainMenu : UICanvas
 {
     [SerializeField] private HomeLevelUI homeLevelUI;
-    public GameObject textGold;
     [SerializeField] private GameObject notiSpin;
     [SerializeField] private GameObject notiDailyReward;
     [SerializeField] private GameObject notiShop;
@@ -18,15 +17,15 @@ public class MainMenu : UICanvas
     [SerializeField] private TMP_Text textNumberPass;
     [SerializeField] private ButtonUI buttonUI;
     [SerializeField] private Image imgProgress;
+
+    public GameObject textGold;
     public RectTransform tfBtnSpin;
     public RectTransform tfBtnDailyReward;
-
     public override void Setup() => base.Setup();
 
     public override void Open()
     {
         base.Open();
-
         GameManager.Ins.ChangeState(GameState.MainMenu);
         AudioManager.Ins.OnPlayHomeMusic();
         ReLoadData();
@@ -39,7 +38,6 @@ public class MainMenu : UICanvas
     }
     private void LoadUIButtonHome()
     {
-
         buttonUI.LoadUIButtonItem();
         //buttonUI.SetRecTF(2);
     }
@@ -68,6 +66,7 @@ public class MainMenu : UICanvas
     public void UIBtnSpin()
     {
         int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
+        int countProgress = DataManager.Ins.playerData.countProgresses;
         bool isFirstSpinReward = DataManager.Ins.playerData.isShowSpinRewardFirst;
         bool isSpinReward = DataManager.Ins.playerData.isSpinReward != 0;
 
@@ -86,10 +85,9 @@ public class MainMenu : UICanvas
                 textNumberPass.gameObject.SetActive(!isSpinReward);
                 if (!isSpinReward)
                 {
-                    int amount = (levelsPassed + 5) % 10;
-                    textNumberPass.text = $"{amount}/10";
-                    Debug.Log( amount+" "+amount / 10);
-                    SetProgressSpin((float)amount / (float)10);
+                   
+                    textNumberPass.text = $"{countProgress}/10";
+                    SetProgressSpin((float)countProgress / (float)10);
                 }
             }
         }
@@ -157,7 +155,6 @@ public class MainMenu : UICanvas
     {
         //buttonUI.SetRecTF(4);
         //UIManager.Ins.OpenUI<PopupUnlockBtnSpin>();
-
     }
 
     public void BtnShop()

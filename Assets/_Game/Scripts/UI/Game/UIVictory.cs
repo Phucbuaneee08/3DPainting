@@ -43,16 +43,17 @@ public class UIVictory : UICanvas
         isClickBtn = false;
         GameManager.Ins.ChangeState(GameState.Finish);
         ReLoadUI();
-        LoopButton();
+        LoopScaleButton();
     }
     private void ReLoadUI()
     {
         textGoldBonus.text = $"{"+"} {goldBonus}";
         coinPi.transform.position = tfCointBonus.position;
     }
-    private void LoopButton()
+    private void LoopScaleButton()
     {
-        btnClaimX2.transform.DOScale(1.1f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
+        btnClaimX2.transform.localScale = new Vector3(1, 1, 1);
+        btnClaimX2.transform.DOScale(1.2f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void NextLevel()

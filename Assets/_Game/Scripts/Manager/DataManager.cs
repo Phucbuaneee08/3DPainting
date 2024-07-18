@@ -199,6 +199,7 @@ public class PlayerData
     [Header("--------- Spin  ---------")]
     public int isSpinReward;
     public bool isShowSpinRewardFirst;
+    public int countProgresses;
 
     [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
@@ -232,6 +233,7 @@ public class PlayerData
         isCollectFullInDay = 0;
 
         isSpinReward = 1;
+        countProgresses = 0;
 
         isShowDailyRewardFirst = false;
         isShowSpinRewardFirst = false;
