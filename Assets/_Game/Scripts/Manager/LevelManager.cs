@@ -124,9 +124,9 @@ public class LevelManager : Singleton<LevelManager>
         ParticlePool.Play(ParticleType.Explosion,cube.transform.position); // hieu ung cube 
         AudioManager.Ins.OnFilledCube();
 
-//#if UNITY_EDITOR
-//        cubes.Remove(cube);
-//#endif
+#if UNITY_EDITOR
+        cubes.Remove(cube);
+#endif
 
         cube.ChangeState(CubeState.Colored);
         MaterialManager.Ins.SetColor(cube, cube.GetColorID());
