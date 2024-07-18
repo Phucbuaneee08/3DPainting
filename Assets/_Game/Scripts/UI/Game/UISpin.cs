@@ -51,15 +51,15 @@ public class UISpin : UICanvas
         goldPi.lifetime = 1.25f;
         UpdateBtn();
     }
-    private void UpdateBtn()
+    public void UpdateBtn()
     {
-        if(DataManager.Ins.playerData.isSpinReward != 0)
+        if (DataManager.Ins.playerData.isSpinReward != 0)
         {
             textPlay.text = $"Spin";
         }
         else
         {
-            textPlay.text = $"Pass: {DataManager.Ins.playerData.CountLevelPassed % 10}/10";
+            textPlay.text = $"Pass: {(DataManager.Ins.playerData.CountLevelPassed + 5) % 10}/10";
         }
     }
     private void Update()
@@ -79,8 +79,8 @@ public class UISpin : UICanvas
             return;
         }
         rewardIndex = GetRandomIndex();
-        //DataManager.Ins.playerData.isSpinReward = 0;
-        //DataManager.Ins.SaveData();
+        DataManager.Ins.playerData.isSpinReward = 0;
+        DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
         float rotationZ = 12 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;

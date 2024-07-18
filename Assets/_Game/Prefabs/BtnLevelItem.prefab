@@ -150,14 +150,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bg: {fileID: 893716441969574086}
-  imageSource: {fileID: 2789940569548422298}
+  imgBackG: {fileID: 893716441969574086}
   levelID: 0
+  button: {fileID: 4313770240912333837}
   imgUnleckAdsAndGold: {fileID: 6185540434377968911}
   imgUnleckDiamond: {fileID: 7319600012016208554}
   imgUnlock: {fileID: 6377092671698014526}
   imgLevelPassed: {fileID: 8814999441729324452}
+  imageSource: {fileID: 2789940569548422298}
   poolType: 0
-  button: {fileID: 4313770240912333837}
   imageSourcePass: {fileID: 0}
 --- !u!1 &1320968015609958824
 GameObject:

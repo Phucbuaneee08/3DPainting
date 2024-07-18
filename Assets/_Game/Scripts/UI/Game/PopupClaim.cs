@@ -28,6 +28,7 @@ public class PopupClaim : UICanvas
         {
             UIManager.Ins.CloseUI<PopupClaim>();
             UIManager.Ins.GetUI<UISpin>().isRotate = false;
+            UIManager.Ins.GetUI<UISpin>().UpdateBtn();
         });
     }
 }

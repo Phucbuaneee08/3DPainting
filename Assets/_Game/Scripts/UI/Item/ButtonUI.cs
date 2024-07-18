@@ -37,18 +37,22 @@ public class ButtonUI : MonoBehaviour
             if (DataManager.Ins.playerData.isShowDailyRewardFirst == true)
             {
                 SetCellActive(1, true);
-                Debug.Log("0");
             }
             else
             {
-                Debug.Log("0 00");
                 SetCellActive(1, false);
             }
-               
         }
         if (DataManager.Ins.playerData.CountLevelPassed >= 5)
         {
-            SetCellActive(3, true);
+            if (DataManager.Ins.playerData.isShowSpinRewardFirst == true)
+            {
+                SetCellActive(3, true);
+            }
+            else
+            {
+                SetCellActive(3, false);
+            }
         }
 
         int activeCount = CountActiveCells();
@@ -100,5 +104,28 @@ public class ButtonUI : MonoBehaviour
         {
             return new Vector2(170, 120);
         }
+    }
+    public void SetActiveCell(int index, bool isActive)
+    {
+        listCell[index].gameObject.SetActive(isActive);
+        listCell[index].isActive = true;
+        int activeCount = CountIsActve();
+        Vector2 cellSize = CalculateCellSize(activeCount);
+        if (gridLayoutGroup != null)
+        {
+            gridLayoutGroup.cellSize = cellSize;
+        }
+    }
+    private int CountIsActve()
+    {
+        int activeCount = 0;
+        foreach (var cell in listCell)
+        {
+            if (cell.isActive)
+            {
+                activeCount++;
+            }
+        }
+        return activeCount;
     }
 }

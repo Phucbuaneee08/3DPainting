@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,14 +10,16 @@ using UnityEngine.UI;
 public class LevelItem : MonoBehaviour
 {
     [SerializeField] private Image bg;
-    public Image imageSource;
+    [SerializeField] private Image imgBackG;
     [SerializeField] private int levelID;
+    [SerializeField] private Button button;
+
     public Image imgUnleckAdsAndGold;
     public Image imgUnleckDiamond;
     public Image imgUnlock;
     public Image imgLevelPassed;
+    public Image imageSource;
     public PoolType poolType;
-    [SerializeField] private Button button;
     public Sprite imageSourcePass;
     public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType)
     {
@@ -24,6 +28,8 @@ public class LevelItem : MonoBehaviour
         if (isPassed)
         {
             imageSource.sprite = avatarPass;
+            Color pinkColor = new Color(1f, 0.41f, 0.71f); 
+            imgBackG.color = pinkColor;
         }
         else
         {
