@@ -95,7 +95,7 @@ public class LevelManager : Singleton<LevelManager>
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
-            newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
+            newCube.SetCubeData(currentLevel.cubes[i].ID, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
             MaterialManager.Ins.SetDefaultShaderColor(newCube, newCube.GetColorID() - 1);
 
             cubes.Add(newCube);
