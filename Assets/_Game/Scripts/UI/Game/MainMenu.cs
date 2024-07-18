@@ -41,7 +41,6 @@ public class MainMenu : UICanvas
         buttonUI.LoadUIButtonItem();
         //buttonUI.SetRecTF(2);
     }
-
     public void UIBtnDailyReward()
     {
         int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
@@ -62,7 +61,6 @@ public class MainMenu : UICanvas
             }
         }
     }
-
     public void UIBtnSpin()
     {
         int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
@@ -85,7 +83,6 @@ public class MainMenu : UICanvas
                 textNumberPass.gameObject.SetActive(!isSpinReward);
                 if (!isSpinReward)
                 {
-                   
                     textNumberPass.text = $"{countProgress}/10";
                     SetProgressSpin((float)countProgress / (float)10);
                 }
@@ -100,6 +97,8 @@ public class MainMenu : UICanvas
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton(3);
+        textNumberPass.gameObject.SetActive(false);
+        notiSpin.SetActive(true);
         Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnSpin>();

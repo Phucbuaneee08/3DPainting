@@ -79,9 +79,9 @@ public class UISpin : UICanvas
             return;
         }
         rewardIndex = GetRandomIndex();
-        DataManager.Ins.playerData.isSpinReward = 0;
-        DataManager.Ins.playerData.countProgresses = 0;
-        DataManager.Ins.SaveData();
+        //DataManager.Ins.playerData.isSpinReward = 0;
+        //DataManager.Ins.playerData.countProgresses = 0;
+        //DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
         float rotationZ = 12 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;
@@ -199,6 +199,7 @@ public class UISpin : UICanvas
     }
     public void BtnExit()
     {
+        if (isRotate == true) return;
         UIManager.Ins.CloseUI<UISpin>();
         UIManager.Ins.GetUI<MainMenu>().UIBtnSpin();
     }
