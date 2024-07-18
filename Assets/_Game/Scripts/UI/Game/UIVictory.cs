@@ -7,7 +7,7 @@ using TMPro;
 using AssetKits.ParticleImage;
 using UnityEngine.Events;
 using System;
-
+using Paint3D;
 
 public class UIVictory : UICanvas
 {
@@ -16,7 +16,8 @@ public class UIVictory : UICanvas
     [SerializeField] private int goldBonus;
     [SerializeField] private RectTransform tfCointBonus;
 
-  [SerializeField] private ParticleImage coinPi;
+    [SerializeField] private ParticleImage coinPi;
+    [SerializeField] private ParticleImage confesti;
     private bool isClickBtn = false;
  
     private void Start()
@@ -41,6 +42,7 @@ public class UIVictory : UICanvas
     {
         base.Open(); 
         isClickBtn = false;
+        confesti.Play();
         GameManager.Ins.ChangeState(GameState.Finish);
         ReLoadUI();
         LoopButton();
@@ -77,9 +79,12 @@ public class UIVictory : UICanvas
         float duration = 0.75f;
         coinPi.rateOverTime = 30 / duration;
         coinPi.Play();
+        AudioManager.Ins.OnGetMultiCoins(amount);
         Ultilities.DelayThenDoTask(this, 2f, () =>
         {
             DataManager.Ins.ChangeGold(amount);
         });
+       
+      
     }
 }

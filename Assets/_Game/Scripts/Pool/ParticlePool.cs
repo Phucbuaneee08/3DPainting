@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using AssetKits.ParticleImage;
 
 public static class ParticlePool
 {
@@ -35,6 +36,7 @@ public static class ParticlePool
 
         //list prefab ready
         List<ParticleSystem> inactive;
+        
 
         // The prefab that we are pooling
         ParticleSystem prefab;

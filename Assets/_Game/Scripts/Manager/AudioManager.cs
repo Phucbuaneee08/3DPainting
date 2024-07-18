@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 namespace Paint3D
 {
@@ -12,17 +14,10 @@ namespace Paint3D
         [SerializeField] AudioClip filledCube;
         [SerializeField] AudioClip GetCoins;
         [SerializeField] AudioClip clickBtn;
-
-        [SerializeField] AudioClip completeColumn;
-        [SerializeField] AudioClip fireWork;
-        [SerializeField] AudioClip loseSound;
         [SerializeField] AudioClip winSound;
-        [SerializeField] AudioClip mahjongFalling_1;
-        [SerializeField] AudioClip mahjongFalling_2;
-        [SerializeField] AudioClip mahjongIn;
-        [SerializeField] AudioClip mahjongOut;
-        [SerializeField] AudioClip moveFail;
-        [SerializeField] AudioClip rankItemRollSound;
+
+
+
         [SerializeField] AudioClip reward;
         [SerializeField] AudioClip rewardSpin;
         [SerializeField] AudioClip spin;
@@ -33,7 +28,8 @@ namespace Paint3D
         // public AudioClip PopupSound;
         // public AudioClip PixelSound;
         // public AudioClip SelectTileSound;
-
+        private float lastPlayTime;
+        public float cooldown = 0.05f;
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -116,10 +112,7 @@ namespace Paint3D
         {
             PlaySound(clickBtn);
         }
-        public void OnCompleteColumn()
-        {
-            PlaySound(completeColumn);
-        }
+      
         public void OnGetCoins()
         {
             PlaySound(GetCoins);
@@ -131,43 +124,25 @@ namespace Paint3D
                 OnGetCoins();
             }
         }
+       
 
         public void OnFilledCube()
         {
+            if (Time.time - lastPlayTime >= cooldown)
+            {
+                PlaySound(filledCube);
+                lastPlayTime = Time.time;
+            }
+        }
+        public IEnumerator OnPlayFillCube()
+        {
+          
+            yield return new WaitForEndOfFrame();
             PlaySound(filledCube);
         }
-        public void OnFireWork()
-        {
-            PlaySound(fireWork);
-        }
-        public void OnLose()
-        {
-            PlaySound(loseSound);
-        }
-        public void OnMahjongFalling1()
-        {
-            PlaySound(mahjongFalling_1);
-        }
-        public void OnMahjongFalling2()
-        {
-            PlaySound(mahjongFalling_2);
-        }
-        public void OnMahjongPutIn()
-        {
-            PlaySound(mahjongIn);
-        }
-        public void OnMahjongPutOut()
-        {
-            PlaySound(mahjongOut);
-        }
-        public void OnMoveFail()
-        {
-            PlaySound(moveFail);
-        }
-        public void OnRankItemRoll()
-        {
-            PlaySound(rankItemRollSound);
-        }
+        
+        
+      
         public void OnReward()
         {
             PlaySound(reward);

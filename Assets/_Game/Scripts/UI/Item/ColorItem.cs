@@ -15,6 +15,7 @@ public class ColorItem : Item
  
     public override void OnClick()
     {
+        base.OnClick();
         if (LevelManager.Ins.currentColor == colorID) return;
         BoosterManager.Ins.ZoomBoosterByColor();
 

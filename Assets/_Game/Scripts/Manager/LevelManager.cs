@@ -175,6 +175,7 @@ public class LevelManager : Singleton<LevelManager>
     private IEnumerator OnCelebration()
     {
         //player.PlayAnim();
+        AudioManager.Ins.OnWin();
         GameManager.Ins.ChangeState(GameState.Finish);
         CameraManager.Ins.SetFieldOfView();
         UIManager.Ins.CloseAll();
@@ -182,7 +183,6 @@ public class LevelManager : Singleton<LevelManager>
         //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
-
         if (SimplePool.FindPrefabByType(currentLevel.poolType))
         {
 
