@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: cube_text2
+  m_Name: lambert36
   m_Shader: {fileID: -6465566751694194690, guid: f5cc9ddf8c8709a4389ad3dead58305a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -117,13 +117,13 @@ Material:
     - _spec_edge: 1
     - _spec_smooth: 0.05
     m_Colors:
-    - _BaseColor: {r: 0.88621026, g: 0.78668225, b: 0.78668225, a: 1}
-    - _Color: {r: 0.88621026, g: 0.78668225, b: 0.78668225, a: 1}
+    - _BaseColor: {r: 0.73818195, g: 0.33003327, b: 0.6686244, a: 1}
+    - _Color: {r: 1, g: 0.79607844, b: 0.60784316, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _world_up_vector: {r: 0.05, g: 0.35, b: 0, a: 0}
+    - _world_up_vector: {r: 0.01, g: 0.05, b: 0.01, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &410260806688508136
+--- !u!114 &1278339689373877556
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
