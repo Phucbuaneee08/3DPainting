@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7288347280373760785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -370,7 +370,6 @@ GameObject:
   - component: {fileID: 376681223768339414}
   - component: {fileID: 1563235453781979981}
   - component: {fileID: 8227360832134221250}
-  - component: {fileID: -3026115392982092174}
   - component: {fileID: 898194406793857943}
   - component: {fileID: 2892593948818088487}
   m_Layer: 5
@@ -441,18 +440,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &-3026115392982092174
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027867280639460128}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &898194406793857943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,8 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1477d5fe4121348a4bdf29a35880ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objLock: {fileID: 1950049147529213244}
-  objAnimator: {fileID: 2892593948818088487}
 --- !u!95 &2892593948818088487
 Animator:
   serializedVersion: 5
@@ -475,7 +460,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4027867280639460128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: baae5f6279e658c44ae7530638142293, type: 2}
   m_CullingMode: 0

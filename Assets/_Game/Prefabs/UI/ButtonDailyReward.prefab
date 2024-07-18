@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 8379691917927023127}
   - component: {fileID: 2739858123580124510}
   - component: {fileID: 6540266180843568948}
+  - component: {fileID: 3798953886026450254}
   m_Layer: 5
   m_Name: ButtonDailyReward
   m_TagString: Untagged
@@ -210,6 +211,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3798953886026450254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939349024824093956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e7b83f5e83427418af7672036dc5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3588155479005318319
 GameObject:
   m_ObjectHideFlags: 0

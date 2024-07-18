@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjButtonUnlock : MonoBehaviour
 {
-    [SerializeField] GameObject objLock;
+  /*  [SerializeField] GameObject objLock;
     [SerializeField] Animator objAnimator;
     private void Awake()
     {
@@ -18,5 +18,5 @@ public class ObjButtonUnlock : MonoBehaviour
     {
         objAnimator.enabled = true;
         objAnimator.Play("Unlock");
-    }
+    }*/
 }

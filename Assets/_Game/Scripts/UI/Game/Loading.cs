@@ -22,7 +22,7 @@ public class Loading : UICanvas
         }).SetEase(Ease.InCubic)
         .OnComplete(() =>
         {
-            CacheSomeUIs();
+           // CacheSomeUIs();
             slider.value = 1f;
             DOVirtual.DelayedCall(0.5f, () =>
             {

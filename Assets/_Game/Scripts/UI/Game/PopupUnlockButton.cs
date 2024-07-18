@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class PopupUnlockButton : UICanvas
 {
@@ -15,37 +16,27 @@ public class PopupUnlockButton : UICanvas
     {
         canvasGroup = objBtnUnlockPrefab.GetComponent<CanvasGroup>();
     }
-    public override void Open()
+    public void UnlockButton(int index)
     {
-       
+        StartCoroutine(UnlockButtonRoutine(index));
     }
-    public void UnlockButton()
-    {
-        StartCoroutine(UnlockButtonRoutine());
-    }
-    private IEnumerator UnlockButtonRoutine()
+    private IEnumerator UnlockButtonRoutine(int index)
     {
         objBtnUnlockInstance = Instantiate(objBtnUnlockPrefab);
-        objBtnUnlockInstance.transform.SetParent(tfStart, false);
-        objBtnUnlockInstance.transform.position = tfStart.position;
-        canvasGroup = objBtnUnlockInstance.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            canvasGroup = objBtnUnlockInstance.gameObject.AddComponent<CanvasGroup>();
-        }
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(objBtnUnlockInstance.transform.DOMove(tfEnd.position, 2f).SetEase(Ease.InOutQuad))
-                .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one * 2, 2f).SetEase(Ease.InOutQuad))
-                .Join(canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad));
-        yield return sequence.WaitForCompletion();
-        yield return new WaitForSeconds(1f);
-        objBtnUnlockInstance.PlayAnim();
+        objBtnUnlockInstance.transform.SetParent(tfEnd, false);
+        objBtnUnlockInstance.transform.position = tfEnd.position;
+        canvasGroup = objBtnUnlockInstance.GetComponent<CanvasGroup>() ?? objBtnUnlockInstance.gameObject.AddComponent<CanvasGroup>();
         yield return new WaitForSeconds(2f);
-        sequence = DOTween.Sequence();
-        sequence.Append(objBtnUnlockInstance.transform.DOMove(tfStart.position, 2f).SetEase(Ease.InOutQuad))
-                .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InOutQuad))
-                .Join(canvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutQuad));
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(objBtnUnlockInstance.transform.DOMove(tfStart.position, 1.5f).SetEase(Ease.InOutQuad))
+                .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one / 2, 1.5f).SetEase(Ease.InOutQuad))
+                .Join(canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad))
+                .OnComplete(() =>
+                {
+                    UIManager.Ins.GetUI<MainMenu>().SetActiveButton(index, true);
+                });
         yield return sequence.WaitForCompletion();
-        objBtnUnlockInstance.gameObject.SetActive(false);
+        Destroy(objBtnUnlockInstance.gameObject);
     }
+
 }

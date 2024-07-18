@@ -1,5 +1,7 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
-namespace TilePush
+namespace Paint3D
 {
     public class AudioManager : Singleton<AudioManager>
     {
@@ -9,18 +11,13 @@ namespace TilePush
         [Header("----------- Audio Clip ------------")]
         [SerializeField] AudioClip bgmHome;
         [SerializeField] AudioClip bgmInGame;
+        [SerializeField] AudioClip filledCube;
         [SerializeField] AudioClip GetCoins;
         [SerializeField] AudioClip clickBtn;
-        [SerializeField] AudioClip completeColumn;
-        [SerializeField] AudioClip fireWork;
-        [SerializeField] AudioClip loseSound;
         [SerializeField] AudioClip winSound;
-        [SerializeField] AudioClip mahjongFalling_1;
-        [SerializeField] AudioClip mahjongFalling_2;
-        [SerializeField] AudioClip mahjongIn;
-        [SerializeField] AudioClip mahjongOut;
-        [SerializeField] AudioClip moveFail;
-        [SerializeField] AudioClip rankItemRollSound;
+
+
+
         [SerializeField] AudioClip reward;
         [SerializeField] AudioClip rewardSpin;
         [SerializeField] AudioClip spin;
@@ -31,7 +28,8 @@ namespace TilePush
         // public AudioClip PopupSound;
         // public AudioClip PixelSound;
         // public AudioClip SelectTileSound;
-
+        private float lastPlayTime;
+        public float cooldown = 0.05f;
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -114,10 +112,7 @@ namespace TilePush
         {
             PlaySound(clickBtn);
         }
-        public void OnCompleteColumn()
-        {
-            PlaySound(completeColumn);
-        }
+      
         public void OnGetCoins()
         {
             PlaySound(GetCoins);
@@ -129,38 +124,25 @@ namespace TilePush
                 OnGetCoins();
             }
         }
-        public void OnFireWork()
+       
+
+        public void OnFilledCube()
         {
-            PlaySound(fireWork);
+            if (Time.time - lastPlayTime >= cooldown)
+            {
+                PlaySound(filledCube);
+                lastPlayTime = Time.time;
+            }
         }
-        public void OnLose()
+        public IEnumerator OnPlayFillCube()
         {
-            PlaySound(loseSound);
+          
+            yield return new WaitForEndOfFrame();
+            PlaySound(filledCube);
         }
-        public void OnMahjongFalling1()
-        {
-            PlaySound(mahjongFalling_1);
-        }
-        public void OnMahjongFalling2()
-        {
-            PlaySound(mahjongFalling_2);
-        }
-        public void OnMahjongPutIn()
-        {
-            PlaySound(mahjongIn);
-        }
-        public void OnMahjongPutOut()
-        {
-            PlaySound(mahjongOut);
-        }
-        public void OnMoveFail()
-        {
-            PlaySound(moveFail);
-        }
-        public void OnRankItemRoll()
-        {
-            PlaySound(rankItemRollSound);
-        }
+        
+        
+      
         public void OnReward()
         {
             PlaySound(reward);

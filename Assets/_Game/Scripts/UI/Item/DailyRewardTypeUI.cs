@@ -85,24 +85,20 @@ public class DailyRewardTypeUI : MonoBehaviour
             OnComplete?.Invoke();
             coinPi.onLastParticleFinish.RemoveAllListeners();
         });
-        Debug.Log("collect Gold");
     }
     private void CollectMagnifier(int multiplier, UnityAction OnComplete = null)
     {
         DataManager.Ins.ChangeBoosterFindByColor(reward.amount * multiplier);
         OnComplete?.Invoke();
-        Debug.Log("collect Magnfier");
     }
     private void Collectbucket(int multiplier, UnityAction OnComplete = null)
     {
         DataManager.Ins.ChangeBoosterFillAllColor(reward.amount * multiplier);
         OnComplete?.Invoke();
-        Debug.Log("collect Bucket");
     }
     private void CollectBrush(int multiplier, UnityAction OnComplete = null)
     {
         DataManager.Ins.ChangeBoosterFillByColor(reward.amount * multiplier);
         OnComplete?.Invoke();
-        Debug.Log("collect brush");
     }
 }

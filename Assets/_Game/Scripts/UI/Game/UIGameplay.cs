@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Paint3D;
+
 public class UIGameplay : UICanvas
 {
     [SerializeField] Transform content;
@@ -47,6 +49,7 @@ public class UIGameplay : UICanvas
     public override void Open()
     {
         base.Open();
+        AudioManager.Ins.OnPlayInGameMusic();
         GameManager.Ins.ChangeState(GameState.GamePlay);
         textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
     }

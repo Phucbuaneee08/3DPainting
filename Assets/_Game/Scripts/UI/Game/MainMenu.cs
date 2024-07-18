@@ -1,5 +1,6 @@
 using AssetKits.ParticleImage;
 using DG.Tweening;
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,116 +15,153 @@ public class MainMenu : UICanvas
     [SerializeField] private GameObject notiDailyReward;
     [SerializeField] private GameObject notiShop;
     [SerializeField] private GameObject notiTut;
-    [SerializeField] private GameObject lockBtnSpin;
-    [SerializeField] private GameObject lockBtnDailyReward;
     [SerializeField] private TMP_Text textNumberPass;
-
+    [SerializeField] private ButtonUI buttonUI;
+    [SerializeField] private Image imgProgress;
     public RectTransform tfBtnSpin;
     public RectTransform tfBtnDailyReward;
-    public override void Setup()
-    {
-        base.Setup();
-    }
+
+    public override void Setup() => base.Setup();
+
     public override void Open()
     {
-        GameManager.Ins.ChangeState(GameState.MainMenu);
-        ReLoadData();
         base.Open();
+
+        GameManager.Ins.ChangeState(GameState.MainMenu);
+        AudioManager.Ins.OnPlayHomeMusic();
+        ReLoadData();
+        LoadUIButtonHome();
         UpdateNotfi();
     }
+    public void SetActiveButton(int index, bool isActive)
+    {
+        buttonUI.SetActiveCell(index, isActive);
+    }
+    private void LoadUIButtonHome()
+    {
+
+        buttonUI.LoadUIButtonItem();
+        //buttonUI.SetRecTF(2);
+    }
+
     public void UIBtnDailyReward()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed == 3)
+        int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
+        bool isFirstDailyReward = DataManager.Ins.playerData.isShowDailyRewardFirst;
+        bool isFullCollect = DataManager.Ins.playerData.isCollectFullInDay == 1;
+        if (levelsPassed >= 3)
         {
-            if (DataManager.Ins.playerData.isShowDailyRewardFirst == false)
+            if (!isFirstDailyReward && levelsPassed == 3)
             {
-                StartCoroutine(IE_AutoShowDailyReward());
+                GameManager.Ins.ChangeState(GameState.Pause);
                 DataManager.Ins.playerData.isShowDailyRewardFirst = true;
                 DataManager.Ins.SaveData();
-            }
-        }
-        else if (DataManager.Ins.playerData.CountLevelPassed > 3)
-        {
-            lockBtnDailyReward.SetActive(false);
-            notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
-        }
-    }
-    public void UIBtnSpin()
-    {
-        if (DataManager.Ins.playerData.CountLevelPassed == 5)
-        {
-            if (DataManager.Ins.playerData.isShowSpinRewardFirst == false)
-            {
-                StartCoroutine(IE_AutoShowSpin());
-                DataManager.Ins.playerData.isShowSpinRewardFirst = true;
-                DataManager.Ins.SaveData();
-            }
-        }
-        else if (DataManager.Ins.playerData.CountLevelPassed > 5)
-        {
-            lockBtnSpin.SetActive(false);
-            if (DataManager.Ins.playerData.isSpinReward != 0)
-            {
-                notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
+                StartCoroutine(IE_AutoShowDailyReward());
             }
             else
             {
-                notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
-                textNumberPass.gameObject.SetActive(true);
-                int numberPassed = DataManager.Ins.playerData.CountLevelPassed % 10;
-                textNumberPass.text = numberPassed.ToString() + "/10";
+                notiDailyReward.SetActive(!isFullCollect);
             }
         }
+    }
+
+    public void UIBtnSpin()
+    {
+        int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
+        bool isFirstSpinReward = DataManager.Ins.playerData.isShowSpinRewardFirst;
+        bool isSpinReward = DataManager.Ins.playerData.isSpinReward != 0;
+
+        if (levelsPassed >= 5)
+        {
+            if (!isFirstSpinReward && levelsPassed == 5)
+            {
+                GameManager.Ins.ChangeState(GameState.Pause);
+                DataManager.Ins.playerData.isShowSpinRewardFirst = true;
+                DataManager.Ins.SaveData();
+                StartCoroutine(IE_AutoShowSpin());
+            }
+            else
+            {
+                notiSpin.SetActive(isSpinReward);
+                textNumberPass.gameObject.SetActive(!isSpinReward);
+                if (!isSpinReward)
+                {
+                    int amount = (levelsPassed + 5) % 10;
+                    textNumberPass.text = $"{amount}/10";
+                    SetProgressSpin(amount / 10);
+                }
+            }
+        }
+    }
+    public void SetProgressSpin(float amount)
+    {
+        imgProgress.fillAmount = amount;
     }
     IEnumerator IE_AutoShowSpin()
     {
         yield return new WaitForEndOfFrame();
-        UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton();
-        Ultilities.DelayThenDoTask(this, 6f, () =>
+        UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton(3);
+        Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnSpin>();
             UIManager.Ins.OpenUI<UISpin>();
-            lockBtnSpin.SetActive(false);
             notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
+            GameManager.Ins.ChangeState(GameState.MainMenu);
         });
     }
+
     IEnumerator IE_AutoShowDailyReward()
     {
         yield return new WaitForEndOfFrame();
-        UIManager.Ins.OpenUI<PopupUnlockBtnDaily>().UnlockButton();
-        Ultilities.DelayThenDoTask(this, 6f, () =>
+        UIManager.Ins.OpenUI<PopupUnlockBtnDaily>().UnlockButton(1);
+        Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnDaily>();
             UIManager.Ins.OpenUI<UIDailyReward>();
-            lockBtnDailyReward.SetActive(false);
             notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
+            GameManager.Ins.ChangeState(GameState.MainMenu);
         });
     }
-    public void ReLoadData()
-    {
-        homeLevelUI.ReLoad();
-    }
+
+    public void ReLoadData() => homeLevelUI.ReLoad();
+
     public void BtnSpin()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed < 5) return;
-        UIManager.Ins.OpenUI<UISpin>();
+        if (DataManager.Ins.playerData.CountLevelPassed >= 5)
+        {
+            //buttonUI.SetRecTF(3);
+            UIManager.Ins.OpenUI<UISpin>();
+        }
     }
-    public void BtnOpenDailtReward()
+
+    public void BtnOpenDailyReward()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed < 3) return;
-        UIManager.Ins.OpenUI<UIDailyReward>();
+        if (DataManager.Ins.playerData.CountLevelPassed >= 3)
+        {
+            //buttonUI.SetRecTF(1);
+            UIManager.Ins.OpenUI<UIDailyReward>();
+        }
+    }
+    public void BtnHome()
+    {
+        //buttonUI.SetRecTF(2);
     }
     public void UpdateNotfi()
     {
         UIBtnSpin();
         UIBtnDailyReward();
     }
+
     public void BtnTut()
     {
-        UIManager.Ins.OpenUI<PopupUnlockBtnSpin>();
+        //buttonUI.SetRecTF(4);
+        //UIManager.Ins.OpenUI<PopupUnlockBtnSpin>();
+
     }
+
     public void BtnShop()
     {
-        UIManager.Ins.OpenUI<PopupUnlockBtnDaily>();
+        //buttonUI.SetRecTF(0);
+        //UIManager.Ins.OpenUI<PopupUnlockBtnDaily>();
     }
 }

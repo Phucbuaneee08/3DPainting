@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -94,11 +95,11 @@ public class LevelManager : Singleton<LevelManager>
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
-            newCube.SetCubeData(i, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
+            newCube.SetCubeData(currentLevel.cubes[i].ID, currentLevel.cubes[i].realColorID, currentLevel.cubes[i].defaultColorID);        
             MaterialManager.Ins.SetDefaultShaderColor(newCube, newCube.GetColorID() - 1);
-#if UNITY_EDITOR
+
             cubes.Add(newCube);
-#endif
+
         }
 
         //player.transform.DORotate(rotateOffset, 0f);
@@ -121,6 +122,7 @@ public class LevelManager : Singleton<LevelManager>
         if (cube.IsState(CubeState.Colored)) return;
 
         ParticlePool.Play(ParticleType.Explosion,cube.transform.position); // hieu ung cube 
+        AudioManager.Ins.OnFilledCube();
 
 #if UNITY_EDITOR
         cubes.Remove(cube);
@@ -173,13 +175,14 @@ public class LevelManager : Singleton<LevelManager>
     private IEnumerator OnCelebration()
     {
         //player.PlayAnim();
+        AudioManager.Ins.OnWin();
+        GameManager.Ins.ChangeState(GameState.Finish);
         CameraManager.Ins.SetFieldOfView();
         UIManager.Ins.CloseAll();
         Color lightPink = new Color(1f, 0.71f, 0.76f);
         //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
-
         if (SimplePool.FindPrefabByType(currentLevel.poolType))
         {
 

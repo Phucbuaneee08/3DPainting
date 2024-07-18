@@ -1,3 +1,4 @@
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class UISetting : UICanvas
     public InputField rotateSpeed;
     public InputField moveDistance;
     public InputField vibrationDura;
+    public InputField fillSoundDeplay;
     public override void Setup()
     {
         base.Setup();
@@ -85,6 +87,18 @@ public class UISetting : UICanvas
         {
             FindObjectOfType<Player>().zoomDistance = moveDistancee;
             Debug.Log("Rotate speed changed to: " + moveDistance);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid input for rotate speed.");
+        }
+    }
+    public void SetFillSoundDelay()
+    {
+        if (float.TryParse(fillSoundDeplay.text, out float fillSound))
+        {
+           AudioManager.Ins.cooldown = fillSound; 
+            Debug.Log("Rotate speed changed to: " + fillSound);
         }
         else
         {
