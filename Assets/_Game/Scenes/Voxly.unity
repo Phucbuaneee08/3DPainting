@@ -506,10 +506,6 @@ MonoBehaviour:
     prefab: {fileID: 8299759871928989229, guid: a8e7dd7ff34e02c4d8b3a8bb3c86f458, type: 3}
     amount: 10
     collect: 0
-  - root: {fileID: 2085022474}
-    prefab: {fileID: 8299759871928989229, guid: a8e7dd7ff34e02c4d8b3a8bb3c86f458, type: 3}
-    amount: 10
-    collect: 0
   Particle:
   - root: {fileID: 292409514}
     particleType: 6
@@ -1297,21 +1293,13 @@ MonoBehaviour:
   bgmHome: {fileID: 8300000, guid: 810eea0764236af46a1af22756e4838d, type: 3}
   bgmInGame: {fileID: 8300000, guid: 1dcab520cb99ba94083506e306a5e237, type: 3}
   filledCube: {fileID: 8300000, guid: 3ac253fed6af76449842f4447e7429b3, type: 3}
-  GetCoins: {fileID: 0}
-  clickBtn: {fileID: 8300000, guid: 650ed818aedd9e54fb80e48969f6f823, type: 3}
-  completeColumn: {fileID: 0}
-  fireWork: {fileID: 0}
-  loseSound: {fileID: 0}
-  winSound: {fileID: 0}
-  mahjongFalling_1: {fileID: 0}
-  mahjongFalling_2: {fileID: 0}
-  mahjongIn: {fileID: 0}
-  mahjongOut: {fileID: 0}
-  moveFail: {fileID: 0}
-  rankItemRollSound: {fileID: 0}
-  reward: {fileID: 0}
-  rewardSpin: {fileID: 0}
+  GetCoins: {fileID: 8300000, guid: 6f92735c23b847d4ba0fefd34c3a80da, type: 3}
+  clickBtn: {fileID: 8300000, guid: 2292ae355f9ddc24cba768a6bc78ee95, type: 3}
+  winSound: {fileID: 8300000, guid: 11681d661d2aa5c48a41610231dffe74, type: 3}
+  reward: {fileID: 8300000, guid: e45ce97833853584a8a7b176a600f474, type: 3}
+  rewardSpin: {fileID: 8300000, guid: c2f39bd2563334d4ba15a1e0dab2f927, type: 3}
   spin: {fileID: 0}
+  cooldown: 0.05
 --- !u!1 &1140087532
 GameObject:
   m_ObjectHideFlags: 0

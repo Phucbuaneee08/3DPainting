@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using Paint3D;
 
 public class BoosterItem : Item
 {
@@ -19,7 +20,7 @@ public class BoosterItem : Item
 
     public override void OnClick()
     {
-      
+        base.OnClick();
         if (CurrentItemState == ItemState.TurnOff)
         {
             ChangeItemState(ItemState.TurnOn);

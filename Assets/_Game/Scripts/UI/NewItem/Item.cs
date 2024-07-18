@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using Paint3D;
 
 public class Item : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class Item : MonoBehaviour
     public virtual void TurnOff() { }
 
 
-    public virtual void OnClick() { }
+    public virtual void OnClick() 
+    {
+        AudioManager.Ins.OnClick();
+    }
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
