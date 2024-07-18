@@ -88,7 +88,8 @@ public class MainMenu : UICanvas
                 {
                     int amount = (levelsPassed + 5) % 10;
                     textNumberPass.text = $"{amount}/10";
-                    SetProgressSpin(amount / 10);
+                    Debug.Log( amount+" "+amount / 10);
+                    SetProgressSpin((float)amount / (float)10);
                 }
             }
         }
