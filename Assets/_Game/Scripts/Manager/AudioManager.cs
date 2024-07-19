@@ -125,7 +125,7 @@ namespace Paint3D
         }
         public IEnumerator OnGetCoin(int numberOfCoin)
         {
-            float duration = 0.5f;
+            float duration = 0.8f;
             float i = 0;
             while (i < duration)
             {
