@@ -117,14 +117,24 @@ namespace Paint3D
         {
             PlaySound(GetCoins);
         }
-        public void OnGetMultiCoins(int numberOfCoins)
+        public void OnGetMultiCoins(int numberOfCoin)
         {
-            for (int i = 0; i < numberOfCoins; i++)
-            {
-                OnGetCoins();
-            }
+            
+             StartCoroutine(OnGetCoin(numberOfCoin));
+            
         }
+        public IEnumerator OnGetCoin(int numberOfCoin)
+        {
+            float duration = 0.5f;
+            float i = 0;
+            while (i < duration)
+            {
+                i += duration/numberOfCoin;
+                OnGetCoins();
+                yield return new WaitForSeconds(duration/numberOfCoin);
+            }
        
+        }
 
         public void OnFilledCube()
         {
