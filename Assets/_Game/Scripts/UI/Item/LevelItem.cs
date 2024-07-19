@@ -24,9 +24,9 @@ public class LevelItem : MonoBehaviour
     public Sprite imageSourcePass;
     private Color[] colors = new Color[]
    {
-        new Color(0.878f, 0.631f, 0.706f),
+        new Color(0.878f, 0.631f, 0.706f)/*,
         new Color(0.235f, 0.784f, 0.949f),
-        new Color(0.918f, 0.318f, 0.529f)
+        new Color(0.918f, 0.318f, 0.529f)*/
    };
     public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType)
     {
@@ -60,7 +60,10 @@ public class LevelItem : MonoBehaviour
         {
             if (lvDataModel.unlockType == UnlockType.free)
             {
-                LevelManager.Ins.OnLoadLevel(levelID);
+                UIManager.Ins.OpenUI<UIShortLoad>().With(() =>
+                {
+                    LevelManager.Ins.OnLoadLevel(levelID);
+                }, 1);
                 Debug.Log(GameManager.Ins.gameState);
             }
             else
