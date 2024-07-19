@@ -67,7 +67,7 @@ public class UIVictory : UICanvas
         {
             CollectCoin(goldBonus * 2);
             DataManager.Ins.SaveData();
-            DOVirtual.DelayedCall(3.2f, () =>
+            DOVirtual.DelayedCall(3f, () =>
             {
                 LevelManager.Ins.Home();
             });
@@ -76,13 +76,14 @@ public class UIVictory : UICanvas
     }
     private void CollectCoin(int amount)
     {
-        float duration = 0.75f;
-        coinPi.rateOverTime = 30 / duration;
+
+        coinPi.rateOverTime = amount;
         coinPi.Play();
-        AudioManager.Ins.OnGetMultiCoins(amount);
-        Ultilities.DelayThenDoTask(this, 2f, () =>
+       
+        Ultilities.DelayThenDoTask(this, 1.8f, () =>
         {
             DataManager.Ins.ChangeGold(amount);
+            AudioManager.Ins.OnGetMultiCoins(amount);
         });
        
       

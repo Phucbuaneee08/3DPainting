@@ -398,6 +398,52 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ed9e2cd53e50fc74e831e665c860d362, type: 2}
   - {fileID: 2100000, guid: df0e9315f6648f54bafa8ee9792ffcbf, type: 2}
   meshRenderer: {fileID: 1874923832}
+--- !u!1 &432677224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432677225}
+  - component: {fileID: 432677226}
+  m_Layer: 0
+  m_Name: AdressableLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432677225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432677224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432677226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432677224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d628f3f179a1ba940922ee2a3e2ea4a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2099514019}
+  default_folder: Pool/Animation/
 --- !u!1 &445145271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1339,7 @@ MonoBehaviour:
   bgmHome: {fileID: 8300000, guid: 810eea0764236af46a1af22756e4838d, type: 3}
   bgmInGame: {fileID: 8300000, guid: 1dcab520cb99ba94083506e306a5e237, type: 3}
   filledCube: {fileID: 8300000, guid: 3ac253fed6af76449842f4447e7429b3, type: 3}
-  GetCoins: {fileID: 8300000, guid: 6f92735c23b847d4ba0fefd34c3a80da, type: 3}
+  GetCoins: {fileID: 8300000, guid: fdc6adf9535c63c44bca43b768194270, type: 3}
   clickBtn: {fileID: 8300000, guid: 2292ae355f9ddc24cba768a6bc78ee95, type: 3}
   winSound: {fileID: 8300000, guid: 11681d661d2aa5c48a41610231dffe74, type: 3}
   reward: {fileID: 8300000, guid: e45ce97833853584a8a7b176a600f474, type: 3}
@@ -2122,6 +2168,7 @@ SceneRoots:
   - {fileID: 237622975}
   - {fileID: 1135058978}
   - {fileID: 297134134}
+  - {fileID: 432677225}
   - {fileID: 1548949512}
   - {fileID: 1455351150}
   - {fileID: 1053684849}

@@ -61,7 +61,7 @@ public class LevelManager : Singleton<LevelManager>
    
     public void OnReset()
     {
-        if (_currentAnim != null) Destroy(_currentAnim.gameObject);
+        LoadAddress.Ins.OnDestroy();
         IsCanUseAds = true;
         root.SetActive(true);
         player.OnReset();
@@ -91,7 +91,8 @@ public class LevelManager : Singleton<LevelManager>
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
-     
+        LoadAddress.Ins.LoadAnimationAddress(currentLevel.poolType.ToString());
+
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
@@ -183,13 +184,16 @@ public class LevelManager : Singleton<LevelManager>
         //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
-        if (SimplePool.FindPrefabByType(currentLevel.poolType))
-        {
+        //if (SimplePool.FindPrefabByType(currentLevel.poolType))
+        //{
 
-            root.SetActive(false);
-            _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
+        //    root.SetActive(false);
+        //    _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
 
-        }
+        //}
+        root.SetActive(false);
+        LoadAddress.Ins.OnLoadAnimation();
+
         SaveLevelData();
         yield return new WaitForSeconds(2f);
         Victory();
