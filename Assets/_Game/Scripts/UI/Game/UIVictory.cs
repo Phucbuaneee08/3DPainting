@@ -78,9 +78,10 @@ public class UIVictory : UICanvas
     {
 
         coinPi.rateOverTime = amount;
+       
         coinPi.Play();
        
-        Ultilities.DelayThenDoTask(this, 1.8f, () =>
+        Ultilities.DelayThenDoTask(this, 1.6f, () =>
         {
             DataManager.Ins.ChangeGold(amount);
             AudioManager.Ins.OnGetMultiCoins(amount);

@@ -32,7 +32,6 @@ public class UIPassedLevel : UICanvas
     }
     public void CreateAnimation(PoolType poolType)
     {
-
         LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
     }
 }
