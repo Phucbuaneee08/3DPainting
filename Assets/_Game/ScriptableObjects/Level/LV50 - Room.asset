@@ -16891,9 +16891,10 @@ MonoBehaviour:
     minZoom: 0.4
     maxZoom: 0.5
     checkPointZoom: 0.1
-  imageSource: {fileID: 21300000, guid: eb7eb7d8132775046877754ace72914b, type: 3}
+  imageSource: {fileID: 21300000, guid: e0b2cc6063dba944ca2edec6cc1e6aa6, type: 3}
+  imageSourcePassed: {fileID: 21300000, guid: 8edf457c4b73d304f97df6a5e7f48201, type: 3}
   poolType: 53
   levelType: 6
   costGold: 100
   costDiamond: 10
-  unlockType: 1
+  unlockType: 4

@@ -1,3 +1,4 @@
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -12,10 +13,12 @@ public class PopupClaim : UICanvas
     public override void Open()
     { 
         base.Open();
+       
         isClaim = false;
     }
     public void OnintSpin(SpinReward reward)
     {
+        AudioManager.Ins.OnRewardSpin();
         type1Obj.SetActive(true);
         rewardTypeUISpin.InitSpin(reward);
     }

@@ -98,7 +98,7 @@ MonoBehaviour:
   - levelID: 42
     level: {fileID: 11400000, guid: eaf49f60b65806d4abab101cc59afece, type: 2}
   - levelID: 43
-    level: {fileID: 11400000, guid: ae30f603d1db4c34ab997ca4410c8e43, type: 2}
+    level: {fileID: 11400000, guid: 5d97969dd6c41814db55cbbe57543b05, type: 2}
   - levelID: 45
     level: {fileID: 11400000, guid: ba8ce39539d4bb44daf5b4028d5c23bf, type: 2}
   - levelID: 46
