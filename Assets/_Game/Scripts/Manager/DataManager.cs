@@ -212,7 +212,7 @@ public class PlayerData
         gold = 10000;
         diamond = 10000;
 
-        boosterFillAllColorQuantity = 1000;
+        boosterFillAllColorQuantity = 100000;
         boosterFillByColorQuantity = 1000;
         boosterFindByColorQuantity = 1000;
 

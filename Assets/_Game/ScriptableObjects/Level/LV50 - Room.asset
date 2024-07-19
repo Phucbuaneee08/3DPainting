@@ -16888,10 +16888,11 @@ MonoBehaviour:
   - material: {fileID: -4612162990109294230, guid: 1a70ffd5c3bbb4942bbcae85cfa75a6c, type: 3}
     colorID: 20
   zoomInfo:
-    minZoom: 0.4
+    minZoom: 0.1
     maxZoom: 0.5
-    checkPointZoom: 0.1
+    checkPointZoom: 0.4
   imageSource: {fileID: 21300000, guid: eb7eb7d8132775046877754ace72914b, type: 3}
+  imageSourcePassed: {fileID: 0}
   poolType: 53
   levelType: 6
   costGold: 100

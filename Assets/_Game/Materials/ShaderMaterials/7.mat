@@ -56,7 +56,7 @@ Material:
     - _sm: 0
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0}
-    - _DefaultColor: {r: 0.074007235, g: 0.074007235, b: 0.074007235, a: 1}
+    - _DefaultColor: {r: 0.9340622, g: 0.9340622, b: 0.9340622, a: 1}
     - _NearColor: {r: 1, g: 0.9879074, b: 0, a: 0}
     - _near_color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

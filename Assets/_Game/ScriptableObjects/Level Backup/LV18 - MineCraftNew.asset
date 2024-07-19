@@ -582,366 +582,6 @@ MonoBehaviour:
     ID: 142
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.04, y: 0.089999996, z: 0.044999998}
-    ID: 143
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.089999996, z: 0.044999998}
-    ID: 144
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.01, z: 0.044999998}
-    ID: 145
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.06, z: 0.044999998}
-    ID: 146
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.08, z: 0.044999998}
-    ID: 147
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.049999997, z: 0.044999998}
-    ID: 148
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.01, z: 0.044999998}
-    ID: 149
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.01, z: 0.044999998}
-    ID: 150
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.04, z: 0.044999998}
-    ID: 151
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.07, z: 0.044999998}
-    ID: 152
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.03, z: 0.044999998}
-    ID: 153
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.06, z: 0.044999998}
-    ID: 154
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.049999997, z: 0.044999998}
-    ID: 155
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.08, z: 0.044999998}
-    ID: 156
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.04, z: 0.044999998}
-    ID: 157
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.02, z: 0.044999998}
-    ID: 158
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.01, z: 0.044999998}
-    ID: 159
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.049999997, z: 0.044999998}
-    ID: 160
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.07, z: 0.044999998}
-    ID: 161
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.089999996, z: 0.044999998}
-    ID: 162
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.089999996, z: 0.044999998}
-    ID: 163
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.089999996, z: 0.044999998}
-    ID: 164
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.049999997, z: 0.044999998}
-    ID: 165
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0, z: 0.044999998}
-    ID: 166
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.049999997, z: 0.044999998}
-    ID: 167
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.03, z: 0.044999998}
-    ID: 168
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.04, z: 0.044999998}
-    ID: 169
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.07, z: 0.044999998}
-    ID: 170
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.049999997, z: 0.044999998}
-    ID: 171
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.06, z: 0.044999998}
-    ID: 172
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.03, z: 0.044999998}
-    ID: 173
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.06, z: 0.044999998}
-    ID: 174
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.03, z: 0.044999998}
-    ID: 175
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.06, z: 0.044999998}
-    ID: 176
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.08, z: 0.044999998}
-    ID: 177
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.02, z: 0.044999998}
-    ID: 178
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.07, z: 0.044999998}
-    ID: 179
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.04, z: 0.044999998}
-    ID: 180
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.08, z: 0.044999998}
-    ID: 181
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0, z: 0.044999998}
-    ID: 182
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.01, z: 0.044999998}
-    ID: 183
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.04, z: 0.044999998}
-    ID: 184
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0, z: 0.044999998}
-    ID: 185
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.03, z: 0.044999998}
-    ID: 186
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.07, z: 0.044999998}
-    ID: 187
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.02, z: 0.044999998}
-    ID: 188
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.01, z: 0.044999998}
-    ID: 189
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0, z: 0.044999998}
-    ID: 190
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.07, z: 0.044999998}
-    ID: 191
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.06, z: 0.044999998}
-    ID: 192
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.06, z: 0.044999998}
-    ID: 193
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.07, z: 0.044999998}
-    ID: 194
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.01, z: 0.044999998}
-    ID: 195
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0, z: 0.044999998}
-    ID: 196
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0, z: 0.044999998}
-    ID: 197
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.03, z: 0.044999998}
-    ID: 198
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.02, z: 0.044999998}
-    ID: 199
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.02, z: 0.044999998}
-    ID: 200
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.07, z: 0.044999998}
-    ID: 201
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0, z: 0.044999998}
-    ID: 202
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.01, z: 0.044999998}
-    ID: 203
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.01, z: 0.044999998}
-    ID: 204
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.03, z: 0.044999998}
-    ID: 205
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0, z: 0.044999998}
-    ID: 206
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.04, z: 0.044999998}
-    ID: 207
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.02, z: 0.044999998}
-    ID: 208
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.02, z: 0.044999998}
-    ID: 209
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.02, z: 0.044999998}
-    ID: 210
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.08, z: 0.044999998}
-    ID: 211
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.02, z: 0.044999998}
-    ID: 212
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.07, z: 0.044999998}
-    ID: 213
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.08, z: 0.044999998}
-    ID: 214
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.06, z: 0.044999998}
-    ID: 215
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.04, z: 0.044999998}
-    ID: 216
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.08, z: 0.044999998}
-    ID: 217
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.08, z: 0.044999998}
-    ID: 218
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.06, z: 0.044999998}
-    ID: 219
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0, z: 0.044999998}
-    ID: 220
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.04, z: 0.044999998}
-    ID: 221
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.049999997, z: 0.044999998}
-    ID: 222
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.049999997, z: 0.044999998}
-    ID: 223
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.04, z: 0.044999998}
-    ID: 224
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.049999997, z: 0.044999998}
-    ID: 225
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.08, z: 0.044999998}
-    ID: 226
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.03, z: 0.044999998}
-    ID: 227
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.03, z: 0.044999998}
-    ID: 228
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.089999996, z: 0.044999998}
-    ID: 229
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.089999996, z: 0.044999998}
-    ID: 230
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.089999996, z: 0.044999998}
-    ID: 231
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.089999996, z: 0.044999998}
-    ID: 232
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.07, y: 0.08, z: -0.065}
     ID: 233
     realColorID: 1
@@ -2058,112 +1698,12 @@ MonoBehaviour:
     ID: 511
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0, y: 0.04, z: 0.055}
-    ID: 512
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.02, z: 0.055}
-    ID: 513
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.07, y: 0, z: 0.055}
     ID: 514
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.03, y: 0.08, z: 0.055}
-    ID: 515
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.03, z: 0.055}
-    ID: 516
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.06, z: 0.055}
-    ID: 517
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.06, z: 0.055}
-    ID: 518
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.08, z: 0.055}
-    ID: 519
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.03, z: 0.055}
-    ID: 520
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0, z: 0.055}
-    ID: 521
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.04, z: 0.055}
-    ID: 522
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.08, z: 0.055}
-    ID: 523
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.03, z: 0.055}
-    ID: 524
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.03, z: 0.055}
-    ID: 525
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.08, z: 0.055}
-    ID: 526
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.049999997, z: 0.055}
-    ID: 527
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.02, z: 0.055}
-    ID: 528
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.04, z: 0.055}
-    ID: 529
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.089999996, z: 0.055}
-    ID: 530
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0, z: 0.055}
-    ID: 531
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.07, y: 0.04, z: 0.055}
     ID: 532
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.049999997, z: 0.055}
-    ID: 533
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.02, z: 0.055}
-    ID: 534
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.02, z: 0.055}
-    ID: 535
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.049999997, z: 0.055}
-    ID: 536
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0, z: 0.055}
-    ID: 537
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.089999996, z: 0.055}
-    ID: 538
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.07, y: 0.02, z: 0.055}
@@ -2214,86 +1754,6 @@ MonoBehaviour:
     ID: 550
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.02, y: 0, z: 0.055}
-    ID: 551
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.089999996, z: 0.055}
-    ID: 552
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0, z: 0.055}
-    ID: 553
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.01, z: 0.055}
-    ID: 554
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.07, z: 0.055}
-    ID: 555
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.089999996, z: 0.055}
-    ID: 556
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.06, z: 0.055}
-    ID: 557
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0, z: 0.055}
-    ID: 558
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.04, z: 0.055}
-    ID: 559
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.02, z: 0.055}
-    ID: 560
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.02, z: 0.055}
-    ID: 561
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.049999997, z: 0.055}
-    ID: 562
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.03, z: 0.055}
-    ID: 563
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.06, z: 0.055}
-    ID: 564
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.03, z: 0.055}
-    ID: 565
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.07, z: 0.055}
-    ID: 566
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.049999997, z: 0.055}
-    ID: 567
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0, z: 0.055}
-    ID: 568
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.03, z: 0.055}
-    ID: 569
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.04, z: 0.055}
-    ID: 570
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.07, y: 0.02, z: 0.055}
     ID: 571
     realColorID: 1
@@ -2306,196 +1766,12 @@ MonoBehaviour:
     ID: 573
     realColorID: 1
     defaultColorID: 1
-  - position: {x: -0.04, y: 0.049999997, z: 0.055}
-    ID: 574
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.089999996, z: 0.055}
-    ID: 575
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.06, z: 0.055}
-    ID: 576
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.03, z: 0.055}
-    ID: 577
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.01, z: 0.055}
-    ID: 578
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.01, z: 0.055}
-    ID: 579
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.04, z: 0.055}
-    ID: 580
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.04, z: 0.055}
-    ID: 581
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.08, z: 0.055}
-    ID: 582
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.07, z: 0.055}
-    ID: 583
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.02, z: 0.055}
-    ID: 584
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.01, z: 0.055}
-    ID: 585
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.04, z: 0.055}
-    ID: 586
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.06, z: 0.055}
-    ID: 587
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.049999997, z: 0.055}
-    ID: 588
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.01, z: 0.055}
-    ID: 589
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.08, z: 0.055}
-    ID: 590
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.089999996, z: 0.055}
-    ID: 591
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.04, z: 0.055}
-    ID: 592
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.089999996, z: 0.055}
-    ID: 593
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.049999997, z: 0.055}
-    ID: 594
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: 0.01, z: 0.055}
-    ID: 595
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.01, z: 0.055}
-    ID: 596
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.02, z: 0.055}
-    ID: 597
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.07, z: 0.055}
-    ID: 598
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.08, z: 0.055}
-    ID: 599
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.089999996, z: 0.055}
-    ID: 600
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0, z: 0.055}
-    ID: 601
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.06, z: 0.055}
-    ID: 602
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.06, z: 0.055}
-    ID: 603
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.07, z: 0.055}
-    ID: 604
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.07, z: 0.055}
-    ID: 605
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.08, z: 0.055}
-    ID: 606
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.03, y: 0.02, z: 0.055}
-    ID: 607
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.089999996, z: 0.055}
-    ID: 608
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.03, z: 0.055}
-    ID: 609
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.08, z: 0.055}
-    ID: 610
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0, z: 0.055}
-    ID: 611
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.02, y: 0.07, z: 0.055}
-    ID: 612
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.07, y: 0.08, z: 0.055}
     ID: 613
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.07, y: 0.089999996, z: 0.055}
     ID: 614
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: 0.01, z: 0.055}
-    ID: 615
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.01, z: 0.055}
-    ID: 616
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: 0.07, z: 0.055}
-    ID: 617
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.07, z: 0.055}
-    ID: 618
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.049999997, z: 0.055}
-    ID: 619
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.03, y: 0.06, z: 0.055}
-    ID: 620
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: -0.02, z: 0.044999998}
-    ID: 621
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.03, y: -0.02, z: -0.044999998}
@@ -2510,16 +1786,8 @@ MonoBehaviour:
     ID: 624
     realColorID: 1
     defaultColorID: 1
-  - position: {x: -0.06, y: -0.02, z: 0.024999999}
-    ID: 625
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.02, y: -0.02, z: -0.035}
     ID: 626
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: -0.02, z: -0.055}
-    ID: 627
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.02, y: -0.02, z: -0.065}
@@ -2538,20 +1806,8 @@ MonoBehaviour:
     ID: 631
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.01, y: -0.02, z: -0.044999998}
-    ID: 632
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.01, y: -0.02, z: -0.065}
     ID: 633
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: -0.02, z: -0.055}
-    ID: 634
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: -0.02, z: -0.044999998}
-    ID: 635
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.02, y: -0.02, z: -0.065}
@@ -2564,22 +1820,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: 0.01, y: -0.02, z: -0.024999999}
     ID: 638
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: -0.02, z: -0.035}
-    ID: 639
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.01, y: -0.02, z: -0.055}
-    ID: 640
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.01, y: -0.02, z: -0.035}
-    ID: 641
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: -0.02, z: -0.044999998}
-    ID: 642
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.02, y: -0.02, z: -0.044999998}
@@ -2600,10 +1840,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: -0.02, y: -0.02, z: -0.024999999}
     ID: 647
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0, y: -0.02, z: -0.035}
-    ID: 648
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.04, y: -0.02, z: -0.065}
@@ -2938,10 +2174,6 @@ MonoBehaviour:
     ID: 731
     realColorID: 1
     defaultColorID: 1
-  - position: {x: -0.049999997, y: -0.02, z: 0.024999999}
-    ID: 732
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.03, y: -0.02, z: 0.024999999}
     ID: 733
     realColorID: 1
@@ -2950,16 +2182,8 @@ MonoBehaviour:
     ID: 734
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.049999997, y: -0.02, z: 0.024999999}
-    ID: 735
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.02, y: -0.02, z: 0.024999999}
     ID: 736
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.04, y: -0.02, z: 0.024999999}
-    ID: 737
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.01, y: -0.02, z: 0.024999999}
@@ -2970,16 +2194,8 @@ MonoBehaviour:
     ID: 739
     realColorID: 1
     defaultColorID: 1
-  - position: {x: -0.04, y: -0.02, z: 0.024999999}
-    ID: 740
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.03, y: -0.02, z: 0.024999999}
     ID: 741
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.06, y: -0.02, z: 0.024999999}
-    ID: 742
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.06, y: -0.02, z: -0.005}
@@ -3036,10 +2252,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: 0.02, y: -0.02, z: -0.035}
     ID: 756
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.049999997, y: -0.02, z: 0.044999998}
-    ID: 757
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.07, y: -0.02, z: 0.005}
@@ -3158,18 +2370,6 @@ MonoBehaviour:
     ID: 786
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.04, y: -0.02, z: 0.035}
-    ID: 787
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.049999997, y: -0.02, z: 0.035}
-    ID: 788
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: -0.02, z: 0.035}
-    ID: 789
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0, y: -0.02, z: 0.044999998}
     ID: 790
     realColorID: 1
@@ -3186,24 +2386,8 @@ MonoBehaviour:
     ID: 793
     realColorID: 1
     defaultColorID: 1
-  - position: {x: -0.049999997, y: -0.02, z: 0.044999998}
-    ID: 794
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.06, y: -0.02, z: 0.035}
-    ID: 795
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.049999997, y: -0.02, z: 0.035}
-    ID: 796
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.02, y: -0.02, z: 0.044999998}
     ID: 797
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.04, y: -0.02, z: 0.044999998}
-    ID: 798
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.02, y: -0.02, z: 0.035}
@@ -3212,10 +2396,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: 0.07, y: -0.02, z: -0.024999999}
     ID: 800
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.06, y: -0.02, z: 0.035}
-    ID: 801
     realColorID: 1
     defaultColorID: 1
   - position: {x: 0.049999997, y: -0.02, z: -0.065}
@@ -4048,14 +3228,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: 0.07, y: -0.02, z: 0.044999998}
     ID: 1009
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.06, y: -0.02, z: 0.044999998}
-    ID: 1010
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.06, y: -0.02, z: 0.044999998}
-    ID: 1011
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.07, y: -0.02, z: 0.044999998}
@@ -5346,10 +4518,6 @@ MonoBehaviour:
     ID: 1333
     realColorID: 1
     defaultColorID: 1
-  - position: {x: -0.049999997, y: -0.089999996, z: 0.055}
-    ID: 1334
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.06, y: -0.089999996, z: 0.055}
     ID: 1335
     realColorID: 1
@@ -5384,10 +4552,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: -0.04, y: -0.099999994, z: 0.055}
     ID: 1343
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: -0.049999997, y: -0.099999994, z: 0.055}
-    ID: 1344
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.06, y: -0.099999994, z: 0.055}
@@ -5770,10 +4934,6 @@ MonoBehaviour:
     ID: 1439
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.049999997, y: -0.089999996, z: 0.055}
-    ID: 1440
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.049999997, y: -0.08, z: 0.055}
     ID: 1441
     realColorID: 1
@@ -5990,10 +5150,6 @@ MonoBehaviour:
     ID: 1494
     realColorID: 1
     defaultColorID: 1
-  - position: {x: 0.049999997, y: -0.099999994, z: 0.055}
-    ID: 1495
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.049999997, y: -0.06, z: 0.044999998}
     ID: 1496
     realColorID: 1
@@ -6095,7 +5251,8 @@ MonoBehaviour:
     minZoom: 0.1
     maxZoom: 0.25
     checkPointZoom: 0.2
-  imageSource: {fileID: 21300000, guid: 1f3cddc61cfc45e458237faec3878adc, type: 3}
+  imageSource: {fileID: 21300000, guid: cec94a3ac7eadae47aba1aee4db22815, type: 3}
+  imageSourcePassed: {fileID: 21300000, guid: 675fb83a8a6f60443ba1cfccf6008ae5, type: 3}
   poolType: 23
   levelType: 1
   costGold: 100
