@@ -33,9 +33,16 @@ public class ListLevelUI : MonoBehaviour
         yield return new WaitForEndOfFrame();
         LevelType levelType = levelData.level.levelType;
         string capitalizedLevelType = char.ToUpper(levelType.ToString()[0]) + levelType.ToString().Substring(1);
-        textLevelType.text = $"{capitalizedLevelType} {levelDatas.level3D.Count(type => type.level.levelType == levelData.level.levelType)}";
-
-        foreach (var lvData in levelDatasList)
+        var levelsOfType = levelDatas.level3D.Where(type => type.level.levelType == levelData.level.levelType).ToList();
+        int totalLevels = levelsOfType.Count;
+        int uncoloredLevels = levelsOfType.Count(type => DataManager.Ins.playerData.GetDataWithID(type.levelID).isColored);
+        textLevelType.text = $"{capitalizedLevelType} {uncoloredLevels}/{totalLevels}";
+        var sortedLevelDatasList = levelDatasList.OrderByDescending(lvData =>
+        {
+            var model = levelDatas.GetLevelWithID(lvData.levelID);
+            return model != null && model.level.unlockType == UnlockType.free;
+        }).ToList();
+        foreach (var lvData in sortedLevelDatasList)
         {
             LevelItem levelItem = miniPool.Spawn();
             levelItems.Add(levelItem);
@@ -45,11 +52,12 @@ public class ListLevelUI : MonoBehaviour
             bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
             bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
             bool isUnlock = lvDataModel.unlockType != UnlockType.free;
-            levelItem.SetData(lvData.levelID, lvData.level.imageSource,lvData.level.imageSourcePassed, isColored, !isColored && isGoldOrAds, !isColored && isDiamond, isUnlock,lvData.level.poolType);
+            levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, !isColored && isGoldOrAds, !isColored && isDiamond, isUnlock, lvData.level.poolType);
         }
 
         StartCoroutine(IE_SetSizeDetal());
     }
+
 
     public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList, LevelType _levelType)
     {

@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class LevelItem : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class LevelItem : MonoBehaviour
     public Image imageSource;
     public PoolType poolType;
     public Sprite imageSourcePass;
+    private Color[] colors = new Color[]
+   {
+        new Color(0.878f, 0.631f, 0.706f),  
+        new Color(0.235f, 0.784f, 0.949f), 
+        new Color(0.918f, 0.318f, 0.529f)   
+   };
     public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType)
     {
         this.levelID = levelID;
@@ -28,8 +35,7 @@ public class LevelItem : MonoBehaviour
         if (isPassed)
         {
             imageSource.sprite = avatarPass;
-            Color pinkColor = new Color(1f, 0.41f, 0.71f); 
-            imgBackG.color = pinkColor;
+            imgBackG.color = ChangeColor();
         }
         else
         {
@@ -67,12 +73,15 @@ public class LevelItem : MonoBehaviour
             UIManager.Ins.OpenUI<UIPassedLevel>().CreateAnimation(poolType);
         }
     }
-
+  
     public int GetID()
     {
         return levelID;
     }
-
+    public Color ChangeColor()
+    {
+        return colors[Random.Range(0, colors.Length)];
+    }
     public void SetColorImg()
     {
         Color originalColor = imageSource.color;

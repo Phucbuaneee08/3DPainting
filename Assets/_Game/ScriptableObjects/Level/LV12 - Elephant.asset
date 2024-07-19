@@ -1807,4 +1807,4 @@ MonoBehaviour:
   levelType: 1
   costGold: 100
   costDiamond: 10
-  unlockType: 4
+  unlockType: 1
