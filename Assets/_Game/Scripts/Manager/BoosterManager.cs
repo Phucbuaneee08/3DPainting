@@ -17,6 +17,7 @@ public class BoosterManager : Singleton<BoosterManager>
     [SerializeField] private Player player;
     [SerializeField] private int numberCubeFillByNumber = 10;
     [SerializeField] private int numberCubeFill = 10;
+    [SerializeField] private List<Cube> inactive_cubes;
 
     private float maxDistance = 0.01f;
 
@@ -94,6 +95,21 @@ public class BoosterManager : Singleton<BoosterManager>
     {
         if (currentColorID == 0) return;
         Cube cub = Ultilities.CheckNextCubeInList(LevelManager.Ins.Cubes, currentColorID);
+
+        //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        //RaycastHit hit;
+
+        //// Perform the raycast
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    // Check if the raycast hit an object
+        //    Debug.Log("Hit " + hit.collider.gameObject.name);
+
+        //    // Perform actions on the hit object
+        //    // Example: Destroy(hit.collider.gameObject);
+        //}
+    
+
         Vector3 cameraPosition = Camera.main.transform.position;
         Vector3 cubeDirection = cub.transform.position - player.transform.position;
         Vector3 playerDirection = cameraPosition - player.transform.position;
@@ -134,6 +150,7 @@ public class BoosterManager : Singleton<BoosterManager>
 
         float angle2 = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
 
+        CameraManager.Ins.SetMinView();
 
         if(player.transform.up.y > 0)
         {
@@ -147,7 +164,26 @@ public class BoosterManager : Singleton<BoosterManager>
         }
         ItemManager.Ins.TurnOffAllBoosterItem();
 
-     
+        //yield return new WaitForSeconds(1f);
+        //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        //RaycastHit hit;
+        //Debug.DrawLine(ray.origin, cub.transform.position, Color.red);
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    Cube cube = hit.collider.GetComponent<Cube>();
+
+        //    //if (cube.ID != cub.ID)
+        //    //{
+        //        inactive_cubes.Add(cube);
+        //        cube.gameObject.SetActive(false);
+        //    //}
+
+        //    // Log the object hit by the ray
+        //    //Debug.Log("Hit object: " + hit.collider.GetComponent<Cube>().ID);
+
+        //    // Optionally, you can perform other actions on the hit object here
+        //}
+
 
     }
    

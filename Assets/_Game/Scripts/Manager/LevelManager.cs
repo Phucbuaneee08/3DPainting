@@ -178,7 +178,7 @@ public class LevelManager : Singleton<LevelManager>
         //player.PlayAnim();
         AudioManager.Ins.OnWin();
         GameManager.Ins.ChangeState(GameState.Finish);
-        CameraManager.Ins.SetFieldOfView();
+        CameraManager.Ins.SetCheckPointView();
         UIManager.Ins.CloseAll();
         Color lightPink = new Color(1f, 0.71f, 0.76f);
         //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
