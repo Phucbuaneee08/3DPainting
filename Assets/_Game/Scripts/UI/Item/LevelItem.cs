@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class LevelItem : MonoBehaviour
 {
@@ -20,16 +21,22 @@ public class LevelItem : MonoBehaviour
     public Image imgLevelPassed;
     public Image imageSource;
     public PoolType poolType;
+    public ZoomInfo zoomInfo;
     public Sprite imageSourcePass;
-    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType)
+    private Color[] colors = new Color[]
+   {
+        new Color(0.878f, 0.631f, 0.706f)/*,
+        new Color(0.235f, 0.784f, 0.949f),
+        new Color(0.918f, 0.318f, 0.529f)*/
+   };
+    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo)
     {
         this.levelID = levelID;
 
         if (isPassed)
         {
             imageSource.sprite = avatarPass;
-            Color pinkColor = new Color(1f, 0.41f, 0.71f); 
-            imgBackG.color = pinkColor;
+            imgBackG.color = ChangeColor();
         }
         else
         {
@@ -44,6 +51,7 @@ public class LevelItem : MonoBehaviour
         imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);
         imgUnleckDiamond.gameObject.SetActive(showImgUnlock2);
         this.poolType = poolType;
+        this.zoomInfo = zoomInfo;
     }
 
     public void SelectLevel()
@@ -64,7 +72,10 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
-            UIManager.Ins.OpenUI<UIPassedLevel>().CreateAnimation(poolType);
+            AnimationController.Ins.LoadPrefabOfType(poolType.ToString());
+            UIManager.Ins.OpenUI<UIPassedLevel>();
+            CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
+
         }
     }
 
@@ -72,7 +83,10 @@ public class LevelItem : MonoBehaviour
     {
         return levelID;
     }
-
+    public Color ChangeColor()
+    {
+        return colors[Random.Range(0, colors.Length)];
+    }
     public void SetColorImg()
     {
         Color originalColor = imageSource.color;

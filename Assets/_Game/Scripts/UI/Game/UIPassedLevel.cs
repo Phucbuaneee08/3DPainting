@@ -18,9 +18,8 @@ public class UIPassedLevel : UICanvas
     public void Btn_Home()
     {
         UIManager.Ins.CloseAll();
+        AnimationController.Ins.OnDestroy();
         UIManager.Ins.OpenUI<MainMenu>();
-        if(passedLevel!=null)
-        SimplePool.Collect(passedLevel);
         BackgroundManager.Ins.ChangeDefaultBackground();
         player.OnReset();
     }
@@ -29,12 +28,8 @@ public class UIPassedLevel : UICanvas
         UIManager.Ins.CloseAll();
         base.Open();
     }
-    public void CreateAnimation(PoolType poolType)
+    public void CreateAnimation(PoolType poolType,ZoomInfo zoomInfo)
     {
-        if (SimplePool.FindPrefabByType(poolType))
-        {
-            passedLevel = SimplePool.Spawn<AnimationGameUnit>(poolType,player.transform);
-            player.TF.DORotate(LevelManager.Ins.rotateOffset, 0f);
-        }
+        CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
     }
 }

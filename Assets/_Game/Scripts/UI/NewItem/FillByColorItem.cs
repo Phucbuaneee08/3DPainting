@@ -35,6 +35,10 @@ public class FillByColorItem : BoosterItem
     public override void TurnOn()
     {
         base.TurnOn();
+
+        BoosterManager.Ins.IsCanUseZoomBooster = true;
+        BoosterManager.Ins.ZoomBoosterByColor();
+
         ItemManager.Ins.TurnOffAllColorItem();
         BoosterManager.Ins.IsCanUseFillByNumberBooster = true;
         BoosterManager.Ins.IsCanUseFillAllNumberBooster = false;

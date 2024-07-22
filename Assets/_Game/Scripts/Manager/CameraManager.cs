@@ -46,6 +46,10 @@ public class CameraManager : Singleton<CameraManager>
         this.maxZoom = zoomInfo.maxZoom;
         cam.orthographicSize = maxZoom;
     }
+    public void SetOrthoSize(float orthorSize)
+    {
+        cam.orthographicSize = orthorSize;
+    }
     private void Start()
     {
         
@@ -91,7 +95,18 @@ public class CameraManager : Singleton<CameraManager>
           
         }
 #endif
-       
+
+        if (cam.orthographicSize > checkPointZoom && IsZooming)
+        {
+            camState = CameraState.ZoomOut;
+            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
+        }
+        else if (cam.orthographicSize < checkPointZoom && IsZooming)
+        {
+            camState = CameraState.ZoomIn;
+            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
+        }
+
     }
     public bool IsCameraState(CameraState cs)
     {
@@ -109,23 +124,21 @@ public class CameraManager : Singleton<CameraManager>
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         MaterialManager.Ins.ChangeColorStateByFOV((cam.orthographicSize - checkPointZoom) / (maxZoom - checkPointZoom));
 
-        if (cam.orthographicSize > checkPointZoom )
-        {
-            camState = CameraState.ZoomOut;
-            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
-        }
-        else if (cam.orthographicSize < checkPointZoom )
-        {
-            camState = CameraState.ZoomIn;
-            UIManager.Ins.GetUI<UIGameplay>().ChangeZoomButtonState(camState);
-        }
+        
 
     }
-    public void SetFieldOfView()
+    public void SetCheckPointView()
     {
         //StartCoroutine(StartSetFOV());
         cam.DOOrthoSize(checkPointZoom, 2f);
+
      
+    }
+    public void SetMinView()
+    {
+        IsZooming = true;
+        cam.DOOrthoSize(minZoom, 1f);
+        LerpInCreaseOrthoSize(1f);
     }
     public void ChangeZoomState()
     {

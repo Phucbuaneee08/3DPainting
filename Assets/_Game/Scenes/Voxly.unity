@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 2.118548, g: 2.118548, b: 2.118548, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.3467041, g: 0.34191445, b: 0.34191445, a: 1}
   m_AmbientGroundColor: {r: 0.6609868, g: 0.71409166, b: 1.0592737, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 1
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 8822a1fcd74a539448e52313f5769675, type: 2}
   m_HaloStrength: 0.5
@@ -192,6 +192,7 @@ MonoBehaviour:
     isShowDailyRewardFirst: 0
     isSpinReward: 1
     isShowSpinRewardFirst: 0
+    countProgresses: 0
     levelDataModels: []
 --- !u!1 &196987361
 GameObject:
@@ -450,7 +451,7 @@ MonoBehaviour:
   totalTime: 99999
   reviveTime: 60
   root: {fileID: 2085022473}
-  rotateOffset: {x: 344.48825, y: 41.204308, z: 346.82117}
+  rotateOffset: {x: 347.60608, y: 38.69808, z: 350.24393}
   vibrationDuration: 10
   currentLevel: {fileID: 0}
   currentColor: 0
@@ -565,6 +566,7 @@ MonoBehaviour:
   player: {fileID: 2099514019}
   numberCubeFillByNumber: 35
   numberCubeFill: 15
+  inactive_cubes: []
   boosterQuantity: 999
   boosterFillByColorQuantity: 999
   SelectedBoosterType: 0
@@ -1913,6 +1915,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1985260479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985260480}
+  - component: {fileID: 1985260481}
+  m_Layer: 0
+  m_Name: AnimationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1985260480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985260479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0137225855, y: 0.0044613127, z: 0.036697537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1985260481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985260479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a1b6f3a73b54841bf6f5be6bffe6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2099514019}
+  gameUnit: {fileID: 0}
 --- !u!1 &2068139180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2170,7 @@ SceneRoots:
   - {fileID: 237622975}
   - {fileID: 1135058978}
   - {fileID: 297134134}
+  - {fileID: 1985260480}
   - {fileID: 1548949512}
   - {fileID: 1455351150}
   - {fileID: 1053684849}

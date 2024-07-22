@@ -19,7 +19,7 @@ public class FindByColorItem : BoosterItem
         else { 
             base.OnClick();
             if(LevelManager.Ins.currentColor!=0)
-                BoosterManager.Ins.FindNextCubeByColor(LevelManager.Ins.currentColor);
+                BoosterManager.Ins.FindNextCubeByColor2(LevelManager.Ins.currentColor);
         }
     }
   

@@ -199,6 +199,7 @@ public class PlayerData
     [Header("--------- Spin  ---------")]
     public int isSpinReward;
     public bool isShowSpinRewardFirst;
+    public int countProgresses;
 
     [Header("--------- Level Data ---------")]
     public List<LevelDataModel> levelDataModels;
@@ -212,7 +213,7 @@ public class PlayerData
         gold = 10000;
         diamond = 10000;
 
-        boosterFillAllColorQuantity = 100000;
+        boosterFillAllColorQuantity = 1000;
         boosterFillByColorQuantity = 1000;
         boosterFindByColorQuantity = 1000;
 
@@ -232,6 +233,7 @@ public class PlayerData
         isCollectFullInDay = 0;
 
         isSpinReward = 1;
+        countProgresses = 0;
 
         isShowDailyRewardFirst = false;
         isShowSpinRewardFirst = false;

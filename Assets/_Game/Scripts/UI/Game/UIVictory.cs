@@ -45,16 +45,17 @@ public class UIVictory : UICanvas
         confesti.Play();
         GameManager.Ins.ChangeState(GameState.Finish);
         ReLoadUI();
-        LoopButton();
+        LoopScaleButton();
     }
     private void ReLoadUI()
     {
         textGoldBonus.text = $"{"+"} {goldBonus}";
         coinPi.transform.position = tfCointBonus.position;
     }
-    private void LoopButton()
+    private void LoopScaleButton()
     {
-        btnClaimX2.transform.DOScale(1.1f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
+        btnClaimX2.transform.localScale = new Vector3(1, 1, 1);
+        btnClaimX2.transform.DOScale(1.2f, 1).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void NextLevel()
@@ -67,7 +68,7 @@ public class UIVictory : UICanvas
         {
             CollectCoin(goldBonus * 2);
             DataManager.Ins.SaveData();
-            DOVirtual.DelayedCall(3.2f, () =>
+            DOVirtual.DelayedCall(3f, () =>
             {
                 LevelManager.Ins.Home();
             });
@@ -76,13 +77,15 @@ public class UIVictory : UICanvas
     }
     private void CollectCoin(int amount)
     {
-        float duration = 0.75f;
-        coinPi.rateOverTime = 30 / duration;
+
+        coinPi.rateOverTime = amount;
+       
         coinPi.Play();
-        AudioManager.Ins.OnGetMultiCoins(amount);
-        Ultilities.DelayThenDoTask(this, 2f, () =>
+       
+        Ultilities.DelayThenDoTask(this, 1.6f, () =>
         {
             DataManager.Ins.ChangeGold(amount);
+            AudioManager.Ins.OnGetMultiCoins(amount);
         });
        
       

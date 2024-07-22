@@ -61,7 +61,7 @@ public class LevelManager : Singleton<LevelManager>
    
     public void OnReset()
     {
-        if (_currentAnim != null) Destroy(_currentAnim.gameObject);
+        AnimationController.Ins.OnDestroy();
         IsCanUseAds = true;
         root.SetActive(true);
         player.OnReset();
@@ -91,7 +91,7 @@ public class LevelManager : Singleton<LevelManager>
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
-     
+
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
             Cube newCube = SimplePool.Spawn<Cube>(PoolType.Cube, currentLevel.cubes[i].position, Quaternion.identity);
@@ -107,7 +107,7 @@ public class LevelManager : Singleton<LevelManager>
         player.transform.DORotate(rotateOffset, 0f);
         UIManager.Ins.CloseAll();
         UIManager.Ins.OpenUI<UIGameplay>().InitColorItem(currentLevel.materials);
-        UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
+        //UIManager.Ins.GetUI<UIGameplay>().SetCountDownTime(totalTime);
         BoosterManager.Ins.OnInit();
 
 
@@ -177,19 +177,22 @@ public class LevelManager : Singleton<LevelManager>
         //player.PlayAnim();
         AudioManager.Ins.OnWin();
         GameManager.Ins.ChangeState(GameState.Finish);
-        CameraManager.Ins.SetFieldOfView();
+        CameraManager.Ins.SetCheckPointView();
         UIManager.Ins.CloseAll();
         Color lightPink = new Color(1f, 0.71f, 0.76f);
         //BackGroundManager.Ins.ChangeColorBGGradually(lightPink, 2f);
         player.MoveToStartPosition(Vector3.zero, rotateOffset);
         yield return new WaitForSeconds(2f);
-        if (SimplePool.FindPrefabByType(currentLevel.poolType))
-        {
+        //if (SimplePool.FindPrefabByType(currentLevel.poolType))
+        //{
 
-            root.SetActive(false);
-            _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
+        //    root.SetActive(false);
+        //    _currentAnim = SimplePool.Spawn<AnimationGameUnit>(currentLevel.poolType,player.transform);
 
-        }
+        //}
+        root.SetActive(false);
+        AnimationController.Ins.LoadPrefabOfType(currentLevel.poolType.ToString());
+
         SaveLevelData();
         yield return new WaitForSeconds(2f);
         Victory();
@@ -203,11 +206,14 @@ public class LevelManager : Singleton<LevelManager>
 
         playerData.GetDataWithID(DataManager.Ins.playerData.currentlevelID).isColored = true;
         playerData.CountLevelPassed += 1;
-        if (playerData.CountLevelPassed % 10 == 0)
+        if(DataManager.Ins.playerData.isSpinReward == 0)
         {
-            playerData.isSpinReward = 1;
+            playerData.countProgresses += 1;
+            if (playerData.countProgresses == 10)
+            {
+                playerData.isSpinReward = 1;
+            }
         }
-
         DataManager.Ins.SaveData();
     }
     public void Fail()

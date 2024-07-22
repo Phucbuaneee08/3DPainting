@@ -59,7 +59,7 @@ public class UISpin : UICanvas
         }
         else
         {
-            textPlay.text = $"Pass: {(DataManager.Ins.playerData.CountLevelPassed + 5) % 10}/10";
+            textPlay.text = $"Pass: {DataManager.Ins.playerData.countProgresses}/10";
         }
     }
     private void Update()
@@ -80,6 +80,7 @@ public class UISpin : UICanvas
         }
         rewardIndex = GetRandomIndex();
         DataManager.Ins.playerData.isSpinReward = 0;
+        DataManager.Ins.playerData.countProgresses = 0;
         DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
@@ -198,6 +199,7 @@ public class UISpin : UICanvas
     }
     public void BtnExit()
     {
+        if (isRotate == true) return;
         UIManager.Ins.CloseUI<UISpin>();
         UIManager.Ins.GetUI<MainMenu>().UIBtnSpin();
     }
