@@ -74,6 +74,7 @@ public class LevelItem : MonoBehaviour
         {
             LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
             UIManager.Ins.OpenUI<UIShortLoading>();
+            CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
 
         }
     }
