@@ -48,7 +48,7 @@ public class LoadAddress : Singleton<LoadAddress>
 
         if (opHandle.Status == AsyncOperationStatus.Succeeded)
         {
-
+            UIManager.Ins.OpenUI<UIPassedLevel>();
             GameObject prefab = opHandle.Result;
 
             player.transform.DORotate(LevelManager.Ins.rotateOffset, 0f);

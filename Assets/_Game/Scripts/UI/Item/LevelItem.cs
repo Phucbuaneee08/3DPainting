@@ -21,6 +21,7 @@ public class LevelItem : MonoBehaviour
     public Image imgLevelPassed;
     public Image imageSource;
     public PoolType poolType;
+    public ZoomInfo zoomInfo;
     public Sprite imageSourcePass;
     private Color[] colors = new Color[]
    {
@@ -28,7 +29,7 @@ public class LevelItem : MonoBehaviour
         new Color(0.235f, 0.784f, 0.949f),
         new Color(0.918f, 0.318f, 0.529f)*/
    };
-    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType)
+    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType,ZoomInfo zoomInfo)
     {
         this.levelID = levelID;
 
@@ -50,6 +51,7 @@ public class LevelItem : MonoBehaviour
         imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);
         imgUnleckDiamond.gameObject.SetActive(showImgUnlock2);
         this.poolType = poolType;
+        this.zoomInfo = zoomInfo;
     }
 
     public void SelectLevel()
@@ -73,10 +75,9 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
-            UIManager.Ins.OpenUI<UIShortLoad>().With(() =>
-            {
-                UIManager.Ins.OpenUI<UIPassedLevel>().CreateAnimation(poolType);
-            }, 1);
+            LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
+            UIManager.Ins.OpenUI<UIShortLoading>();
+          
         }
     }
 

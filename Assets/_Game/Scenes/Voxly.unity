@@ -497,7 +497,7 @@ MonoBehaviour:
   totalTime: 99999
   reviveTime: 60
   root: {fileID: 2085022473}
-  rotateOffset: {x: 342.70062, y: 332.61923, z: 8.755474}
+  rotateOffset: {x: 347.60608, y: 38.69808, z: 350.24393}
   vibrationDuration: 10
   currentLevel: {fileID: 0}
   currentColor: 0
@@ -612,6 +612,7 @@ MonoBehaviour:
   player: {fileID: 2099514019}
   numberCubeFillByNumber: 35
   numberCubeFill: 15
+  inactive_cubes: []
   boosterQuantity: 999
   boosterFillByColorQuantity: 999
   SelectedBoosterType: 0

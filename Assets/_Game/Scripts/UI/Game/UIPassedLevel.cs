@@ -30,8 +30,9 @@ public class UIPassedLevel : UICanvas
         UIManager.Ins.CloseAll();
         base.Open();
     }
-    public void CreateAnimation(PoolType poolType)
+    public void CreateAnimation(PoolType poolType,ZoomInfo zoomInfo)
     {
+        CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
         LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
     }
 }
