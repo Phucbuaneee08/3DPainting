@@ -21,21 +21,24 @@ public class LoadAddress : Singleton<LoadAddress>
         Debug.Log(address);
         opHandle = Addressables.LoadAssetAsync<GameObject>(address);
         yield return opHandle;
-    }
-
-    public void OnLoadAnimation()
-    {
         if (opHandle.Status == AsyncOperationStatus.Succeeded)
         {
-           
+
             GameObject prefab = opHandle.Result;
-          
-            go = Instantiate(prefab,player.transform);
+
+            go = Instantiate(prefab, player.transform);
+            go.SetActive(false);
         }
         else
         {
             Debug.LogError("Failed to load asset: " + opHandle.OperationException);
         }
+    }
+
+    public void OnLoadAnimation()
+    {
+        if(go!= null)
+             go.SetActive(true);
     }
 
     public async void LoadAndInstantiate(string objectName)

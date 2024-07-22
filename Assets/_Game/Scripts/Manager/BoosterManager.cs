@@ -186,7 +186,60 @@ public class BoosterManager : Singleton<BoosterManager>
 
 
     }
-   
+
+
+    public void FindNextCubeByColor2(int currentColorID)
+    {
+        if (currentColorID == 0) return;
+        Cube cub = Ultilities.CheckNextCubeInList(LevelManager.Ins.Cubes, currentColorID);
+
+ 
+
+
+        Vector3 cameraPosition = Camera.main.transform.position;
+        Vector3 cubeDirection = cub.transform.position - player.transform.position;
+        Vector3 playerDirection = cameraPosition - player.transform.position;
+
+        Vector3 horizontalRotateCube = new Vector3(cubeDirection.x, 0, cubeDirection.z);
+        Vector3 horizontalRotatePlayer = new Vector3(playerDirection.x, 0, playerDirection.z);
+
+                
+        Vector3 moveYDistance = cub.TF.position - new Vector3(cub.TF.position.x, 0, cub.TF.position.z);
+        float distance = Vector3.Distance(cub.TF.position , new Vector3(cub.TF.position.x, 0, cub.TF.position.z));
+
+        float angle2 = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
+
+        Debug.Log(cub.transform.position);
+        player.transform.DOMoveY(-moveYDistance.y, 1f);
+        //if(moveYDistance.y < 0) {
+        //    player.transform.DOMoveY(moveYDistance.y, 1f);
+        //}else        
+        //    player.transform.DOMoveY(moveYDistance.y, 1f);
+        CameraManager.Ins.SetMinView();
+
+        if (player.transform.up.y > 0)
+        {
+            if (cubeDirection.x > 0) player.transform.DORotate(new Vector3(0, angle2, 0), 1f, RotateMode.LocalAxisAdd);
+            else player.transform.DORotate(new Vector3(0, -angle2, 0), 1f, RotateMode.LocalAxisAdd);
+        }
+        else
+        {
+            if (cubeDirection.x > 0) player.transform.DORotate(new Vector3(0, -angle2, 0), 1f, RotateMode.LocalAxisAdd);
+            else player.transform.DORotate(new Vector3(0, +angle2, 0), 1f, RotateMode.LocalAxisAdd);
+        }
+        ItemManager.Ins.TurnOffAllBoosterItem();
+
+
+
+        DataManager.Ins.ChangeBoosterFindByColor(-1);
+
+        if (DataManager.Ins.playerData.boosterFindByColorQuantity <= 0)
+        {
+            ItemManager.Ins.TurnOffBoosterItemByEnum(BoosterType.FindByColor);
+        }
+
+    }
+
 
     #endregion
 
