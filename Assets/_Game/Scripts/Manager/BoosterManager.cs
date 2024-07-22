@@ -210,7 +210,8 @@ public class BoosterManager : Singleton<BoosterManager>
         float angle2 = Vector3.Angle(horizontalRotateCube, horizontalRotatePlayer);
 
         Debug.Log(cub.transform.position);
-        player.transform.DOMoveY(-moveYDistance.y, 1f);
+        Debug.Log(cub.transform.position.y);
+        player.transform.DOMoveY(-cub.transform.position.y, 1f);
         //if(moveYDistance.y < 0) {
         //    player.transform.DOMoveY(moveYDistance.y, 1f);
         //}else        
