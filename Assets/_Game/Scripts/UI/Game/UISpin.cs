@@ -59,7 +59,7 @@ public class UISpin : UICanvas
         }
         else
         {
-            textPlay.text = $"Pass: {DataManager.Ins.playerData.countProgresses}/10";
+            textPlay.text = $"{DataManager.Ins.playerData.countProgresses}/10";
         }
     }
     private void Update()
