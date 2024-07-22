@@ -18,10 +18,8 @@ public class UIPassedLevel : UICanvas
     public void Btn_Home()
     {
         UIManager.Ins.CloseAll();
+        AnimationController.Ins.OnDestroy();
         UIManager.Ins.OpenUI<MainMenu>();
-
-        LoadAddress.Ins.OnDestroy();
-
         BackgroundManager.Ins.ChangeDefaultBackground();
         player.OnReset();
     }
@@ -33,6 +31,5 @@ public class UIPassedLevel : UICanvas
     public void CreateAnimation(PoolType poolType,ZoomInfo zoomInfo)
     {
         CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
-        LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
     }
 }

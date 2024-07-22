@@ -72,8 +72,8 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
-            LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
-            UIManager.Ins.OpenUI<UIShortLoading>();
+            AnimationController.Ins.LoadPrefabOfType(poolType.ToString());
+            UIManager.Ins.OpenUI<UIPassedLevel>();
             CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
 
         }
