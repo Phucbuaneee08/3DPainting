@@ -61,7 +61,7 @@ public class LevelManager : Singleton<LevelManager>
    
     public void OnReset()
     {
-        LoadAddress.Ins.OnDestroy();
+        AnimationController.Ins.OnDestroy();
         IsCanUseAds = true;
         root.SetActive(true);
         player.OnReset();
@@ -91,7 +91,6 @@ public class LevelManager : Singleton<LevelManager>
         OnInit();
         CameraManager.Ins.SetZoomInfo(currentLevel.zoomInfo);
         MaterialManager.Ins.SetMatData(currentLevel.materials);
-        LoadAddress.Ins.LoadAnimationAddress(currentLevel.poolType.ToString());
 
         for (int i = 0; i < currentLevel.cubes.Count; i++)
         {
@@ -192,7 +191,7 @@ public class LevelManager : Singleton<LevelManager>
 
         //}
         root.SetActive(false);
-        LoadAddress.Ins.OnLoadAnimation();
+        AnimationController.Ins.LoadPrefabOfType(currentLevel.poolType.ToString());
 
         SaveLevelData();
         yield return new WaitForSeconds(2f);
