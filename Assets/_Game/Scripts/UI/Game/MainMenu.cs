@@ -14,6 +14,7 @@ public class MainMenu : UICanvas
     [SerializeField] private GameObject notiDailyReward;
     [SerializeField] private GameObject notiShop;
     [SerializeField] private GameObject notiTut;
+    [SerializeField] private GameObject objBar;
     [SerializeField] private TMP_Text textNumberPass;
     [SerializeField] private ButtonUI buttonUI;
     [SerializeField] private Image imgProgress;
@@ -80,7 +81,7 @@ public class MainMenu : UICanvas
             else
             {
                 notiSpin.SetActive(isSpinReward);
-                textNumberPass.gameObject.SetActive(!isSpinReward);
+                objBar.gameObject.SetActive(!isSpinReward);
                 if (!isSpinReward)
                 {
                     textNumberPass.text = $"{countProgress}/10";
@@ -97,7 +98,7 @@ public class MainMenu : UICanvas
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton(3);
-        textNumberPass.gameObject.SetActive(false);
+        objBar.gameObject.SetActive(false);
         notiSpin.SetActive(true);
         Ultilities.DelayThenDoTask(this, 4f, () =>
         {

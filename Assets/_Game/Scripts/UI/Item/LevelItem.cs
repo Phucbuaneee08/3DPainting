@@ -25,11 +25,11 @@ public class LevelItem : MonoBehaviour
     public Sprite imageSourcePass;
     private Color[] colors = new Color[]
    {
-        new Color(0.878f, 0.631f, 0.706f),
+        new Color(0.878f, 0.631f, 0.706f)/*,
         new Color(0.235f, 0.784f, 0.949f),
-        new Color(0.918f, 0.318f, 0.529f)
+        new Color(0.918f, 0.318f, 0.529f)*/
    };
-    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType,ZoomInfo zoomInfo)
+    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo)
     {
         this.levelID = levelID;
 
@@ -74,7 +74,7 @@ public class LevelItem : MonoBehaviour
         {
             LoadAddress.Ins.LoadAndInstantiate(poolType.ToString());
             UIManager.Ins.OpenUI<UIShortLoading>();
-          
+
         }
     }
 

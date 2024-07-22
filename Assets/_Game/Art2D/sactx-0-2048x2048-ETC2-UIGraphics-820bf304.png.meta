@@ -270,27 +270,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-0-2048x2048-ETC2-UIGraphics-820bf304_16
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 1583
-        width: 536
-        height: 274
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 172cbeb47c610b747af19b7b859a4b98
-      internalID: 2013510857
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: sactx-0-2048x2048-ETC2-UIGraphics-820bf304_17
       rect:
         serializedVersion: 2
@@ -790,6 +769,27 @@ TextureImporter:
       bones: []
       spriteID: cc6dff2971c3b5e459b06480d4ed562e
       internalID: 2008414559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-UIGraphics-820bf304_14
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 1589
+        width: 257
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86e7ca41eab5f94c914968fbbd441b6
+      internalID: -1369104381
       vertices: []
       indices: 
       edges: []
