@@ -98,7 +98,7 @@ public class MainMenu : UICanvas
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton(3);
-        textNumberPass.gameObject.SetActive(false);
+        objBar.gameObject.SetActive(false);
         notiSpin.SetActive(true);
         Ultilities.DelayThenDoTask(this, 4f, () =>
         {
