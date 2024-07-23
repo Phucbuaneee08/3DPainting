@@ -32,12 +32,13 @@ RectTransform:
   m_Children:
   - {fileID: 3755843758437102500}
   - {fileID: 4083948801418306192}
+  - {fileID: 6303279316194598695}
   m_Father: {fileID: 2924146021927835974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.012451}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -765}
+  m_SizeDelta: {x: 1080, y: 1530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4108848677602596639
 CanvasRenderer:
@@ -458,8 +459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1080}
-  m_SizeDelta: {x: 1080, y: 2160.1}
+  m_AnchoredPosition: {x: 0, y: -800.69995}
+  m_SizeDelta: {x: 1080, y: 1601.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2850249050324639967
 CanvasRenderer:
@@ -662,7 +663,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2914466161338963429}
-  - {fileID: 6303279316194598695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1064,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4083948801418306192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2326,7 +2326,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2924146021927835974}
+    m_TransformParent: {fileID: 2914466161338963429}
     m_Modifications:
     - target: {fileID: 2773264060677262147, guid: 6dd9f165549c925479a9ccaaeb19b63d, type: 3}
       propertyPath: m_Name

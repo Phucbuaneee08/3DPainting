@@ -40,7 +40,7 @@ public class MainMenu : UICanvas
     private void LoadUIButtonHome()
     {
         buttonUI.LoadUIButtonItem();
-        //buttonUI.SetRecTF(2);
+        buttonUI.SetRecTF(2);
     }
     public void UIBtnDailyReward()
     {
@@ -128,7 +128,7 @@ public class MainMenu : UICanvas
     {
         if (DataManager.Ins.playerData.CountLevelPassed >= 5)
         {
-            //buttonUI.SetRecTF(3);
+            buttonUI.SetRecTF(3);
             UIManager.Ins.OpenUI<UISpin>();
         }
     }
@@ -137,13 +137,13 @@ public class MainMenu : UICanvas
     {
         if (DataManager.Ins.playerData.CountLevelPassed >= 3)
         {
-            //buttonUI.SetRecTF(1);
+            buttonUI.SetRecTF(1);
             UIManager.Ins.OpenUI<UIDailyReward>();
         }
     }
     public void BtnHome()
     {
-        //buttonUI.SetRecTF(2);
+        buttonUI.SetRecTF(2);
     }
     public void UpdateNotfi()
     {
@@ -153,13 +153,13 @@ public class MainMenu : UICanvas
 
     public void BtnTut()
     {
-        //buttonUI.SetRecTF(4);
+        buttonUI.SetRecTF(4);
         UIManager.Ins.OpenUI<PopupRate>();
     }
 
     public void BtnShop()
     {
-        //buttonUI.SetRecTF(0);
+        buttonUI.SetRecTF(0);
         //UIManager.Ins.OpenUI<PopupUnlockBtnDaily>();
     }
     public void BtnSetting()

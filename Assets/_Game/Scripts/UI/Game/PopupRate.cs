@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PopupRate : UICanvas
 {
-    public Transform starsHolder;
     public Button send;
     [SerializeField] private List<StarUI> listStars;
     public override void Open()
