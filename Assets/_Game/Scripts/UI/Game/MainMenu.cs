@@ -154,7 +154,7 @@ public class MainMenu : UICanvas
     public void BtnTut()
     {
         //buttonUI.SetRecTF(4);
-        //UIManager.Ins.OpenUI<PopupUnlockBtnSpin>();
+        UIManager.Ins.OpenUI<PopupRate>();
     }
 
     public void BtnShop()
