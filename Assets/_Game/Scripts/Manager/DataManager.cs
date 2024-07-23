@@ -178,17 +178,26 @@ public class PlayerData
     public bool isPassedTutorialClick;
     public bool isPassedTutorialRotate;
     public bool isPassedTutorialZoom;
+
     public bool isPassedTutorialBooster1;
     public bool isPassedTutorialBooster2;
     public bool isPassedTutorialBooster3;
+
     public int currentlevelID;
+
     public int gold;
     public int diamond;
+
     public int boosterFillAllColorQuantity;
     public int boosterFillByColorQuantity;
     public int boosterFindByColorQuantity;
+
     public int unlockAds;
-  
+
+    public bool music;
+    public bool sound;
+    public bool vibrationEnabled;
+
     [Header("--------- Daily Reward ---------")]
     public int daysCollected;
     public double daysLastOpen;
@@ -237,6 +246,10 @@ public class PlayerData
 
         isShowDailyRewardFirst = false;
         isShowSpinRewardFirst = false;
+
+        music = true;
+        sound = true;
+        vibrationEnabled = true;
     }
 
     public LevelDataModel GetDataWithID(int _id)

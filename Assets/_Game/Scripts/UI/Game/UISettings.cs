@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UISettings : MonoBehaviour
+public class UISettings : UICanvas
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Open()
     {
-        
+        base.Open();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void BtnExit()
     {
-        
+        UIManager.Ins.CloseUI<UISettings>();
     }
 }

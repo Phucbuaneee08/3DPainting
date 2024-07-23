@@ -162,4 +162,8 @@ public class MainMenu : UICanvas
         //buttonUI.SetRecTF(0);
         //UIManager.Ins.OpenUI<PopupUnlockBtnDaily>();
     }
+    public void BtnSetting()
+    {
+        UIManager.Ins.OpenUI<UISettings>();
+    }
 }

@@ -34,50 +34,58 @@ namespace Paint3D
         {
             DontDestroyOnLoad(gameObject);
         }
+        public void MuteSound()
+        {
+            DataManager.Ins.playerData.sound = false;
+            DataManager.Ins.SaveData();
+            SFXSource.mute = true;
+        }
 
-//        public void MuteSound()
-//        {
-//            DataManager.Instance.GameData.sound = false;
-//            SFXSource.mute = !DataManager.Instance.GameData.sound;
-//        }
-//        public void MuteMusic()
-//        {
-//            DataManager.Instance.GameData.music = false;
-//            musicSource.mute = !DataManager.Instance.GameData.music;
-//        }
-//        public void ResumSound()
-//        {
-//            DataManager.Instance.GameData.sound = true;
-//            SFXSource.mute = !DataManager.Instance.GameData.sound;
-//        }
-//        public void ResumeMusic()
-//        {
-//            DataManager.Instance.GameData.music = true;
-//            musicSource.mute = !DataManager.Instance.GameData.music;
-//        }
-//        public void VibrateDevice(bool fastVibrate = false)
-//        {
-//            if (DataManager.Instance.GameData.vibrationEnabled)
-//            {
-//                if (!fastVibrate)
-//                {
-//#if UNITY_ANDROID
-//                    Vibration.Vibrate(100, 50);
-//#else
-//        Handheld.Vibrate();
-//#endif
-//                }
-//                else
-//                {
-//#if UNITY_ANDROID
-//                    Vibration.Vibrate(40, 40);
-//#else
-//        Handheld.Vibrate();
-//#endif
+        public void ResumeSound()
+        {
+            DataManager.Ins.playerData.sound = true;
+            DataManager.Ins.SaveData();
+            SFXSource.mute = false;
+        }
 
-//                }
-//            }
-//        }
+        public void MuteMusic()
+        {
+            DataManager.Ins.playerData.music = false;
+            DataManager.Ins.SaveData();
+            musicSource.mute = true;
+        }
+
+        public void ResumeMusic()
+        {
+            DataManager.Ins.playerData.music = true;
+            DataManager.Ins.SaveData();
+            musicSource.mute = false;
+        }
+
+        public void VibrateDevice(bool fastVibrate = false)
+        {
+            if (DataManager.Ins.playerData.vibrationEnabled)
+            {
+                if (!fastVibrate)
+                {
+#if UNITY_ANDROID
+                    long[] pattern = { 0, 100, 50 };
+                    Vibration.Vibrate(pattern, -1);
+#else
+                    Handheld.Vibrate();
+#endif
+                }
+                else
+                {
+#if UNITY_ANDROID
+                    long[] pattern = { 0, 40, 40 };
+                    Vibration.Vibrate(pattern, -1);
+#else
+                    Handheld.Vibrate();
+#endif
+                }
+            }
+        }
 
         public void RefreshVolumeStatus()
         {
