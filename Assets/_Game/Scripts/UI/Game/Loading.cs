@@ -28,7 +28,7 @@ public class Loading : UICanvas
             {
                 UIManager.Ins.CloseUI<Loading>();
                // UIManager.Ins.OpenUI<UIMainMenu>();
-                UIManager.Ins.OpenUI<MainMenu>();
+                UIManager.Ins.GetUI<MainMenu>().Open();
             });
         });
     }

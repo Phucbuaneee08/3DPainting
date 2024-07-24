@@ -29,8 +29,9 @@ public class PopupClaim : UICanvas
         rewardTypeUISpin.OnCollectSpin(1, () =>
         {
             UIManager.Ins.CloseUI<PopupClaim>();
-            UIManager.Ins.GetUI<UISpin>().isRotate = false;
-            UIManager.Ins.GetUI<UISpin>().UpdateBtn();
+            UIManager.Ins.GetUI<MainMenu>().uiSpin.isRotate = false;
+            UIManager.Ins.GetUI<MainMenu>().uiSpin.UpdateBtn();
+            UIManager.Ins.GetUI<MainMenu>().UIBtnSpin();
         });
     }
 }

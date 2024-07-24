@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-public class UIDailyReward : UICanvas
+public class UIDailyReward : MonoBehaviour
 {
     [SerializeField] private GameObject claimObj;
     [SerializeField] private GameObject claimX2Obj;
@@ -17,9 +17,8 @@ public class UIDailyReward : UICanvas
     private DateTime nextDay;
     private WeeklyRewardData weeklyData;
 
-    public override void Open()
+    public void Open()
     {
-        base.Open();
         todayIndex = DataManager.Ins.playerData.daysCollected % 7;
         weekIndex = DataManager.Ins.playerData.daysCollected / 7;
         weekIndex %= weeklyRewardList.GetWeekAmount();
@@ -46,13 +45,12 @@ public class UIDailyReward : UICanvas
         }
         dayArray[todayIndex].Tf.SetAsLastSibling();
         UpdateTimeRemaining(DateTime.Now);
+        Debug.Log("Load Daily Reward");
     }
 
     private void UpdateTimeRemaining(DateTime now)
     {
         nextDay = now.Date.AddDays(1);
-        // TimeSpan timeRemaining = nextDay - now;
-        // timeTmp.text = $"Next reward in: {timeRemaining.Hours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
     }
 
     private void Update()
@@ -66,13 +64,7 @@ public class UIDailyReward : UICanvas
             }
         }
     }
-
-    public void BtnExit()
-    {
-        UIManager.Ins.CloseUI<UIDailyReward>();
-        UIManager.Ins.GetUI<MainMenu>().UIBtnDailyReward();
-    }
-
+  
     public void ButtonClaim()
     {
         if (DataManager.Ins.playerData.isTodayCollectFree == 1) return;
@@ -87,7 +79,6 @@ public class UIDailyReward : UICanvas
         {
         });
     }
-
     public void ButtonClaimX2()
     {
         if (DataManager.Ins.playerData.isCollectFullInDay == 1) return;
@@ -96,12 +87,14 @@ public class UIDailyReward : UICanvas
         {
             dayArray[todayIndex].OnCollect(1, () =>
             {
+                UIManager.Ins.GetUI<MainMenu>().UIBtnDailyReward();
             });
         }
         else
         {
             dayArray[todayIndex].OnCollect(2, () =>
             {
+                  UIManager.Ins.GetUI<MainMenu>().UIBtnDailyReward();
             });
         }
         DataManager.Ins.playerData.isTodayCollectFree = 1;
@@ -110,6 +103,5 @@ public class UIDailyReward : UICanvas
         claimX2Obj.SetActive(false);
         waitObj.SetActive(true);
         DataManager.Ins.SaveData();
-
     }
 }

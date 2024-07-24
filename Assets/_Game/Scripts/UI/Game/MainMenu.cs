@@ -1,6 +1,7 @@
 using AssetKits.ParticleImage;
 using DG.Tweening;
 using Paint3D;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,7 @@ using UnityEngine.UI;
 public class MainMenu : UICanvas
 {
     [SerializeField] private HomeLevelUI homeLevelUI;
+    [SerializeField] private List<PopupCellUI> popupCells;
     [SerializeField] private GameObject notiSpin;
     [SerializeField] private GameObject notiDailyReward;
     [SerializeField] private GameObject notiShop;
@@ -19,6 +21,8 @@ public class MainMenu : UICanvas
     [SerializeField] private ButtonUI buttonUI;
     [SerializeField] private Image imgProgress;
 
+    public UISpin uiSpin;
+    public UIDailyReward uIDailyReward;
     public GameObject textGold;
     public RectTransform tfBtnSpin;
     public RectTransform tfBtnDailyReward;
@@ -29,19 +33,45 @@ public class MainMenu : UICanvas
         base.Open();
         GameManager.Ins.ChangeState(GameState.MainMenu);
         AudioManager.Ins.OnPlayHomeMusic();
-        ReLoadData();
         LoadUIButtonHome();
+        ReLoadData();
         UpdateNotfi();
     }
+    public void ReLoadData()
+    {
+        homeLevelUI.ReLoad();
+    }
+
     public void SetActiveButton(int index, bool isActive)
     {
         buttonUI.SetActiveCell(index, isActive);
     }
+
     private void LoadUIButtonHome()
     {
         buttonUI.LoadUIButtonItem();
-        buttonUI.SetRecTF(2);
+        SetActiveSelect((int)TypePopup.home);
     }
+    private void LoadPopupUI(int id)
+    {
+        StartCoroutine(IE_LoadPopupUI(id));
+    }
+    IEnumerator IE_LoadPopupUI(int id)
+    {
+        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < popupCells.Count; i++)
+        {
+            if (popupCells[i].idSelect == id)
+            {
+                popupCells[i].SetData(true);
+            }
+            else
+            {
+                popupCells[i].SetData(false);
+            }
+        }
+    }
+    #region Notf
     public void UIBtnDailyReward()
     {
         int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
@@ -103,7 +133,8 @@ public class MainMenu : UICanvas
         Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnSpin>();
-            UIManager.Ins.OpenUI<UISpin>();
+            SetActiveSelect((int)TypePopup.spin);
+            uiSpin.Open();
             notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
             GameManager.Ins.ChangeState(GameState.MainMenu);
         });
@@ -116,54 +147,58 @@ public class MainMenu : UICanvas
         Ultilities.DelayThenDoTask(this, 4f, () =>
         {
             UIManager.Ins.CloseUI<PopupUnlockBtnDaily>();
-            UIManager.Ins.OpenUI<UIDailyReward>();
+            uIDailyReward.Open();
+            SetActiveSelect((int)TypePopup.dailyRewards);
             notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
             GameManager.Ins.ChangeState(GameState.MainMenu);
         });
     }
-
-    public void ReLoadData() => homeLevelUI.ReLoad();
-
+    #endregion
     public void BtnSpin()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed >= 5)
-        {
-            buttonUI.SetRecTF(3);
-            UIManager.Ins.OpenUI<UISpin>();
-        }
+        uiSpin.Open();
+        SetActiveSelect((int)TypePopup.spin);
     }
 
     public void BtnOpenDailyReward()
     {
-        if (DataManager.Ins.playerData.CountLevelPassed >= 3)
-        {
-            buttonUI.SetRecTF(1);
-            UIManager.Ins.OpenUI<UIDailyReward>();
-        }
+        uIDailyReward.Open();
+        SetActiveSelect((int)TypePopup.dailyRewards);
+
     }
     public void BtnHome()
     {
-        buttonUI.SetRecTF(2);
+        SetActiveSelect((int)TypePopup.home);
     }
     public void UpdateNotfi()
     {
         UIBtnSpin();
         UIBtnDailyReward();
     }
-
     public void BtnTut()
     {
-        buttonUI.SetRecTF(4);
-        UIManager.Ins.OpenUI<PopupRate>();
+        SetActiveSelect((int)TypePopup.tut);
     }
-
     public void BtnShop()
     {
-        buttonUI.SetRecTF(0);
-        //UIManager.Ins.OpenUI<PopupUnlockBtnDaily>();
+        SetActiveSelect((int)TypePopup.shop);
     }
     public void BtnSetting()
     {
         UIManager.Ins.OpenUI<UISettings>();
     }
+    public void SetActiveSelect(int id)
+    {
+        LoadPopupUI(id);
+       // buttonUI.SetRecTF(id); set button up
+    }
+}
+[Serializable]
+public enum TypePopup
+{
+    shop = 0,
+    dailyRewards = 1,
+    home = 2,
+    spin = 3,
+    tut = 4
 }

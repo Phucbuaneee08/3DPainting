@@ -11,21 +11,34 @@ public class ButtonUI : MonoBehaviour
 
     public void SetRecTF(int idSlect)
     {
+
+        StartCoroutine(IE_SetRecTF(idSlect));
+    }
+    IEnumerator IE_SetRecTF(int idSlect)
+    {
+        yield return new WaitForEndOfFrame();
         for (int i = 0; i < listCell.Count; i++)
         {
             if (listCell[i].isActive != false)
             {
                 if (listCell[i].idSelect == idSlect)
                 {
-                    listCell[i].MoveUp();
+                   
+                    if (listCell[i].CurrentItemState == ItemState.TurnOff)
+                    {
+                        listCell[i].ChangeItemState(ItemState.TurnOn);
+                    }
                 }
                 else
                 {
-                    listCell[i].MoveDown();
+                    listCell[i].ChangeItemState(ItemState.TurnOff);
                 }
             }
-
         }
+    }
+    public void SetCurrenState(int index)
+    {
+        listCell[index].CurrentItemState = ItemState.TurnOn;
     }
     public void LoadUIButtonItem()
     {
@@ -109,6 +122,7 @@ public class ButtonUI : MonoBehaviour
     {
         listCell[index].gameObject.SetActive(isActive);
         listCell[index].isActive = true;
+        listCell[index].SetInitialPosition();
         int activeCount = CountIsActve();
         Vector2 cellSize = CalculateCellSize(activeCount);
         if (gridLayoutGroup != null)
