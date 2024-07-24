@@ -22,10 +22,7 @@ public class TestCubeDefault : MonoBehaviour
             string idsString = string.Join(",", idCubeDefault);
             Debug.Log("Default Cube IDs: " + idsString);
         }
-        else
-        {
-            Debug.Log("No Default Cubes found.");
-        }
+       
 
     }
 }
