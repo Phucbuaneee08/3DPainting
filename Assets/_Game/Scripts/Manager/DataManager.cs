@@ -37,9 +37,51 @@ public class DataManager : Singleton<DataManager>
         }
         else
         {
+            UpdateDataJson();
             CheckDailyReward();
         }
         isLoaded = true;
+    }
+    public void UpdateDataJson()
+    {
+        int countNew = LevelManager.Ins.levelDatas.level3D.Count;
+        int countOld = playerData.levelDataModels.Count;
+
+        if (countNew != countOld)
+        {
+            var existingLevelDict = playerData.levelDataModels.ToDictionary(ld => ld.levelID);
+            var newLevels = LevelManager.Ins.levelDatas.level3D;
+            var newLevelIDs = newLevels.Select(l => l.levelID).ToList();
+
+            if (countNew > countOld)
+            {
+                AddNewLevels(newLevels, existingLevelDict);
+            }
+
+            if (countNew < countOld)
+            {
+                RemoveOldLevels(newLevelIDs);
+            }
+            Debug.Log("Update");
+            SaveData();
+        }
+    }
+
+    private void AddNewLevels(List<LevelData> newLevels, Dictionary<int, LevelDataModel> existingLevelDict)
+    {
+        foreach (var newLevel in newLevels)
+        {
+            if (!existingLevelDict.ContainsKey(newLevel.levelID))
+            {
+                var newLevelDataModel = new LevelDataModel(newLevel.levelID, false, newLevel.level.unlockType);
+                playerData.levelDataModels.Add(newLevelDataModel);
+            }
+        }
+    }
+
+    private void RemoveOldLevels(List<int> newLevelIDs)
+    {
+        playerData.levelDataModels.RemoveAll(ld => !newLevelIDs.Contains(ld.levelID));
     }
 
     public void SaveData()

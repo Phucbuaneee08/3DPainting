@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class HomeLevelUI : MonoBehaviour
 {
-    [SerializeField] LevelDatas levelDatas;
     public ListLevelUI ListLevelUIPrefabs;
     public List<ListLevelUI> listLevelUIs = new List<ListLevelUI>();
     public RectTransform tfContent;
@@ -29,7 +28,7 @@ public class HomeLevelUI : MonoBehaviour
         listLevelUIs.Clear();
         Dictionary<LevelType, LevelData> firstLevelByType = new Dictionary<LevelType, LevelData>();
         Dictionary<LevelType, List<LevelData>> levelsByType = new Dictionary<LevelType, List<LevelData>>();
-        foreach (LevelData levelData in levelDatas.level3D)
+        foreach (LevelData levelData in LevelManager.Ins.levelDatas.level3D)
         {
             LevelType levelType = levelData.level.levelType;
             if (!levelsByType.ContainsKey(levelType))
@@ -46,7 +45,7 @@ public class HomeLevelUI : MonoBehaviour
             LevelType lvType = kvp.Key;
             List<LevelData> levelsOfType = kvp.Value;
             LevelData firstLevelOfType = firstLevelByType[lvType];
-            listLevelUI.SetData(firstLevelOfType, levelDatas, levelsOfType, lvType);
+            listLevelUI.SetData(firstLevelOfType, LevelManager.Ins.levelDatas, levelsOfType, lvType);
             NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
             nestedScrollHandler.parentScrollRect = scrollRect;
         }
