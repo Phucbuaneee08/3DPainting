@@ -155,6 +155,10 @@ public class UIGameplay : UICanvas
     {
         fillBoosterItem.MoveUp();
     }
+    public void HomeBtn()
+    {
+        LevelManager.Ins.Home();
+    }
     public void UpdateBoosterFillByColorQuantity()
     {
 
