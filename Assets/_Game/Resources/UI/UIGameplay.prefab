@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 600}
-  m_SizeDelta: {x: 0, y: 399.5913}
+  m_AnchoredPosition: {x: 0.000061035156, y: 538}
+  m_SizeDelta: {x: -0.00012207, y: 362.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7562396796649392175
 CanvasRenderer:
@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3623047, y: -92.490234}
-  m_SizeDelta: {x: 70.0511, y: 196.9805}
+  m_AnchoredPosition: {x: -0.00024414062, y: -88}
+  m_SizeDelta: {x: -0.00048828, y: 186.7278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7331191486421994022
 CanvasRenderer:
@@ -184,15 +184,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5bc89cc199910a94ab50e68453bbfda0, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 55f362ff773f6dd42a63d97c7ec59be0, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -566,6 +566,7 @@ MonoBehaviour:
   rectTransform: {fileID: 9202383802206505959}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40
+  addBooster: {fileID: 0}
   quantityText: {fileID: 8275931486923756847}
   BoosterType: 2
 --- !u!1 &1237651245739054986
@@ -1197,7 +1198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1818,6 +1819,7 @@ MonoBehaviour:
   rectTransform: {fileID: 4377461981295628362}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40
+  addBooster: {fileID: 0}
   quantityText: {fileID: 1187642449305430539}
   BoosterType: 1
   colorBrush: {fileID: 2960729375499253054}
@@ -2331,6 +2333,7 @@ MonoBehaviour:
   rectTransform: {fileID: 2318079608801521187}
   initialPosition: {x: 0, y: 0, z: 0}
   moveDistance: 40
+  addBooster: {fileID: 0}
   quantityText: {fileID: 7054444128852312782}
   BoosterType: 3
 --- !u!1 &8668127769667972736
@@ -2641,12 +2644,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 291106037383072055, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 291106037383072055, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5bc89cc199910a94ab50e68453bbfda0, type: 3}
+      objectReference: {fileID: 21300000, guid: 55f362ff773f6dd42a63d97c7ec59be0, type: 3}
     - target: {fileID: 291106037383072055, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2717,11 +2720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3334636407783411607, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 31.4309
+      value: -0.00012207
       objectReference: {fileID: 0}
     - target: {fileID: 3334636407783411607, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.87
+      value: 222.5085
       objectReference: {fileID: 0}
     - target: {fileID: 3334636407783411607, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2753,11 +2756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3334636407783411607, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.4716187
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3334636407783411607, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 287.76996
+      value: 282
       objectReference: {fileID: 0}
     - target: {fileID: 3334636407783411607, guid: 80eba7a184251f6418c425b5564d3fdd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
