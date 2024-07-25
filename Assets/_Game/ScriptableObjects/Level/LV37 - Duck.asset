@@ -702,10 +702,6 @@ MonoBehaviour:
     ID: 175
     realColorID: 3
     defaultColorID: 1
-  - position: {x: -0.015, y: 0.02, z: -0.024999999}
-    ID: 176
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: -0.015, y: 0.049999997, z: -0.044999998}
     ID: 177
     realColorID: 3
@@ -741,10 +737,6 @@ MonoBehaviour:
   - position: {x: 0.044999998, y: -0.01, z: 0.005}
     ID: 185
     realColorID: 3
-    defaultColorID: 1
-  - position: {x: 0.024999999, y: -0.04, z: 0.035}
-    ID: 186
-    realColorID: 1
     defaultColorID: 1
   - position: {x: 0.015, y: 0.03, z: 0.074999996}
     ID: 187
@@ -1470,10 +1462,6 @@ MonoBehaviour:
     ID: 368
     realColorID: 3
     defaultColorID: 1
-  - position: {x: -0.024999999, y: -0.04, z: 0.035}
-    ID: 369
-    realColorID: 1
-    defaultColorID: 1
   - position: {x: 0.024999999, y: 0.02, z: -0.024999999}
     ID: 370
     realColorID: 1
@@ -1812,10 +1800,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: -0.024999999, y: 0.02, z: 0.085}
     ID: 454
-    realColorID: 1
-    defaultColorID: 1
-  - position: {x: 0.044999998, y: 0.01, z: 0.035}
-    ID: 456
     realColorID: 1
     defaultColorID: 1
   - position: {x: -0.015, y: 0.06, z: -0.044999998}
