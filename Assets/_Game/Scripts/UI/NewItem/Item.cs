@@ -22,7 +22,7 @@ public class Item : MonoBehaviour
     }
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        
         StartCoroutine(IE_SetInitPosition());
         CurrentItemState = ItemState.TurnOff;
     }
