@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class MaterialManager : Singleton<MaterialManager>
@@ -30,6 +31,7 @@ public class MaterialManager : Singleton<MaterialManager>
         cube.colorRender.sharedMaterial = matData[colorID-1].material;
        
     }
+
   
     public void SetMatData(List<MaterialData> md)
     {

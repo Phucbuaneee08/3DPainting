@@ -44,7 +44,10 @@ public class ColorItem : Item
     public override void TurnOn() 
     { 
         base.TurnOn();
-
+        if (BoosterManager.Ins.IsCanUseFillByNumberBooster)
+        {
+            LevelManager.Ins.OnChangeColor(bg.color);
+        }
         LevelManager.Ins.FocusByColorId(colorID);
         MoveUp();
     }
