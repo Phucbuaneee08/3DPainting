@@ -16,6 +16,7 @@ public class DailyRewardUI : MonoBehaviour
 
     private Transform tf;
     public List<DailyRewardTypeUI> typeList = new List<DailyRewardTypeUI>();
+    public Sprite spriteColecting;
 
     public Transform Tf => tf;
 
@@ -34,7 +35,7 @@ public class DailyRewardUI : MonoBehaviour
         collectedObj.SetActive(isCollected);
         collectingObj.SetActive(todayCollected);
 
-        bgImg.color = isToday ? new Color(0, 255, 0) : bgImg.color;
+        bgImg.sprite = isToday ? spriteColecting : bgImg.sprite;
         switch (data.dailyList.Count)
         {
             case 1:
