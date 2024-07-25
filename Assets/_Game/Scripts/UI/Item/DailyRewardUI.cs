@@ -27,7 +27,7 @@ public class DailyRewardUI : MonoBehaviour
 
     public void Init(DailyRewardData data, int todayIndex)
     {
-        dayTmp.text = "DAY " + (data.dayIndex + 1).ToString();
+        dayTmp.text = "Day " + (data.dayIndex + 1).ToString();
         bool isToday = data.dayIndex == todayIndex;
         bool todayCollected = DataManager.Ins.playerData.isTodayCollected == 1 && isToday;
         bool isCollected = data.dayIndex < todayIndex || todayCollected;
@@ -51,7 +51,6 @@ public class DailyRewardUI : MonoBehaviour
                 typeList = GetTypeList(type4Obj.transform);
                 break;
             default:
-                Debug.Log("Null");
                 break;
         }
 

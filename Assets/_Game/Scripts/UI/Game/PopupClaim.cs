@@ -8,6 +8,7 @@ public class PopupClaim : UICanvas
 {
     [SerializeField] private GameObject type1Obj;
     [SerializeField] private GameObject type2Obj;
+    [SerializeField] private GameObject type4Obj;
     [SerializeField] private RewardTypeUI rewardTypeUISpin;
     private bool isClaim = false;
     public override void Open()
@@ -21,6 +22,10 @@ public class PopupClaim : UICanvas
         AudioManager.Ins.OnRewardSpin();
         type1Obj.SetActive(true);
         rewardTypeUISpin.InitSpin(reward);
+    }
+    public void OninitDaiLyReward()
+    {
+
     }
     public void BtnClaim()
     {
