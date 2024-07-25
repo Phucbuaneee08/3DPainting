@@ -51,7 +51,6 @@ public class UIGameplay : UICanvas
         base.Open();
         AudioManager.Ins.OnPlayInGameMusic();
         GameManager.Ins.ChangeState(GameState.GamePlay);
-        textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
     }
     public void OnInitBoosterItem(int fillByColor,int fillAlColor,int findByColor)
     {
@@ -103,7 +102,6 @@ public class UIGameplay : UICanvas
         }
         colorItems.Clear();
         //boosterController.ReLoadUIBooster();
-        textLevel.text = "Level: " + DataManager.Ins.playerData.currentlevelID.ToString();
     }
 
     public void ResetItem()
@@ -156,6 +154,10 @@ public class UIGameplay : UICanvas
     public void MoveUpBtn(FillBoosterItem fillBoosterItem)
     {
         fillBoosterItem.MoveUp();
+    }
+    public void HomeBtn()
+    {
+        LevelManager.Ins.Home();
     }
     public void UpdateBoosterFillByColorQuantity()
     {
