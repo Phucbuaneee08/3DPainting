@@ -14,9 +14,9 @@ public class UIBuyBooster : UICanvas
 
     public TextMeshProUGUI textCostBooster;
     public TextMeshProUGUI numberBooster;
-    public Image imgBG1;
-    public Image imgBG2;
-    public Image imgBG3;
+    public Image imgFillAllColor;
+    public Image imgFillByColor;
+    public Image imgFindByColor;
     private int id;
     
     [SerializeField] TextMeshProUGUI textGold;
@@ -62,9 +62,9 @@ public class UIBuyBooster : UICanvas
 
    
 
-        imgBG1.gameObject.SetActive(boosterType == BoosterType.FillAllColor);
-        imgBG2.gameObject.SetActive(boosterType == BoosterType.FillByColor);
-        imgBG3.gameObject.SetActive(boosterType == BoosterType.FindByColor);
+        imgFillAllColor.gameObject.SetActive(boosterType == BoosterType.FillAllColor);
+        imgFillByColor.gameObject.SetActive(boosterType == BoosterType.FillByColor);
+        imgFindByColor.gameObject.SetActive(boosterType == BoosterType.FindByColor);
     }
 
 
