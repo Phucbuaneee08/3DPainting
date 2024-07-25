@@ -33,7 +33,7 @@ public class DailyRewardUI : MonoBehaviour
         bool isCollected = data.dayIndex < todayIndex || todayCollected;
 
         collectedObj.SetActive(isCollected);
-        collectingObj.SetActive(todayCollected);
+        collectingObj.SetActive(isCollected);
 
         bgImg.sprite = isToday ? spriteColecting : bgImg.sprite;
         switch (data.dailyList.Count)
