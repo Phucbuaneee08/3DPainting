@@ -25,7 +25,8 @@ public class LevelItem : MonoBehaviour
     public Sprite imageSourcePass;
     private Color[] colors = new Color[]
    {
-        new Color(0.878f, 0.631f, 0.706f)/*,
+        new Color(0.878f, 0.631f, 0.706f),
+        new Color(0.93f, 0.84f, 0.69f)/*,
         new Color(0.235f, 0.784f, 0.949f),
         new Color(0.918f, 0.318f, 0.529f)*/
    };
@@ -36,10 +37,14 @@ public class LevelItem : MonoBehaviour
         if (isPassed)
         {
             imageSource.sprite = avatarPass;
-            imgBackG.color = ChangeColor();
+            imgBackG.color = ChangeColor(0);
         }
         else
         {
+            if (isUnlock)
+            {
+                imgBackG.color = ChangeColor(1);
+            }
             imageSource.sprite = avatar;
         }
         if (avatarPass != null)
@@ -48,6 +53,7 @@ public class LevelItem : MonoBehaviour
         }
         imgLevelPassed.gameObject.SetActive(isPassed);
         imgUnlock.gameObject.SetActive(isUnlock);
+       
         imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);
         imgUnleckDiamond.gameObject.SetActive(showImgUnlock2);
         this.poolType = poolType;
@@ -83,9 +89,9 @@ public class LevelItem : MonoBehaviour
     {
         return levelID;
     }
-    public Color ChangeColor()
+    public Color ChangeColor(int index)
     {
-        return colors[Random.Range(0, colors.Length)];
+        return colors[index];
     }
     public void SetColorImg()
     {

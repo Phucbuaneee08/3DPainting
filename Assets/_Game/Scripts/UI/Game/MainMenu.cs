@@ -49,8 +49,8 @@ public class MainMenu : UICanvas
 
     private void LoadUIButtonHome()
     {
-        buttonUI.LoadUIButtonItem();
         SetActiveSelect((int)TypePopup.home);
+        buttonUI.LoadUIButtonItem();
     }
     private void LoadPopupUI(int id)
     {
