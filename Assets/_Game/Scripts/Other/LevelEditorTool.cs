@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
-
+#if UNITY_EDITOR
 public class LevelEditorTool : EditorWindow
 {
     private Level level;
@@ -57,3 +57,4 @@ public class LevelEditorTool : EditorWindow
         }
     }
 }
+#endif

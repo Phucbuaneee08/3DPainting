@@ -72,7 +72,7 @@ public class UIVictory : UICanvas
     }
     private void CollectCoin(int amount)
     {
-
+        AudioManager.Ins.OnDropCoin();
         coinPi.rateOverTime = amount;
        
         coinPi.Play();
