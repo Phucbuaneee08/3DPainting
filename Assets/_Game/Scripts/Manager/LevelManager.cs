@@ -76,7 +76,7 @@ public class LevelManager : Singleton<LevelManager>
         MaterialManager.Ins.OnResetDefaultColor();
         MaterialManager.Ins.ResetFloatShaderColor();
         UIManager.Ins.GetUI<UIGameplay>().ResetItem();
-        //UIManager.Ins.GetUI<MainMenu>().ReLoadData();
+        ItemManager.Ins.ResetBuyBoosterByAds();
         CameraManager.Ins.Reset();
         BoosterManager.Ins.ResetAllBooster();
         UIManager.Ins.CloseAll();

@@ -41,14 +41,15 @@ public class UIBuyBooster : UICanvas
     }
 
    
-    public void SetData(BoosterType boosterType,string name)
+    public void SetData(BoosterType boosterType,string name,bool isCanBuyByAds)
     {
-        if (LevelManager.Ins.IsCanUseAds) 
+        if (isCanBuyByAds) 
         { 
             adsButton.SetActive(true); 
-            LevelManager.Ins.IsCanUseAds = false;
         }
-        else adsButton.SetActive(false);
+        else 
+            adsButton.SetActive(false);
+
         boosterName.text = name;
         _cost = BoosterManager.Ins.GetBoosterPrice(boosterType);
         _boosterType = boosterType;
@@ -77,8 +78,7 @@ public class UIBuyBooster : UICanvas
             {
                 DataManager.Ins.ChangeGold(-_cost);
                 if (_boosterType == BoosterType.FillAllColor)
-                {
-                 
+                {                
                     DataManager.Ins.ChangeBoosterFillAllColor(3);
                 }
                 if(_boosterType == BoosterType.FillByColor)
@@ -102,7 +102,24 @@ public class UIBuyBooster : UICanvas
     }
     public void BtnBuyBoosterByAds()
     {
-
+        if (UIManager.Ins.IsOpened<UIGameplay>())
+        {
+                ItemManager.Ins.GetBoosterItemByEnum(_boosterType).SetBuyBoosterByAds(false);
+                if (_boosterType == BoosterType.FillAllColor)
+                {
+                    DataManager.Ins.ChangeBoosterFillAllColor(3);
+                    
+                }
+                if (_boosterType == BoosterType.FillByColor)
+                {
+                    DataManager.Ins.ChangeBoosterFillByColor(3);
+                }
+                if (_boosterType == BoosterType.FindByColor)
+                {
+                    DataManager.Ins.ChangeBoosterFindByColor(3);
+                }            
+                BtnExit();
+        }
     }
     public void BtnExit()
     {

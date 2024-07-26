@@ -14,7 +14,7 @@ public class BoosterItem : Item
     public TextMeshProUGUI quantityText;
     public BoosterType BoosterType;
     private int quantity;
-
+    protected bool _isCanBuyBoosterByAds = true;
     public void OnEnable()
     {
         CheckBoosterQuantity(0);
@@ -64,6 +64,10 @@ public class BoosterItem : Item
     public virtual void CheckBoosterQuantity(int quantity)
     {
         
+    }
+    public void SetBuyBoosterByAds(bool state)
+    {
+        _isCanBuyBoosterByAds = state;
     }
 
 

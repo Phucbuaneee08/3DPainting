@@ -30,6 +30,24 @@ public class ItemManager : Singleton<ItemManager>
             }
         }
     }
+    public void ResetBuyBoosterByAds()
+    {
+        foreach (var item in boosterItems)
+        {
+            item.SetBuyBoosterByAds(true);
+        }
+    }
+    public BoosterItem GetBoosterItemByEnum(BoosterType boosterType)
+    {
+        foreach (var item in boosterItems)
+        {
+            if (item.BoosterType == boosterType)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
 
     public void TurnOnColorItemByColorID(int colorID)
     {

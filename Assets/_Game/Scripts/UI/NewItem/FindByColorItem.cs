@@ -14,7 +14,7 @@ public class FindByColorItem : BoosterItem
 
         if (DataManager.Ins.playerData.boosterFindByColorQuantity <= 0)
         {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType, boosterName);
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType, boosterName, _isCanBuyBoosterByAds);
             GameManager.Ins.ChangeState(GameState.Pause);
         }
         else {

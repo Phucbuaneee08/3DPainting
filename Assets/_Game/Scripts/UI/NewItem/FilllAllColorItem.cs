@@ -13,7 +13,7 @@ public class FilllAllColorItem : BoosterItem
     {
         if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
         {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType, boosterName);
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType, boosterName, _isCanBuyBoosterByAds);
             GameManager.Ins.ChangeState(GameState.Pause);
         }
         else
