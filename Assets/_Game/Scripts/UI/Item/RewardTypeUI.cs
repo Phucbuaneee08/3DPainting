@@ -8,7 +8,11 @@ using UnityEngine.Events;
 
 public class RewardTypeUI : MonoBehaviour
 {
-    [SerializeField] private GameObject coinSmall;
+    [SerializeField] private GameObject goldSmall;
+    [SerializeField] private GameObject goldMedium;
+    [SerializeField] private GameObject goldLarge;
+    [SerializeField] private GameObject goldExtraLarge;
+    [SerializeField] private GameObject goldHuge;
     [SerializeField] private GameObject magnifier;
     [SerializeField] private GameObject bucket;
     [SerializeField] private GameObject brush;
@@ -29,7 +33,26 @@ public class RewardTypeUI : MonoBehaviour
         switch (reward.rewardType)
         {
             case DailyRewardType.gold:
-                coinSmall.SetActive(true);
+                if (reward.amount <= 5)
+                {
+                    goldSmall.SetActive(true);
+                }
+                else if (reward.amount > 5 && reward.amount <= 30)
+                {
+                    goldMedium.SetActive(true);
+                }
+                else if (reward.amount > 30 && reward.amount <= 50)
+                {
+                    goldMedium.SetActive(true);
+                }
+                else if (reward.amount > 50 && reward.amount <= 100)
+                {
+                    goldMedium.SetActive(true);
+                }
+                else if (reward.amount > 100 )
+                {
+                    goldMedium.SetActive(true);
+                }
                 amountTmp.text = "+" + reward.amount.ToString();
                 break;
             case DailyRewardType.magnifier:
@@ -77,7 +100,26 @@ public class RewardTypeUI : MonoBehaviour
         switch (reward.rewardType)
         {
             case SpinRewardType.gold:
-                coinSmall.SetActive(true);
+                if (reward.amount <= 5)
+                {
+                    goldSmall.SetActive(true);
+                }
+                else if (reward.amount > 5 && reward.amount <= 10)
+                {
+                    goldMedium.SetActive(true);
+                }
+                else if (reward.amount > 10 && reward.amount <= 15)
+                {
+                    goldMedium.SetActive(true);
+                }
+                else if (reward.amount > 15 && reward.amount <= 20)
+                {
+                    goldMedium.SetActive(true);
+                }
+                else if (reward.amount > 20 && reward.amount <= 30)
+                {
+                    goldMedium.SetActive(true);
+                }
                 amountTmp.text = "+" + reward.amount.ToString();
                 break;
             case SpinRewardType.magnifier:
@@ -135,7 +177,7 @@ public class RewardTypeUI : MonoBehaviour
         {
             OnComplete?.Invoke();
             coinPi.onLastParticleFinish.RemoveAllListeners();
-            coinSmall.SetActive(false);
+            goldSmall.SetActive(false);
         });
     }
 
@@ -171,15 +213,16 @@ public class RewardTypeUI : MonoBehaviour
 
     private void MoveImgItem(GameObject gameObject, UnityAction onMoveComplete = null)
     {
-        GameObject objIns = Instantiate(gameObject,gameObject.transform);
+        GameObject objIns = Instantiate(gameObject, gameObject.transform.parent);
+        objIns.transform.SetSiblingIndex(gameObject.transform.GetSiblingIndex());
+        objIns.transform.DOScale(new Vector3(2, 2, 2), 0.3f);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(objIns.transform.DOMove(tfEnd.position, 1.5f).SetEase(Ease.InOutQuad))
                 .Join(objIns.transform.DOScale(Vector3.one / 2, 1.5f).SetEase(Ease.InOutQuad))
                 .OnComplete(() =>
                 {
                     onMoveComplete?.Invoke();
-                   Destroy(objIns);
+                    Destroy(objIns);
                 });
     }
-
 }

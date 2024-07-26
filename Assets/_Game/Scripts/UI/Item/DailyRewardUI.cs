@@ -16,7 +16,7 @@ public class DailyRewardUI : MonoBehaviour
     [SerializeField] private GameObject giftBox2Obj;
     [SerializeField] private GameObject giftBox4Obj;
     private Transform tf;
-    public List<DailyRewardTypeUI> typeList = new List<DailyRewardTypeUI>();
+    public List<RewardTypeUI> typeList = new List<RewardTypeUI>();
     public Sprite spriteColecting;
     private DailyRewardData data;
     public Transform Tf => tf;
@@ -72,7 +72,7 @@ public class DailyRewardUI : MonoBehaviour
         }
         for (int i = 0; i < typeList.Count; i++)
         {
-            typeList[i].Init(data.dailyList[i]);
+            typeList[i].InitDailyReward(data.dailyList[i]);
         }
     }
     public void UpdateUI()
@@ -93,13 +93,13 @@ public class DailyRewardUI : MonoBehaviour
         }
         for (int i = 0; i < typeList.Count; i++)
         {
-            typeList[i].Init(this.data.dailyList[i]);
+            typeList[i].InitDailyReward(this.data.dailyList[i]);
         }
     }
-    private List<DailyRewardTypeUI> GetTypeList(Transform parent)
+    private List<RewardTypeUI> GetTypeList(Transform parent)
     {
-        DailyRewardTypeUI type;
-        List<DailyRewardTypeUI> typeList = new List<DailyRewardTypeUI>();
+        RewardTypeUI type;
+        List<RewardTypeUI> typeList = new List<RewardTypeUI>();
         foreach (Transform child in parent)
         {
             if (child.TryGetComponent(out type))
@@ -112,14 +112,14 @@ public class DailyRewardUI : MonoBehaviour
 
     public void OnCollect(int multiplier, UnityAction OnComplete = null)
     {
+        UpdateUI();
         for (int i = 0; i < typeList.Count; i++)
         {
-            typeList[i].OnCollect(multiplier, () =>
+            typeList[i].OnCollectDailyReward(multiplier, () =>
             {
                 OnComplete?.Invoke();
                 collectedObj.SetActive(true);
                 collectingObj.SetActive(true);
-                UpdateUI();
             });
         }
     }
