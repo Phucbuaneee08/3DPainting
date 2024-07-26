@@ -10,6 +10,7 @@ public class FillByColorItem : BoosterItem
     public void Start()
     {
         DataManager.Ins.OnBoosterFillByColorQuantityChanged += SetQuantityText;
+        DataManager.Ins.OnBoosterFillByColorQuantityChanged += CheckBoosterQuantity;
         LevelManager.Ins.OnChangeColor += ChangeColorBrush;
     }
     public override void OnInit()
@@ -21,7 +22,7 @@ public class FillByColorItem : BoosterItem
         if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
         {
             
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType);
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType, boosterName);
             GameManager.Ins.ChangeState(GameState.Pause);
 
         }
@@ -54,8 +55,21 @@ public class FillByColorItem : BoosterItem
     {
         colorBrush.color = color;
     }
+    public override void CheckBoosterQuantity(int quantity)
+    {
+        if (DataManager.Ins.playerData.boosterFillByColorQuantity <= 0)
+        {
+            boosterQuantity.gameObject.SetActive(false);
+            addBooster.gameObject.SetActive(true);
+        }
+        else
+        {
+            boosterQuantity.gameObject.SetActive(true);
+            addBooster.gameObject.SetActive(false);
+        }
+    }
 
-  
+
 
 
 }

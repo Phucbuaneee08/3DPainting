@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class UIBuyBooster : UICanvas
 {
+    public TextMeshProUGUI boosterName;
     private int _cost;
     private BoosterType _boosterType;
 
@@ -40,7 +41,7 @@ public class UIBuyBooster : UICanvas
     }
 
    
-    public void SetData(BoosterType boosterType)
+    public void SetData(BoosterType boosterType,string name)
     {
         if (LevelManager.Ins.IsCanUseAds) 
         { 
@@ -48,8 +49,7 @@ public class UIBuyBooster : UICanvas
             LevelManager.Ins.IsCanUseAds = false;
         }
         else adsButton.SetActive(false);
-
-
+        boosterName.text = name;
         _cost = BoosterManager.Ins.GetBoosterPrice(boosterType);
         _boosterType = boosterType;
 

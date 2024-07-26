@@ -2,26 +2,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UIElements;
-
 public class MaterialManager : Singleton<MaterialManager>
 {
     [SerializeField] private Material shaderMaterial;
     [SerializeField] private List<MaterialData>  matData;
-    [SerializeField] private List<Texture2D> texture2Ds;
 
     [SerializeField] private List<Material> shaderMaterials;
     [SerializeField] private List<Material> currentShaderMaterials;
 
-    [SerializeField] private List<Material> numberMats;
     [SerializeField] private List<Material> defaultMats;
 
-    [SerializeField] private List<Material> focusNumberMats;
     [SerializeField] private Material unHighLightMaterial;
+    [SerializeField] private List<Color> levelItemColors;
+
+
     [SerializeField] private Color showTextColor;
     [SerializeField] private Color hightLightColor;
     
@@ -112,5 +107,13 @@ public class MaterialManager : Singleton<MaterialManager>
         }
       
     }  
+    public Color ChangeLevelItemColor(int color)
+    {
+        return levelItemColors[color];
+    }
+    public Color ChangeRandomColor()
+    {
+        return levelItemColors[UnityEngine.Random.Range(2, levelItemColors.Count)];
+    }
 
 }

@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 353c807bd4cfd4a4c890e6d610eedcaa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 59e732c3889311943a1b7f071ad0d092, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _so:
@@ -49,7 +49,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 0
+    - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _metal: 0

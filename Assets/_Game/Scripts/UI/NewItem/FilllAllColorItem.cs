@@ -7,12 +7,13 @@ public class FilllAllColorItem : BoosterItem
     public void Start()
     {
         DataManager.Ins.OnBoosterFillAllColorQuantityChanged += SetQuantityText;
+        DataManager.Ins.OnBoosterFillAllColorQuantityChanged += CheckBoosterQuantity;
     }
     public override void OnClick()
     {
         if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
         {
-            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType);
+            UIManager.Ins.OpenUI<UIBuyBooster>().SetData(BoosterType, boosterName);
             GameManager.Ins.ChangeState(GameState.Pause);
         }
         else
@@ -45,6 +46,19 @@ public class FilllAllColorItem : BoosterItem
 
         LevelManager.Ins.ReleaseFocusCube();
     }
-   
-    
+    public override void CheckBoosterQuantity(int quantity)
+    {
+        if (DataManager.Ins.playerData.boosterFillAllColorQuantity <= 0)
+        {
+            boosterQuantity.gameObject.SetActive(false);
+            addBooster.gameObject.SetActive(true);
+        }
+        else
+        {
+            boosterQuantity.gameObject.SetActive(true);
+            addBooster.gameObject.SetActive(false);
+        }
+    }
+
+
 }

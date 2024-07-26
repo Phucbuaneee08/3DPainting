@@ -1271,6 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
+  boosterName: {fileID: 1992578373308785437}
   adsButton: {fileID: 8855100744335257483}
   textCostBooster: {fileID: 8463369425600558273}
   numberBooster: {fileID: 0}
@@ -1997,6 +1998,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7200893938567339161}
     m_Modifications:
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_text
+      value: Paint brush
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512696455029162918, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_Name
+      value: Booster name
+      objectReference: {fileID: 0}
     - target: {fileID: 5541276157412732525, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_Name
       value: BGPopup
@@ -2123,6 +2140,17 @@ PrefabInstance:
       addedObject: {fileID: 4550454670670816098}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+--- !u!114 &1992578373308785437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+  m_PrefabInstance: {fileID: 3696845865880828944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4670683420950571611 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8330617425743713867, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}

@@ -22,7 +22,7 @@ public class LevelManager : Singleton<LevelManager>
     private bool _isCanRevive;
 
 
-    
+    private bool _isCanShake = true;
     public Level currentLevel;
     public int currentColor;
     public int cubeTotal;
@@ -165,6 +165,20 @@ public class LevelManager : Singleton<LevelManager>
                 }
             }
         }
+    }
+    public void DoShakeColorItem()
+    {
+        if (!_isCanShake) return;
+        _isCanShake = false;
+        CubeType currentColorType = Ultilities.CheckNextCubeTypeInList(cubeTypes, currentColor);
+
+        ColorItem ci = ItemManager.Ins.GetColorItembyColorID(currentColorType.colorID);
+        ci.transform.DOShakeRotation(0.5f, strength: new Vector3(0, 0, 30), vibrato: 10, randomness: 45, fadeOut: false);
+        Ultilities.DelayThenDoTask(this, 0.5f, () =>
+        {
+           ci.transform.rotation = Quaternion.identity;
+            _isCanShake = true;
+        });
     }
     private IEnumerator OnRemoveCube(CubeType cubes)
     {

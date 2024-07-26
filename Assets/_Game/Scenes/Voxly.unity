@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.88235295, g: 0.88235295, b: 0.88235295, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.3467041, g: 0.34191445, b: 0.34191445, a: 1}
   m_AmbientGroundColor: {r: 0.6609868, g: 0.71409166, b: 1.0592737, a: 1}
   m_AmbientIntensity: 1
@@ -1461,7 +1461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaderMaterial: {fileID: 0}
   matData: []
-  texture2Ds: []
   shaderMaterials:
   - {fileID: 2100000, guid: 89af6cc312a3da84d85359c4ffd35e10, type: 2}
   - {fileID: 2100000, guid: 9b89ba236c65c5e49a2e911d9cc21f56, type: 2}
@@ -1483,41 +1482,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5e3d26f214e82144098ee323e8f6e086, type: 2}
   - {fileID: 2100000, guid: 6636d1767e3f42c4498d23124cb15fa6, type: 2}
   - {fileID: 2100000, guid: c950e4b04b7b9bd458f3074e17d9d4fb, type: 2}
+  - {fileID: 2100000, guid: 580142c9a508c2f458ceb8c1f50b4c37, type: 2}
+  - {fileID: 2100000, guid: c60457d60713a1641be9354a326580fd, type: 2}
   currentShaderMaterials: []
-  numberMats:
-  - {fileID: 2100000, guid: 87b2a5355dc68a044bb28dcdbb70d9d5, type: 2}
-  - {fileID: 2100000, guid: aeabbf7290c471a4bb41e68967b84d19, type: 2}
-  - {fileID: 2100000, guid: 6013c0029f5642940a467a951604ed25, type: 2}
-  - {fileID: 2100000, guid: f7e5c02de2a65d74a81062df2a1bd8cd, type: 2}
-  - {fileID: 2100000, guid: 71c91ab12ad17e1449b0841c302187a1, type: 2}
-  - {fileID: 2100000, guid: 006a9b9f702663245b9c8628b3ac46f6, type: 2}
-  - {fileID: 2100000, guid: 47701a285dd28d54b9a91cf741d18a5f, type: 2}
-  - {fileID: 2100000, guid: c0990e37b52dcb34ba89473c2f05aba1, type: 2}
-  - {fileID: 2100000, guid: 7f02a687de82e6047911a332650b91c5, type: 2}
-  - {fileID: 2100000, guid: f6f8470b83055ee49ae29c7d75f85e25, type: 2}
-  - {fileID: 2100000, guid: f6b2634b68f9ae949aa7083d4b157ec8, type: 2}
-  - {fileID: 2100000, guid: a783a60544d3c8d4d8be08b464e28843, type: 2}
-  - {fileID: 2100000, guid: ce7d3de79f21a9c4ba5919fc9131295e, type: 2}
-  - {fileID: 2100000, guid: 84d0c008e7ba9594f92bebe83537de2f, type: 2}
-  - {fileID: 2100000, guid: 4c6692575b84fe248bfd81fa8c660dbe, type: 2}
   defaultMats: []
-  focusNumberMats:
-  - {fileID: 2100000, guid: cce55f20829cceb4392a965106df243f, type: 2}
-  - {fileID: 2100000, guid: f2b14f1bfe01cac4bb0f72dace2a4a92, type: 2}
-  - {fileID: 2100000, guid: 1c9daead60e593940b6b4020c900fd2c, type: 2}
-  - {fileID: 2100000, guid: 154140eb313336041b8872819b1b259f, type: 2}
-  - {fileID: 2100000, guid: caaa052cc75af294bbf5c04f20f0cae1, type: 2}
-  - {fileID: 2100000, guid: 2a50dc99fe0956f48a59793d2a88014c, type: 2}
-  - {fileID: 2100000, guid: b6838207eadffce4eb93a34b5c0fcd9b, type: 2}
-  - {fileID: 2100000, guid: e00fc98b3ffcae54cb622fcef780d444, type: 2}
-  - {fileID: 2100000, guid: cd2cd29d9c2d12c4ab27b52d0d3e418d, type: 2}
-  - {fileID: 2100000, guid: c9ccc0f721db01b43bad65ee7db3764f, type: 2}
-  - {fileID: 2100000, guid: 2499f46e40e28d6479e5280d1210c24a, type: 2}
-  - {fileID: 2100000, guid: 4244a8fb451e71c498c37c39c2b71224, type: 2}
-  - {fileID: 2100000, guid: 1c18c3491b9ba494186a1ea844f0bb87, type: 2}
-  - {fileID: 2100000, guid: b6c00b2c53dad18479ddeb8ea5bd1d7d, type: 2}
-  - {fileID: 2100000, guid: 618c29e3bb3f27a42a609bf8e43156cf, type: 2}
   unHighLightMaterial: {fileID: -4827960292722580231, guid: c7979a320d436a84aa4fa9f6564107a4, type: 3}
+  levelItemColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.9294118, g: 0.8431373, b: 0.69411767, a: 1}
+  - {r: 0.49803925, g: 0.8078432, b: 0.41176474, a: 1}
+  - {r: 1, g: 0.31764707, b: 0.3137255, a: 1}
+  - {r: 0.87843144, g: 0.6313726, b: 0.7058824, a: 1}
+  - {r: 0.9568628, g: 0.82745105, b: 0.30588236, a: 1}
+  - {r: 0.23529413, g: 0.7803922, b: 0.9490197, a: 1}
+  - {r: 0.9176471, g: 0.31764707, b: 0.5294118, a: 1}
   showTextColor: {r: 1, g: 1, b: 1, a: 0}
   hightLightColor: {r: 1, g: 0.9879074, b: 0, a: 0}
 --- !u!1 &1455351149

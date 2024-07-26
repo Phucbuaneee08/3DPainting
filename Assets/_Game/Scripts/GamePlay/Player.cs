@@ -188,10 +188,18 @@ public class Player : GameUnit
                             isCanRotate = false;
                             BoosterManager.Ins.FillBoosterByColor(cube);                     
                         }
-                        if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor && cube.GetColorID() == LevelManager.Ins.currentColor)
+                        if (BoosterManager.Ins.CheckBooterFillByNumber() && !cube.IsState(CubeState.Colored) && isCanFillColor )
                         {
-                            isCanRotate = false;
-                            BoosterManager.Ins.BoosterFillByNumber(cube);
+                            if(cube.GetColorID() == LevelManager.Ins.currentColor)
+                            {
+                                isCanRotate = false;
+                                BoosterManager.Ins.BoosterFillByNumber(cube);
+                            }
+                            else if (LevelManager.Ins.currentColor == 0)
+                            {
+                                LevelManager.Ins.DoShakeColorItem();
+                            }
+
                         }
                         if (cube != null && !cube.IsState(CubeState.Colored) && isCanFillColor)
                         {

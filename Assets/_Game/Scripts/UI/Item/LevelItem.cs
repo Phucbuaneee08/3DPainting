@@ -23,27 +23,21 @@ public class LevelItem : MonoBehaviour
     public PoolType poolType;
     public ZoomInfo zoomInfo;
     public Sprite imageSourcePass;
-    private Color[] colors = new Color[]
-   {
-        new Color(0.878f, 0.631f, 0.706f),
-        new Color(0.93f, 0.84f, 0.69f)/*,
-        new Color(0.235f, 0.784f, 0.949f),
-        new Color(0.918f, 0.318f, 0.529f)*/
-   };
+   
     public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo)
     {
         this.levelID = levelID;
-
+     
         if (isPassed)
         {
             imageSource.sprite = avatarPass;
-            imgBackG.color = ChangeColor(0);
+            imgBackG.color = MaterialManager.Ins.ChangeRandomColor();
         }
         else
         {
             if (isUnlock)
             {
-                imgBackG.color = ChangeColor(1);
+                imgBackG.color = MaterialManager.Ins.ChangeLevelItemColor(1);
             }
             imageSource.sprite = avatar;
         }
@@ -89,10 +83,7 @@ public class LevelItem : MonoBehaviour
     {
         return levelID;
     }
-    public Color ChangeColor(int index)
-    {
-        return colors[index];
-    }
+
     public void SetColorImg()
     {
         Color originalColor = imageSource.color;
