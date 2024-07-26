@@ -15,7 +15,8 @@ namespace Paint3D
         [SerializeField] AudioClip GetCoins;
         [SerializeField] AudioClip clickBtn;
         [SerializeField] AudioClip winSound;
-
+        [SerializeField] AudioClip confeti;
+        [SerializeField] AudioClip dropCoin;
 
 
         [SerializeField] AudioClip reward;
@@ -126,6 +127,10 @@ namespace Paint3D
         {
             PlaySound(GetCoins);
         }
+        public void OnConfeti()
+        {
+            PlaySound(confeti);
+        }
         public void OnGetMultiCoins(int numberOfCoin)
         {
             
@@ -154,7 +159,10 @@ namespace Paint3D
             }
         }
 
-        
+        public void OnDropCoin()
+        {
+            PlaySound(dropCoin);
+        }
       
         public void OnReward()
         {
