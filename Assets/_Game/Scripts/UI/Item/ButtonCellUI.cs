@@ -9,6 +9,7 @@ public class ButtonCellUI : Item
     public override void Awake()
     {
         base.Awake();
+        rectTransform = GetComponent<RectTransform>();
         CurrentItemState = ItemState.TurnOff;
     }
     public void SetData(int _id)

@@ -4,14 +4,20 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using Paint3D;
+using UnityEngine.UI;
 
 public class BoosterItem : Item
 {
+    public Image addBooster;
+    public Image boosterQuantity;
     public TextMeshProUGUI quantityText;
     public BoosterType BoosterType;
     private int quantity;
-    
-    
+
+    public void OnEnable()
+    {
+        
+    }
     public void SetQuantity(int quantity)
     {
         this.quantity = quantity;

@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FillByColorItem : BoosterItem
 {
+    [SerializeField] private Image colorBrush;
+
     public void Start()
     {
         DataManager.Ins.OnBoosterFillByColorQuantityChanged += SetQuantityText;
+        LevelManager.Ins.OnChangeColor += ChangeColorBrush;
     }
     public override void OnInit()
     {
@@ -28,7 +32,7 @@ public class FillByColorItem : BoosterItem
     {
         base.TurnOff();
         BoosterManager.Ins.IsCanUseFillByNumberBooster = false;
-
+        ChangeColorBrush(Color.white);
        
     }
     
@@ -46,6 +50,12 @@ public class FillByColorItem : BoosterItem
 
         LevelManager.Ins.ReleaseFocusCube();
     }
+    public void ChangeColorBrush(Color color)
+    {
+        colorBrush.color = color;
+    }
+
   
+
 
 }

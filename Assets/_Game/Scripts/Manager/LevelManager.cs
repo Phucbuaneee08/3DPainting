@@ -3,6 +3,7 @@ using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -273,6 +274,12 @@ public class LevelManager : Singleton<LevelManager>
         }
   
       
+    }
+
+    public UnityAction<Color> OnChangeColor;
+    public void ChangeCurrentColor(Color color)
+    {
+        OnChangeColor?.Invoke(color);
     }
 
 

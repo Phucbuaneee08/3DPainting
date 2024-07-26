@@ -49,15 +49,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 1
+    - _Float: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _metal: 0
     - _sm: 0
     m_Colors:
     - _Color: {r: 0.7891234, g: 1, b: 0, a: 0}
-    - _DefaultColor: {r: 0.8144852, g: 0.8144852, b: 0.8144852, a: 1}
-    - _NearColor: {r: 0.8144852, g: 0.8144852, b: 0.8144852, a: 1}
+    - _DefaultColor: {r: 0.75151235, g: 0.75151235, b: 0.75151235, a: 1}
+    - _NearColor: {r: 0.75151235, g: 0.75151235, b: 0.75151235, a: 1}
     - _near_color: {r: 0.8039216, g: 0.7994877, b: 0.2588235, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8289887604600979595
