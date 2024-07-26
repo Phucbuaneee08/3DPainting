@@ -12,15 +12,16 @@ public class UISpin : MonoBehaviour
 {
     [SerializeField] private List<int> probabilities = new List<int>();
     [SerializeField] private List<SpinReward> rewardList = new List<SpinReward>();
-    [SerializeField] private List<SpinPieceUI> pieceList = new List<SpinPieceUI>();
+    [SerializeField] private List<RewardTypeUI> pieceList = new List<RewardTypeUI>();
     [SerializeField] private Transform circleTf;
     [SerializeField] private Transform circleCenter;
     [SerializeField] private GameObject btnPlaySpin;
     [SerializeField] private GameObject btnPlayIap;
     [SerializeField] private TMP_Text textPlay;
+    private RewardTypeUI rewardTypeUISpin;
     private int rewardIndex;
     public bool isRotate = false;
-  
+
     public void Open()
     {
         isRotate = false;
@@ -36,7 +37,7 @@ public class UISpin : MonoBehaviour
 
         for (int i = 0; i < rewardList.Count; i++)
         {
-            pieceList[i].Init(rewardList[i]);
+            pieceList[i].InitSpin(rewardList[i]);
         }
         UpdateBtn();
 
@@ -70,9 +71,9 @@ public class UISpin : MonoBehaviour
             return;
         }
         rewardIndex = GetRandomIndex();
-        DataManager.Ins.playerData.isSpinReward = 0;
+        /*DataManager.Ins.playerData.isSpinReward = 0;
         DataManager.Ins.playerData.countProgresses = 0;
-        DataManager.Ins.SaveData();
+        DataManager.Ins.SaveData();*/
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
         float rotationZ = 12 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;
@@ -80,11 +81,21 @@ public class UISpin : MonoBehaviour
         Tween tween = circleTf.DOLocalRotate(rotation, 3.5f, RotateMode.FastBeyond360);
         tween.SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            UIManager.Ins.OpenUI<PopupClaim>().OnintSpin(rewardList[rewardIndex]);
+            // UIManager.Ins.OpenUI<PopupClaim>().OnintSpin(rewardList[rewardIndex]);
+            SpinCompleted();
         });
     }
 
-
+    private void SpinCompleted()
+    {
+        RewardTypeUI rewardTypeUISpin = pieceList[rewardIndex];
+        rewardTypeUISpin.OnCollectSpin(1, () =>
+        {
+            isRotate = false;
+            UpdateBtn();
+            UIManager.Ins.GetUI<MainMenu>().UIBtnSpin();
+        });
+    }
     private int GetRandomIndex()
     {
         if (probabilities == null || probabilities.Count == 0)

@@ -69,7 +69,7 @@ public class SwitchToggle : MonoBehaviour
                     AudioManager.Ins.MuteSound();
                 break;
             case ToggleType.Vibration:
-                DataManager.Ins.playerData.vibrationEnabled = on;
+                    AudioManager.Ins.VibrateDevice(on);
                 break;
         }
     }
