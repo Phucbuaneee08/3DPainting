@@ -3035,7 +3035,7 @@ MonoBehaviour:
     colorID: 7
   zoomInfo:
     minZoom: 0.1
-    maxZoom: 0.3
+    maxZoom: 0.35
     checkPointZoom: 0.25
   imageSource: {fileID: 21300000, guid: 463d513ab61fed543abcea3ff21dc051, type: 3}
   imageSourcePassed: {fileID: 21300000, guid: 0fc3189b96ba43f40816809c7afb0f1c, type: 3}

@@ -762,10 +762,6 @@ MonoBehaviour:
     ID: 187
     realColorID: 2
     defaultColorID: 1
-  - position: {x: 0.02, y: 0.015, z: -0.02}
-    ID: 188
-    realColorID: 2
-    defaultColorID: 1
   - position: {x: 0.01, y: 0.015, z: -0.03}
     ID: 189
     realColorID: 2
@@ -2357,10 +2353,6 @@ MonoBehaviour:
   - position: {x: -0.02, y: -0.044999998, z: -0.049999997}
     ID: 586
     realColorID: 3
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.015, z: -0.02}
-    ID: 587
-    realColorID: 2
     defaultColorID: 1
   - position: {x: 0.01, y: 0.015, z: 0.06}
     ID: 588
