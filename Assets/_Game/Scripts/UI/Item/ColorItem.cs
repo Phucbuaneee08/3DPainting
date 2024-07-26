@@ -56,5 +56,9 @@ public class ColorItem : Item
 
         bg.fillAmount = amount;
     }
+    public Color GetItemColor()
+    {
+        return bg.color;
+    }
    
 }

@@ -32,9 +32,6 @@ public class LevelManager : Singleton<LevelManager>
     public bool IsCanUseAds { get; set; }   
 
 
-
-
-
     public void OnInit()
     {
         IsCanUseAds = true;

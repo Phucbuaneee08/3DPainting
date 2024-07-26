@@ -44,8 +44,6 @@ public class BoosterItem : Item
 
         BoosterManager.Ins.SelectedBoosterType = BoosterType;
         ItemManager.Ins.TurnOffBoosterItemExceptEnum(BoosterType);
-        
-
         MoveUp();
 
     }
