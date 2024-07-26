@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -39,6 +40,18 @@ public class ItemManager : Singleton<ItemManager>
                 item.ChangeItemState(ItemState.TurnOn);
             }
         }
+    }
+    public ColorItem GetColorItembyColorID(int colorID)
+    {
+        foreach (var item in colorItems)
+        {
+            if (item.GetColorID() == colorID)
+            {
+                return item;
+            }
+        }
+        return null;
+        
     }
 
     // tắt item ngoại trừ item có ID là id 

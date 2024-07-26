@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class BoosterItem : Item
 {
+    public string boosterName;
     public Image addBooster;
     public Image boosterQuantity;
     public TextMeshProUGUI quantityText;
@@ -16,8 +17,9 @@ public class BoosterItem : Item
 
     public void OnEnable()
     {
-        
+        CheckBoosterQuantity(0);
     }
+
     public void SetQuantity(int quantity)
     {
         this.quantity = quantity;
@@ -59,6 +61,10 @@ public class BoosterItem : Item
         quantityText.text = quantity.ToString();
     }
 
+    public virtual void CheckBoosterQuantity(int quantity)
+    {
+        
+    }
 
 
 
