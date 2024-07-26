@@ -1,4 +1,5 @@
 
+using Paint3D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,5 +40,6 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<Loading>();
         DataManager.Ins.LoadData();
+        AudioManager.Ins.Oninit();
     }
 }

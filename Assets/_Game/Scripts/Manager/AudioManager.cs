@@ -33,6 +33,7 @@ namespace Paint3D
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
+           
         }
         public void MuteSound()
         {
@@ -178,7 +179,12 @@ namespace Paint3D
             PlaySound(winSound);
         }
 
-
+        public void Oninit()
+        {
+            SFXSource.mute = !DataManager.Ins.playerData.sound;
+            musicSource.mute = !DataManager.Ins.playerData.music;
+            VibrateDevice(!DataManager.Ins.playerData.music);
+        }
 
         //public void OnSelectTile()
         //{
