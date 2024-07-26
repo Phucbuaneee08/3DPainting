@@ -21,6 +21,7 @@ public class ListLevelUI : MonoBehaviour
     private void Awake()
     {
         miniPool.OnInit(levelItemPrefab, 10, tfContent);
+     
     }
 
     private void Start()
@@ -55,7 +56,7 @@ public class ListLevelUI : MonoBehaviour
             levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, !isColored && isGoldOrAds, !isColored && isDiamond, isUnlock, lvData.level.poolType,lvData.level.zoomInfo);
         }
 
-        StartCoroutine(IE_SetSizeDetal());
+        
     }
 
 
@@ -67,17 +68,5 @@ public class ListLevelUI : MonoBehaviour
         this.levelDatasList = _leveldataList;
     }
 
-    IEnumerator IE_SetSizeDetal()
-    {
-        yield return new WaitForEndOfFrame();
-        if (tfContent != null && levelItems.Count > 0)
-        {
-            RectTransform buttonRectTransform = levelItems[0].GetComponent<RectTransform>();
-            float buttonHeight = buttonRectTransform.rect.width + 50;
-            float totalHeight = buttonHeight * (levelItems.Count + 1);
-            tfContent.sizeDelta = new Vector2(totalHeight / 2, tfContent.sizeDelta.y);
-            ScrollRect scrollRect = tfContent.GetComponentInParent<ScrollRect>();
-            scrollRect.horizontalNormalizedPosition = 0;
-        }
-    }
+   
 }

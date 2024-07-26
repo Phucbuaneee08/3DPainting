@@ -153,13 +153,7 @@ namespace Paint3D
                 lastPlayTime = Time.time;
             }
         }
-        public IEnumerator OnPlayFillCube()
-        {
-          
-            yield return new WaitForEndOfFrame();
-            PlaySound(filledCube);
-        }
-        
+
         
       
         public void OnReward()

@@ -15,6 +15,7 @@ public class HomeLevelUI : MonoBehaviour
     private void Awake()
     {
         miniPool.OnInit(ListLevelUIPrefabs, 10, tfContent);
+        tfContent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(Screen.width, 685);
     }
 
     public void ReLoad()
@@ -49,17 +50,6 @@ public class HomeLevelUI : MonoBehaviour
             NestedScrollRect nestedScrollHandler = listLevelUI.GetComponentInChildren<NestedScrollRect>();
             nestedScrollHandler.parentScrollRect = scrollRect;
         }
-        SetSizeDetal();
     }
-    public void SetSizeDetal()
-    {
-        if (tfContent != null && listLevelUIs.Count > 0)
-        {
-            RectTransform buttonRectTransform = listLevelUIs[0].GetComponent<RectTransform>();
-            float buttonHeight = buttonRectTransform.rect.height + 50;
-            float totalHeight = buttonHeight * listLevelUIs.Count;
-            tfContent.sizeDelta = new Vector2(tfContent.sizeDelta.x, totalHeight);
-            scrollRect.verticalNormalizedPosition = 1;
-        }
-    }
+  
 }
