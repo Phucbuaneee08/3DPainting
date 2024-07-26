@@ -24,7 +24,7 @@ MonoBehaviour:
   - levelID: 5
     level: {fileID: 11400000, guid: cabfacf6b9b608046abaf08d703aac57, type: 2}
   - levelID: 6
-    level: {fileID: 11400000, guid: aafc385896b82d749bfcb3d69ee8b625, type: 2}
+    level: {fileID: 11400000, guid: feebbfa34cbea6d4ebd5ba568d8d69a7, type: 2}
   - levelID: 7
     level: {fileID: 11400000, guid: de14298a89f3ce04a8bfb2127703401b, type: 2}
   - levelID: 8
@@ -58,7 +58,7 @@ MonoBehaviour:
   - levelID: 22
     level: {fileID: 11400000, guid: ab99a95062acb4e4f968bbe1fadbe89a, type: 2}
   - levelID: 23
-    level: {fileID: 11400000, guid: feec62aed18a0e24594e7b54c06b50f8, type: 2}
+    level: {fileID: 11400000, guid: 6fb5ec7f11d8f8c4ba5a2410b0c92ab7, type: 2}
   - levelID: 24
     level: {fileID: 11400000, guid: 13edba182f4413745acfecf93d5afc6a, type: 2}
   - levelID: 25
