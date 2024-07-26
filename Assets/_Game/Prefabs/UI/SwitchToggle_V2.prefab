@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.344608, y: 0.0000076294}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: -17.896286, y: 0.4692}
+  m_SizeDelta: {x: 105.3093, y: 105.5564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4118087716102251441
 CanvasRenderer:
@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -104, y: 185}
-  m_SizeDelta: {x: 129.8, y: 40.2}
+  m_AnchoredPosition: {x: -19.0901, y: 0}
+  m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4741438546316588806
 MonoBehaviour:
@@ -176,6 +176,7 @@ MonoBehaviour:
   uiHandleRectTransform: {fileID: 3084711141432877505}
   backgroundActiveColor: {r: 1, g: 0.6703613, b: 0, a: 1}
   handleActiveColor: {r: 1, g: 1, b: 1, a: 1}
+  toggleType: 0
 --- !u!1 &4244226451233826405
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 0}
-  m_SizeDelta: {x: 106.67, y: 40}
+  m_AnchoredPosition: {x: -38.98947, y: -0.00012207}
+  m_SizeDelta: {x: 161.3508, y: 66.666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7309711787072596513
 CanvasRenderer:

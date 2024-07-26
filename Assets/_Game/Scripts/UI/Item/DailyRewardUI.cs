@@ -13,10 +13,12 @@ public class DailyRewardUI : MonoBehaviour
     [SerializeField] private GameObject collectingObj;
     [SerializeField] private TMP_Text dayTmp;
     [SerializeField] private Image bgImg;
-
+    [SerializeField] private GameObject giftBox2Obj;
+    [SerializeField] private GameObject giftBox4Obj;
     private Transform tf;
     public List<DailyRewardTypeUI> typeList = new List<DailyRewardTypeUI>();
-
+    public Sprite spriteColecting;
+    private DailyRewardData data;
     public Transform Tf => tf;
 
     private void Awake()
@@ -26,15 +28,16 @@ public class DailyRewardUI : MonoBehaviour
 
     public void Init(DailyRewardData data, int todayIndex)
     {
-        dayTmp.text = "DAY " + (data.dayIndex + 1).ToString();
+        this.data = data;
+        dayTmp.text = "Day " + (data.dayIndex + 1).ToString();
         bool isToday = data.dayIndex == todayIndex;
         bool todayCollected = DataManager.Ins.playerData.isTodayCollected == 1 && isToday;
         bool isCollected = data.dayIndex < todayIndex || todayCollected;
 
         collectedObj.SetActive(isCollected);
-        collectingObj.SetActive(todayCollected);
-
-        bgImg.color = isToday ? new Color(0, 255, 0) : bgImg.color;
+        collectingObj.SetActive(isCollected);
+        bool isShowGiftBox = DataManager.Ins.playerData.isTodayCollected == 1;
+        bgImg.sprite = isToday ? spriteColecting : bgImg.sprite;
         switch (data.dailyList.Count)
         {
             case 1:
@@ -42,24 +45,57 @@ public class DailyRewardUI : MonoBehaviour
                 typeList = GetTypeList(type1Obj.transform);
                 break;
             case 2:
-                type2Obj.SetActive(true);
+                if (isShowGiftBox && isToday)
+                {
+                    type2Obj.SetActive(true);
+                }
+                else
+                {
+                    giftBox2Obj.SetActive(true);
+                }
                 typeList = GetTypeList(type2Obj.transform);
                 break;
             case 4:
-                type4Obj.SetActive(true);
+                if (isShowGiftBox && isToday)
+                {
+                    type4Obj.SetActive(true);
+                }
+                else
+                {
+                    giftBox4Obj.SetActive(true);
+
+                }
                 typeList = GetTypeList(type4Obj.transform);
                 break;
             default:
-                Debug.Log("Null");
                 break;
         }
-
         for (int i = 0; i < typeList.Count; i++)
         {
             typeList[i].Init(data.dailyList[i]);
         }
     }
-
+    public void UpdateUI()
+    {
+        switch (this.data.dailyList.Count)
+        {
+            case 2:
+                giftBox2Obj.SetActive(false);
+                type2Obj.SetActive(true);
+                break;
+            case 4:
+                giftBox4Obj.SetActive(false);
+                type4Obj.SetActive(true);
+                Debug.Log("Type 4 Obj");
+                break;
+            default:
+                break;
+        }
+        for (int i = 0; i < typeList.Count; i++)
+        {
+            typeList[i].Init(this.data.dailyList[i]);
+        }
+    }
     private List<DailyRewardTypeUI> GetTypeList(Transform parent)
     {
         DailyRewardTypeUI type;
@@ -78,19 +114,13 @@ public class DailyRewardUI : MonoBehaviour
     {
         for (int i = 0; i < typeList.Count; i++)
         {
-            if (i == 0)
+            typeList[i].OnCollect(multiplier, () =>
             {
-                typeList[i].OnCollect(multiplier, () =>
-                {
-                    OnComplete?.Invoke();
-                    collectedObj.SetActive(true);
-                    collectingObj.SetActive(true);
-                });
-            }
-            else
-            {
-                typeList[i].OnCollect(multiplier);
-            }
+                OnComplete?.Invoke();
+                collectedObj.SetActive(true);
+                collectingObj.SetActive(true);
+                UpdateUI();
+            });
         }
     }
 }

@@ -178,6 +178,7 @@ public class MainMenu : UICanvas
     public void BtnTut()
     {
         SetActiveSelect((int)TypePopup.tut);
+        UIManager.Ins.OpenUI<PopupRate>();
     }
     public void BtnShop()
     {

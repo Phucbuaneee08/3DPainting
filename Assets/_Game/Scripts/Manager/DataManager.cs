@@ -202,6 +202,8 @@ public class DataManager : Singleton<DataManager>
         if (isNewDay && playerData.isTodayCollected == 1)
         {
             playerData.isTodayCollected = 0;
+            playerData.isCollectFullInDay = 0;
+            playerData.isTodayCollectFree = 0;
             playerData.daysCollected++;
         }
 
