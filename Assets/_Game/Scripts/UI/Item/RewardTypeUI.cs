@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+
 
 public class RewardTypeUI : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class RewardTypeUI : MonoBehaviour
     [SerializeField] RectTransform tfEnd;
     private DailyReward dailyReward;
     private SpinReward spinReward;
+    private Image imgMove;
     private void Awake()
     {
         coinPi.gameObject.SetActive(false);
@@ -49,7 +52,7 @@ public class RewardTypeUI : MonoBehaviour
                 {
                     goldMedium.SetActive(true);
                 }
-                else if (reward.amount > 100 )
+                else if (reward.amount > 100)
                 {
                     goldMedium.SetActive(true);
                 }
@@ -175,19 +178,16 @@ public class RewardTypeUI : MonoBehaviour
         });
         coinPi.onLastParticleFinish.AddListener(() =>
         {
-            OnComplete?.Invoke();
             coinPi.onLastParticleFinish.RemoveAllListeners();
-            goldSmall.SetActive(false);
+            OnComplete?.Invoke();
         });
     }
-
     private void CollectMagnifier(int multiplier, int amount, UnityAction OnComplete = null)
     {
         MoveImgItem(magnifier, () =>
         {
             DataManager.Ins.ChangeBoosterFindByColor(amount * multiplier);
             OnComplete?.Invoke();
-            magnifier.SetActive(false);
         });
     }
 
@@ -197,7 +197,6 @@ public class RewardTypeUI : MonoBehaviour
         {
             DataManager.Ins.ChangeBoosterFillAllColor(amount * multiplier);
             OnComplete?.Invoke();
-            bucket.SetActive(false);
         });
     }
 
@@ -207,22 +206,19 @@ public class RewardTypeUI : MonoBehaviour
         {
             DataManager.Ins.ChangeBoosterFillByColor(amount * multiplier);
             OnComplete?.Invoke();
-            brush.SetActive(false);
         });
     }
-
     private void MoveImgItem(GameObject gameObject, UnityAction onMoveComplete = null)
     {
         GameObject objIns = Instantiate(gameObject, gameObject.transform.parent);
-        objIns.transform.SetSiblingIndex(gameObject.transform.GetSiblingIndex());
-        objIns.transform.DOScale(new Vector3(2, 2, 2), 0.3f);
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(objIns.transform.DOMove(tfEnd.position, 1.5f).SetEase(Ease.InOutQuad))
-                .Join(objIns.transform.DOScale(Vector3.one / 2, 1.5f).SetEase(Ease.InOutQuad))
-                .OnComplete(() =>
-                {
-                    onMoveComplete?.Invoke();
-                    Destroy(objIns);
-                });
+        objIns.transform.localScale = new Vector3(1.2f,1.2f,1.2f);
+        objIns.transform.SetParent(UIManager.Ins.GetUI<MainMenu>().transform);
+        DOTween.Sequence()
+            .Append(objIns.transform.DOMove(tfEnd.position, 1.5f).SetEase(Ease.InOutQuad))
+            .OnComplete(() =>
+            {
+                Destroy(objIns);
+                onMoveComplete?.Invoke();
+            });
     }
 }
