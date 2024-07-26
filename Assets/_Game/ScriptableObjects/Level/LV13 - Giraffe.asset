@@ -1306,24 +1306,8 @@ MonoBehaviour:
     ID: 323
     realColorID: 2
     defaultColorID: 1
-  - position: {x: 0.01, y: 0.065, z: -0.04}
-    ID: 324
-    realColorID: 2
-    defaultColorID: 1
   - position: {x: 0, y: 0.065, z: -0.049999997}
     ID: 325
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.065, z: -0.04}
-    ID: 326
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.065, z: -0.03}
-    ID: 327
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.065, z: -0.03}
-    ID: 328
     realColorID: 2
     defaultColorID: 1
   - position: {x: -0.01, y: 0.065, z: -0.049999997}
@@ -1340,18 +1324,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: 0.01, y: 0.065, z: -0.06}
     ID: 332
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: 0, y: 0.065, z: -0.02}
-    ID: 333
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.065, z: -0.02}
-    ID: 334
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.065, z: -0.02}
-    ID: 335
     realColorID: 2
     defaultColorID: 1
   - position: {x: 0.01, y: 0.065, z: -0.07}
@@ -1538,18 +1510,6 @@ MonoBehaviour:
     ID: 381
     realColorID: 3
     defaultColorID: 1
-  - position: {x: -0.01, y: 0.085, z: -0.049999997}
-    ID: 382
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: 0, y: 0.085, z: -0.049999997}
-    ID: 383
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: 0.01, y: 0.085, z: -0.049999997}
-    ID: 384
-    realColorID: 2
-    defaultColorID: 1
   - position: {x: -0.02, y: 0.085, z: -0.01}
     ID: 385
     realColorID: 2
@@ -1622,20 +1582,12 @@ MonoBehaviour:
     ID: 402
     realColorID: 2
     defaultColorID: 1
-  - position: {x: 0.02, y: 0.095, z: -0.02}
-    ID: 403
-    realColorID: 2
-    defaultColorID: 1
   - position: {x: 0.02, y: 0.095, z: -0.049999997}
     ID: 404
     realColorID: 2
     defaultColorID: 1
   - position: {x: 0.02, y: 0.095, z: -0.01}
     ID: 405
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: -0.02, y: 0.095, z: -0.02}
-    ID: 406
     realColorID: 2
     defaultColorID: 1
   - position: {x: -0.02, y: 0.095, z: -0.01}
@@ -1724,10 +1676,6 @@ MonoBehaviour:
     defaultColorID: 1
   - position: {x: 0.01, y: 0.105, z: -0.03}
     ID: 428
-    realColorID: 2
-    defaultColorID: 1
-  - position: {x: -0.01, y: 0.105, z: -0.02}
-    ID: 429
     realColorID: 2
     defaultColorID: 1
   - position: {x: 0, y: 0.105, z: -0.01}
