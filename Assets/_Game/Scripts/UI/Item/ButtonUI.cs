@@ -107,15 +107,11 @@ public class ButtonUI : MonoBehaviour
     {
         if (activeCount < 4)
         {
-            return new Vector2(180, 180);
-        }
-        else if (activeCount == 4)
-        {
-            return new Vector2(160, 160);
+            return new Vector2(190, 190);
         }
         else
         {
-            return new Vector2(150, 150);
+            return new Vector2(180, 180);
         }
     }
     public void SetActiveCell(int index, bool isActive)

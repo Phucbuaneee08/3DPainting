@@ -723,7 +723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b22cce68e7498a4cb867a7b0d18e9ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b493ea495b90809478b46a2c82e67eaf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1547,6 +1547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7245039304504439404}
     m_Modifications:
+    - target: {fileID: 1638072334141797541, guid: 6dd9f165549c925479a9ccaaeb19b63d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2773264060677262147, guid: 6dd9f165549c925479a9ccaaeb19b63d, type: 3}
       propertyPath: m_Name
       value: Coin
