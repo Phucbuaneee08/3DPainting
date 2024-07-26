@@ -24,10 +24,10 @@ MonoBehaviour:
         rewardType: 2
     - dayIndex: 2
       dailyList:
-      - amount: 1
-        rewardType: 3
       - amount: 30
         rewardType: 1
+      - amount: 1
+        rewardType: 3
     - dayIndex: 3
       dailyList:
       - amount: 1
