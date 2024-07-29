@@ -143,6 +143,7 @@ public class UIGameplay : UICanvas
 
     public void ChangeZoomButtonState(CameraState camState)
     {
+        AudioManager.Ins.OnClick();
         zoomItem.ChangeButtonState(camState);
     }
 
@@ -157,6 +158,7 @@ public class UIGameplay : UICanvas
     }
     public void HomeBtn()
     {
+        AudioManager.Ins.OnClick();
         LevelManager.Ins.Home();
     }
     public void UpdateBoosterFillByColorQuantity()
