@@ -181,14 +181,12 @@ public class MainMenu : UICanvas
     {
         int index = (int)type;
         if (IsClick(index)) return;
-
         UIManager.Ins.OpenUI<UIShortLoading>().With(() =>
         {
             SetActiveSelect(index);
             currentType = type;
         });
     }
-
     public void SetActiveSelect(int id) => LoadPopupUI(id);
 }
 [Serializable]

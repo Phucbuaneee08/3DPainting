@@ -11,7 +11,7 @@ using Paint3D;
 
 public class UIVictory : UICanvas
 {
-    [SerializeField] Button btnClaimX2;
+    [SerializeField] Button btnClaim;
     [SerializeField] TextMeshProUGUI textGoldBonus;
     [SerializeField] private int goldBonus;
     [SerializeField] private RectTransform tfCointBonus;
@@ -19,7 +19,7 @@ public class UIVictory : UICanvas
     [SerializeField] private ParticleImage coinPi;
     [SerializeField] private ParticleImage confesti;
     private bool isClickBtn = false;
- 
+
     private void Start()
     {
         coinPi.Stop();
@@ -40,18 +40,22 @@ public class UIVictory : UICanvas
     }
     public override void Open()
     {
-        base.Open(); 
+        base.Open();
         isClickBtn = false;
         confesti.Play();
         GameManager.Ins.ChangeState(GameState.Finish);
         ReLoadUI();
+        Ultilities.DelayThenDoTask(this, 1.6f, () =>
+        {
+            btnClaim.gameObject.SetActive(true);
+        });
     }
     private void ReLoadUI()
     {
         textGoldBonus.text = $"{"+"} {goldBonus}";
         coinPi.transform.position = tfCointBonus.position;
     }
-  
+
 
     public void NextLevel()
     {
@@ -67,22 +71,22 @@ public class UIVictory : UICanvas
             {
                 LevelManager.Ins.Home();
             });
-            isClickBtn= true;
+            isClickBtn = true;
         }
     }
     private void CollectCoin(int amount)
     {
         AudioManager.Ins.OnDropCoin();
         coinPi.rateOverTime = amount;
-       
+
         coinPi.Play();
-       
+
         Ultilities.DelayThenDoTask(this, 1.6f, () =>
         {
             DataManager.Ins.ChangeGold(amount);
             AudioManager.Ins.OnGetMultiCoins(amount);
         });
-       
-      
+
+
     }
 }

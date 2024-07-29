@@ -10,6 +10,5 @@ public class PopupCellUI : MonoBehaviour
     public void SetData(bool _isAtive)
     {
         this.gameObject.SetActive(_isAtive);
-        Debug.LogError("Load");
     }
 }
