@@ -44,12 +44,16 @@ public class FillByColorItem : BoosterItem
         BoosterManager.Ins.IsCanUseZoomBooster = true;
         BoosterManager.Ins.ZoomBoosterByColor();
 
-        ItemManager.Ins.TurnOffAllColorItem();
+        //ItemManager.Ins.TurnOffAllColorItem();
         BoosterManager.Ins.IsCanUseFillByNumberBooster = true;
         BoosterManager.Ins.IsCanUseFillAllNumberBooster = false;
         BoosterManager.Ins.IsCanUseZoomBooster = false;
 
-        LevelManager.Ins.ReleaseFocusCube();
+        if (LevelManager.Ins.currentColor != 0)
+        {
+            ChangeColorBrush(ItemManager.Ins.GetColorItembyColorID(LevelManager.Ins.currentColor).GetItemColor());
+        }
+        //LevelManager.Ins.ReleaseFocusCube();
     }
     public void ChangeColorBrush(Color color)
     {

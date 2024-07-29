@@ -32,9 +32,6 @@ public class LevelManager : Singleton<LevelManager>
     public bool IsCanUseAds { get; set; }   
 
 
-
-
-
     public void OnInit()
     {
         IsCanUseAds = true;
@@ -206,6 +203,7 @@ public class LevelManager : Singleton<LevelManager>
 
         SaveLevelData();
         yield return new WaitForSeconds(2f);
+        AudioManager.Ins.OnConfeti();
         Victory();
     }
 

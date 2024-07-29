@@ -1410,8 +1410,10 @@ MonoBehaviour:
   bgmInGame: {fileID: 8300000, guid: 1dcab520cb99ba94083506e306a5e237, type: 3}
   filledCube: {fileID: 8300000, guid: 3ac253fed6af76449842f4447e7429b3, type: 3}
   GetCoins: {fileID: 8300000, guid: 6f92735c23b847d4ba0fefd34c3a80da, type: 3}
-  clickBtn: {fileID: 8300000, guid: 2292ae355f9ddc24cba768a6bc78ee95, type: 3}
-  winSound: {fileID: 8300000, guid: 11681d661d2aa5c48a41610231dffe74, type: 3}
+  clickBtn: {fileID: 8300000, guid: 7a7b913327ee2f44381c1d80c7151cc2, type: 3}
+  winSound: {fileID: 8300000, guid: 473d4a3b6a7017d468f04a7b0a132462, type: 3}
+  confeti: {fileID: 8300000, guid: 6d181da1161c683439dbfcdc0424668e, type: 3}
+  dropCoin: {fileID: 8300000, guid: 0b3e81ec8bc3067499a5e95f145f266a, type: 3}
   reward: {fileID: 8300000, guid: e45ce97833853584a8a7b176a600f474, type: 3}
   rewardSpin: {fileID: 8300000, guid: c2f39bd2563334d4ba15a1e0dab2f927, type: 3}
   spin: {fileID: 0}
@@ -1518,6 +1520,10 @@ PrefabInstance:
       value: FPS
       objectReference: {fileID: 0}
     - target: {fileID: 4152789597958230169, guid: 9ae837fa574ddcd4384666d76d34a030, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152789597958230169, guid: 9ae837fa574ddcd4384666d76d34a030, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1601,12 +1607,20 @@ MonoBehaviour:
   levelItemColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.9294118, g: 0.8431373, b: 0.69411767, a: 1}
-  - {r: 0.49803925, g: 0.8078432, b: 0.41176474, a: 1}
-  - {r: 1, g: 0.31764707, b: 0.3137255, a: 1}
-  - {r: 0.87843144, g: 0.6313726, b: 0.7058824, a: 1}
-  - {r: 0.9568628, g: 0.82745105, b: 0.30588236, a: 1}
-  - {r: 0.23529413, g: 0.7803922, b: 0.9490197, a: 1}
-  - {r: 0.9176471, g: 0.31764707, b: 0.5294118, a: 1}
+  - {r: 0.43529415, g: 0.8313726, b: 0.9960785, a: 1}
+  - {r: 0.8078432, g: 0.54901963, b: 0.9725491, a: 1}
+  - {r: 0.70980394, g: 0.78823537, b: 0.9960785, a: 1}
+  - {r: 0.6431373, g: 0.7490196, b: 0.9960785, a: 1}
+  - {r: 0.48627454, g: 0.59607846, b: 0.8941177, a: 1}
+  - {r: 0.98823535, g: 0.8745099, b: 0.98823535, a: 1}
+  - {r: 0.7019608, g: 0.8627451, b: 0.81960785, a: 1}
+  - {r: 0.81960785, g: 0.85882354, b: 0.8862745, a: 1}
+  - {r: 0.427451, g: 0.8470589, b: 0.9960785, a: 1}
+  - {r: 0.6431373, g: 0.9490197, b: 0.9960785, a: 1}
+  - {r: 0.9960785, g: 0.9176471, b: 0.45098042, a: 1}
+  - {r: 0.98823535, g: 0.8745099, b: 0.98823535, a: 1}
+  - {r: 0.47450984, g: 0.7843138, b: 0.7411765, a: 1}
+  - {r: 0.8705883, g: 0.9333334, b: 0.9960785, a: 1}
   showTextColor: {r: 1, g: 1, b: 1, a: 0}
   hightLightColor: {r: 1, g: 0.9879074, b: 0, a: 0}
 --- !u!1 &1455351149
