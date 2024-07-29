@@ -45,26 +45,13 @@ public class DailyRewardUI : MonoBehaviour
                 typeList = GetTypeList(type1Obj.transform);
                 break;
             case 2:
-                if (isShowGiftBox && isToday)
-                {
-                    type2Obj.SetActive(true);
-                }
-                else
-                {
-                    giftBox2Obj.SetActive(true);
-                }
+                type2Obj.SetActive(isCollected);
+                giftBox2Obj.SetActive(!isCollected);
                 typeList = GetTypeList(type2Obj.transform);
                 break;
             case 4:
-                if (isShowGiftBox && isToday)
-                {
-                    type4Obj.SetActive(true);
-                }
-                else
-                {
-                    giftBox4Obj.SetActive(true);
-
-                }
+                type4Obj.SetActive(isCollected);
+                giftBox4Obj.SetActive(!isCollected);
                 typeList = GetTypeList(type4Obj.transform);
                 break;
             default:

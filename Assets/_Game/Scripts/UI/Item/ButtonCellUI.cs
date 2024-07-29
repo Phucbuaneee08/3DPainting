@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonCellUI : Item
 {
     public bool isActive = false;
     public int idSelect = 0;
+    [SerializeField] private Image imgBG;
     public override void Awake()
     {
         base.Awake();
         rectTransform = GetComponent<RectTransform>();
         CurrentItemState = ItemState.TurnOff;
+    }
+    public void SetImgBg(Sprite imageBg)
+    {
+        this.imgBG.sprite = imageBg;
     }
     public void SetData(int _id)
     {

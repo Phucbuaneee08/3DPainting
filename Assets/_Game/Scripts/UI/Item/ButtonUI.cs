@@ -8,33 +8,42 @@ public class ButtonUI : MonoBehaviour
 {
     [SerializeField] private List<ButtonCellUI> listCell = new List<ButtonCellUI>();
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
+    [SerializeField] private List<Sprite> sprites = new List<Sprite>();
 
-    public void SetRecTF(int idSlect)
+    public void SetUIBtn(int idSlect)
     {
-
-        StartCoroutine(IE_SetRecTF(idSlect));
-    }
-    IEnumerator IE_SetRecTF(int idSlect)
-    {
-        yield return new WaitForEndOfFrame();
         for (int i = 0; i < listCell.Count; i++)
         {
             if (listCell[i].isActive != false)
             {
                 if (listCell[i].idSelect == idSlect)
                 {
-                   
-                    if (listCell[i].CurrentItemState == ItemState.TurnOff)
+                    /*if (listCell[i].CurrentItemState == ItemState.TurnOff)// set up/down btn
                     {
                         listCell[i].ChangeItemState(ItemState.TurnOn);
-                    }
+                    }*/
                 }
                 else
                 {
-                    listCell[i].ChangeItemState(ItemState.TurnOff);
+                    //listCell[i].ChangeItemState(ItemState.TurnOff);//set up/down btn
                 }
             }
         }
+    }
+    public void SetSpritesBtn( int i, int idSlect)
+    {
+        if (listCell[i].isActive != false)
+        {
+            if (listCell[i].idSelect == idSlect)
+            {
+                listCell[i].SetImgBg(sprites[0]);
+            }
+            else
+            {
+                listCell[i].SetImgBg(sprites[1]);
+            }
+        }
+
     }
     public void SetCurrenState(int index)
     {

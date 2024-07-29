@@ -33,34 +33,32 @@ public class MainMenu : UICanvas
         base.Open();
         GameManager.Ins.ChangeState(GameState.MainMenu);
         AudioManager.Ins.OnPlayHomeMusic();
-        LoadUIButtonHome();
-        ReLoadData();
-        UpdateNotfi();
+        StartCoroutine(IE_LoadUIButtonHome());
     }
     public void ReLoadData()
     {
         homeLevelUI.ReLoad();
     }
-
     public void SetActiveButton(int index, bool isActive)
     {
         buttonUI.SetActiveCell(index, isActive);
     }
-
-    private void LoadUIButtonHome()
+    IEnumerator IE_LoadUIButtonHome()
     {
-        SetActiveSelect((int)TypePopup.home);
+        yield return new WaitForEndOfFrame();
+        ReLoadData();
+        yield return new WaitForEndOfFrame();
         buttonUI.LoadUIButtonItem();
+        yield return new WaitForEndOfFrame();
+        SetActiveSelect((int)TypePopup.home);
+        yield return new WaitForEndOfFrame();
+        UpdateNotfi();
     }
     private void LoadPopupUI(int id)
     {
-        StartCoroutine(IE_LoadPopupUI(id));
-    }
-    IEnumerator IE_LoadPopupUI(int id)
-    {
-        yield return new WaitForEndOfFrame();
         for (int i = 0; i < popupCells.Count; i++)
         {
+            buttonUI.SetSpritesBtn(i,id);
             if (popupCells[i].idSelect == id)
             {
                 popupCells[i].SetData(true);
@@ -191,7 +189,6 @@ public class MainMenu : UICanvas
     public void SetActiveSelect(int id)
     {
         LoadPopupUI(id);
-       // buttonUI.SetRecTF(id); set button up
     }
 }
 [Serializable]

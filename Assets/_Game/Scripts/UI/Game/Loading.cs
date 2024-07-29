@@ -4,27 +4,21 @@ using UnityEngine.UI;
 
 public class Loading : UICanvas
 {
-    public RectTransform tfImg;
-    public float targetWidth = 400f;
-    private float initialWidth;
+    public Image imgFill; 
+    public float duration = 2f;
 
     public override void Open()
     {
         base.Open();
-        tfImg.anchorMin = new Vector2(0.5f, tfImg.anchorMin.y);
-        tfImg.anchorMax = new Vector2(0.5f, tfImg.anchorMax.y);
-        tfImg.pivot = new Vector2(0, tfImg.pivot.y);
+        imgFill.fillAmount = 0;
         RunSlider();
     }
 
     public void RunSlider()
     {
-        initialWidth = tfImg.sizeDelta.x;
-        float duration = 2f;
         DOVirtual.Float(0, 1, duration, (value) =>
         {
-            float newWidth = Mathf.Lerp(initialWidth, targetWidth, value);
-            tfImg.sizeDelta = new Vector2(newWidth, tfImg.sizeDelta.y);
+            imgFill.fillAmount = value;
         }).SetEase(Ease.InCubic)
         .OnComplete(() =>
         {
