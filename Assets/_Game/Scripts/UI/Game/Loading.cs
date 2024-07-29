@@ -22,17 +22,17 @@ public class Loading : UICanvas
         }).SetEase(Ease.InCubic)
         .OnComplete(() =>
         {
-            DOVirtual.DelayedCall(0.5f, () =>
+            DOVirtual.DelayedCall(1f, () =>
             {
                 UIManager.Ins.CloseUI<Loading>();
-                UIManager.Ins.GetUI<MainMenu>().Open();
+                UIManager.Ins.OpenUI<MainMenu>();
             });
         });
     }
 
     public void CacheSomeUIs()
     {
-        Debug.Log(1);
+
         UIManager.Ins.OpenUI<MainMenu>();
         UIManager.Ins.CloseUI<MainMenu>();
     }

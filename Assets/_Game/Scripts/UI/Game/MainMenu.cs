@@ -20,12 +20,13 @@ public class MainMenu : UICanvas
     [SerializeField] private TMP_Text textNumberPass;
     [SerializeField] private ButtonUI buttonUI;
     [SerializeField] private Image imgProgress;
-
+    public TypePopup currentType;
     public UISpin uiSpin;
     public UIDailyReward uIDailyReward;
     public GameObject textGold;
     public RectTransform tfBtnSpin;
     public RectTransform tfBtnDailyReward;
+
     public override void Setup() => base.Setup();
 
     public override void Open()
@@ -33,73 +34,66 @@ public class MainMenu : UICanvas
         base.Open();
         GameManager.Ins.ChangeState(GameState.MainMenu);
         AudioManager.Ins.OnPlayHomeMusic();
-        StartCoroutine(IE_LoadUIButtonHome());
+        LoadUI();
+        Debug.Log("2");
     }
-    public void ReLoadData()
+
+    public void ReLoadData() => homeLevelUI.ReLoad();
+
+    public void SetActiveButton(int index, bool isActive) => buttonUI.SetActiveCell(index, isActive);
+
+    private void LoadUI()
     {
-        homeLevelUI.ReLoad();
-    }
-    public void SetActiveButton(int index, bool isActive)
-    {
-        buttonUI.SetActiveCell(index, isActive);
-    }
-    IEnumerator IE_LoadUIButtonHome()
-    {
-        yield return new WaitForEndOfFrame();
         ReLoadData();
-        yield return new WaitForEndOfFrame();
         buttonUI.LoadUIButtonItem();
-        yield return new WaitForEndOfFrame();
-        SetActiveSelect((int)TypePopup.home);
-        yield return new WaitForEndOfFrame();
+        LoadStart();
         UpdateNotfi();
     }
+
     private void LoadPopupUI(int id)
     {
-        for (int i = 0; i < popupCells.Count; i++)
+        popupCells.ForEach(cell =>
         {
-            buttonUI.SetSpritesBtn(i,id);
-            if (popupCells[i].idSelect == id)
-            {
-                popupCells[i].SetData(true);
-            }
-            else
-            {
-                popupCells[i].SetData(false);
-            }
-        }
+            bool isActive = cell.idSelect == id;
+            cell.SetData(isActive);
+            buttonUI.SetSpritesBtn(popupCells.IndexOf(cell), id);
+        });
     }
-    #region Notf
+
+    private void LoadStart()
+    {
+        buttonUI.SetUIStart((int)TypePopup.home);
+        popupCells[0].SetData(true);
+        currentType = TypePopup.home;
+    }
+
+    #region Notifications
     public void UIBtnDailyReward()
     {
         int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
-        bool isFirstDailyReward = DataManager.Ins.playerData.isShowDailyRewardFirst;
-        bool isFullCollect = DataManager.Ins.playerData.isCollectFullInDay == 1;
         if (levelsPassed >= 3)
         {
-            if (!isFirstDailyReward && levelsPassed == 3)
+            if (!DataManager.Ins.playerData.isShowDailyRewardFirst && levelsPassed == 3)
             {
                 GameManager.Ins.ChangeState(GameState.Pause);
                 DataManager.Ins.playerData.isShowDailyRewardFirst = true;
                 DataManager.Ins.SaveData();
                 StartCoroutine(IE_AutoShowDailyReward());
+                Debug.LogError("auto reward");
             }
             else
             {
-                notiDailyReward.SetActive(!isFullCollect);
+                notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
             }
         }
     }
+
     public void UIBtnSpin()
     {
         int levelsPassed = DataManager.Ins.playerData.CountLevelPassed;
-        int countProgress = DataManager.Ins.playerData.countProgresses;
-        bool isFirstSpinReward = DataManager.Ins.playerData.isShowSpinRewardFirst;
-        bool isSpinReward = DataManager.Ins.playerData.isSpinReward != 0;
-
         if (levelsPassed >= 5)
         {
-            if (!isFirstSpinReward && levelsPassed == 5)
+            if (!DataManager.Ins.playerData.isShowSpinRewardFirst && levelsPassed == 5)
             {
                 GameManager.Ins.ChangeState(GameState.Pause);
                 DataManager.Ins.playerData.isShowSpinRewardFirst = true;
@@ -108,88 +102,94 @@ public class MainMenu : UICanvas
             }
             else
             {
+                bool isSpinReward = DataManager.Ins.playerData.isSpinReward != 0;
                 notiSpin.SetActive(isSpinReward);
-                objBar.gameObject.SetActive(!isSpinReward);
+                objBar.SetActive(!isSpinReward);
                 if (!isSpinReward)
                 {
+                    int countProgress = DataManager.Ins.playerData.countProgresses;
                     textNumberPass.text = $"{countProgress}/10";
-                    SetProgressSpin((float)countProgress / (float)10);
+                    SetProgressSpin((float)countProgress / 10);
                 }
             }
         }
     }
-    public void SetProgressSpin(float amount)
-    {
-        imgProgress.fillAmount = amount;
-    }
-    IEnumerator IE_AutoShowSpin()
+
+    public void SetProgressSpin(float amount) => imgProgress.fillAmount = amount;
+
+    private IEnumerator IE_AutoShowSpin()
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnSpin>().UnlockButton(3);
-        objBar.gameObject.SetActive(false);
+        objBar.SetActive(false);
         notiSpin.SetActive(true);
-        Ultilities.DelayThenDoTask(this, 4f, () =>
-        {
-            UIManager.Ins.CloseUI<PopupUnlockBtnSpin>();
-            SetActiveSelect((int)TypePopup.spin);
-            uiSpin.Open();
-            notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
-            GameManager.Ins.ChangeState(GameState.MainMenu);
-        });
+        yield return new WaitForSeconds(4f);
+        UIManager.Ins.CloseUI<PopupUnlockBtnSpin>();
+        SetActiveSelect((int)TypePopup.spin);
+        uiSpin.Open();
+        currentType = TypePopup.spin;
+        notiSpin.SetActive(DataManager.Ins.playerData.isSpinReward != 0);
+        GameManager.Ins.ChangeState(GameState.MainMenu);
     }
 
-    IEnumerator IE_AutoShowDailyReward()
+    private IEnumerator IE_AutoShowDailyReward()
     {
         yield return new WaitForEndOfFrame();
         UIManager.Ins.OpenUI<PopupUnlockBtnDaily>().UnlockButton(1);
-        Ultilities.DelayThenDoTask(this, 4f, () =>
-        {
-            UIManager.Ins.CloseUI<PopupUnlockBtnDaily>();
-            uIDailyReward.Open();
-            SetActiveSelect((int)TypePopup.dailyRewards);
-            notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
-            GameManager.Ins.ChangeState(GameState.MainMenu);
-        });
+        yield return new WaitForSeconds(4f);
+        UIManager.Ins.CloseUI<PopupUnlockBtnDaily>();
+        uIDailyReward.Open();
+        Debug.Log(11);
+        SetActiveSelect((int)TypePopup.dailyRewards);
+        currentType = TypePopup.dailyRewards;
+        notiDailyReward.SetActive(DataManager.Ins.playerData.isCollectFullInDay != 1);
+        GameManager.Ins.ChangeState(GameState.MainMenu);
     }
     #endregion
+
     public void BtnSpin()
     {
+        OpenPopup(TypePopup.spin);
         uiSpin.Open();
-        SetActiveSelect((int)TypePopup.spin);
     }
-
     public void BtnOpenDailyReward()
     {
+        OpenPopup(TypePopup.dailyRewards);
         uIDailyReward.Open();
-        SetActiveSelect((int)TypePopup.dailyRewards);
+    }
+    private bool IsClick(int index) => buttonUI.listCell[index].typePopup == currentType;
 
-    }
-    public void BtnHome()
-    {
-        SetActiveSelect((int)TypePopup.home);
-    }
+    public void BtnHome() => OpenPopup(TypePopup.home);
+
     public void UpdateNotfi()
     {
         UIBtnSpin();
         UIBtnDailyReward();
     }
+
     public void BtnTut()
     {
-        SetActiveSelect((int)TypePopup.tut);
+        OpenPopup(TypePopup.tut);
         UIManager.Ins.OpenUI<PopupRate>();
     }
-    public void BtnShop()
+
+    public void BtnShop() => OpenPopup(TypePopup.shop);
+
+    public void BtnSetting() => UIManager.Ins.OpenUI<UISettings>();
+
+    private void OpenPopup(TypePopup type)
     {
-        SetActiveSelect((int)TypePopup.shop);
+        int index = (int)type;
+        if (IsClick(index)) return;
+
+        UIManager.Ins.OpenUI<UIShortLoading>().With(() =>
+        {
+            SetActiveSelect(index);
+            currentType = type;
+        });
     }
-    public void BtnSetting()
-    {
-        UIManager.Ins.OpenUI<UISettings>();
-    }
-    public void SetActiveSelect(int id)
-    {
-        LoadPopupUI(id);
-    }
+
+    public void SetActiveSelect(int id) => LoadPopupUI(id);
 }
 [Serializable]
 public enum TypePopup

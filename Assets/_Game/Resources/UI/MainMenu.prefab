@@ -327,6 +327,7 @@ MonoBehaviour:
   isActive: 0
   idSelect: 0
   imgBG: {fileID: 3369242042403569470}
+  typePopup: 1
 --- !u!1 &1461094120272188295
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +693,7 @@ MonoBehaviour:
   isActive: 0
   idSelect: 0
   imgBG: {fileID: 6695128794172663179}
+  typePopup: 3
 --- !u!1 &1828494663694249320
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +998,7 @@ MonoBehaviour:
   isActive: 0
   idSelect: 0
   imgBG: {fileID: 90989776515355058}
+  typePopup: 4
 --- !u!1 &2546025675882593472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,6 +2021,7 @@ MonoBehaviour:
   isActive: 0
   idSelect: 0
   imgBG: {fileID: 2169691796804720379}
+  typePopup: 0
 --- !u!1 &6370454157771500999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,6 +2490,7 @@ MonoBehaviour:
   textNumberPass: {fileID: 8815744303604929898}
   buttonUI: {fileID: 3077514401567754701}
   imgProgress: {fileID: 6190857566100723540}
+  currentType: 0
   uiSpin: {fileID: 925792292027665178}
   uIDailyReward: {fileID: 148061793309484712}
   textGold: {fileID: 8947487975287857931}
@@ -2719,6 +2724,7 @@ MonoBehaviour:
   isActive: 0
   idSelect: 0
   imgBG: {fileID: 6239645361383249956}
+  typePopup: 2
 --- !u!1 &8040196958102244422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5033393187530470055, guid: ee1026977e9406b4b807d2f21e8902fb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5693395305105699212, guid: ee1026977e9406b4b807d2f21e8902fb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3299,7 +3305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8750344875585050563, guid: ee1026977e9406b4b807d2f21e8902fb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonUI : MonoBehaviour
 {
-    [SerializeField] private List<ButtonCellUI> listCell = new List<ButtonCellUI>();
+    public List<ButtonCellUI> listCell = new List<ButtonCellUI>();
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
     [SerializeField] private List<Sprite> sprites = new List<Sprite>();
 
@@ -29,6 +29,10 @@ public class ButtonUI : MonoBehaviour
                 }
             }
         }
+    }
+    public void SetUIStart(int i)
+    {
+        listCell[i].SetImgBg(sprites[0]);
     }
     public void SetSpritesBtn( int i, int idSlect)
     {

@@ -40,6 +40,7 @@ public class UISpin : MonoBehaviour
             pieceList[i].InitSpin(rewardList[i]);
         }
         UpdateBtn();
+        Debug.LogError("Spin");
 
     }
     public void UpdateBtn()

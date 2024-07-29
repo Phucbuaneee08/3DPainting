@@ -44,16 +44,9 @@ public class UIDailyReward : MonoBehaviour
             dailyData = weeklyData.dayArray[i];
             dayArray[i].Init(dailyData, todayIndex);
         }
-        dayArray[todayIndex].Tf.SetAsLastSibling();
+        //dayArray[todayIndex].Tf.SetAsLastSibling();
         UpdateTimeRemaining(DateTime.Now);
         Debug.Log("Load Daily Reward");
-    }
-    IEnumerator IE_OpenUI()
-    {
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-
     }
     private void UpdateTimeRemaining(DateTime now)
     {
@@ -71,7 +64,7 @@ public class UIDailyReward : MonoBehaviour
             }
         }
     }
-  
+
     public void ButtonClaim()
     {
         if (DataManager.Ins.playerData.isTodayCollectFree == 1) return;
@@ -101,7 +94,7 @@ public class UIDailyReward : MonoBehaviour
         {
             dayArray[todayIndex].OnCollect(2, () =>
             {
-                  UIManager.Ins.GetUI<MainMenu>().UIBtnDailyReward();
+                UIManager.Ins.GetUI<MainMenu>().UIBtnDailyReward();
             });
         }
         DataManager.Ins.playerData.isTodayCollectFree = 1;

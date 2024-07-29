@@ -8,6 +8,7 @@ public class ButtonCellUI : Item
     public bool isActive = false;
     public int idSelect = 0;
     [SerializeField] private Image imgBG;
+    public TypePopup typePopup;
     public override void Awake()
     {
         base.Awake();
