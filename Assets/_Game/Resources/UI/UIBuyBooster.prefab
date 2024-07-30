@@ -2019,8 +2019,24 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d01e4044608c24c4ab8307fa986ed2be, type: 2}
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_fontSizeMax
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7459559358067868907, guid: d01e4044608c24c4ab8307fa986ed2be, type: 2}
+    - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5512696455029162918, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_Name

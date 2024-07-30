@@ -7,21 +7,22 @@ using UnityEngine.UI;
 
 public class ListLevelUI : MonoBehaviour
 {
-    public LevelItem levelItemPrefab;
-    public List<LevelItem> levelItems = new List<LevelItem>();
-    MiniPool<LevelItem> miniPool = new MiniPool<LevelItem>();
-    public RectTransform tfContent;
 
     [SerializeField] TextMeshProUGUI textLevelType;
+    MiniPool<LevelItem> miniPool = new MiniPool<LevelItem>();
     LevelData levelData;
     LevelDatas levelDatas;
     List<LevelData> levelDatasList;
+
+    public LevelItem levelItemPrefab;
+    public List<LevelItem> levelItems = new List<LevelItem>();
+    public RectTransform tfContent;
     public LevelType levelType;
 
     private void Awake()
     {
         miniPool.OnInit(levelItemPrefab, 10, tfContent);
-     
+
     }
 
     private void Start()
@@ -47,16 +48,15 @@ public class ListLevelUI : MonoBehaviour
         {
             LevelItem levelItem = miniPool.Spawn();
             levelItems.Add(levelItem);
-
             LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(lvData.levelID);
             bool isColored = lvDataModel.isColored;
             bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
             bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
             bool isUnlock = lvDataModel.unlockType != UnlockType.free;
-            levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, isUnlock, lvData.level.poolType,lvData.level.zoomInfo);
+            levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, isUnlock, lvData.level.poolType, lvData.level.zoomInfo);
         }
 
-        
+
     }
 
 
@@ -68,5 +68,5 @@ public class ListLevelUI : MonoBehaviour
         this.levelDatasList = _leveldataList;
     }
 
-   
+
 }

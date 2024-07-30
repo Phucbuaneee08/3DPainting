@@ -40,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 155, y: -140}
-  m_SizeDelta: {x: 324.57144, y: 284.00003}
+  m_SizeDelta: {x: 303, y: 283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3029509044417799106
 CanvasRenderer:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8efa6e5c09f21e24ea39b466f088aa7d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c733e0c86ebce3479178bc6f71f4ba1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -152,8 +152,6 @@ MonoBehaviour:
   imgBackG: {fileID: 893716441969574086}
   levelID: 0
   button: {fileID: 4313770240912333837}
-  imgUnleckAdsAndGold: {fileID: 6185540434377968911}
-  imgUnleckDiamond: {fileID: 7319600012016208554}
   imgUnlock: {fileID: 6377092671698014526}
   imageSource: {fileID: 2789940569548422298}
   poolType: 0
@@ -308,8 +306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113.1, y: 91.7}
-  m_SizeDelta: {x: 68, y: 88}
+  m_AnchoredPosition: {x: 110.2, y: 102.8}
+  m_SizeDelta: {x: 72, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2836570210087460855
 CanvasRenderer:
@@ -339,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d9014e973bc3024397c1a6abbfbc38a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12feba29a9499c345a0c37f08106e13e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

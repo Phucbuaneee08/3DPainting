@@ -20,7 +20,7 @@ public class SwitchToggle : MonoBehaviour
         Vibration
     }
 
-    [SerializeField] ToggleType toggleType; 
+    [SerializeField] ToggleType toggleType;
 
     void Awake()
     {
@@ -69,7 +69,7 @@ public class SwitchToggle : MonoBehaviour
                     AudioManager.Ins.MuteSound();
                 break;
             case ToggleType.Vibration:
-                    AudioManager.Ins.VibrateDevice(on);
+                AudioManager.Ins.VibrateDevice(on);
                 break;
         }
     }

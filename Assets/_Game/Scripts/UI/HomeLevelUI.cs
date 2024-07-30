@@ -15,7 +15,7 @@ public class HomeLevelUI : MonoBehaviour
     private void Awake()
     {
         miniPool.OnInit(ListLevelUIPrefabs, 10, tfContent);
-        tfContent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(Screen.width, 685);
+        tfContent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(Screen.width, 779);
     }
 
     public void ReLoad()

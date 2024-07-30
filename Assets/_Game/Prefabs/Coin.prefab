@@ -201,8 +201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.2, y: -0.0000076293945}
-  m_SizeDelta: {x: 116.4, y: 80}
+  m_AnchoredPosition: {x: 7.5218, y: 2.502398}
+  m_SizeDelta: {x: 113.0436, y: 69.2726}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1690839194450597846
 CanvasRenderer:
@@ -234,15 +234,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 9999
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d01e4044608c24c4ab8307fa986ed2be, type: 2}
+  m_sharedMaterial: {fileID: 7459559358067868907, guid: d01e4044608c24c4ab8307fa986ed2be, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284574103
+  m_fontColor: {r: 0.5921569, g: 0.4117647, b: 0.38039216, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -259,15 +259,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.7
+  m_fontSize: 49.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 80
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -335,11 +335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878122225343558083, guid: 1532fa327c964ab489e21a1b5be9d45f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 7878122225343558083, guid: 1532fa327c964ab489e21a1b5be9d45f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 7878122225343558083, guid: 1532fa327c964ab489e21a1b5be9d45f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878122225343558083, guid: 1532fa327c964ab489e21a1b5be9d45f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -31.1
+      value: -28.6
       objectReference: {fileID: 0}
     - target: {fileID: 7878122225343558083, guid: 1532fa327c964ab489e21a1b5be9d45f, type: 3}
       propertyPath: m_AnchoredPosition.y
