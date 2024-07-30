@@ -14,17 +14,13 @@ public class LevelItem : MonoBehaviour
     [SerializeField] private Image imgBackG;
     [SerializeField] private int levelID;
     [SerializeField] private Button button;
-
-    public Image imgUnleckAdsAndGold;
-    public Image imgUnleckDiamond;
     public Image imgUnlock;
-    public Image imgLevelPassed;
     public Image imageSource;
     public PoolType poolType;
     public ZoomInfo zoomInfo;
     public Sprite imageSourcePass;
    
-    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool showImgUnlock, bool showImgUnlock2, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo)
+    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo)
     {
         this.levelID = levelID;
      
@@ -35,21 +31,13 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
-            if (isUnlock)
-            {
-                imgBackG.color = MaterialManager.Ins.ChangeLevelItemColor(1);
-            }
             imageSource.sprite = avatar;
         }
         if (avatarPass != null)
         {
             this.imageSourcePass = avatarPass;
         }
-        imgLevelPassed.gameObject.SetActive(isPassed);
         imgUnlock.gameObject.SetActive(isUnlock);
-       
-        imgUnleckAdsAndGold.gameObject.SetActive(showImgUnlock);
-        imgUnleckDiamond.gameObject.SetActive(showImgUnlock2);
         this.poolType = poolType;
         this.zoomInfo = zoomInfo;
     }

@@ -1018,9 +1018,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7245039305588521906}
     m_Modifications:
+    - target: {fileID: 1051266214526224495, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 710
+      objectReference: {fileID: 0}
     - target: {fileID: 2948409438211448589, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_text
       value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319031348074174779, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319031348074174779, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319031348074174779, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319031348074174779, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -162
       objectReference: {fileID: 0}
     - target: {fileID: 5541276157412732525, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_Name
@@ -1105,6 +1125,14 @@ PrefabInstance:
     - target: {fileID: 6637124419399853825, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330617425743713867, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 880
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330617425743713867, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 910
       objectReference: {fileID: 0}
     - target: {fileID: 8397024511523902646, guid: 4edf4673966dcc04b878e6512138f80f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

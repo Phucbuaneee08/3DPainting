@@ -7,10 +7,11 @@ public class PopupUnlockButton : UICanvas
 {
     [SerializeField] ObjButtonUnlock objBtnUnlockPrefab;
     [SerializeField] RectTransform tfEnd;
-
+    [SerializeField] private GameObject objParticle;
     protected RectTransform tfStart;
     private CanvasGroup canvasGroup;
     private ObjButtonUnlock objBtnUnlockInstance;
+
 
     public virtual void Awake()
     {
@@ -27,6 +28,7 @@ public class PopupUnlockButton : UICanvas
         objBtnUnlockInstance.transform.position = tfEnd.position;
         canvasGroup = objBtnUnlockInstance.GetComponent<CanvasGroup>() ?? objBtnUnlockInstance.gameObject.AddComponent<CanvasGroup>();
         yield return new WaitForSeconds(2f);
+        objParticle.SetActive(false);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(objBtnUnlockInstance.transform.DOMove(tfStart.position, 1.5f).SetEase(Ease.InOutQuad))
                 .Join(objBtnUnlockInstance.transform.DOScale(Vector3.one / 2, 1.5f).SetEase(Ease.InOutQuad))
