@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New UI Type Asset Data
   m_EditorClassIdentifier: 
   models:
-  - type: 0
+  - type: 6
     color: {r: 0.13333334, g: 0.6, b: 0.18039216, a: 0}
     image: {fileID: 21300000, guid: 27487929c7aa73c45a160855f2b1f94a, type: 3}
   - type: 1
