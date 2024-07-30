@@ -9,6 +9,8 @@ public class ListLevelUI : MonoBehaviour
 {
 
     [SerializeField] TextMeshProUGUI textLevelType;
+    [SerializeField] private Image imgBGTille;
+    [SerializeField] private Image imgBGListModel;
     MiniPool<LevelItem> miniPool = new MiniPool<LevelItem>();
     LevelData levelData;
     LevelDatas levelDatas;
@@ -33,12 +35,14 @@ public class ListLevelUI : MonoBehaviour
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
-        LevelType levelType = levelData.level.levelType;
+
         string capitalizedLevelType = char.ToUpper(levelType.ToString()[0]) + levelType.ToString().Substring(1);
         var levelsOfType = levelDatas.level3D.Where(type => type.level.levelType == levelData.level.levelType).ToList();
         int totalLevels = levelsOfType.Count;
+        ChangeImg();
+        ChaneColor();
         int uncoloredLevels = levelsOfType.Count(type => DataManager.Ins.playerData.GetDataWithID(type.levelID).isColored);
-        textLevelType.text = $"{capitalizedLevelType} {uncoloredLevels}/{totalLevels}";
+        textLevelType.text = $"{capitalizedLevelType}    {uncoloredLevels}/{totalLevels}";
         var sortedLevelDatasList = levelDatasList.OrderByDescending(lvData =>
         {
             var model = levelDatas.GetLevelWithID(lvData.levelID);
@@ -55,11 +59,16 @@ public class ListLevelUI : MonoBehaviour
             bool isUnlock = lvDataModel.unlockType != UnlockType.free;
             levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, isUnlock, lvData.level.poolType, lvData.level.zoomInfo);
         }
-
-
     }
 
-
+    private void ChangeImg()
+    {
+        imgBGListModel.sprite = MaterialManager.Ins.ChangeImgGB(levelType);
+    }
+    private void ChaneColor()
+    {
+        imgBGTille.color = MaterialManager.Ins.ChangeColerTille(levelType);
+    }
     public void SetData(LevelData _levelData, LevelDatas _levelDatas, List<LevelData> _leveldataList, LevelType _levelType)
     {
         this.levelType = _levelType;

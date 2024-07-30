@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 222.24, y: -42.5414}
-  m_SizeDelta: {x: 375.51, y: 75.0828}
+  m_AnchoredPosition: {x: 344.35583, y: -61.614506}
+  m_SizeDelta: {x: 608.2317, y: 123.227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3963906395328802751
 CanvasRenderer:
@@ -92,12 +92,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 65
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 50
+  m_fontSizeMax: 65
   m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLevelType: {fileID: 1775021275928315521}
+  imgBGTille: {fileID: 8554669646790153308}
+  imgBGListModel: {fileID: 5305133288869553213}
   levelItemPrefab: {fileID: 4414908571262128579, guid: cd87104155039b941b748611bd773940, type: 3}
   levelItems: []
   tfContent: {fileID: 5762192082946387812}
