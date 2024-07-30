@@ -15,7 +15,8 @@ public class UITypeAssetData : ScriptableObject
 [System.Serializable]
 public class UITypeModel
 {
-   public LevelType type;
-   public Color color;
-   public Sprite image;
+    public LevelType type;
+    public Color color;
+    public Sprite image;
+    public Sprite imgLock;
 }

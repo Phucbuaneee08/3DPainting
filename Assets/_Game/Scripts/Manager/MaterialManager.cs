@@ -124,4 +124,8 @@ public class MaterialManager : Singleton<MaterialManager>
     {
         return uITypeAssetData.GetDataByType(type).image;
     }
+    public Sprite ChangeImgLock(LevelType type)
+    {
+        return uITypeAssetData.GetDataByType(type).imgLock;
+    }
 }

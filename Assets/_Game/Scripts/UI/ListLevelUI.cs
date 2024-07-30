@@ -35,7 +35,8 @@ public class ListLevelUI : MonoBehaviour
     IEnumerator IE_LoadData()
     {
         yield return new WaitForEndOfFrame();
-
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         string capitalizedLevelType = char.ToUpper(levelType.ToString()[0]) + levelType.ToString().Substring(1);
         var levelsOfType = levelDatas.level3D.Where(type => type.level.levelType == levelData.level.levelType).ToList();
         int totalLevels = levelsOfType.Count;
@@ -53,10 +54,8 @@ public class ListLevelUI : MonoBehaviour
             levelItems.Add(levelItem);
             LevelDataModel lvDataModel = DataManager.Ins.playerData.GetDataWithID(lvData.levelID);
             bool isColored = lvDataModel.isColored;
-            bool isGoldOrAds = lvDataModel.unlockType == UnlockType.gold || lvDataModel.unlockType == UnlockType.ads;
-            bool isDiamond = lvDataModel.unlockType == UnlockType.diamond;
             bool isUnlock = lvDataModel.unlockType != UnlockType.free;
-            levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, isUnlock, lvData.level.poolType, lvData.level.zoomInfo);
+            levelItem.SetData(lvData.levelID, lvData.level.imageSource, lvData.level.imageSourcePassed, isColored, isUnlock, lvData.level.poolType, lvData.level.zoomInfo,levelType);
         }
     }
 
@@ -75,6 +74,4 @@ public class ListLevelUI : MonoBehaviour
         levelDatas = _levelDatas;
         this.levelDatasList = _leveldataList;
     }
-
-
 }
