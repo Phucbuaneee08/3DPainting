@@ -138,12 +138,13 @@ public class UIGameplay : UICanvas
     }
     public void SetZoomStateButton()
     {
+        AudioManager.Ins.OnClick();
         CameraManager.Ins.ChangeZoomState(); 
     }
 
     public void ChangeZoomButtonState(CameraState camState)
     {
-        AudioManager.Ins.OnClick();
+        //AudioManager.Ins.OnClick();
         zoomItem.ChangeButtonState(camState);
     }
 
