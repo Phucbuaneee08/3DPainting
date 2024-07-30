@@ -204,6 +204,7 @@ public class LevelManager : Singleton<LevelManager>
         SaveLevelData();
         yield return new WaitForSeconds(2f);
         AudioManager.Ins.OnConfeti();
+        
         Victory();
     }
 
