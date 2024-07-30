@@ -16,8 +16,7 @@ public class UISpin : MonoBehaviour
     [SerializeField] private Transform circleTf;
     [SerializeField] private Transform circleCenter;
     [SerializeField] private GameObject btnPlaySpin;
-    [SerializeField] private GameObject btnPlayIap;
-    [SerializeField] private TMP_Text textPlay;
+    [SerializeField] private GameObject btnPlayAds;
     private RewardTypeUI rewardTypeUISpin;
     private int rewardIndex;
     public bool isRotate = false;
@@ -40,20 +39,13 @@ public class UISpin : MonoBehaviour
             pieceList[i].InitSpin(rewardList[i]);
         }
         UpdateBtn();
-        Debug.LogError("Spin");
 
     }
     public void UpdateBtn()
     {
-
-        if (DataManager.Ins.playerData.isSpinReward != 0)
-        {
-            textPlay.text = $"Spin";
-        }
-        else
-        {
-            textPlay.text = $"{DataManager.Ins.playerData.countProgresses}/10";
-        }
+        bool isShowButton = DataManager.Ins.playerData.isSpinReward != 0;
+        btnPlaySpin.SetActive(isShowButton);
+        btnPlayAds.SetActive(!isShowButton);
     }
     private void Update()
     {
@@ -72,9 +64,9 @@ public class UISpin : MonoBehaviour
             return;
         }
         rewardIndex = GetRandomIndex();
-        /*DataManager.Ins.playerData.isSpinReward = 0;
+        DataManager.Ins.playerData.isSpinReward = 0;
         DataManager.Ins.playerData.countProgresses = 0;
-        DataManager.Ins.SaveData();*/
+        DataManager.Ins.SaveData();
         float pieceRotZ = 360f / pieceList.Count;
         float extraSpin = Random.Range(0f, pieceRotZ);
         float rotationZ = 12 * 360f + rewardIndex * pieceRotZ /*+ extraSpin*/;
