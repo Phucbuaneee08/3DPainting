@@ -169,12 +169,14 @@ public class MainMenu : UICanvas
 
     public void BtnTut()
     {
-        OpenPopup(TypePopup.tut);
-        UIManager.Ins.OpenUI<PopupRate>();
+        //OpenPopup(TypePopup.tut);
+        //UIManager.Ins.OpenUI<PopupRate>();
     }
 
-    public void BtnShop() => OpenPopup(TypePopup.shop);
-
+    public void BtnShop()
+    {
+       // OpenPopup(TypePopup.shop);
+    }
     public void BtnSetting() => UIManager.Ins.OpenUI<UISettings>();
 
     private void OpenPopup(TypePopup type)
