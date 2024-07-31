@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class MaterialManager : Singleton<MaterialManager>
 {
     [SerializeField] private Material shaderMaterial;
@@ -19,8 +20,8 @@ public class MaterialManager : Singleton<MaterialManager>
 
     [SerializeField] private Color showTextColor;
     [SerializeField] private Color hightLightColor;
-    
-    public void SetColor(Cube cube,int colorID)
+    [SerializeField] private UITypeAssetData uITypeAssetData;
+   public void SetColor(Cube cube,int colorID)
     {
      
         cube.colorRender.sharedMaterial = matData[colorID-1].material;
@@ -115,5 +116,16 @@ public class MaterialManager : Singleton<MaterialManager>
     {
         return levelItemColors[UnityEngine.Random.Range(2, levelItemColors.Count)];
     }
-
+    public Color ChangeColerTille(LevelType type)
+    {
+        return uITypeAssetData.GetDataByType(type).color;
+    }
+    public Sprite ChangeImgGB(LevelType type)
+    {
+        return uITypeAssetData.GetDataByType(type).image;
+    }
+    public Sprite ChangeImgLock(LevelType type)
+    {
+        return uITypeAssetData.GetDataByType(type).imgLock;
+    }
 }

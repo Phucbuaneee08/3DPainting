@@ -19,11 +19,12 @@ public class LevelItem : MonoBehaviour
     public PoolType poolType;
     public ZoomInfo zoomInfo;
     public Sprite imageSourcePass;
-   
-    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo)
+
+    public void SetData(int levelID, Sprite avatar, Sprite avatarPass, bool isPassed, bool isUnlock, PoolType poolType, ZoomInfo zoomInfo, LevelType levelType)
     {
         this.levelID = levelID;
-     
+        LevelData test = LevelManager.Ins.levelDatas.GetLevelWithID(levelID);
+        Debug.Log( test.level.name+" "+ test.level.unlockType);
         if (isPassed)
         {
             imageSource.sprite = avatarPass;
@@ -37,11 +38,15 @@ public class LevelItem : MonoBehaviour
         {
             this.imageSourcePass = avatarPass;
         }
+
         imgUnlock.gameObject.SetActive(isUnlock);
+        if (isUnlock)
+        {
+            imgUnlock.sprite = MaterialManager.Ins.ChangeImgLock(levelType);
+        }
         this.poolType = poolType;
         this.zoomInfo = zoomInfo;
     }
-
     public void SelectLevel()
     {
         if (GameManager.Ins.gameState != GameState.MainMenu) return;
@@ -63,7 +68,6 @@ public class LevelItem : MonoBehaviour
             AnimationController.Ins.LoadPrefabOfType(poolType.ToString());
             UIManager.Ins.OpenUI<UIPassedLevel>();
             CameraManager.Ins.SetOrthoSize(zoomInfo.checkPointZoom);
-
         }
     }
 
@@ -71,7 +75,6 @@ public class LevelItem : MonoBehaviour
     {
         return levelID;
     }
-
     public void SetColorImg()
     {
         Color originalColor = imageSource.color;
