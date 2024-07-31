@@ -16,10 +16,7 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(GameManager.Ins.gameState != GameState.MainMenu)
-        {
-            return;
-        }
+        
         if (IsPointerOverUIElement(eventData))
         {
             Vector2 delta = eventData.delta;
@@ -41,10 +38,7 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (GameManager.Ins.gameState != GameState.MainMenu)
-        {
-            return;
-        }
+        
         if (isDraggingVertical)
         {
             parentScrollRect.OnEndDrag(eventData);
@@ -64,10 +58,7 @@ public class NestedScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (GameManager.Ins.gameState != GameState.MainMenu)
-        {
-            return;
-        }
+        
         if (isDraggingVertical)
         {
             parentScrollRect.OnDrag(eventData);
