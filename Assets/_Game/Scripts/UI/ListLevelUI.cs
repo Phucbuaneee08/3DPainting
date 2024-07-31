@@ -41,6 +41,7 @@ public class ListLevelUI : MonoBehaviour
         var levelsOfType = levelDatas.level3D.Where(type => type.level.levelType == levelData.level.levelType).ToList();
         int totalLevels = levelsOfType.Count;
         ChangeImg();
+        ChaneColor();
         int uncoloredLevels = levelsOfType.Count(type => DataManager.Ins.playerData.GetDataWithID(type.levelID).isColored);
         textLevelType.text = $"{capitalizedLevelType}    {uncoloredLevels}/{totalLevels}";
         var sortedLevelDatasList = levelDatasList.OrderByDescending(lvData =>

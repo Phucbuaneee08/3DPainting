@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   models:
   - type: 6
-    color: {r: 0.13333334, g: 0.6, b: 0.18039216, a: 0}
+    color: {r: 0.13333334, g: 0.6, b: 0.18039216, a: 1}
     image: {fileID: 21300000, guid: 27487929c7aa73c45a160855f2b1f94a, type: 3}
     imgLock: {fileID: 21300000, guid: 12feba29a9499c345a0c37f08106e13e, type: 3}
   - type: 1
-    color: {r: 0.87058824, g: 0.3647059, b: 0.54901963, a: 0}
+    color: {r: 0.87058824, g: 0.3647059, b: 0.54901963, a: 1}
     image: {fileID: 21300000, guid: c8e99c431513b7c48b173585c1415337, type: 3}
     imgLock: {fileID: 21300000, guid: 0f85b7d41944d4944bd343b60dfad477, type: 3}
   - type: 2
-    color: {r: 0.96862745, g: 0.6666667, b: 0, a: 0}
+    color: {r: 0.96862745, g: 0.6666667, b: 0, a: 1}
     image: {fileID: 21300000, guid: 3d4f1f7d8942c0f43ad0043da263c03a, type: 3}
     imgLock: {fileID: 21300000, guid: 10fd420dc283b5144ad808321f6ce455, type: 3}
   - type: 3
-    color: {r: 0.16078432, g: 0.6666667, b: 0.8392157, a: 0}
+    color: {r: 0.16078432, g: 0.6666667, b: 0.8392157, a: 1}
     image: {fileID: 21300000, guid: 31541c8ba82422845abe0d613d18996b, type: 3}
     imgLock: {fileID: 21300000, guid: 4fe6709ee10759946a354ae09f36c78d, type: 3}
   - type: 4
-    color: {r: 0.92941177, g: 0.36862746, b: 0.06666667, a: 0}
+    color: {r: 0.92941177, g: 0.36862746, b: 0.06666667, a: 1}
     image: {fileID: 21300000, guid: 62601d1a0ae71d9468d7c28c02276737, type: 3}
     imgLock: {fileID: 21300000, guid: 42662e83d68e87f40a6b68508ec22d30, type: 3}
   - type: 5
-    color: {r: 0.7411765, g: 0.34901962, b: 0.8392157, a: 0}
+    color: {r: 0.7411765, g: 0.34901962, b: 0.8392157, a: 1}
     image: {fileID: 21300000, guid: dcb7287bad9ad9845bb1da2173bc8b9a, type: 3}
     imgLock: {fileID: 21300000, guid: 181b83c0db6ee2449b85b0945d1477d0, type: 3}
